@@ -59,7 +59,7 @@ const QuoteSection = () => {
         className="absolute top-[10%] left-[-20%] w-[140%] flex whitespace-nowrap opacity-[0.03] pointer-events-none select-none z-0"
       >
         <span className="text-[12vw] font-black leading-none tracking-tighter text-foreground mr-8 font-outline-2">
-          INFRASTRUCTURE // SYSTEM // CORE
+          ORCHESTRATION // SYSTEM // ARCHITECTURE
         </span>
       </motion.div>
 
@@ -69,7 +69,7 @@ const QuoteSection = () => {
         className="absolute bottom-[10%] left-[-20%] w-[140%] flex whitespace-nowrap opacity-[0.03] pointer-events-none select-none z-0"
       >
          <span className="text-[12vw] font-black leading-none tracking-tighter text-foreground ml-8 font-outline-2">
-          INTELLIGENCE // LOGIC // GROWTH
+          AUTOMATION // LOGIC // PROTOCOL
         </span>
       </motion.div>
 
@@ -103,15 +103,15 @@ const QuoteSection = () => {
 
                 <div className="max-w-4xl mx-auto">
                     <h3 className="text-2xl md:text-4xl lg:text-[2.75rem] font-medium text-foreground leading-[1.25] mb-12 tracking-tight">
-                    "We don't rely on luck. Our layouts are engineered with <span className="relative inline-block text-primary font-semibold">
-                        <span className="relative z-10">mathematical precision</span>
+                    "Scale is not a destination; it's a <span className="relative inline-block text-primary font-semibold">
+                        <span className="relative z-10">distribution protocol</span>
                         <motion.span 
                             initial={{ width: "0%" }}
                             animate={isInView ? { width: "100%" } : {}}
                             transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
                             className="absolute bottom-1 left-0 h-[0.3em] bg-primary/30 -z-10 -rotate-1 skew-x-12" 
                         />
-                    </span>, ensuring that your digital infrastructure isn't just visible—it's <span className="underline decoration-primary decoration-2 underline-offset-8 decoration-wavy">inevitable</span>."
+                    </span>. We build the autonomous systems that allow multi-brand ecosystems to synchronize, breathe, and dominate without <span className="underline decoration-primary decoration-2 underline-offset-8 decoration-wavy">friction</span>."
                     </h3>
                 </div>
 

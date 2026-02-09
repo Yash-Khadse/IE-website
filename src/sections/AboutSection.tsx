@@ -109,15 +109,15 @@ export default function AboutSection() {
 
             {/* GSAP Target: Title */}
             <h2 ref={titleRef} className="text-4xl md:text-6xl lg:text-[5.5rem] leading-[1] font-bold text-foreground tracking-tighter perspective-1000">
-              We don’t just build websites. We express <br className="hidden lg:block"/>
+              We don’t build websites. We deploy <br className="hidden lg:block"/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary/70 via-foreground to-primary/70 animate-gradient-x bg-[length:200%_auto]">
-                infrastructure
+                brand systems
               </span>.
             </h2>
             
             {/* GSAP Target: Body Text */}
             <p ref={textRef} className="mt-8 text-lg md:text-xl text-muted-foreground leading-relaxed font-light max-w-2xl border-l-2 border-primary/50 pl-6">
-              The digital landscape is crowded with noise. <span className="text-foreground font-medium">InvisiEdge</span> engineers the backend logic and frontend performance that transforms passive visitors into active revenue.
+              The digital landscape is fragmented. <span className="text-foreground font-medium">InvisiEdge</span> architects the operational logic and multi-brand intelligence that transforms disparate assets into a unified growth engine.
             </p>
           </div>
 
@@ -125,9 +125,9 @@ export default function AboutSection() {
           <div className="lg:col-span-5 flex flex-col gap-6">
             <div className="flex flex-col gap-4">
                  {[
-                    { icon: Layers, label: "Core Architecture", desc: "Robust, scalable Next.js backbones.", code: "SYS.01" },
-                    { icon: Cpu, label: "Neural Logic", desc: "AI-driven user behavior analysis.", code: "SYS.02" },
-                    { icon: Code, label: "Clean Syntax", desc: "Maintainable, enterprise-grade code.", code: "SYS.03" },
+                    { icon: Layers, label: "Systemic Infrastructure", desc: "Robust backbones for multi-brand management.", code: "SYS.01" },
+                    { icon: Cpu, label: "Neural Orchestration", desc: "Automating brand-customer interaction loops.", code: "SYS.02" },
+                    { icon: Code, label: "Integrated Logic", desc: "Enterprise-grade logic for scalable growth.", code: "SYS.03" },
                   ].map((item, idx) => (
                     <div
                         key={idx}

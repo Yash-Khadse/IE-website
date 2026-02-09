@@ -43,8 +43,8 @@ const Footer = () => {
                     </div>
 
                     <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight tracking-tight mb-6">
-                        WHERE STRATEGY BECOMES <br/>
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-foreground to-primary">VISIBLE_GROWTH</span>
+                        WHERE LOGIC BECOMES <br/>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-foreground to-primary">ORCHESTRATED_DOMINANCE</span>
                     </h2>
 
                     <div className="flex gap-4">

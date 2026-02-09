@@ -160,16 +160,16 @@ export function HybridHero() {
                 {/* "SYSTEMS" - Background Text - Fixed Contrast */}
                 <h1 className="text-[16vw] leading-[0.8] font-black tracking-tighter text-white/10 text-center select-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 blur-[1px]"
                     style={{ WebkitTextStroke: '1px rgba(255,255,255,0.15)' }}>
-                    SYSTEMS
+                    ARCHITECT
                 </h1>
                 
                 {/* "GROWTH" - Foreground Text - High Visibility */}
                 <h1 className="text-[13vw] leading-[0.8] font-black tracking-tighter text-white text-center drop-shadow-2xl relative z-10 transform -translate-y-4">
-                    GROWTH
+                    AUTOMATE
                 </h1>
                 
                 <p className="mt-12 text-xl text-white font-semibold max-w-xl text-center leading-relaxed drop-shadow-lg bg-fooror-navy/20 backdrop-blur-sm rounded-lg py-2 px-4 border border-white/5 relative z-20">
-                    Data-driven strategies for the new digital economy.
+                    Engineered brand systems for the next distribution cycle.
                 </p>
             </div>
 

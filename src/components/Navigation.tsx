@@ -47,7 +47,9 @@ const Navigation = () => {
                     src={IELogo} 
                     alt="InvisiEdge" 
                     height={40} 
-                    className="h-8 md:h-10 w-auto bg-transparent object-contain transition-transform duration-300 group-hover:scale-105"
+                    className={`h-8 md:h-10 w-auto bg-transparent object-contain transition-transform duration-300 group-hover:scale-105 ${
+                        !isScrolled ? 'brightness-0 invert' : ''
+                    }`}
                     priority
                 />
                 <div className="absolute inset-0 bg-primary blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
@@ -60,35 +62,35 @@ const Navigation = () => {
                     <NavigationMenuList>
                         <NavigationMenuItem>
                             <Link href="/about" legacyBehavior passHref>
-                                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                <NavigationMenuLink className={`${navigationMenuTriggerStyle()} ${!isScrolled ? 'bg-transparent text-white hover:bg-white/10' : ''}`}>
                                     ABOUT
                                 </NavigationMenuLink>
                             </Link>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
                             <Link href="/services" legacyBehavior passHref>
-                                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                <NavigationMenuLink className={`${navigationMenuTriggerStyle()} ${!isScrolled ? 'bg-transparent text-white hover:bg-white/10' : ''}`}>
                                     SERVICES
                                 </NavigationMenuLink>
                             </Link>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
                              <Link href="/work" legacyBehavior passHref>
-                                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                <NavigationMenuLink className={`${navigationMenuTriggerStyle()} ${!isScrolled ? 'bg-transparent text-white hover:bg-white/10' : ''}`}>
                                     WORK
                                 </NavigationMenuLink>
                             </Link>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
                              <Link href="/blog" legacyBehavior passHref>
-                                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                <NavigationMenuLink className={`${navigationMenuTriggerStyle()} ${!isScrolled ? 'bg-transparent text-white hover:bg-white/10' : ''}`}>
                                     BLOG
                                 </NavigationMenuLink>
                             </Link>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
                              <Link href="/case-studies" legacyBehavior passHref>
-                                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                <NavigationMenuLink className={`${navigationMenuTriggerStyle()} ${!isScrolled ? 'bg-transparent text-white hover:bg-white/10' : ''}`}>
                                     CASES
                                 </NavigationMenuLink>
                             </Link>
@@ -100,12 +102,16 @@ const Navigation = () => {
             {/* Right Actions */}
             <div className="flex items-center gap-4">
                 {/* Status Indicator */}
-                <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/80 border border-border backdrop-blur-sm">
+                <div className={`hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full border backdrop-blur-sm transition-colors duration-300 ${
+                    isScrolled ? 'bg-secondary/80 border-border' : 'bg-white/10 border-white/20'
+                }`}>
                     <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                     </span>
-                    <span className="text-[10px] font-mono font-bold text-foreground/80 tracking-widest uppercase">
+                    <span className={`text-[10px] font-mono font-bold tracking-widest uppercase ${
+                        isScrolled ? 'text-foreground/80' : 'text-white/80'
+                    }`}>
                         ONLINE
                     </span>
                 </div>

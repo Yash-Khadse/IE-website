@@ -36,9 +36,9 @@ const GoalsSection = () => {
 
               {/* Handwritten Overlay */}
               <div className="relative mt-2 ml-2">
-                <h3 className="font-bold italic text-[4rem] md:text-[5.5rem] leading-[0.85] text-primary transform -rotate-3">
-                  scale <br />
-                  <span className="ml-8">your brand</span>
+                <h3 className="font-bold italic text-[3.5rem] md:text-[4.5rem] leading-[0.85] text-primary transform -rotate-3">
+                  automate <br />
+                  <span className="ml-8">your brand systems</span>
                 </h3>
               </div>
             </div>
@@ -70,7 +70,7 @@ const GoalsSection = () => {
                    colorFace="#072C55" // Navy
                    colorTop="#1E4B85" 
                    colorSide="#041C36"
-                   label="Strategy"
+                   label="Tactical Logic"
                    height="h-48 md:h-64"
                    delay={0.2}
                    isInView={isInView}
@@ -81,7 +81,7 @@ const GoalsSection = () => {
                    colorFace="#5210F8" // Primary
                    colorTop="#7E41F9" 
                    colorSide="#3B0BB3"
-                   label="Execution"
+                   label="Protocol Flow"
                    height="h-64 md:h-80"
                    delay={0.4}
                    isInView={isInView}
@@ -92,7 +92,7 @@ const GoalsSection = () => {
                    colorFace="#C47DFD" // Secondary
                    colorTop="#E0B8FE" 
                    colorSide="#A050E0"
-                   label="Growth"
+                   label="System Scaling"
                    height="h-80 md:h-96"
                    delay={0.6}
                    isInView={isInView}

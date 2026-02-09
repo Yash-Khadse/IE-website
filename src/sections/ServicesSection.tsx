@@ -71,7 +71,7 @@ const ServicesSection = () => {
           >
             INVISIBLE <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-foreground">SYSTEMS</span>
             <br />
-            VISIBLE <span className="italic font-serif text-muted-foreground/50">GROWTH</span>
+            SYSTEMIC <span className="italic font-serif text-muted-foreground/50">ORCHESTRATION</span>
           </motion.h2>
         </div>
 
@@ -128,7 +128,7 @@ const ServicesSection = () => {
                    <div className="p-2 bg-secondary rounded-lg border border-border">
                         <Workflow className="text-primary" size={20} />
                    </div>
-                   <h3 className="text-foreground font-medium">Traffic Architecture</h3>
+                   <h3 className="text-foreground font-medium">Distribution Topology</h3>
                 </div>
                 {/* Simulated Nodes */}
                 <div className="flex-1 relative border-l border-border ml-3 pl-6 flex flex-col justify-between py-2">
@@ -171,8 +171,8 @@ const ServicesSection = () => {
                          <Globe size={48} className="text-foreground animate-spin-slow" strokeWidth={1} />
                          <div className="absolute inset-0 rounded-full border border-primary/20 animate-ping-slow" />
                     </div>
-                    <div className="text-foreground font-mono text-xl tracking-widest">INVISIEDGE</div>
-                    <div className="text-primary text-xs font-mono mt-2">SYSTEM_CORE_V5</div>
+                    <div className="text-foreground font-mono text-xl tracking-widest">BRAND_ORCHESTRATOR</div>
+                    <div className="text-primary text-xs font-mono mt-2">MULTI_BRAND_HUB_V5</div>
                 </div>
 
                 {/* Vertical Lines */}
@@ -211,7 +211,7 @@ const ServicesSection = () => {
                 <div className="p-4 rounded-2xl bg-secondary text-primary mb-3 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                     <Lock size={24} />
                 </div>
-                <div className="text-foreground text-sm font-medium">Enterprise Security</div>
+                <div className="text-foreground text-sm font-medium">Brand Safety Protocols</div>
                 <div className="text-muted-foreground text-[10px] mt-1 font-mono">ENCRYPTION: AES-256</div>
              </motion.div>
           </motion.div>
@@ -223,7 +223,7 @@ const ServicesSection = () => {
                custom={7} variants={cardVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}
                className="bg-card/50 backdrop-blur-sm border border-border rounded-3xl p-6 min-h-[240px] flex flex-col relative overflow-hidden"
              >
-                 <h3 className="text-foreground font-medium z-10 mb-4">Conversion<br/>Logic</h3>
+                 <h3 className="text-foreground font-medium z-10 mb-4">Cognitive<br/>Conversion</h3>
                  <div className="flex-1 bg-secondary/50 border border-border rounded-xl p-3 relative z-10 backdrop-blur-md">
                     <div className="flex items-center gap-2 mb-2">
                         <Users size={12} className="text-muted-foreground" />

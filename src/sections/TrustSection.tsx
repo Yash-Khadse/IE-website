@@ -6,43 +6,43 @@ import { ArrowRight, ArrowUpRight, BarChart } from 'lucide-react';
 const caseStudies = [
   {
     id: 1,
-    client: 'Nebula Finance',
-    metric: '500% Tx Speed',
-    category: 'FINTECH // INFRA',
+    client: 'Nebula Capital',
+    metric: '500% Logic Lift',
+    category: 'BRAND // ORCHESTRATION',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
-    description: 'Rebuilding the core ledger for real-time global processing.'
+    description: 'Rebuilding the core distribution ledger for real-time global asset scaling.'
   },
   {
     id: 2,
-    client: 'Orbital Health',
-    metric: 'Zero Downtime',
-    category: 'MEDTECH // SCALE',
+    client: 'Orbital Network',
+    metric: 'Zero Sync Friction',
+    category: 'SYSTEMS // SCALE',
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
-    description: 'HIPAA-compliant distributed database architecture.'
+    description: 'Consolidating 14 regional brand identities into a unified distribution hub.'
   },
   {
     id: 3,
-    client: 'Vortex Logistics',
-    metric: '$40M Savings',
-    category: 'AI // OPTIMIZATION',
+    client: 'Vortex Automation',
+    metric: '$40M Yield ROI',
+    category: 'AI // LOGIC',
     image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80',
-    description: 'Autonomous routing algorithms reducing fuel costs by 40%.'
+    description: 'Autonomous customer lifecycle protocols reducing acquisition costs by 40%.'
   },
   {
     id: 4,
-    client: 'CyberCore Inc',
-    metric: '0.01s Latency',
-    category: 'SECURITY // EDGE',
+    client: 'CyberCore Logic',
+    metric: '0.01s Execution',
+    category: 'INFRA // PROTOCOL',
     image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80',
-    description: 'Global edge network deployment for threat mitigation.'
+    description: 'Global brand safety deployment for automated content distribution.'
   },
   {
     id: 5,
-    client: 'Nexus Energy',
-    metric: '+210% Output',
-    category: 'IOT // ANALYTICS',
+    client: 'Nexus Intelligence',
+    metric: '+210% Throughput',
+    category: 'DATA // ANALYTICS',
     image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80',
-    description: 'Predictive maintenance models for renewable grids.'
+    description: 'Predictive distribution models for multi-channel revenue orchestration.'
   },
 ];
 

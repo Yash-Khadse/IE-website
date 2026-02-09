@@ -45,7 +45,7 @@ const FinalCTA = () => {
             </h2>
 
             <p className="text-background/60 text-lg md:text-xl max-w-2xl mx-auto mb-12">
-               Stop operating in the dark. Deploy a proven growth infrastructure that scales with your ambition.
+               Stop operating in the dark. Deploy a proven brand orchestration infrastructure that scales with your ambition.
             </p>
 
             <div className="flex flex-col md:flex-row items-center justify-center gap-6">

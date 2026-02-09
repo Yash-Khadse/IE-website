@@ -7,27 +7,27 @@ const faqs = [
   {
     id: '01',
     question: 'SYSTEM_DEPLOYMENT_TIMELINE',
-    answer: "Standard deployment cycles range from 4-6 weeks. This includes the initial core audit, architecture blueprinting, and full-stack implementation phases. We operate in sprints to ensure rapid iteration and continuous feedback loops.",
+    answer: "Standard deployment cycles range from 4-8 weeks. This involves the initial logic audit, architecture blueprinting, and full-stack orchestration. We operate in rapid-response sprints to ensure your system topology is live and secure without disrupting existing operations.",
   },
   {
     id: '02',
-    question: 'TEAM_CAPABILITY_REQUIREMENTS',
-    answer: "No specialized engineering team required. We build intuitive, low-code 'Command Centers' that allow your marketing and leadership teams to control the system. Comprehensive documentation and handover training are standard protocols.",
+    question: 'MULTI_BRAND_SYNCHRONIZATION',
+    answer: "Our systems are designed for high-concurrency multi-brand management. We implement a unified 'Command Center' logic that allows you to orchestrate naming conventions, asset distribution, and data pipelines across your entire brand portfolio from a single node.",
   },
   {
     id: '03',
-    question: 'INTEGRATION_COMPATIBILITY',
-    answer: "Our architecture is API-first. We seamlessly handshake with your existing CRM (Salesforce, HubSpot), Analytics (GA4, Mixpanel), and Payment Gateways (Stripe), creating a unified data ecosystem without disrupting current operations.",
+    question: 'AUTONOMOUS_INTEGRATION_STACK',
+    answer: "The architecture is API-first and infrastructure-agnostic. We establish seamless handshakes with your existing CRM, analytics clusters, and payment protocols. Our logic layer acts as the 'Intellectual Glue', ensuring data flows bidirectionally and autonomously.",
   },
   {
     id: '04',
-    question: 'POST_LAUNCH_SUPPORT',
-    answer: "We offer 'Active Scaling' retainers. This acts as a Tier-2 support layer where we continuously monitor system health, optimize conversion pathways, and push code updates to adapt to market shifts.",
+    question: 'SCALABILITY_BOUNDARIES',
+    answer: "There are no hard limits. Whether you are scaling from 1 to 10 brands or synchronizing complex enterprise assets, our 'Neural Logic' pathways are built to expand dynamically. We utilize self-healing code and modular infrastructure to ensure zero-friction growth.",
   },
   {
     id: '05',
     question: 'INVESTMENT_PROTOCOLS',
-    answer: "Engagement models are calibrated to your growth velocity. We recommend scheduling a 'Strategic Diagnostic' (Strategy Call) to generate a precise resource allocation plan aligned with your ROI targets.",
+    answer: "Engagement is calibrated to your system complexity and growth velocity. We recommend a 'Logic Diagnostic' session to generate a precise architecture roadmap. Our focus is on building recurring value through robust infrastructure, not just line-item deliverables.",
   },
 ];
 

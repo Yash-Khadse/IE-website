@@ -62,7 +62,7 @@ const IntegrationSection = () => {
              </div>
           </div>
           <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold text-foreground leading-none tracking-tighter">
-            REVENUE
+            MULTI-BRAND
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-foreground">ENGINE CORE</span>
           </h2>
@@ -98,26 +98,26 @@ const IntegrationSection = () => {
             {/* --- CARDS LAYER (Desktop) --- */}
             <div className="hidden md:block">
                 {/* Left Cards */}
-                <IntegrationCard icon={Mail} label="Automated Nurture" top="10%" left="20%" delay={0.2} isInView={isInView} />
-                <IntegrationCard icon={Users} label="Organic Channels" top="30%" left="5%" delay={0.4} isInView={isInView} />
-                <IntegrationCard icon={Megaphone} label="Paid Acquisition" top="55%" left="20%" delay={0.6} isInView={isInView} />
+                <IntegrationCard icon={Mail} label="Asset Automation" top="10%" left="20%" delay={0.2} isInView={isInView} />
+                <IntegrationCard icon={Users} label="Systemic Distribution" top="30%" left="5%" delay={0.4} isInView={isInView} />
+                <IntegrationCard icon={Megaphone} label="Growth Algos" top="55%" left="20%" delay={0.6} isInView={isInView} />
 
                 {/* Right Cards */}
-                <IntegrationCard icon={Network} label="Pipeline / CRM" top="10%" left="80%" delay={0.3} isInView={isInView} />
-                <IntegrationCard icon={Ticket} label="Revenue Collection" top="30%" left="95%" delay={0.5} isInView={isInView} />
-                <IntegrationCard icon={Bot} label="Conversational AI" top="55%" left="80%" delay={0.7} isInView={isInView} />
+                <IntegrationCard icon={Network} label="Brand Intelligence" top="10%" left="80%" delay={0.3} isInView={isInView} />
+                <IntegrationCard icon={Ticket} label="Monetization Systems" top="30%" left="95%" delay={0.5} isInView={isInView} />
+                <IntegrationCard icon={Bot} label="Autonomous Hub" top="55%" left="80%" delay={0.7} isInView={isInView} />
             </div>
 
             {/* --- CARDS LAYER (Mobile) --- */}
             <div className="md:hidden grid grid-cols-2 gap-4 pt-20 relative z-30">
-                <IntegrationCard className="relative translate-x-0 translate-y-0 w-full" style={{}} icon={Mail} label="Automated Nurture" delay={0.1} isInView={isInView} />
-                <IntegrationCard className="relative translate-x-0 translate-y-0 w-full" style={{}} icon={Network} label="Pipeline / CRM" delay={0.2} isInView={isInView} />
+                <IntegrationCard className="relative translate-x-0 translate-y-0 w-full" style={{}} icon={Mail} label="Asset Automation" delay={0.1} isInView={isInView} />
+                <IntegrationCard className="relative translate-x-0 translate-y-0 w-full" style={{}} icon={Network} label="Brand Intelligence" delay={0.2} isInView={isInView} />
                 
-                <IntegrationCard className="relative translate-x-0 translate-y-0 w-full" style={{}} icon={Users} label="Organic Channels" delay={0.3} isInView={isInView} />
-                <IntegrationCard className="relative translate-x-0 translate-y-0 w-full" style={{}} icon={Ticket} label="Revenue Collection" delay={0.4} isInView={isInView} />
+                <IntegrationCard className="relative translate-x-0 translate-y-0 w-full" style={{}} icon={Users} label="Systemic Distribution" delay={0.3} isInView={isInView} />
+                <IntegrationCard className="relative translate-x-0 translate-y-0 w-full" style={{}} icon={Ticket} label="Monetization Systems" delay={0.4} isInView={isInView} />
                 
-                <IntegrationCard className="relative translate-x-0 translate-y-0 w-full" style={{}} icon={Megaphone} label="Paid Acquisition" delay={0.5} isInView={isInView} />
-                <IntegrationCard className="relative translate-x-0 translate-y-0 w-full" style={{}} icon={Bot} label="Conversational AI" delay={0.6} isInView={isInView} />
+                <IntegrationCard className="relative translate-x-0 translate-y-0 w-full" style={{}} icon={Megaphone} label="Growth Algos" delay={0.5} isInView={isInView} />
+                <IntegrationCard className="relative translate-x-0 translate-y-0 w-full" style={{}} icon={Bot} label="Autonomous Hub" delay={0.6} isInView={isInView} />
             </div>
             
            </div>

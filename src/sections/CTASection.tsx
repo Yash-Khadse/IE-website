@@ -92,16 +92,16 @@ const CTASection = () => {
               
               <CardItem translateZ="50" className="w-full relative mb-10 h-8">
                  <span className="text-xl md:text-2xl text-primary font-medium font-mono tracking-tight">
-                    {isInView && <TypewriterText text="> Initialize your infrastructure sequence..." delay={0.5} />}
+                    {isInView && <TypewriterText text="> Initialize multi-brand orchestration sequence..." delay={0.5} />}
                  </span>
               </CardItem>
   
               <CardItem translateZ="30" className="w-full mt-2 max-w-lg mb-10">
                 <div className="flex flex-col w-full gap-3">
                   {[
-                    { text: 'Full Stack Architecture Audit', icon: Cpu, id: 'A01' },
-                    { text: 'Scalability Protocol Implementation', icon: Globe, id: 'S02' },
-                    { text: 'Security Layer Integration', icon: Lock, id: 'K03' }
+                    { text: 'Cross-Brand Interface Audit', icon: Cpu, id: 'A01' },
+                    { text: 'Automated Scalability Protocols', icon: Globe, id: 'S02' },
+                    { text: 'Systemic Brand Safety Logic', icon: Lock, id: 'K03' }
                   ].map((item, i) => (
                     <div key={i} className="flex items-center justify-between p-4 rounded-lg border border-border bg-secondary/50 hover:bg-secondary hover:border-primary/30 transition-all group/item backdrop-blur-sm cursor-default">
                       <div className="flex items-center gap-4">
@@ -149,7 +149,7 @@ const CTASection = () => {
                          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop" alt="Operator" className="w-full h-full object-cover grayscale" />
                      </div>
                      <div>
-                        <div className="text-primary text-[0.65rem] font-mono tracking-widest uppercase mb-1">Scale_Ops</div>
+                        <div className="text-primary text-[0.65rem] font-mono tracking-widest uppercase mb-1">System_Architect</div>
                         <h4 className="text-lg font-bold text-foreground">Sarah Chen</h4>
                      </div>
                   </div>
@@ -163,7 +163,7 @@ const CTASection = () => {
                          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop" alt="Operator" className="w-full h-full object-cover grayscale mix-blend-luminosity" />
                      </div>
                      <div>
-                        <div className="text-primary text-[0.65rem] font-mono tracking-widest uppercase mb-1">Deployment_Lead</div>
+                        <div className="text-primary text-[0.65rem] font-mono tracking-widest uppercase mb-1">Logic_Lead</div>
                         <h4 className="text-lg font-bold text-foreground">Andriy Semeshkin</h4>
                         <div className="text-muted-foreground text-xs leading-snug font-mono mt-1">&gt; Infrastructure</div>
                      </div>
@@ -190,7 +190,7 @@ const CTASection = () => {
                         <div className="text-primary text-[0.7rem] font-mono tracking-widest uppercase mb-1">Lead_Architect</div>
                         <h4 className="text-xl font-bold text-foreground mb-2">Dima Diuh</h4>
                         <div className="text-muted-foreground text-sm leading-snug font-mono">
-                            &gt; System Design<br/>&gt; Core Logic
+                            &gt; Brand Systems<br/>&gt; Automation Logic
                         </div>
                      </div>
                   </div>

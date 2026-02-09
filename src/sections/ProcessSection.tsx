@@ -7,33 +7,33 @@ const processSteps = [
   {
     id: 1,
     number: '01',
-    title: 'CORE DIAGNOSTICS',
-    badge: 'SYSTEM AUDIT',
-    description: 'We initiate a deep-scan of your current infrastructure. Identifying bottlenecks, legacy code debt, and scalability gaps. This diagnostic phase establishes the baseline for all optimization vectors.',
+    title: 'SYSTEM SCOPING',
+    badge: 'LOGIC AUDIT',
+    description: 'We initiate a deep-scan of your current multi-brand infrastructure. Identifying bottlenecks, logic debt, and synchronization gaps. This scoping phase builds the blueprint for unified management.',
     icon: Terminal
   },
   {
     id: 2,
     number: '02',
-    title: 'ARCHITECTURE BLUEPRINT',
-    badge: 'LOGIC DESIGN',
-    description: 'Mapping the new system topology. We design high-availability clusters, data pipelines, and security layers. Every component is selected for performance and interoperability, creating a robust "invisible" backend.',
+    title: 'LOGIC ARCHITECTURE',
+    badge: 'SYSTEM DESIGN',
+    description: 'Mapping the unified system topology. We design distributed clusters, automated data pipelines, and brand safety layers. Every node is optimized for multi-channel interoperability.',
     icon: Layers
   },
   {
     id: 3,
     number: '03',
-    title: 'SYSTEM DEPLOYMENT',
-    badge: 'EXECUTION',
-    description: 'Executing the build phase with military precision. We implement the agreed logic using clean, modular code. Integration testing ensures zero-downtime migration and seamless protocol activation.',
+    title: 'AUTONOMOUS INTEGRATION',
+    badge: 'DEPLOYMENT',
+    description: 'Executing the system spin-up with algorithmic precision. We implement the core logic using modular, self-healing code. Integration ensures seamless transition across your entire brand portfolio.',
     icon: Code
   },
   {
     id: 4,
     number: '04',
-    title: 'ACTIVE SCALING',
-    badge: 'OPTIMIZATION',
-    description: 'Post-launch, the system enters active monitoring. We utilize real-time telemetry to fine-tune performance, ensuring your platform scales dynamically with load while maintaining sub-millisecond latency.',
+    title: 'SYSTEMIC OPTIMIZATION',
+    badge: 'SCALING',
+    description: 'The system enters active neural monitoring. We utilize real-time telemetry to fine-tune cross-brand performance, ensuring your infrastructure expands dynamically with zero friction.',
     icon: Activity
   },
 ];

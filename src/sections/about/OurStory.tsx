@@ -1,0 +1,190 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Rocket, Target, Zap, ArrowRight, Fingerprint, TrendingUp, Sparkles, Activity } from "lucide-react";
+
+export default function OurStory() {
+  const containerRef = useRef<HTMLElement>(null);
+  
+  // Parallax logic
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 5]);
+
+  return (
+    <section ref={containerRef} className="relative py-32 bg-[#F8F9FA] overflow-hidden text-[#072C55]">
+      
+      {/* Light Mode Grid & Background */}
+      <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#072C55_1px,transparent_1px),linear-gradient(to_bottom,#072C55_1px,transparent_1px)] bg-[size:40px_40px]" />
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-[#E0CCFD]/40 to-transparent rounded-full blur-[120px] opacity-60" />
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#D6E4FF]/40 to-transparent rounded-full blur-[100px] opacity-60" />
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          
+          {/* --- Left Column: Narrative --- */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative"
+          >
+            {/* Tag */}
+            <div className="flex items-center gap-3 mb-8">
+                <span className="flex h-2 w-2 relative">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#5210F8] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#5210F8]"></span>
+                </span>
+                <span className="text-[#5210F8] font-mono text-xs uppercase tracking-[0.2em] font-bold">Origin Story</span>
+            </div>
+
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[0.95] tracking-tight">
+              Marketing was<br />
+              <span className="relative inline-block text-[#5210F8]">
+                Broken.
+                <svg className="absolute w-full h-2 md:h-3 -bottom-1 left-0 text-[#C47DFD]" viewBox="0 0 100 10" preserveAspectRatio="none">
+                    <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
+                </svg>
+              </span>
+            </h2>
+
+            <div className="space-y-6 text-base md:text-xl text-[#072C55]/70 leading-relaxed font-normal">
+              <p>
+                We watched traditional agencies treat growth like a checklist. Posting content without strategy. Burning budgets without analysis. Reporting vanity metrics that <strong className="text-[#072C55]">never touched the bottom line.</strong>
+              </p>
+              
+              <p className="border-l-4 border-[#5210F8] pl-6 py-1 italic font-medium text-[#072C55]">
+                "The industry was optimized for billing hours, not generating revenue."
+              </p>
+ 
+              <p>
+                InvisiEdge was born from a radical rejection of that model. We replaced account managers with strategists and gut-feelings with algorithms. We built an agency that operates like a software system: <span className="bg-[#E0CCFD]/50 px-1 rounded text-[#5210F8] font-bold whitespace-nowrap md:whitespace-normal">precise, iterative, and accountable.</span>
+              </p>
+            </div>
+
+            {/* Light Mode Feature Grid */}
+            <div className="mt-12 grid sm:grid-cols-2 gap-4">
+                {[
+                    { title: "ROI Guaranteed", icon: Target, desc: "Performance-linked models" },
+                    { title: "Data Driven", icon: Fingerprint, desc: "Math over magic" },
+                    { title: "Rapid Scale", icon: Zap, desc: "Sprint-based execution" },
+                    { title: "Transparecy", icon: Activity, desc: "Real-time dashboards" }
+                ].map((item, i) => (
+                    <motion.div 
+                        key={i}
+                        whileHover={{ y: -5, boxShadow: "0 10px 30px -10px rgba(82, 16, 248, 0.15)" }}
+                        className="group flex flex-col p-5 rounded-2xl bg-white border border-[#072C55]/5 shadow-sm hover:border-[#5210F8]/30 transition-all duration-300"
+                    >
+                        <div className="flex items-center justify-between mb-3">
+                            <div className="p-2 rounded-lg bg-[#5210F8]/5 text-[#5210F8] group-hover:bg-[#5210F8] group-hover:text-white transition-colors duration-300">
+                                <item.icon size={20} />
+                            </div>
+                            <ArrowRight className="w-4 h-4 text-[#072C55]/20 group-hover:text-[#5210F8] -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all" />
+                        </div>
+                        <span className="text-[#072C55] font-bold mb-1">{item.title}</span>
+                        <span className="text-xs text-[#072C55]/50">{item.desc}</span>
+                    </motion.div>
+                ))}
+            </div>
+
+          </motion.div>
+          
+          {/* --- Right Column: Visual System (Light Mode) --- */}
+          <motion.div 
+            style={{ y, rotate }}
+            className="relative lg:h-[700px] flex items-center justify-center perspective-1000"
+          >
+            {/* Glass Card Container */}
+            <div className="relative w-full aspect-[4/5] max-w-[500px] bg-white/80 backdrop-blur-xl border border-white rounded-[2rem] shadow-[0_20px_50px_-12px_rgba(7,44,85,0.1)] overflow-hidden p-8 flex flex-col justify-between">
+                
+                {/* Header */}
+                <div className="flex justify-between items-start">
+                    <div>
+                        <div className="text-xs font-mono uppercase tracking-widest text-[#072C55]/40 mb-1">System Status</div>
+                        <div className="flex items-center gap-2">
+                            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                            <span className="font-bold text-[#072C55]">Scale Protocol Active</span>
+                        </div>
+                    </div>
+                    <Fingerprint className="text-[#072C55]/10 w-12 h-12" />
+                </div>
+
+                {/* Central Viz */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px]">
+                    <div className="absolute inset-0 border-2 border-[#5210F8]/10 rounded-full animate-[spin_20s_linear_infinite]" />
+                    <div className="absolute inset-4 border border-[#5210F8]/20 rounded-full animate-[spin_15s_linear_infinite_reverse] border-dashed" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="relative z-10 p-6 bg-white rounded-2xl shadow-xl flex flex-col items-center border border-[#5210F8]/10">
+                            <Rocket className="w-12 h-12 text-[#5210F8] mb-2" />
+                            <div className="text-2xl font-black text-[#072C55]">4.8x</div>
+                            <div className="text-[10px] uppercase font-bold text-[#072C55]/40">Avg. Growth Mult.</div>
+                        </div>
+                    </div>
+                    
+                    {/* Orbiting Elements */}
+                    <motion.div 
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                        className="absolute inset-0"
+                    >
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-[#C47DFD]">
+                            <Sparkles size={14} />
+                        </div>
+                    </motion.div>
+                </div>
+
+                {/* Footer Graph */}
+                <div className="relative h-24 mt-auto">
+                    <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-[#072C55]/10" />
+                    <div className="flex items-end justify-between h-full px-2 gap-2">
+                        {[40, 65, 45, 80, 55, 90, 70, 100].map((h, i) => (
+                            <motion.div 
+                                key={i}
+                                initial={{ height: 0 }}
+                                whileInView={{ height: `${h}%` }}
+                                transition={{ delay: i * 0.05, duration: 0.5, ease: "backOut" }}
+                                className="w-full bg-[#5210F8] opacity-20 hover:opacity-100 transition-opacity rounded-t-sm"
+                            />
+                        ))}
+                    </div>
+                </div>
+
+                {/* Decorative Elements */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#E0CCFD]/50 to-transparent rounded-bl-[4rem]" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#D6E4FF]/50 to-transparent rounded-tr-[4rem]" />
+            </div>
+
+            {/* Floating Review Card */}
+            <motion.div 
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.5 }}
+                className="absolute -bottom-10 -left-12 bg-white border border-gray-100 p-6 rounded-2xl shadow-xl z-20 hidden lg:block max-w-[280px]"
+            >
+                <div className="flex items-center gap-1 mb-2">
+                    {[1,2,3,4,5].map(i => <Sparkles key={i} size={12} className="text-[#FBBF24] fill-[#FBBF24]" />)}
+                </div>
+                <p className="text-sm text-[#072C55] font-medium italic mb-3">"We finally found an agency that speaks data, not fluff."</p>
+                <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-[#072C55] flex items-center justify-center text-white text-xs font-bold">MK</div>
+                    <div>
+                        <div className="text-xs font-bold text-[#072C55]">Michael K.</div>
+                        <div className="text-[10px] text-[#072C55]/50">Founder, SaaSFlow</div>
+                    </div>
+                </div>
+            </motion.div>
+
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -1,120 +1,165 @@
-import CTASection from '@/sections/CTASection';
-import { Mail, MapPin, Phone, Send } from 'lucide-react';
+"use client";
 
-export const metadata = {
-  title: 'Contact | InvisiEdge',
-  description: 'Initialize a secure connection with our team. Start your project today.',
-};
+import { motion } from 'framer-motion';
+import { Send, MapPin, Mail, Phone, ArrowRight, Shield, MessageSquare } from 'lucide-react';
+import CTASection from '@/sections/CTASection';
+import ContactHero from '@/sections/contact/ContactHero';
 
 export default function ContactPage() {
-    return (
-        <main className="pt-20 bg-background min-h-screen">
-             <div className="py-24 md:py-32 text-center relative overflow-hidden border-b border-border">
-                 <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px] opacity-20 pointer-events-none" />
-                 <div className="max-w-4xl mx-auto px-6 relative z-10">
-                     <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground mb-6">
-                         ESTABLISH <span className="text-primary">UPLINK</span>
-                     </h1>
-                     <p className="text-xl text-muted-foreground">
-                         Ready to upgrade your infrastructure? Initialize the sequence below.
-                     </p>
-                 </div>
-            </div>
+  return (
+    <main className="bg-white min-h-screen pb-12 overflow-hidden">
+      
+      <ContactHero />
 
-            <section className="py-20 px-6 max-w-[1400px] mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-                    
-                    {/* Contact Form */}
-                    <div className="bg-card border border-border p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden">
-                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
-                        
-                        <form className="flex flex-col gap-6 relative z-10">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <label className="text-xs font-mono text-muted-foreground uppercase tracking-wider">Identity</label>
-                                    <input type="text" placeholder="Full Name" className="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary transition-colors" />
-                                </div>
-                                <div className="space-y-2">
-                                    <label className="text-xs font-mono text-muted-foreground uppercase tracking-wider">Comms_ID</label>
-                                    <input type="email" placeholder="Email Address" className="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary transition-colors" />
-                                </div>
-                            </div>
-                            
-                            <div className="space-y-2">
-                                <label className="text-xs font-mono text-muted-foreground uppercase tracking-wider">Subject_Vector</label>
-                                <select className="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors appearance-none">
-                                    <option>System Architecture Consultation</option>
-                                    <option>Performance Optimization</option>
-                                    <option>Custom Development</option>
-                                    <option>General Inquiry</option>
-                                </select>
-                            </div>
+      {/* 2. Main Content Grid */}
+      <section className="px-6 max-w-[1400px] pt-28 mx-auto pb-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+              
+              {/* LEFT: The Transmission Form */}
+              <motion.div 
+                 initial={{ opacity: 0, x: -30 }}
+                 whileInView={{ opacity: 1, x: 0 }}
+                 viewport={{ once: true }}
+                 transition={{ duration: 0.8 }}
+                 className="relative group"
+              >
+                  {/* Glowing Border Background */}
+                  <div className="absolute -inset-0.5 bg-gradient-to-br from-[#5210F8] to-[#C47DFD] rounded-[2.5rem] opacity-20 blur-md group-hover:opacity-40 transition-opacity duration-500" />
+                  
+                  <div className="relative bg-white rounded-[2rem] p-8 md:p-12 border border-[#072C55]/5 h-full shadow-2xl overflow-hidden">
+                      <div className="absolute top-0 right-0 p-8 opacity-[0.03] pointer-events-none">
+                          <MessageSquare size={140} strokeWidth={0.5} className="text-[#072C55]" />
+                      </div>
 
-                            <div className="space-y-2">
-                                <label className="text-xs font-mono text-muted-foreground uppercase tracking-wider">Transmission_Data</label>
-                                <textarea rows={6} placeholder="Describe your project parameters..." className="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary transition-colors resize-none" />
-                            </div>
+                      <h3 className="text-2xl font-black text-[#072C55] tracking-tight mb-8">TRANSMISSION_DATA</h3>
 
-                            <button type="submit" className="mt-4 bg-primary text-primary-foreground font-bold py-4 rounded-lg flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20 group">
-                                <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /> SEND TRANSMISSION
-                            </button>
-                        </form>
-                    </div>
+                      <form className="space-y-6 relative z-10">
+                          
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                             <div className="space-y-2">
+                                <label className="text-[10px] font-mono font-bold text-[#5210F8] uppercase tracking-widest">
+                                    Identity_Key
+                                </label>
+                                <input 
+                                   type="text" 
+                                   placeholder="Full Name" 
+                                   className="w-full bg-[#F8F9FA] border border-[#072C55]/10 rounded-xl px-4 py-4 text-[#072C55] placeholder:text-[#072C55]/30 focus:outline-none focus:border-[#5210F8] focus:ring-1 focus:ring-[#5210F8] transition-all font-mono text-sm"
+                                />
+                             </div>
+                             
+                             <div className="space-y-2">
+                                <label className="text-[10px] font-mono font-bold text-[#5210F8] uppercase tracking-widest">
+                                    Comms_ID
+                                </label>
+                                <input 
+                                   type="email" 
+                                   placeholder="Email Address" 
+                                   className="w-full bg-[#F8F9FA] border border-[#072C55]/10 rounded-xl px-4 py-4 text-[#072C55] placeholder:text-[#072C55]/30 focus:outline-none focus:border-[#5210F8] focus:ring-1 focus:ring-[#5210F8] transition-all font-mono text-sm"
+                                />
+                             </div>
+                          </div>
 
-                    {/* Contact Info */}
-                    <div className="flex flex-col justify-center">
-                        <h3 className="text-3xl font-bold text-foreground mb-8">Secure Channels</h3>
-                        
-                        <div className="space-y-8">
-                            <div className="flex items-start gap-6">
-                                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                                    <MapPin size={24} />
-                                </div>
-                                <div>
-                                    <h4 className="text-xl font-bold text-foreground mb-2">Base of Operations</h4>
-                                    <p className="text-muted-foreground leading-relaxed">
-                                        1234 Silicon Avenue, Suite 404<br/>
-                                        San Francisco, CA 94107
-                                    </p>
-                                </div>
-                            </div>
+                          <div className="space-y-2">
+                              <label className="text-[10px] font-mono font-bold text-[#5210F8] uppercase tracking-widest">
+                                  Subject_Vector
+                              </label>
+                              <div className="relative">
+                                  <select className="w-full bg-[#F8F9FA] border border-[#072C55]/10 rounded-xl px-4 py-4 text-[#072C55] focus:outline-none focus:border-[#5210F8] focus:ring-1 focus:ring-[#5210F8] transition-all font-mono text-sm appearance-none cursor-pointer hover:bg-[#F8F9FA]/80">
+                                      <option>System Architecture Consultation</option>
+                                      <option>Performance Optimization</option>
+                                      <option>Custom Development</option>
+                                      <option>Partnership Inquiry</option>
+                                  </select>
+                                  <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                                      <ArrowRight size={14} className="text-[#5210F8] rotate-90" />
+                                  </div>
+                              </div>
+                          </div>
 
-                            <div className="flex items-start gap-6">
-                                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                                    <Mail size={24} />
-                                </div>
-                                <div>
-                                    <h4 className="text-xl font-bold text-foreground mb-2">Digital Drop</h4>
-                                    <p className="text-muted-foreground leading-relaxed">
-                                        hello@invisiedge.io<br/>
-                                        careers@invisiedge.io
-                                    </p>
-                                </div>
-                            </div>
+                          <div className="space-y-2">
+                              <label className="text-[10px] font-mono font-bold text-[#5210F8] uppercase tracking-widest">
+                                  Payload_Message
+                              </label>
+                              <textarea 
+                                 rows={5} 
+                                 placeholder="Describe your project parameters..." 
+                                 className="w-full bg-[#F8F9FA] border border-[#072C55]/10 rounded-xl px-4 py-4 text-[#072C55] placeholder:text-[#072C55]/30 focus:outline-none focus:border-[#5210F8] focus:ring-1 focus:ring-[#5210F8] transition-all font-mono text-sm resize-none"
+                              />
+                          </div>
 
-                             <div className="flex items-start gap-6">
-                                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                                    <Phone size={24} />
-                                </div>
-                                <div>
-                                    <h4 className="text-xl font-bold text-foreground mb-2">Voice Comms</h4>
-                                    <p className="text-muted-foreground leading-relaxed">
-                                        +1 (555) 123-4567<br/>
-                                        Mon-Fri, 0900 - 1800 PST
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                          <button 
+                             type="submit" 
+                             className="w-full group bg-[#072C55] text-white font-black text-sm uppercase tracking-widest py-5 rounded-xl hover:bg-[#5210F8] transition-all duration-300 flex items-center justify-center gap-3 mt-4 shadow-xl shadow-[#072C55]/20"
+                          >
+                              <span>Initialize_Send</span>
+                              <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                          </button>
 
-                        <div className="mt-12 p-6 bg-secondary rounded-2xl border border-border">
-                            <p className="text-sm text-foreground/80 font-mono">
-                                <span className="text-green-500 mr-2">●</span>
-                                Current Status: <span className="font-bold">ACCEPTING NEW CLIENTS</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-    );
+                      </form>
+                  </div>
+              </motion.div>
+
+              {/* RIGHT: Contact Matrix */}
+              <motion.div 
+                 initial={{ opacity: 0, x: 30 }}
+                 whileInView={{ opacity: 1, x: 0 }}
+                 viewport={{ once: true }}
+                 transition={{ duration: 0.8, delay: 0.2 }}
+                 className="flex flex-col h-full justify-center space-y-12"
+              >
+                  <div>
+                      <h2 className="text-3xl md:text-4xl font-black text-[#072C55] tracking-tight mb-8">
+                          SECURE CHANNELS
+                      </h2>
+                      <p className="text-[#072C55]/60 mb-12 max-w-md leading-relaxed font-medium">
+                          Our team operates across encrypted channels globally. Expect a response protocol within <span className="text-[#5210F8] font-bold">24 hours</span>.
+                      </p>
+                  </div>
+
+                  <div className="space-y-8">
+                      {[
+                        { icon: MapPin, title: "Operations_Base", value: "1234 Silicon Avenue, Suite 404\nSan Francisco, CA 94107", color: "text-[#5210F8]", bg: "bg-[#5210F8]/10" },
+                        { icon: Mail, title: "Digital_Drop", value: "hello@invisiedge.io\ncareers@invisiedge.io", color: "text-[#5210F8]", bg: "bg-[#5210F8]/10" },
+                        { icon: Phone, title: "Voice_Comms", value: "+1 (555) 123-4567\nMon-Fri, 0900 - 1800 PST", color: "text-[#C47DFD]", bg: "bg-[#C47DFD]/10" }
+                      ].map((item, i) => (
+                          <div key={i} className="flex items-start gap-6 group hover:bg-[#F8F9FA] p-4 rounded-xl transition-colors -mx-4">
+                              <div className={`w-14 h-14 rounded-2xl ${item.bg} border border-transparent group-hover:border-[#072C55]/5 flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform duration-300`}>
+                                  <item.icon size={24} className={item.color} />
+                              </div>
+                              <div>
+                                  <h4 className="text-[10px] font-mono font-bold text-[#072C55]/40 uppercase tracking-widest mb-2 group-hover:text-[#5210F8] transition-colors">
+                                      {item.title}
+                                  </h4>
+                                  <p className="text-lg md:text-xl font-bold text-[#072C55] whitespace-pre-line leading-snug">
+                                      {item.value}
+                                  </p>
+                              </div>
+                          </div>
+                      ))}
+                  </div>
+
+                  {/* Status Indicator */}
+                  <div className="mt-8 p-6 bg-gradient-to-r from-[#5210F8]/10 to-transparent border border-[#5210F8]/20 rounded-2xl overflow-hidden relative">
+                      <div className="flex items-center gap-4 relative z-10">
+                          <div className="relative">
+                               <div className="w-3 h-3 bg-[#5210F8] rounded-full" />
+                               <div className="absolute inset-0 w-3 h-3 bg-[#5210F8] rounded-full animate-ping opacity-75" />
+                          </div>
+                          <div>
+                              <div className="text-[10px] font-mono font-bold text-[#5210F8] uppercase tracking-widest mb-1">System Status</div>
+                              <div className="text-[#072C55] font-bold text-sm">ACCEPTING NEW PROJECTS</div>
+                          </div>
+                      </div>
+                      <div className="absolute right-0 bottom-0 opacity-[0.05]">
+                          <Shield size={80} className="text-[#5210F8] translate-x-4 translate-y-4" />
+                      </div>
+                  </div>
+
+              </motion.div>
+          </div>
+      </section>
+
+      <CTASection />
+    </main>
+  );
 }
