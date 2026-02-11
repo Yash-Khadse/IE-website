@@ -182,6 +182,14 @@ export default {
             'pulse-slow': {
                 '0%, 100%': { opacity: '1' },
                 '50%': { opacity: '0.5' }
+            },
+            marquee: {
+                '0%': { transform: 'translateX(0)' },
+                '100%': { transform: 'translateX(-50%)' }
+            },
+            'marquee-reverse': {
+                '0%': { transform: 'translateX(-50%)' },
+                '100%': { transform: 'translateX(0)' }
             }
   		},
   		animation: {
@@ -193,9 +201,12 @@ export default {
   			'fade-in': 'fade-in 0.4s ease-out forwards',
   			'scale-in': 'scale-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards',
             shine: 'shine 1s forwards',
-            'pulse-slow': 'pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-  		}
-  	}
+            'pulse-slow': 'pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            marquee: 'marquee var(--duration, 30s) linear infinite',
+            'marquee-reverse': 'marquee-reverse var(--duration, 30s) linear infinite'
+  		},
+
+  },
   },
   plugins: [require("tailwindcss-animate")],
 }

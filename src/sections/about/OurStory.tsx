@@ -17,7 +17,7 @@ export default function OurStory() {
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 5]);
 
   return (
-    <section ref={containerRef} className="relative py-32 bg-[#F8F9FA] overflow-hidden text-[#072C55]">
+    <section ref={containerRef} className="relative py-16 md:py-32 bg-[#F8F9FA] overflow-hidden text-[#072C55]">
       
       {/* Light Mode Grid & Background */}
       <div className="absolute inset-0 pointer-events-none">
@@ -27,7 +27,7 @@ export default function OurStory() {
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
           
           {/* --- Left Column: Narrative --- */}
           <motion.div 
@@ -66,7 +66,7 @@ export default function OurStory() {
               </p>
  
               <p>
-                InvisiEdge was born from a radical rejection of that model. We replaced account managers with strategists and gut-feelings with algorithms. We built an agency that operates like a software system: <span className="bg-[#E0CCFD]/50 px-1 rounded text-[#5210F8] font-bold whitespace-nowrap md:whitespace-normal">precise, iterative, and accountable.</span>
+                InvisiEdge was born from a radical rejection of that model. We replaced account managers with strategists and gut-feelings with data. We built an agency that operates like a growth engine: <span className="bg-[#E0CCFD]/50 px-1 rounded text-[#5210F8] font-bold whitespace-nowrap md:whitespace-normal">precise, iterative, and accountable.</span>
               </p>
             </div>
 
@@ -108,10 +108,10 @@ export default function OurStory() {
                 {/* Header */}
                 <div className="flex justify-between items-start">
                     <div>
-                        <div className="text-xs font-mono uppercase tracking-widest text-[#072C55]/40 mb-1">System Status</div>
+                        <div className="text-xs font-mono uppercase tracking-widest text-[#072C55]/40 mb-1">Growth Status</div>
                         <div className="flex items-center gap-2">
                             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                            <span className="font-bold text-[#072C55]">Scale Protocol Active</span>
+                            <span className="font-bold text-[#072C55]">Scale Strategy Active</span>
                         </div>
                     </div>
                     <Fingerprint className="text-[#072C55]/10 w-12 h-12" />

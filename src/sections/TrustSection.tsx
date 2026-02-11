@@ -7,42 +7,42 @@ const caseStudies = [
   {
     id: 1,
     client: 'Nebula Capital',
-    metric: '500% Logic Lift',
-    category: 'BRAND // ORCHESTRATION',
+    metric: '500% ROI Lift',
+    category: 'BRAND // STRATEGY',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
-    description: 'Rebuilding the core distribution ledger for real-time global asset scaling.'
+    description: 'Rebuilding the core marketing infrastructure for global scale.'
   },
   {
     id: 2,
     client: 'Orbital Network',
-    metric: 'Zero Sync Friction',
-    category: 'SYSTEMS // SCALE',
+    metric: 'Zero Friction Scale',
+    category: 'GROWTH // SCALE',
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
-    description: 'Consolidating 14 regional brand identities into a unified distribution hub.'
+    description: 'Consolidating 14 regional brands into a unified marketing engine.'
   },
   {
     id: 3,
     client: 'Vortex Automation',
     metric: '$40M Yield ROI',
-    category: 'AI // LOGIC',
+    category: 'AI // AUTOMATION',
     image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80',
-    description: 'Autonomous customer lifecycle protocols reducing acquisition costs by 40%.'
+    description: 'Automated customer journeys reducing acquisition costs by 40%.'
   },
   {
     id: 4,
     client: 'CyberCore Logic',
     metric: '0.01s Execution',
-    category: 'INFRA // PROTOCOL',
+    category: 'STRATEGY // EXECUTION',
     image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80',
-    description: 'Global brand safety deployment for automated content distribution.'
+    description: 'Global brand consistency for automated content distribution.'
   },
   {
     id: 5,
     client: 'Nexus Intelligence',
     metric: '+210% Throughput',
-    category: 'DATA // ANALYTICS',
+    category: 'DATA // INSIGHTS',
     image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80',
-    description: 'Predictive distribution models for multi-channel revenue orchestration.'
+    description: 'Predictive models for multi-channel revenue optimization.'
   },
 ];
 
@@ -337,7 +337,7 @@ const TrustSection = () => {
             <div className="ts-slider__overlay-inner">
                 <div className="flex flex-col gap-6">
                     <div className="flex items-center gap-3 text-fooror-purple-light font-mono text-xs tracking-widest">
-                    <BarChart size={14} /> IMPACT_LOGS // SUCCESS_STORIES
+                    <BarChart size={14} /> GROWTH_INSIGHTS // SUCCESS_STORIES
                     </div>
                     <div className="ts-slider__overlay-count">
                     <div className="ts-slider__count-col">
@@ -350,7 +350,7 @@ const TrustSection = () => {
                     </div>
                     <div className="hidden lg:block">
                         <p className="text-white/60 text-sm max-w-[280px] leading-relaxed border-l border-white/10 pl-4">
-                            Proven outcomes from our deployed systems. We don't just build software; we engineer dominance.
+                            Proven outcomes from our growth strategies. We don't just build software; we engineer dominance.
                         </p>
                     </div>
                 </div>
@@ -395,7 +395,7 @@ const TrustSection = () => {
                                 <p className="text-muted-foreground max-w-[80%] leading-relaxed">{study.description}</p>
                                 
                                 <div className="mt-6 flex items-center gap-3 text-primary font-bold text-sm uppercase tracking-wide group/btn">
-                                    <span>View Protocol</span>
+                                    <span>View Case Study</span>
                                     <div className="p-1.5 rounded-full border border-primary/30 group-hover/btn:bg-primary group-hover/btn:border-primary group-hover/btn:text-background transition-all duration-300">
                                         <ArrowUpRight size={14} />
                                     </div>

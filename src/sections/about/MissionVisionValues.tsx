@@ -25,8 +25,8 @@ export default function MissionVisionValues() {
     {
       id: "02",
       title: "VISION",
-      headline: "The Growth OS.",
-      desc: "To become the operating system for ambitious brands. A world where every marketing dollar is an investment quantified by real-time data and clear ROI.",
+      headline: "The Growth Engine.",
+      desc: "To become the growth engine for ambitious brands. A world where every marketing dollar is an investment quantified by real-time data and clear ROI.",
       icon: Eye,
       color: "from-[#C47DFD]/25 to-[#C47DFD]/40",
       accent: "text-[#C47DFD]",
@@ -60,7 +60,7 @@ export default function MissionVisionValues() {
   ];
 
   return (
-    <section className="relative py-24 bg-[#F8F9FA] overflow-hidden">
+    <section className="relative py-16 md:py-24 bg-[#F8F9FA] overflow-hidden">
       
       <div className="max-w-[1400px] mx-auto px-6">
         
@@ -72,7 +72,7 @@ export default function MissionVisionValues() {
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#072C55] opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-[#072C55]"></span>
                     </span>
-                    <span className="text-[#072C55] font-mono text-xs uppercase tracking-[0.2em] font-bold">System Architecture</span>
+                    <span className="text-[#072C55] font-mono text-xs uppercase tracking-[0.2em] font-bold">Strategic Core</span>
                 </div>
                 <h2 className="text-4xl md:text-5xl font-bold text-[#072C55]">The Core</h2>
             </div>
@@ -158,7 +158,7 @@ export default function MissionVisionValues() {
                              {/* Bottom Interaction Hint */}
                              <div className="flex justify-between items-end">
                                  <div className={`px-3 py-1 rounded-full border border-[#072C55]/10 bg-white/50 text-[10px] uppercase font-bold text-[#072C55] tracking-widest ${isActive ? 'opacity-100' : 'opacity-0'}`}>
-                                     {pillar.title} Protocol
+                                     {pillar.title} Framework
                                  </div>
                                  <button className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isActive ? 'bg-[#072C55] text-white rotate-45' : 'bg-white text-[#072C55] hover:bg-[#072C55] hover:text-white'}`}>
                                      {isActive ? <Plus size={20} /> : <ArrowUpRight size={20} />}

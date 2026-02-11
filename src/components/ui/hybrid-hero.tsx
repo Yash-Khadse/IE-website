@@ -124,7 +124,7 @@ export function HybridHero() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full h-[100svh] md:h-[120vh] bg-fooror-navy overflow-hidden">
+    <div ref={containerRef} className="relative w-full h-[100svh] bg-fooror-navy overflow-hidden">
         
         {/* LAYER 0: THREE.JS BACKGROUND (The Deep Void) */}
         <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
@@ -157,19 +157,19 @@ export function HybridHero() {
 
             {/* LAYER 2: TYPOGRAPHY (The Subject) */}
             <div data-layer="text" className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none pb-20">
-                {/* "SYSTEMS" - Background Text - Fixed Contrast */}
+                {/* "GROWTH" - Background Text - Fixed Contrast */}
                 <h1 className="text-[16vw] leading-[0.8] font-black tracking-tighter text-white/10 text-center select-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 blur-[1px]"
                     style={{ WebkitTextStroke: '1px rgba(255,255,255,0.15)' }}>
-                    ARCHITECT
+                    ELEVATE
                 </h1>
                 
-                {/* "GROWTH" - Foreground Text - High Visibility */}
+                {/* "REVENUE" - Foreground Text - High Visibility */}
                 <h1 className="text-[13vw] leading-[0.8] font-black tracking-tighter text-white text-center drop-shadow-2xl relative z-10 transform -translate-y-4">
-                    AUTOMATE
+                    REVENUE
                 </h1>
                 
-                <p className="mt-12 text-xl text-white font-semibold max-w-xl text-center leading-relaxed drop-shadow-lg bg-fooror-navy/20 backdrop-blur-sm rounded-lg py-2 px-4 border border-white/5 relative z-20">
-                    Engineered brand systems for the next distribution cycle.
+                <p className="mt-8 md:mt-12 text-base md:text-xl text-white font-semibold max-w-xs md:max-w-xl text-center leading-relaxed drop-shadow-lg bg-fooror-navy/20 backdrop-blur-sm rounded-lg py-2 px-4 border border-white/5 relative z-20">
+                    Data-driven marketing strategies for the digital age.
                 </p>
             </div>
 

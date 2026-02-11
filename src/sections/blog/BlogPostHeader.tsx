@@ -32,7 +32,7 @@ export default function BlogPostHeader({ post }: { post: any }) {
           >
               <Link href="/blog" className="inline-flex items-center gap-2 text-white/50 hover:text-[#00FF94] transition-colors font-mono text-xs uppercase tracking-widest group">
                    <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> 
-                   Return_To_Archive
+                   Return_To_Insights
               </Link>
           </motion.div>
 
@@ -48,7 +48,7 @@ export default function BlogPostHeader({ post }: { post: any }) {
                  {post.category}
               </span>
               <span className="text-xs font-mono text-white/40 uppercase tracking-widest">
-                  LOG_ID: {post.id.toString().padStart(3, '0')}
+                  POST_ID: {post.id.toString().padStart(3, '0')}
               </span>
               <div className="w-1 h-1 bg-white/20 rounded-full" />
               <span className="text-xs font-mono text-white/40 uppercase tracking-widest">
@@ -79,7 +79,7 @@ export default function BlogPostHeader({ post }: { post: any }) {
                   </div>
                   <div>
                       <div className="text-sm font-bold text-white uppercase tracking-wide">{post.author}</div>
-                      <div className="text-xs font-mono text-white/40">System Architect</div>
+                      <div className="text-xs font-mono text-white/40">Growth Strategist</div>
                   </div>
               </div>
 

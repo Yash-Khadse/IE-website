@@ -75,7 +75,7 @@ export default function AboutSection() {
   }, []);
 
   return (
-        <section ref={containerRef} className="py-20 md:py-32 px-6 bg-background min-h-screen relative overflow-hidden flex items-center border-t border-border" id="about">
+        <section ref={containerRef} className="py-16 md:py-32 px-4 md:px-6 bg-background min-h-[80svh] md:min-h-screen relative overflow-hidden flex items-center border-t border-border" id="about">
       {/* Background: Geometric Tech Grid */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.04]">
           <div className="absolute w-full h-full bg-[linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)] bg-[size:40px_40px] text-foreground" />
@@ -86,10 +86,10 @@ export default function AboutSection() {
 
       {/* Decorative HUD Elements (GSAP Animated opacity) */}
       <div className="absolute top-10 left-10 text-muted-foreground font-mono text-xs tracking-widest hidden md:block animate-pulse">
-         // SYSTEM_STATUS: ONLINE
+         // AGENCY_STATUS: ACTIVE
       </div>
       <div className="absolute bottom-10 right-10 text-muted-foreground font-mono text-xs tracking-widest hidden md:block">
-         COORD: 34.05.92
+         MARKET: GLOBAL
       </div>
 
       <div className="max-w-[1500px] mx-auto w-full relative z-10">
@@ -102,32 +102,32 @@ export default function AboutSection() {
 
             <div className="mb-8 flex items-center gap-4">
                 <div className="px-3 py-1 border border-primary/30 bg-primary/10 rounded text-primary font-mono text-xs uppercase tracking-widest">
-                    Mission Brief
+                    Our Mission
                 </div>
                 <div className="h-px w-24 bg-border" />
             </div>
 
             {/* GSAP Target: Title */}
-            <h2 ref={titleRef} className="text-4xl md:text-6xl lg:text-[5.5rem] leading-[1] font-bold text-foreground tracking-tighter perspective-1000">
-              We don’t build websites. We deploy <br className="hidden lg:block"/>
+             <h2 ref={titleRef} className="text-4xl md:text-6xl lg:text-[5.5rem] leading-[1.1] md:leading-[1] font-bold text-foreground tracking-tighter perspective-1000">
+              We don’t build websites. We build <br className="hidden lg:block"/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary/70 via-foreground to-primary/70 animate-gradient-x bg-[length:200%_auto]">
-                brand systems
+                growth engines
               </span>.
             </h2>
             
             {/* GSAP Target: Body Text */}
             <p ref={textRef} className="mt-8 text-lg md:text-xl text-muted-foreground leading-relaxed font-light max-w-2xl border-l-2 border-primary/50 pl-6">
-              The digital landscape is fragmented. <span className="text-foreground font-medium">InvisiEdge</span> architects the operational logic and multi-brand intelligence that transforms disparate assets into a unified growth engine.
+              The digital landscape is fragmented. <span className="text-foreground font-medium">InvisiEdge</span> architects the digital strategy and multi-channel campaigns that transform disparate assets into a revenue-generating ecosystem.
             </p>
           </div>
 
           {/* Right Column: System Modules */}
           <div className="lg:col-span-5 flex flex-col gap-6">
             <div className="flex flex-col gap-4">
-                 {[
-                    { icon: Layers, label: "Systemic Infrastructure", desc: "Robust backbones for multi-brand management.", code: "SYS.01" },
-                    { icon: Cpu, label: "Neural Orchestration", desc: "Automating brand-customer interaction loops.", code: "SYS.02" },
-                    { icon: Code, label: "Integrated Logic", desc: "Enterprise-grade logic for scalable growth.", code: "SYS.03" },
+                  {[
+                    { icon: Layers, label: "Scalable Infrastructure", desc: "Foundation for scaling multiple brands.", code: "STRAT.01" },
+                    { icon: Cpu, label: "Smart Automation", desc: "Automating customer journeys.", code: "AUTO.02" },
+                    { icon: Code, label: "Strategic Planning", desc: "Data-backed strategies for scalable growth.", code: "DATA.03" },
                   ].map((item, idx) => (
                     <div
                         key={idx}
@@ -155,7 +155,7 @@ export default function AboutSection() {
             <div className="pt-6 flex justify-end">
                 <button className="sys-card group relative px-8 py-3 bg-foreground text-background font-bold tracking-wide rounded overflow-hidden">
                     <span className="relative z-10 group-hover:text-primary transition-colors duration-300 flex items-center gap-2">
-                        INITIATE SEQUENCE <ArrowRight className="w-4 h-4" />
+                        START GROWTH <ArrowRight className="w-4 h-4" />
                     </span>
                     <div className="absolute inset-0 bg-foreground group-hover:bg-muted transition-colors" />
                 </button>

@@ -52,7 +52,7 @@ function ServiceGrid(props: any) {
       <mesh scale={[3, 3, 3]}>
         <icosahedronGeometry args={[4, 2]} />
         <meshBasicMaterial 
-            color="#00FF94" // Neon Green for "Active Services"
+            color="#5210F8" // Brand Purple for "Active Services"
             wireframe 
             transparent 
             opacity={0.03} 
@@ -75,7 +75,7 @@ function ServiceGrid(props: any) {
       <Points ref={particlesRef} positions={particlePositions} stride={3} frustumCulled={false}>
          <PointMaterial 
             transparent 
-            color="#00FF94" 
+            color="#5210F8" 
             size={0.06} 
             sizeAttenuation={true} 
             opacity={0.4} 
@@ -149,9 +149,9 @@ export default function ServicesHero() {
             {/* Badge */}
             <div className="mb-8 overflow-hidden">
                 <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
-                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#00FF94]/20 bg-[#00FF94]/5 backdrop-blur-md text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#00FF94]">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#00FF94] animate-pulse" />
-                        System_Capabilities // Index
+                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#5210F8]/20 bg-[#5210F8]/5 backdrop-blur-md text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#C47DFD]">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#5210F8] animate-pulse" />
+                        Our_Strategies // Index
                     </span>
                 </div>
             </div>
@@ -159,27 +159,27 @@ export default function ServicesHero() {
             {/* Main Title - Stacked & Massive */}
             <h1 className="flex flex-col items-center text-center font-black tracking-tighter leading-[0.85] select-none text-white mix-blend-screen">
                 <span className="text-[14vw] md:text-[8vw] opacity-20 blur-[1px] animate-in fade-in zoom-in duration-1000 delay-100" 
-                      style={{ WebkitTextStroke: '1px rgba(0, 255, 148, 0.3)', color: 'transparent' }}>
-                    SCALING
+                      style={{ WebkitTextStroke: '1px rgba(82, 16, 248, 0.3)', color: 'transparent' }}>
+                    GROWTH
                 </span>
                 <span className="text-[18vw] md:text-[11vw] bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50 drop-shadow-2xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-                    MATRIX
+                    ENGINE
                 </span>
             </h1>
 
             {/* Subtext Box */}
             <div className="mt-8 md:mt-12 max-w-2xl text-center px-4 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
                 <p className="text-base md:text-xl text-white/70 font-light leading-relaxed">
-                    Precision engineering for <span className="text-white font-medium">high-velocity enterprises</span>. 
-                    We architect the infrastructure that powers your next growth cycle.
+                    Strategic marketing for <span className="text-white font-medium">high-growth brands</span>. 
+                    We design the campaigns that power your next revenue cycle.
                 </p>
             </div>
 
             {/* Control Panel / Stats Strip */}
             <div className="mt-12 md:mt-16 grid grid-cols-3 gap-6 md:gap-12 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-700 divide-x divide-white/10 w-full max-w-3xl">
-                {['9 Core Modules', 'Full Stack', 'Global Scale'].map((item, i) => (
+                {['Omnichannel', 'Full Funnel', 'Global Reach'].map((item, i) => (
                     <div key={i} className="flex flex-col items-center group cursor-default pointer-events-auto px-4">
-                        <span className="text-lg md:text-2xl font-bold text-white group-hover:text-[#00FF94] transition-colors">{item}</span>
+                        <span className="text-lg md:text-2xl font-bold text-white group-hover:text-[#5210F8] transition-colors">{item}</span>
                     </div>
                 ))}
             </div>
@@ -187,9 +187,9 @@ export default function ServicesHero() {
 
         {/* LAYER 2: FOREGROUND ELEMENT (Scroll Indicator) */}
         <div ref={fgRef} className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-none opacity-50">
-             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/60">Initialize Audit</span>
-             <div className="w-[1px] h-12 bg-gradient-to-b from-[#00FF94] to-transparent" />
-             <ArrowDown className="w-4 h-4 text-[#00FF94] animate-bounce" />
+             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/60">Get Started</span>
+             <div className="w-[1px] h-12 bg-gradient-to-b from-[#5210F8] to-transparent" />
+             <ArrowDown className="w-4 h-4 text-[#5210F8] animate-bounce" />
         </div>
 
     </section>

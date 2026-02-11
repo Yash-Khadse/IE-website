@@ -90,7 +90,7 @@ export default function ProjectHero({ project }: { project: ProjectData }) {
                         <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: project.color }}></span>
                       </span>
                       <span className="text-[10px] md:text-xs font-mono font-bold text-white uppercase tracking-[0.2em]">
-                        CASE_LOG // {project.year} // ESTABLISHED
+                        CASE_STUDY // {project.year} // DELIVERED
                       </span>
                   </div>
               </motion.div>
@@ -146,20 +146,20 @@ export default function ProjectHero({ project }: { project: ProjectData }) {
                   <div className="col-span-2 border-b border-white/10 pb-4 mb-2 flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <Activity size={14} className="text-[#00FF94]" />
-                        <span className="text-[10px] uppercase font-bold text-white/60 tracking-widest">Sys_Metrics</span>
+                        <span className="text-[10px] uppercase font-bold text-white/60 tracking-widest">Key_Metrics</span>
                       </div>
                       <Radio size={14} className="text-white/40 animate-pulse" />
                   </div>
                   
-                  <DataTicker label="Protocol_ID" value={`SYS_${project.year.slice(-2)}`} />
-                  <DataTicker label="Sector" value="Enterprise" />
-                  <DataTicker label="SLA_Uptime" value="99.9%" />
-                  <DataTicker label="Latency" value="<20ms" />
+                  <DataTicker label="Case_ID" value={`PRJ_${project.year.slice(-2)}`} />
+                  <DataTicker label="Industry" value="Enterprise" />
+                  <DataTicker label="Engagement" value="High" />
+                  <DataTicker label="ROI" value=">300%" />
                   
                   <div className="col-span-2 mt-2 pt-4 border-t border-white/10">
                       <div className="flex items-center justify-between text-[10px] text-white/30 font-mono">
-                          <span>ENCRYPTION: AES-256</span>
-                          <span>STATUS: DEPLOYED</span>
+                          <span>CAMPAIGN: EXECUTED</span>
+                          <span>STATUS: LIVE</span>
                       </div>
                   </div>
               </motion.div>
@@ -172,7 +172,7 @@ export default function ProjectHero({ project }: { project: ProjectData }) {
                  className="hidden md:flex flex-col items-center gap-2"
               >
                  <span className="text-[9px] font-mono font-bold text-white/30 uppercase tracking-[0.3em] rotate-90 origin-left translate-x-4 mb-8">
-                     Initiate_Scroll
+                     Read_Case
                  </span>
                  <ArrowDown className="text-white w-5 h-5" />
               </motion.div>

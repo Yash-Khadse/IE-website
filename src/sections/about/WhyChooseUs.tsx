@@ -16,7 +16,7 @@ import {
 export default function WhyChooseUs() {
   const comparisons = [
     {
-      label: "VELOCITY_PROTOCOL",
+      label: "VELOCITY_FRAMEWORK",
       traditional: {
           title: "Monthly Thinking",
           desc: "Slow cycles and static checklists. Learnings are trapped in 30-day reporting gaps.",
@@ -63,7 +63,7 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-32 bg-white relative overflow-hidden">
+    <section className="py-16 md:py-32 bg-white relative overflow-hidden">
         {/* Technical Grid Pattern */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
              style={{ backgroundImage: 'linear-gradient(#072C55 1px, transparent 1px), linear-gradient(90deg, #072C55 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
@@ -74,11 +74,11 @@ export default function WhyChooseUs() {
             <div className="mb-24 text-center max-w-4xl mx-auto">
                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#072C55]/20 bg-[#F8F9FA] mb-8 shadow-sm">
                     <span className="w-2 h-2 rounded-full bg-[#5210F8] animate-pulse" />
-                    <span className="font-mono text-[11px] font-black text-[#072C55] uppercase tracking-[0.4em]">System Benchmark Report // v4.0</span>
+                    <span className="font-mono text-[11px] font-black text-[#072C55] uppercase tracking-[0.4em]">Growth Benchmark Report // v4.0</span>
                  </div>
                  <h2 className="text-4xl md:text-8xl font-black text-[#072C55] tracking-tighter leading-[0.85]">
                     The Growth <br />
-                    <span className="text-[#5210F8]">Operating System.</span>
+                    <span className="text-[#5210F8]">Operating Framework.</span>
                  </h2>
             </div>
 
@@ -88,10 +88,10 @@ export default function WhyChooseUs() {
                 <div className="hidden md:grid grid-cols-[1.2fr_2fr_2fr] gap-8 px-8 mb-8">
                     <div />
                     <div className="text-center pt-4 border-t-2 border-[#072C55]/5">
-                        <span className="font-mono text-[11px] uppercase font-black text-[#072C55]/20 tracking-[0.5em]">Legacy Systems</span>
+                        <span className="font-mono text-[11px] uppercase font-black text-[#072C55]/20 tracking-[0.5em]">Legacy Agencies</span>
                     </div>
                     <div className="text-center pt-4 border-t-2 border-[#5210F8]/20">
-                        <span className="font-mono text-[11px] uppercase font-black text-[#5210F8] tracking-[0.5em]">The Protocol</span>
+                        <span className="font-mono text-[11px] uppercase font-black text-[#5210F8] tracking-[0.5em]">The InvisiEdge Way</span>
                     </div>
                 </div>
 
@@ -164,7 +164,7 @@ export default function WhyChooseUs() {
                                 <div className="mt-8 pt-8 border-t border-[#072C55]/5 flex items-center justify-between">
                                      <div className="flex items-center gap-2.5">
                                          <CheckCircle2 size={16} className="text-[#00FF94]" />
-                                         <span className="font-mono text-[10px] font-black text-[#072C55]/40 uppercase tracking-[0.2em]">Optimization Online</span>
+                                         <span className="font-mono text-[10px] font-black text-[#072C55]/40 uppercase tracking-[0.2em]">Optimization Active</span>
                                      </div>
                                      <Activity size={20} className="text-[#5210F8]/20 group-hover:text-[#5210F8]/40 transition-all animate-pulse" />
                                 </div>

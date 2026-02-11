@@ -121,7 +121,7 @@ export default function OurTeam() {
     <section ref={containerRef} className="relative h-[300vh] bg-[#F8F9FA]">
       
       {/* Sticky Orchestration Layer */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col lg:flex-row">
+      <div className="sticky top-0 h-[100svh] w-full overflow-hidden flex flex-col lg:flex-row">
         
         {/* Left Column: Collective HUD */}
         <div className="w-full lg:w-1/2 p-6 md:p-10 lg:p-20 flex flex-col justify-center relative border-r border-[#072C55]/5 border-b lg:border-b-0 h-[45vh] lg:h-full">
@@ -145,7 +145,7 @@ export default function OurTeam() {
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#5210F8] opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-3 w-3 bg-[#5210F8]"></span>
                     </div>
-                    <span className="font-mono text-xs font-bold text-[#072C55]/40 uppercase tracking-[0.6em]">System Collective // Human Intel</span>
+                    <span className="font-mono text-xs font-bold text-[#072C55]/40 uppercase tracking-[0.6em]">Growth Collective // Human Intel</span>
                 </div>
 
                 <div className="mb-8 md:mb-16">
@@ -175,7 +175,7 @@ export default function OurTeam() {
 
             {/* Bottom Status Ticker */}
             <div className="absolute bottom-10 left-10 lg:left-20 font-mono text-[9px] font-bold text-[#072C55]/20 uppercase tracking-widest hidden lg:block">
-                SYS_ORCH_VERSION_42.0.1 // READY_FOR_DEPLOYMENT
+                GROWTH_ORCH_VERSION_42.0.1 // READY_FOR_SCALE
             </div>
         </div>
 

@@ -36,16 +36,16 @@ const FinalCTA = () => {
         >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/5 border border-background/10 text-primary font-mono text-xs tracking-widest mb-8">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                SYSTEM_READY_FOR_DEPLOYMENT
+                BRAND_READY_FOR_SCALE
             </div>
 
             <h2 className="text-5xl md:text-7xl lg:text-[7rem] font-bold text-background leading-[0.9] tracking-tighter mb-8">
               READY TO <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-background via-primary to-background">INITIALIZE?</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-background via-primary to-background">DOMINATE?</span>
             </h2>
 
             <p className="text-background/60 text-lg md:text-xl max-w-2xl mx-auto mb-12">
-               Stop operating in the dark. Deploy a proven brand orchestration infrastructure that scales with your ambition.
+               Stop operating in the dark. Launch a proven growth strategy that scales with your ambition.
             </p>
 
             <div className="flex flex-col md:flex-row items-center justify-center gap-6">
@@ -56,13 +56,13 @@ const FinalCTA = () => {
                 >
                     <span className="relative z-10 flex items-center gap-3">
                        <Terminal size={20} />
-                       INITIATE_PROTOCOL
+                       START_GROWTH
                     </span>
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-muted to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 ease-in-out" />
                 </motion.button>
                 
                 <span className="text-background/30 text-sm font-mono flex items-center gap-2">
-                    OR <ArrowRight size={14} /> schedule_briefing.exe
+                    OR <ArrowRight size={14} /> schedule_consultation
                 </span>
             </div>
         </motion.div>
@@ -72,7 +72,7 @@ const FinalCTA = () => {
       {/* Bottom Code Ticker */}
       <div className="absolute bottom-10 left-0 w-full text-center">
            <p className="font-mono text-[10px] text-background/20 uppercase tracking-[0.2em]">
-               SECURE_CONNECTION_ESTABLISHED // V.3.0.2 // ENCRYPTED
+                MARKET_LEADERSHIP_ESTABLISHED // STRATEGY_ACTIVE // VERIFIED
            </p>
       </div>
 

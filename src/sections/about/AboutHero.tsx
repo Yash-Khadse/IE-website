@@ -127,7 +127,7 @@ export default function AboutHero() {
                 <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
                     <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#C47DFD]">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#5210F8] animate-pulse" />
-                        Intelligence Unit
+                        Growth Team
                     </span>
                 </div>
             </div>
@@ -139,15 +139,15 @@ export default function AboutHero() {
                     HUMAN
                 </span>
                 <span className="text-[18vw] md:text-[11vw] bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50 drop-shadow-2xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-                    SYSTEMS
+                    CONNECTION
                 </span>
             </h1>
 
             {/* Subtext */}
             <div className="mt-8 md:mt-12 max-w-2xl text-center px-4 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
                 <p className="text-base md:text-xl text-white/70 font-light leading-relaxed">
-                    We are the <span className="text-white font-medium">architects of scale</span>. 
-                    Merging elite creative talent with algorithmic precision to build brands that dominate.
+                    We are your <span className="text-white font-medium">brand's engine</span>. 
+                    Merging elite creative talent with performance marketing to scale effectively.
                 </p>
             </div>
             
@@ -164,7 +164,7 @@ export default function AboutHero() {
 
         {/* LAYER 2: FOREGROUND ELEMENT (Scroll Indicator) */}
         <div ref={fgRef} className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-none opacity-50">
-             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/60">Initialize</span>
+             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/60">Explore</span>
              <div className="w-[1px] h-12 bg-gradient-to-b from-[#5210F8] to-transparent" />
              <ArrowDown className="w-4 h-4 text-[#5210F8] animate-bounce" />
         </div>

@@ -51,7 +51,7 @@ function KnowledgeStream(props: any) {
       <mesh scale={[2.5, 2.5, 2.5]}>
         <icosahedronGeometry args={[1, 1]} />
         <meshBasicMaterial 
-            color="#00FF94" // Changed to Brand Green (Performance)
+            color="#5210F8" // Brand Purple (Strategy)
             wireframe 
             transparent 
             opacity={0.05} 
@@ -74,7 +74,7 @@ function KnowledgeStream(props: any) {
       {/* Orbiting Rings */}
       <mesh rotation={[Math.PI / 2, 0, 0]}>
          <torusGeometry args={[9, 0.02, 16, 100]} />
-         <meshBasicMaterial color="#00FF94" transparent opacity={0.15} />
+         <meshBasicMaterial color="#5210F8" transparent opacity={0.15} />
       </mesh>
       <mesh rotation={[Math.PI / 3, 0, 0]}>
          <torusGeometry args={[14, 0.02, 16, 100]} />
@@ -144,7 +144,7 @@ export default function BlogHero() {
                 <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
                     <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#5210F8]/30 bg-[#5210F8]/10 backdrop-blur-md text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#C47DFD]">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#5210F8] animate-pulse" />
-                        InvisiEdge // Knowledge_Base
+                        InvisiEdge // Insights
                     </span>
                 </div>
             </div>
@@ -152,21 +152,21 @@ export default function BlogHero() {
             {/* Main Title */}
             <h1 className="flex flex-col items-center text-center font-black tracking-tighter leading-[0.85] select-none text-white mix-blend-screen relative">
                 {/* Glitch Overlay Effect */}
-                <div className="absolute inset-0 text-transparent opacity-10 bg-clip-text bg-gradient-to-r from-red-500 to-blue-500 blur-[2px] animate-pulse pointer-events-none">LOGS</div>
+                <div className="absolute inset-0 text-transparent opacity-10 bg-clip-text bg-gradient-to-r from-red-500 to-blue-500 blur-[2px] animate-pulse pointer-events-none">DATA</div>
                 
                 <span className="text-[14vw] md:text-[8vw] opacity-30 blur-[1px] animate-in fade-in zoom-in duration-1000 delay-100" 
                       style={{ WebkitTextStroke: '1px rgba(82, 16, 248, 0.5)', color: 'transparent' }}>
-                    SYSTEM
+                    MARKET
                 </span>
                 <span className="text-[18vw] md:text-[11vw] bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50 drop-shadow-[0_0_40px_rgba(82,16,248,0.4)] animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-                    LOGS
+                    INSIGHTS
                 </span>
             </h1>
 
             {/* Subtext */}
             <div className="mt-8 md:mt-12 max-w-2xl text-center px-4 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
                 <p className="text-base md:text-xl text-white/70 font-light leading-relaxed">
-                    Decoding the <span className="text-[#00FF94] font-medium">signals in the noise</span>. 
+                    Unlocking the <span className="text-[#C47DFD] font-medium">potential of your brand</span>. 
                     Strategies for the next era of digital dominance.
                 </p>
             </div>
@@ -174,8 +174,8 @@ export default function BlogHero() {
             {/* Quick Stats Grid */}
             <div className="hidden md:grid grid-cols-3 gap-12 mt-16 max-w-4xl w-full text-center border-t border-white/5 pt-8 animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-700">
                 <div className="group flex flex-col items-center gap-2 cursor-pointer">
-                    <Cpu className="text-white/40 group-hover:text-[#00FF94] transition-colors w-6 h-6" />
-                    <span className="text-xs font-mono font-bold text-white/60 tracking-widest uppercase group-hover:text-white transition-colors">Engineering</span>
+                    <Cpu className="text-white/40 group-hover:text-[#5210F8] transition-colors w-6 h-6" />
+                    <span className="text-xs font-mono font-bold text-white/60 tracking-widest uppercase group-hover:text-white transition-colors">Strategy</span>
                 </div>
                 <div className="group flex flex-col items-center gap-2 cursor-pointer">
                     <Network className="text-white/40 group-hover:text-[#5210F8] transition-colors w-6 h-6" />
@@ -190,7 +190,7 @@ export default function BlogHero() {
 
         {/* LAYER 2: FOREGROUND ELEMENT */}
         <div ref={fgRef} className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-none opacity-50">
-             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/60">Access Terminal</span>
+             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/60">Read Insights</span>
              <div className="w-[1px] h-12 bg-gradient-to-b from-[#5210F8] to-transparent" />
              <ArrowDown className="w-4 h-4 text-[#5210F8] animate-bounce" />
         </div>

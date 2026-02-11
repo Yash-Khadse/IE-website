@@ -7,33 +7,33 @@ const processSteps = [
   {
     id: 1,
     number: '01',
-    title: 'SYSTEM SCOPING',
-    badge: 'LOGIC AUDIT',
-    description: 'We initiate a deep-scan of your current multi-brand infrastructure. Identifying bottlenecks, logic debt, and synchronization gaps. This scoping phase builds the blueprint for unified management.',
+    title: 'MARKET AUDIT',
+    badge: 'OPPORTUNITY ANALYSIS',
+    description: 'We initiate a comprehensive analysis of your digital presence. Identifying conversion gaps, market opportunities, and competitive advantages. This audit builds the blueprint for market domination.',
     icon: Terminal
   },
   {
     id: 2,
     number: '02',
-    title: 'LOGIC ARCHITECTURE',
-    badge: 'SYSTEM DESIGN',
-    description: 'Mapping the unified system topology. We design distributed clusters, automated data pipelines, and brand safety layers. Every node is optimized for multi-channel interoperability.',
+    title: 'STRATEGIC ROADMAP',
+    badge: 'CAMPAIGN ARCHITECTURE',
+    description: 'Mapping the growth strategy. We design multichannel funnels, integrated workflows, and brand consistency layers. Every channel is optimized for maximum ROI.',
     icon: Layers
   },
   {
     id: 3,
     number: '03',
-    title: 'AUTONOMOUS INTEGRATION',
-    badge: 'DEPLOYMENT',
-    description: 'Executing the system spin-up with algorithmic precision. We implement the core logic using modular, self-healing code. Integration ensures seamless transition across your entire brand portfolio.',
+    title: 'GROWTH ACTIVATION',
+    badge: 'GO-TO-MARKET',
+    description: 'Executing the strategy with precision. We launch targeted campaigns using data-backed content. Execution ensures seamless scaling across your entire digital portfolio.',
     icon: Code
   },
   {
     id: 4,
     number: '04',
-    title: 'SYSTEMIC OPTIMIZATION',
-    badge: 'SCALING',
-    description: 'The system enters active neural monitoring. We utilize real-time telemetry to fine-tune cross-brand performance, ensuring your infrastructure expands dynamically with zero friction.',
+    title: 'REVENUE SCALING',
+    badge: 'PERFORMANCE OPTIMIZATION',
+    description: 'The campaign enters continuous optimization. We utilize real-time analytics to fine-tune ROI, ensuring your revenue grows predictably with zero friction.',
     icon: Activity
   },
 ];
@@ -97,11 +97,11 @@ const ProcessSection = () => {
           <div>
             <div className="flex items-center gap-3 text-primary font-mono text-xs tracking-widest mb-4">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                EXECUTION_PROTOCOL // V.3.0
+                GROWTH_STRATEGY // V.3.0
             </div>
             <h2 className="text-[3rem] md:text-[4.5rem] lg:text-[5.5rem] font-bold text-foreground leading-[0.9] tracking-tighter shadow-black drop-shadow-xl">
-              SYSTEM
-              <span className="text-muted-foreground/30 block md:inline md:ml-6">WORKFLOW</span>
+              GROWTH
+              <span className="text-muted-foreground/30 block md:inline md:ml-6">ENGINE</span>
             </h2>
           </div>
         </motion.div>
@@ -112,9 +112,9 @@ const ProcessSection = () => {
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-24 relative">
           
           {/* Left Side - Sticky Server Rack Indicator */}
-          <div className="hidden lg:flex flex-col w-[300px] h-[calc(100vh-120px)] sticky top-28 bg-card/90 backdrop-blur-xl rounded-2xl border border-border p-8 shadow-2xl z-20">
+          <div className="hidden lg:flex flex-col w-[360px] h-[calc(100vh-120px)] sticky top-28 bg-card/90 backdrop-blur-xl rounded-2xl border border-border p-8 shadow-2xl z-20">
              <div className="flex justify-between items-center border-b border-border pb-4 mb-6">
-                 <span className="text-xs font-mono text-muted-foreground/60">RACK_UNIT_09</span>
+                 <span className="text-xs font-mono text-muted-foreground/60">INSIGHT_UNIT_01</span>
                  <div className="flex gap-1">
                      <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                      <span className="w-1.5 h-1.5 rounded-full bg-green-500/30" />
@@ -140,15 +140,15 @@ const ProcessSection = () => {
 
                            <div className="flex flex-col">
                                <span className="text-[9px] font-mono uppercase tracking-widest text-muted-foreground mb-0.5">Step_{step.number}</span>
-                               <span className="text-sm font-bold text-foreground truncate">{step.badge}</span>
+                               <span className="text-sm font-bold text-foreground leading-tight">{step.badge}</span>
                            </div>
                         </div>
                         
                         {/* Connecting Glow Line (Active only) */}
                         {activeStep === step.id && (
                            <>
-                               <motion.div layoutId="activeGlow" className="absolute -left-[27px] top-1/2 -translate-y-1/2 w-8 h-[2px] bg-gradient-to-r from-primary to-transparent opacity-50" />
-                               <motion.div layoutId="activeDot" className="absolute -left-[31px] top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-primary shadow-[0_0_15px_#5210F8] border-2 border-background" />
+                               <motion.div layoutId="activeGlow" className="absolute -left-[8px] top-1/2 -translate-y-1/2 w-8 h-[2px] bg-gradient-to-r from-primary to-transparent opacity-50" />
+                               <motion.div layoutId="activeDot" className="absolute -left-[14px] top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-primary shadow-[0_0_15px_#5210F8] border-2 border-background" />
                            </>
                         )}
                     </div>
@@ -157,8 +157,8 @@ const ProcessSection = () => {
 
              <div className="mt-auto pt-6 border-t border-border">
                  <div className="flex justify-between text-[10px] font-mono text-muted-foreground mb-2">
-                    <span>CPU LOAD</span>
-                    <span>34%</span>
+                    <span>CAMPAIGN LOAD</span>
+                    <span>84%</span>
                  </div>
                  <div className="w-full h-1 bg-secondary rounded-full overflow-hidden">
                      <div className="h-full bg-green-500/50 w-[34%]" />
@@ -192,13 +192,13 @@ const ProcessSection = () => {
          >
              {[...Array(6)].map((_, i) => (
                  <span key={i} className="flex items-center gap-6">
-                     <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" /> SYSTEM STATUS: OPERATIONAL</span>
+                     <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" /> MARKETING STATUS: ACTIVE</span>
                      <span>//</span>
-                     <span>LATENCY: 12ms</span>
+                     <span>CONVERSION: 12%</span>
                      <span>//</span>
-                     <span>UPTIME: 99.99%</span>
+                     <span>RETENTION: 99.9%</span>
                      <span>//</span>
-                     <span>LAST TRACE: {new Date().toISOString().split('T')[0]}</span>
+                     <span>LAST UPDATE: {new Date().toISOString().split('T')[0]}</span>
                  </span>
              ))}
          </motion.div>
@@ -219,7 +219,7 @@ const StepContent = ({ step, isActive, onInView, id }: { step: any, isActive: bo
   }, [isInView, onInView]);
 
   return (
-    <div id={id} ref={ref} className="min-h-screen flex flex-col justify-center py-20 border-b border-border last:border-0 border-dashed relative">
+    <div id={id} ref={ref} className="min-h-[70vh] md:min-h-screen flex flex-col justify-center py-16 md:py-20 border-b border-border last:border-0 border-dashed relative">
       <div className="flex flex-col xl:flex-row gap-12 xl:gap-20">
           
           {/* Text Content */}
@@ -249,10 +249,10 @@ const StepContent = ({ step, isActive, onInView, id }: { step: any, isActive: bo
                    <div className="mt-12 flex flex-wrap gap-8 border-t border-border pt-8">
                        <div className="flex flex-col gap-1.5">
                            <span className="text-[10px] uppercase tracking-widest text-muted-foreground/60 font-bold">Target Phase</span>
-                           <span className="font-mono text-sm text-foreground/90">Optimization_Vector_{step.number}</span>
+                           <span className="font-mono text-sm text-foreground/90">Growth_Vector_{step.number}</span>
                        </div>
                        <div className="flex flex-col gap-1.5">
-                            <span className="text-[10px] uppercase tracking-widest text-muted-foreground/60 font-bold">Protocol Status</span>
+                            <span className="text-[10px] uppercase tracking-widest text-muted-foreground/60 font-bold">Campaign Status</span>
                             <span className="font-mono text-sm text-green-400 flex items-center gap-2">
                                 <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" /> Active
                             </span>
@@ -311,9 +311,9 @@ const SchematicVisual = ({ isActive, stepId }: { isActive: boolean, stepId: numb
                     
                     {/* Terminal Output */}
                     <div className="absolute top-full left-1/2 -translate-x-1/2 w-[120%] mt-8 bg-[#0A0F1C]/90 rounded-lg px-4 py-3 border border-white/10 backdrop-blur font-mono text-[10px] text-green-400 shadow-xl">
-                        &gt; Scanning Ports... <span className="text-white">OK</span><br/>
-                        &gt; Analyzing Latency... <span className="text-yellow-400">12ms</span><br/>
-                        &gt; System Integrity... <span className="animate-pulse">_</span>
+                        &gt; Analyzing Market... <span className="text-white">OK</span><br/>
+                        &gt; Calculating CPC... <span className="text-yellow-400">$2.40</span><br/>
+                        &gt; Brand Health... <span className="animate-pulse">_</span>
                     </div>
                 </div>
             )}
@@ -330,7 +330,7 @@ const SchematicVisual = ({ isActive, stepId }: { isActive: boolean, stepId: numb
                                 className="bg-[#0A0F1C] border border-white/10 rounded-xl flex flex-col items-center justify-center gap-2 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-fooror-purple/50 transition-colors"
                              >
                                 <Cpu size={24} className="text-fooror-purple-light" />
-                                <span className="text-[9px] font-mono text-white/30">NODE_0{i}</span>
+                                <span className="text-[9px] font-mono text-white/30">CHANNEL_0{i}</span>
                              </motion.div>
                          ))}
                      </div>
@@ -343,12 +343,12 @@ const SchematicVisual = ({ isActive, stepId }: { isActive: boolean, stepId: numb
                         <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
                         <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/40" />
                         <div className="w-2.5 h-2.5 rounded-full bg-green-500/40" />
-                        <span className="ml-auto text-white/20 text-[10px]">deploy.sh</span>
+                        <span className="ml-auto text-white/20 text-[10px]">launch.sh</span>
                      </div>
                      <div className="p-5 space-y-2 text-white/60 h-[220px] relative">
-                         <p className="text-green-400 flex gap-2"><span>$</span> npm install dependency-matrix</p>
-                         <p className="text-white/40">... fetching modules [OK]</p>
-                         <p className="text-white/40">... resolving graph [OK]</p>
+                         <p className="text-green-400 flex gap-2"><span>$</span> initiate launch_sequence</p>
+                         <p className="text-white/40">... targeting audience [OK]</p>
+                         <p className="text-white/40">... optimizing bids [OK]</p>
                          {isActive && (
                             <>
                                 <motion.p 
@@ -357,7 +357,7 @@ const SchematicVisual = ({ isActive, stepId }: { isActive: boolean, stepId: numb
                                     transition={{ delay: 0.5 }}
                                     className="text-white"
                                 >
-                                    &gt; optimizing chunks [webpack]
+                                    &gt; maximizing roas [ai_model]
                                 </motion.p>
                                 <motion.p 
                                     initial={{ opacity: 0, x: -10 }} 
@@ -365,7 +365,7 @@ const SchematicVisual = ({ isActive, stepId }: { isActive: boolean, stepId: numb
                                     transition={{ delay: 1.2 }}
                                     className="text-fooror-purple-light"
                                 >
-                                    &gt; DEPLOYMENT SUCCESSFUL (0.42s)
+                                    &gt; CAMPAIGN LIVE (0.42s)
                                 </motion.p>
                                 <motion.div 
                                     className="w-full h-1 bg-white/10 mt-4 rounded overflow-hidden"

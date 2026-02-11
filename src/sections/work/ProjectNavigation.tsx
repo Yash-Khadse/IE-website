@@ -27,9 +27,9 @@ export default function ProjectNavigation({ nextProject }: { nextProject: Projec
                initial={{ opacity: 0, y: 10 }}
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
-               className="font-mono text-xs font-bold text-[#00FF94] uppercase tracking-[0.3em] mb-6 flex items-center gap-3"
+               className="font-mono text-xs font-bold text-[#C47DFD] uppercase tracking-[0.3em] mb-6 flex items-center gap-3"
            >
-               <span className="w-1.5 h-1.5 rounded-full bg-[#00FF94] animate-pulse" />
+               <span className="w-1.5 h-1.5 rounded-full bg-[#5210F8] animate-pulse" />
                Next_Case_Study &rarr; {nextProject.id.toUpperCase()}
            </motion.div>
            
@@ -38,7 +38,7 @@ export default function ProjectNavigation({ nextProject }: { nextProject: Projec
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
                transition={{ delay: 0.1 }}
-               className="text-4xl md:text-6xl lg:text-8xl font-black text-white tracking-tighter group-hover:text-[#00FF94] transition-colors duration-500 mb-8"
+               className="text-4xl md:text-6xl lg:text-8xl font-black text-white tracking-tighter group-hover:text-[#C47DFD] transition-colors duration-500 mb-8"
            >
                {nextProject.title}
            </motion.h2>

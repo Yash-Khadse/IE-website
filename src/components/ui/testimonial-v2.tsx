@@ -13,7 +13,7 @@ interface Testimonial {
 // --- Data ---
 const testimonials: Testimonial[] = [
   {
-    text: "The logic audit redefined our entire distribution topology. The brand system InvisiEdge deployed allows us to coordinate 12 regional identities with zero friction.",
+    text: "The strategic audit redefined our entire distribution topology. The brand framework InvisiEdge deployed allows us to coordinate 12 regional identities with zero friction.",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
     name: "Briana Patton",
     role: "Chief Distribution Officer",
@@ -31,7 +31,7 @@ const testimonials: Testimonial[] = [
     role: "Infrastructure Lead",
   },
   {
-    text: "Multi-brand management used to be our biggest bottleneck. With the Prism_OS core, our time-to-market for new sub-brands has been reduced by 70%.",
+    text: "Multi-brand management used to be our biggest bottleneck. With the Prism Strategy Core, our time-to-market for new sub-brands has been reduced by 70%.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150",
     name: "Omar Raza",
     role: "Executive Director",
@@ -43,7 +43,7 @@ const testimonials: Testimonial[] = [
     role: "Brand Architect",
   },
   {
-    text: "Deploying the AetherSystem logic transformed our conversion funnel into a self-healing protocol. The ROI on our infrastructure spend is now quantifiable and recurring.",
+    text: "Deploying the AetherGrowth logic transformed our conversion funnel into a self-optimizing campaign. The ROI on our infrastructure spend is now quantifiable and recurring.",
     image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=150&h=150",
     name: "Aliza Khan",
     role: "Growth Systems Analyst",
@@ -52,7 +52,7 @@ const testimonials: Testimonial[] = [
     text: "Finally, an agency that treats marketing as an engineering challenge. Their 'distribution topology' approach is light years ahead of traditional agency models.",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150",
     name: "Farhan Siddiqui",
-    role: "Director of Digital Logic",
+    role: "Director of Digital Strategy",
   },
   {
     text: "The visibility we now have into our cross-channel performance is absolute. The unified data ecosystem simplifies complex decision-making across our entire board.",

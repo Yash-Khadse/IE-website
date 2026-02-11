@@ -47,7 +47,7 @@ const CTASection = () => {
 
       <div className="w-full max-w-[1320px] px-4 md:px-6 relative z-10">
         <CardContainer className="!py-0 !block perspective-2000" containerClassName="!py-0 !block">
-          <CardBody className="bg-card backdrop-blur-xl border border-primary/20 rounded-[3rem] p-8 md:p-12 lg:p-16 relative flex flex-col lg:flex-row gap-12 lg:gap-20 w-full h-auto shadow-2xl group/card overflow-hidden">
+          <CardBody className="bg-card backdrop-blur-xl border border-primary/20 rounded-[2rem] md:rounded-[3rem] p-6 md:p-12 lg:p-16 relative flex flex-col lg:flex-row gap-12 lg:gap-20 w-full h-auto shadow-2xl group/card overflow-hidden">
             
             {/* Circuit Board Overlay */}
             <div className="absolute inset-0 pointer-events-none opacity-5">
@@ -74,7 +74,7 @@ const CTASection = () => {
                     <div className="flex items-center gap-3">
                         <div className="px-3 py-1 rounded-full border border-primary/50 bg-primary/10 text-primary font-mono text-xs tracking-widest flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                            SYSTEM_READY
+                            READY_TO_SCALE
                         </div>
                         <span className="text-muted-foreground font-mono text-xs hidden sm:block">ID: CX-9902</span>
                     </div>
@@ -83,25 +83,25 @@ const CTASection = () => {
                     </div>
                 </div>
                 
-                <h2 className="text-[3.5rem] md:text-[5rem] lg:text-[5.5rem] font-bold text-foreground leading-[0.9] tracking-tighter shadow-black drop-shadow-sm mb-6">
+                <h2 className="text-[2.5rem] md:text-[5rem] lg:text-[5.5rem] font-bold text-foreground leading-[0.95] md:leading-[0.9] tracking-tighter shadow-black drop-shadow-sm mb-6">
                   READY TO
                   <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-primary to-foreground">DEPLOY?</span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-primary to-foreground">SCALE?</span>
                 </h2>
               </CardItem>
               
               <CardItem translateZ="50" className="w-full relative mb-10 h-8">
                  <span className="text-xl md:text-2xl text-primary font-medium font-mono tracking-tight">
-                    {isInView && <TypewriterText text="> Initialize multi-brand orchestration sequence..." delay={0.5} />}
+                    {isInView && <TypewriterText text="> Initialize growth strategy sequence..." delay={0.5} />}
                  </span>
               </CardItem>
   
               <CardItem translateZ="30" className="w-full mt-2 max-w-lg mb-10">
                 <div className="flex flex-col w-full gap-3">
                   {[
-                    { text: 'Cross-Brand Interface Audit', icon: Cpu, id: 'A01' },
-                    { text: 'Automated Scalability Protocols', icon: Globe, id: 'S02' },
-                    { text: 'Systemic Brand Safety Logic', icon: Lock, id: 'K03' }
+                    { text: 'Multi-Channel Performance Audit', icon: Cpu, id: 'A01' },
+                    { text: 'Automated Growth Frameworks', icon: Globe, id: 'S02' },
+                    { text: 'Brand Consistency Systems', icon: Lock, id: 'K03' }
                   ].map((item, i) => (
                     <div key={i} className="flex items-center justify-between p-4 rounded-lg border border-border bg-secondary/50 hover:bg-secondary hover:border-primary/30 transition-all group/item backdrop-blur-sm cursor-default">
                       <div className="flex items-center gap-4">
@@ -124,11 +124,11 @@ const CTASection = () => {
                    <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-shine" />
                    
                    <span className="relative flex items-center gap-3">
-                       <Terminal size={20} /> INITIATE_SEQUENCE
+                       <Terminal size={20} /> START_GROWTH
                    </span>
                  </button>
                  <div className="flex flex-col gap-1">
-                     <span className="text-muted-foreground font-medium text-sm">Deployment Consultation</span>
+                     <span className="text-muted-foreground font-medium text-sm">Strategy Consultation</span>
                      <span className="text-fooror-purple-light/80 font-mono text-xs uppercase tracking-wider flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" /> Slots Open
                      </span>
@@ -137,7 +137,7 @@ const CTASection = () => {
             </div>
   
             {/* Right Content: Operator Stack */}
-            <div className="flex-1 relative min-h-[500px] lg:min-h-auto flex items-center justify-center lg:justify-end perspective-1000">
+            <div className="flex-1 relative min-h-[400px] md:min-h-[500px] lg:min-h-auto flex items-center justify-center lg:justify-end perspective-1000 mt-8 lg:mt-0">
                <CardItem translateZ="80" rotateX={5} rotateZ={-2} className="relative w-full max-w-[500px] lg:mr-4 flex flex-col items-end group/stack">
                   
                   {/* Operator Card 1 (Back) */}
@@ -149,7 +149,7 @@ const CTASection = () => {
                          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop" alt="Operator" className="w-full h-full object-cover grayscale" />
                      </div>
                      <div>
-                        <div className="text-primary text-[0.65rem] font-mono tracking-widest uppercase mb-1">System_Architect</div>
+                        <div className="text-primary text-[0.65rem] font-mono tracking-widest uppercase mb-1">Growth_Strategist</div>
                         <h4 className="text-lg font-bold text-foreground">Sarah Chen</h4>
                      </div>
                   </div>
@@ -163,9 +163,9 @@ const CTASection = () => {
                          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop" alt="Operator" className="w-full h-full object-cover grayscale mix-blend-luminosity" />
                      </div>
                      <div>
-                        <div className="text-primary text-[0.65rem] font-mono tracking-widest uppercase mb-1">Logic_Lead</div>
+                        <div className="text-primary text-[0.65rem] font-mono tracking-widest uppercase mb-1">Performance_Lead</div>
                         <h4 className="text-lg font-bold text-foreground">Andriy Semeshkin</h4>
-                        <div className="text-muted-foreground text-xs leading-snug font-mono mt-1">&gt; Infrastructure</div>
+                        <div className="text-muted-foreground text-xs leading-snug font-mono mt-1">&gt; Campaign Strategy</div>
                      </div>
                   </div>
 
@@ -187,10 +187,10 @@ const CTASection = () => {
                         </div>
                      </div>
                      <div>
-                        <div className="text-primary text-[0.7rem] font-mono tracking-widest uppercase mb-1">Lead_Architect</div>
+                        <div className="text-primary text-[0.7rem] font-mono tracking-widest uppercase mb-1">Growth_Director</div>
                         <h4 className="text-xl font-bold text-foreground mb-2">Dima Diuh</h4>
                         <div className="text-muted-foreground text-sm leading-snug font-mono">
-                            &gt; Brand Systems<br/>&gt; Automation Logic
+                            &gt; Brand Strategy<br/>&gt; Automation Flows
                         </div>
                      </div>
                   </div>

@@ -16,7 +16,7 @@ export default function ServiceProcess({ process }: { process: string[] }) {
 
       <div className="flex items-center gap-3 mb-10 relative z-10">
           <Terminal className="text-[#5210F8]" size={20} />
-          <h3 className="font-bold text-[#072C55] uppercase tracking-tight">Execution Protocol</h3>
+          <h3 className="font-bold text-[#072C55] uppercase tracking-tight">Growth Roadmap</h3>
       </div>
 
       <div className="relative z-10 border-l-2 border-[#072C55]/10 ml-4 space-y-12">
@@ -34,7 +34,7 @@ export default function ServiceProcess({ process }: { process: string[] }) {
             </div>
             
             <div className="flex items-center gap-3 mb-1">
-                <span className="font-mono text-[9px] font-black text-[#072C55]/30 group-hover:text-[#5210F8] transition-colors">STEP_0{i+1}</span>
+                <span className="font-mono text-[9px] font-black text-[#072C55]/30 group-hover:text-[#5210F8] transition-colors">PHASE_0{i+1}</span>
                 <ArrowRight size={12} className="text-[#072C55]/20 -rotate-45" />
             </div>
 
@@ -43,7 +43,7 @@ export default function ServiceProcess({ process }: { process: string[] }) {
             </h4>
             
             <p className="text-[#072C55]/50 text-sm leading-relaxed font-medium max-w-sm">
-                Systematic deployment phase ensuring optimal integration and output fidelity.
+                Strategic execution phase ensuring maximum impact and ROI.
             </p>
 
             {/* Completion Indicator (Mock) */}

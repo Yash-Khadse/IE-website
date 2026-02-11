@@ -37,8 +37,8 @@ import {
   HardDrive
 } from "lucide-react";
 
-// The "Audit Archive" System Data
-const AUDIT_FILES = [
+// The "Case Study" Data
+const CASE_STUDIES = [
   {
     serial: "0x_PRML_42",
     client: "TechFlow",
@@ -85,17 +85,17 @@ const AUDIT_FILES = [
 
 export default function SocialProof() {
   const [activeFile, setActiveFile] = useState(0);
-  const [systemReady, setSystemReady] = useState(false);
+  const [dataReady, setDataReady] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setSystemReady(true);
+    setDataReady(true);
   }, []);
 
-  const current = AUDIT_FILES[activeFile];
+  const current = CASE_STUDIES[activeFile];
 
   return (
-    <section ref={containerRef} className="relative py-48 bg-[#F8F9FA] overflow-hidden leading-tight font-sans">
+    <section ref={containerRef} className="relative py-24 md:py-48 bg-[#F8F9FA] overflow-hidden leading-tight font-sans">
       
       {/* Background Architectural Architecture (The Grid OS) */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] select-none">
@@ -103,7 +103,7 @@ export default function SocialProof() {
           <div className="absolute top-[15%] left-0 w-full h-[1px] bg-[#072C55]" />
           <div className="absolute top-[85%] left-0 w-full h-[1px] bg-[#072C55]" />
           <div className="absolute top-0 right-10 flex flex-col items-end opacity-20">
-              <span className="font-mono text-[10vw] font-black text-[#072C55] leading-none">AUDIT</span>
+              <span className="font-mono text-[10vw] font-black text-[#072C55] leading-none">GROWTH</span>
               <span className="font-mono text-[10vw] font-black text-[#072C55] leading-none">ARCHIVE</span>
           </div>
       </div>
@@ -111,7 +111,7 @@ export default function SocialProof() {
       <div className="max-w-[1450px] mx-auto px-6 relative z-10">
         
         {/* Superior Header: The Command HUD */}
-        <div className="flex flex-col xl:flex-row justify-between items-start xl:items-end mb-40 gap-16">
+        <div className="flex flex-col xl:flex-row justify-between items-start xl:items-end mb-20 md:mb-40 gap-16">
             <div className="max-w-4xl">
                  <div className="flex items-center gap-4 mb-10">
                      <span className="flex h-3 w-3 relative">
@@ -119,7 +119,7 @@ export default function SocialProof() {
                         <span className="relative inline-flex rounded-full h-3 w-3 bg-[#00FF94]"></span>
                      </span>
                      <div className="h-[2px] w-12 bg-[#072C55]/10" />
-                     <span className="font-mono text-xs font-black text-[#072C55]/30 uppercase tracking-[0.6em]">System Validation // Performance Ledger</span>
+                     <span className="font-mono text-xs font-black text-[#072C55]/30 uppercase tracking-[0.6em]">Market Validation // Performance Ledger</span>
                  </div>
                  <h2 className="text-4xl md:text-9xl lg:text-[11rem] font-black text-[#072C55] tracking-tighter leading-[0.75] mb-8 md:mb-12">
                      Verified <br />
@@ -137,7 +137,7 @@ export default function SocialProof() {
                            <Microchip size={140} />
                       </div>
                       <div className="relative z-10 mb-8 flex justify-between items-center px-2">
-                           <span className="font-mono text-[10px] font-black text-[#072C55]/30 tracking-widest uppercase">System_Load</span>
+                           <span className="font-mono text-[10px] font-black text-[#072C55]/30 tracking-widest uppercase">Market_Demand</span>
                            <Activity size={14} className="text-[#5210F8]" />
                       </div>
                       <div className="flex items-end justify-between px-2 mb-10">
@@ -147,7 +147,7 @@ export default function SocialProof() {
                            </div>
                            <div className="text-right">
                                <span className="text-sm font-black text-[#00FF94] block">99.98%</span>
-                               <span className="font-mono text-[8px] font-black text-[#072C55]/30 uppercase tracking-widest">Scaling_Uptime</span>
+                               <span className="font-mono text-[8px] font-black text-[#072C55]/30 uppercase tracking-widest">Campaign_Uptime</span>
                            </div>
                       </div>
                       <div className="h-1 w-full bg-[#072C55]/5 rounded-full overflow-hidden">
@@ -170,13 +170,13 @@ export default function SocialProof() {
                       <div className="flex items-center justify-between px-6 py-8 border-b border-[#072C55]/5 mb-8">
                            <div className="flex items-center gap-3">
                                 <Database size={18} className="text-[#5210F8]" />
-                                <span className="font-mono text-[10px] font-black text-[#072C55] uppercase tracking-widest">Audit_Archive:03</span>
+                                <span className="font-mono text-[10px] font-black text-[#072C55] uppercase tracking-widest">Case_Archive:03</span>
                            </div>
                            <Terminal size={14} className="text-[#072C55]/20" />
                       </div>
                       
-                      <div className="space-y-4 px-2 flex-1">
-                           {AUDIT_FILES.map((file, i) => (
+                       <div className="space-y-4 px-2 flex-1">
+                            {CASE_STUDIES.map((file, i) => (
                                <button
                                    key={i}
                                    onClick={() => setActiveFile(i)}
@@ -216,7 +216,7 @@ export default function SocialProof() {
                            </div>
                            <div className="relative z-10 flex items-center justify-between">
                                 <div>
-                                    <span className="block font-mono text-[10px] font-black text-[#072C55]/30 tracking-widest uppercase mb-1">System_Integrity</span>
+                                    <span className="block font-mono text-[10px] font-black text-[#072C55]/30 tracking-widest uppercase mb-1">Data_Integrity</span>
                                     <div className="flex items-center gap-2">
                                          <CheckCircle2 size={18} className="text-[#00FF94]" />
                                          <span className="text-xl font-black text-[#072C55]">SOC2_AUDITED</span>
@@ -311,7 +311,7 @@ export default function SocialProof() {
                                             <div className="grid gap-12 px-2">
                                                  {[current.metric_a, current.metric_b, current.metric_c].map((m, i) => (
                                                      <div key={i} className="flex flex-col group/stat hover:translate-x-2 transition-transform duration-500">
-                                                          <span className="font-mono text-[9px] font-black text-white/30 uppercase tracking-widest mb-2">MetricNode_0{i + 1}</span>
+                                                          <span className="font-mono text-[9px] font-black text-white/30 uppercase tracking-widest mb-2">GrowthMetric_0{i + 1}</span>
                                                           <span className="text-5xl font-black text-[#00FF94] tracking-tighter group-hover/stat:text-white transition-colors">{m}</span>
                                                      </div>
                                                  ))}
@@ -345,7 +345,7 @@ export default function SocialProof() {
                                       <Share2 size={20} />
                                   </button>
                                   <button className="flex items-center gap-4 px-12 py-6 bg-[#072C55] text-white rounded-[2.5rem] font-mono text-xs font-black uppercase tracking-[0.3em] hover:bg-[#5210F8] transition-all group shadow-3xl overflow-hidden relative">
-                                      <span className="relative z-10">Access Audit Spec</span>
+                                      <span className="relative z-10">Access Case Study</span>
                                       <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
                                       <motion.div 
                                           initial={{ x: "-100%" }}

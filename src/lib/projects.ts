@@ -1,3 +1,4 @@
+
 import { BarChart3, Database, Layers, Radio, Terminal, Cpu, Search, Activity, Zap, Globe, ShieldCheck, Workflow } from 'lucide-react';
 
 export interface ProjectData {
@@ -7,10 +8,58 @@ export interface ProjectData {
   category: string;
   role: string[];
   summary: string;
-  challenge: string;
-  solution: string;
-  results: { label: string; value: string; suffix?: string; prefix?: string, description?: string }[];
+  
+  // 1. Hero
+  headline: string; // "Scaled ROAS by 3.2x..."
+  tags: string[];
+
+  // 2. Client Overview
+  clientOverview: {
+    about: string;
+    industry: string;
+    companySize: string;
+    headquarters: string;
+  };
+
+  // 3. Challenge
+  challenge: {
+    description: string;
+    constraints: string[]; // "Budget constraints", "Legacy tech"
+    prevState: string;
+  };
+
+  // 4. Goals & Metrics
+  goals: string[];
+
+  // 5. Strategy
+  strategy: {
+    title: string;
+    description: string;
+  }[];
+
+  // 6. Execution
+  executionPhases: {
+    phase: string;
+    title: string;
+    description: string;
+  }[];
+
+  // 7. Tech Stack (existing but maybe expand)
   techStack: string[];
+  
+  // 8. Results (existing but map to visual counters)
+  results: { label: string; value: string; suffix?: string; prefix?: string, description?: string }[];
+  
+  // 9. Takeaways
+  keyTakeaways: string[];
+
+  // 10. Testimonial
+  testimonial?: {
+    quote: string;
+    author: string;
+    role: string;
+  };
+
   heroImage: string;
   galleryImages: string[];
   color: string;
@@ -21,103 +70,399 @@ export interface ProjectData {
 
 export const PROJECTS: ProjectData[] = [
   {
-    id: 'aether-system',
-    href: '/work/aether-system',
-    title: 'AetherSystem',
-    category: 'Brand // Orchestration',
-    role: ['Strategy', 'Visual Identity', 'Web Development'],
-    summary: 'Multi-Region Market Entry. Orchestrating a seamless brand launch across 3 continents simultaneously.',
-    challenge: 'AetherSystem needed to launch in North America, Europe, and Asia simultaneously while maintaining strict brand consistency and local relevance. The challenge was fragmentation: disparate data sources and disconnected regional teams.',
-    solution: 'We deployed a centralized "Brand OS" — a digital design system and content engine that fed localized assets to regional teams in real-time. This ensured 100% brand compliance while allowing for 20% local adaptation.',
+    id: 'compqsoft',
+    href: '/work/compqsoft',
+    title: 'CompQsoft',
+    category: 'Government // IT Services',
+    role: ['Strategic Branding', 'UI/UX Design', 'Enterprise Development'],
+    summary: 'Strategic Digital Transformation for Federal Enterprise.',
+    headline: 'Modernizing Federal IT Infrastructure',
+    tags: ['GovTech', 'Compliance', 'Enterprise'],
+    
+    clientOverview: {
+      about: 'A premier government contractor providing high-level IT solutions to federal agencies.',
+      industry: 'Defense & Aerospace',
+      companySize: '500+ Employees',
+      headquarters: 'Houston, TX'
+    },
+    
+    challenge: {
+      description: 'Communicating complex technical capabilities to federal agencies while maintaining strict compliance.',
+      constraints: ['Strict FEDRAMP compliance', 'Legacy system integration', 'Zero-downtime requirement'],
+      prevState: 'Outdated, non-responsive site with poor accessibility scores.'
+    },
+
+    goals: [
+      'Achieve 100% Section 508 Compliance',
+      'Reduce page load time by 50%',
+      'Increase government contract inquiries'
+    ],
+
+    strategy: [
+      { title: 'Trust-First Architecture', description: 'Prioritizing security signals and compliance certifications in the UX.' },
+      { title: 'Modular Design System', description: 'Creating a repeatable component library for rapid federal deployment.' }
+    ],
+
+    executionPhases: [
+      { phase: '01', title: 'Audit & Discovery', description: 'Comprehensive analysis of existing assets and compliance gaps.' },
+      { phase: '02', title: 'Architecture', description: 'Developing a secure, headless CMS structure.' },
+      { phase: '03', title: 'Deployment', description: 'Rolling out the new platform with zero downtime.' }
+    ],
+
     results: [
-        { label: 'Sync Efficiency', value: '92', suffix: '%', description: 'Reduction in asset localized time' },
-        { label: 'Market Reach', value: '3', suffix: 'Regions', description: 'Simultaneous successful launches' },
-        { label: 'Conversion', value: '14', suffix: '%', description: 'Above industry vertical average' }
+        { label: 'Contract Sensitivity', value: '100', suffix: '%', description: 'Compliance adherence' },
+        { label: 'Load Speed', value: '0.8', suffix: 's', description: 'Global access performance' },
+        { label: 'Trust Score', value: '98', suffix: '/100', description: 'Stakeholder confidence' }
     ],
-    techStack: ['Next.js', 'Sanity CMS', 'Framer Motion', 'Vercel'],
-    heroImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80',
-    galleryImages: [
-        'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80',
-        'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80'
-    ],
-    color: '#00FF94',
-    year: '2025',
-    nextProject: 'neural-pulse',
-    relatedServices: ['strategic-architecture', 'global-expansion']
-  },
-  {
-    id: 'neural-pulse',
-    href: '/work/neural-pulse',
-    title: 'NeuralPulse',
-    category: 'Logic // Automation',
-    role: ['AI Integration', 'Workflow Automation', 'UI/UX Design'],
-    summary: 'Autonomous Funnel Scaling. Leveraging predictive AI to automate lead qualification and routing.',
-    challenge: 'NeuralPulse was drowning in unqualified leads. Their sales team spent 60% of their time filtering bad data, leading to burnout and missed high-value opportunities.',
-    solution: 'We implemented an AI-driven "Logic Gate" system. By analyzing behavioral signals and historical data, the system autonomously scored and routed leads. Only high-intent prospects reached human agents.',
-    results: [
-        { label: 'Conversion Lift', value: '3.1', suffix: 'x', description: 'Increase in qualified pipeline' },
-        { label: 'Time Saved', value: '450', suffix: 'Hrs/Mo', description: 'Reclaimed for strategic selling' },
-        { label: 'Accuracy', value: '99.8', suffix: '%', description: 'Routing precision' }
-    ],
-    techStack: ['Python', 'TensorFlow', 'React', 'Node.js'],
-    heroImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&q=80',
-    galleryImages: [
-        'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80',
-        'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80'
-    ],
-    color: '#5210F8',
-    year: '2024',
-    nextProject: 'prism-core',
-    relatedServices: ['automation-workflow', 'search-intelligence']
-  },
-  {
-    id: 'prism-core',
-    href: '/work/prism-core',
-    title: 'PrismCore',
-    category: 'Identity // System',
-    role: ['Rebranding', '3D Motion', 'Design System'],
-    summary: 'Global Brand Architecture. Unifying 12 sub-brands under a single, cohesive visual language.',
-    challenge: 'After a series of acquisitions, PrismCore became a "Frankenstein" brand. Customer confusion was at an all-time high, and cross-selling was impossible due to lack of brand trust.',
-    solution: 'We developed "Prism_OS", a modular identity system. Based on a shared geometric core, each sub-brand received a distinct customized facet, maintaining individuality while ensuring they clearly belonged to the parent ecosystem.',
-    results: [
-        { label: 'Brand Equity', value: '40', suffix: '%', description: 'Increase in perceived value' },
-        { label: 'Cross-Sell', value: '18', suffix: '%', description: 'Uplift in Q1 post-launch' },
-        { label: 'Speed', value: '4', suffix: 'x', description: 'Faster campaign deployment' }
-    ],
-    techStack: ['WebGL', 'Three.js', 'Typescript', 'Figma'],
+    techStack: ['Next.js', 'AWS GovCloud', 'Tailwind', 'Typescript'],
     heroImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80',
     galleryImages: [
-        'https://images.unsplash.com/photo-1558655146-d09347e0b7a9?w=800&q=80',
-        'https://images.unsplash.com/photo-1550745165-9010d618953d?w=800&q=80'
-    ],
-    color: '#C47DFD',
-    year: '2025',
-    nextProject: 'velocity-stream',
-    relatedServices: ['brand-protection', 'performance-creative']
-  },
-  {
-    id: 'velocity-stream',
-    href: '/work/velocity-stream',
-    title: 'VelocityStream',
-    category: 'Data // Distribution',
-    role: ['Data Engineering', 'Dashboard UI', 'Backend Dev'],
-    summary: 'Real-time Lead Routing. Engineering low-latency data pipelines for high-frequency trading firms.',
-    challenge: 'Milliseconds mattered. The client\'s existing infrastructure had a 400ms lag in data visualization, causing traders to miss critical market movements.',
-    solution: 'We re-architected the entire frontend data layer using WebSockets and a custom binary protocol. We coupled this with a GPU-accelerated rendering engine to handle millions of points per second without stutter.',
-    results: [
-        { label: 'Latency', value: '84', suffix: '%', description: 'Reduction in data lag' },
-        { label: 'Uptime', value: '99.99', suffix: '%', description: 'System reliability' },
-        { label: 'Volume', value: '50', suffix: 'M+', description: 'Events processed daily' }
-    ],
-    techStack: ['Rust', 'WebAssembly', 'React', 'Go'],
-    heroImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1600&q=80',
-    galleryImages: [
-        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
-        'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80'
+        'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
+        'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80'
     ],
     color: '#072C55',
     year: '2024',
-    nextProject: 'aether-system',
-    relatedServices: ['data-analytics', 'full-stack-development']
+    nextProject: 'compqsoft-digital',
+    relatedServices: ['branding-systems', 'website-uiux-engineering'],
+    
+    keyTakeaways: [
+      'Compliance can drive design excellence, not hinder it.',
+      'Speed is a critical trust factor for government entities.'
+    ],
+    testimonial: {
+      quote: "InvisiEdge transformed our digital presence into a strategic asset that actually wins contracts.",
+      author: "John Doe",
+      role: "CTO, CompQsoft"
+    }
+  },
+  {
+    id: 'compqsoft-digital',
+    href: '/work/compqsoft-digital',
+    title: 'CompQsoft Digital',
+    category: 'Corporate // Innovation',
+    role: ['Brand Strategy', 'Digital Experience', 'Content Engine'],
+    summary: 'Modernizing Corporate Identity for a Digital-First Era.',
+    headline: 'Bridging Technical Prowess with Commercial Appeal',
+    tags: ['B2B', 'SaaS', 'Digital Transformation'],
+
+    clientOverview: {
+      about: 'The commercial innovation arm of a major government contractor.',
+      industry: 'Enterprise Software',
+      companySize: '200+ Employees',
+      headquarters: 'Austin, TX'
+    },
+
+    challenge: {
+        description: 'Creating a distinct commercial identity that still honors the parent brand\'s heritage.',
+        constraints: ['Short timeline', 'Need for distinct market positioning'],
+        prevState: 'Brand confusion between parent and commercial entities.'
+    },
+
+    goals: [
+        'Establish reliable commercial brand identity',
+        'Increase B2B lead generation by 200%',
+        'Launch new digital product suite'
+    ],
+
+    strategy: [
+        { title: 'Digital Twin Identity', description: 'A mirrored brand system that feels familiar but faster.' },
+        { title: 'Inbound Content Engine', description: 'Automating thought leadership distribution.' }
+    ],
+
+    executionPhases: [
+        { phase: '01', title: 'Brand Strategy', description: 'Defining the commercial value proposition.' },
+        { phase: '02', title: 'Visual Identity', description: 'Designing the "Digital Twin" system.' },
+        { phase: '03', title: 'Go-to-Market', description: 'Launching the new brand across all channels.' }
+    ],
+
+    results: [
+        { label: 'Lead Gen', value: '240', suffix: '%', description: 'Increase in B2B inquiries' },
+        { label: 'Engagement', value: '4.5', suffix: 'm', description: 'Average session duration' },
+        { label: 'Brand Lift', value: '35', suffix: '%', description: 'Market perception score' }
+    ],
+    techStack: ['React', 'Framer Motion', 'Sanity CMS', 'Node.js'],
+    heroImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80',
+    galleryImages: [
+        'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80',
+        'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80'
+    ],
+    color: '#5210F8',
+    year: '2024',
+    nextProject: 'makaan-investment-group',
+    relatedServices: ['social-content-engines', 'seo-digital-visibility'],
+
+    keyTakeaways: [
+        'B2B buyers expect B2C-level experiences.',
+        'Content velocity is key to commercial growth.'
+    ],
+    testimonial: {
+        quote: "The new identity perfectly captures our innovative spirit while respecting our roots.",
+        author: "Jane Smith",
+        role: "CMO, CompQsoft Digital"
+    }
+  },
+  {
+    id: 'makaan-investment-group',
+    href: '/work/makaan-investment-group',
+    title: 'Makaan Group',
+    category: 'Finance // Investment',
+    role: ['Web Operations', 'Secure Portal', 'Investor Relations'],
+    summary: 'High-Stakes Investment Portal for Global Investors.',
+    headline: 'Simplifying Cross-Border Investment Flows',
+    tags: ['Fintech', 'EB-5', 'Investment'],
+
+    clientOverview: {
+        about: 'A global investment group facilitating EB-5 visa investments.',
+        industry: 'Financial Services',
+        companySize: 'Global Operations',
+        headquarters: 'Dubai / New York'
+    },
+
+    challenge: {
+        description: 'Migrating high-net-worth investors through complex visa processes requiring absolute trust.',
+        constraints: ['High security requirements', 'Multi-language support'],
+        prevState: 'Manual, paper-heavy processes causing delays.'
+    },
+
+    goals: [
+        'Digitize the entire investment application process',
+        'Ensure bank-grade security for documents',
+        'Reduce processing time by 40%'
+    ],
+
+    strategy: [
+        { title: 'Transparency-First UI', description: 'Visualizing complex legal steps as simple milestones.' },
+        { title: 'Bank-Grade Infrastructure', description: 'Deploying encrypted document vaults.' }
+    ],
+
+    executionPhases: [
+        { phase: '01', title: 'Security Audit', description: 'Designing the secure data architecture.' },
+        { phase: '02', title: 'Portal Development', description: 'Building the investor dashboard.' },
+        { phase: '03', title: 'Global Rollout', description: 'Launching in key international markets.' }
+    ],
+
+    results: [
+        { label: 'Capital Raised', value: '50', suffix: 'M+', description: 'Through new digital funnel' },
+        { label: 'User Retention', value: '88', suffix: '%', description: 'Portal return rate' },
+        { label: 'Security', value: '100', suffix: '%', description: 'Zero breaches' }
+    ],
+    techStack: ['Next.js', 'PostgreSQL', 'Stripe API', 'D3.js'],
+    heroImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80',
+    galleryImages: [
+        'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80',
+        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80'
+    ],
+    color: '#C47DFD',
+    year: '2025',
+    nextProject: 'ns4',
+    relatedServices: ['api-integrations', 'crm-funnel-automation'],
+
+     keyTakeaways: [
+        'Trust is built through transparency and polished design.',
+        'Security features should be visible to the user.'
+    ],
+    testimonial: {
+        quote: "Our investors love the new portal. It's clean, fast, and most importantly, secure.",
+        author: "Sarah Jones",
+        role: "Director, Makaan Group"
+    }
+  },
+  {
+    id: 'ns4',
+    href: '/work/ns4',
+    title: 'NS4',
+    category: 'Technology // Security',
+    role: ['Identity System', 'Marketing Collateral', 'Web Design'],
+    summary: 'Next-Gen Network Security Infrastructure.',
+    headline: 'Visualizing the Invisible Layer of Protection',
+    tags: ['Cybersecurity', 'SaaS', 'Branding'],
+
+    clientOverview: {
+        about: 'A cutting-edge network security firm protecting enterprise infrastructure.',
+        industry: 'Cybersecurity',
+        companySize: 'Startup (Series A)',
+        headquarters: 'San Francisco, CA'
+    },
+
+    challenge: {
+        description: 'Cybersecurity products often feel abstract and technical. Need to make the invisible tangible.',
+        constraints: ['Complex technical concepts', 'Highly competitive market'],
+        prevState: 'Generic, fear-based marketing imagery.'
+    },
+
+    goals: [
+        'Create a distinct visual language for "Invisible Security"',
+        'Increase demo requests from C-level execs',
+        'Position as a premium enterprise solution'
+    ],
+
+    strategy: [
+        { title: 'Active Shielding Aesthetics', description: 'Using generative mesh patterns to visualize protection.' },
+        { title: 'Outcome-Focused Messaging', description: 'Shifting from features to business continuity.' }
+    ],
+
+    executionPhases: [
+        { phase: '01', title: 'Concept Art', description: 'Developing the "Active Shield" visual language.' },
+        { phase: '02', title: 'Web Experience', description: 'Building the immersive 3D website.' },
+        { phase: '03', title: 'Asset Production', description: 'Creating sales enablement collateral.' }
+    ],
+
+    results: [
+        { label: 'Demo Requests', value: '3', suffix: 'x', description: 'Increase post-launch' },
+        { label: 'Site Speed', value: '99', suffix: '/100', description: 'Google Lighthouse score' },
+        { label: 'Recall', value: '72', suffix: '%', description: 'Brand memorability' }
+    ],
+    techStack: ['WebGL', 'Three.js', 'React', 'Cloudflare'],
+    heroImage: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1600&q=80',
+    galleryImages: [
+        'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80',
+        'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80'
+    ],
+    color: '#072C55',
+    year: '2023',
+    nextProject: 'madina-shaik',
+    relatedServices: ['branding-systems', 'website-uiux-engineering'],
+
+     keyTakeaways: [
+        'Abstract concepts need concrete metaphors.',
+        'Performance is a key part of the brand message in security.'
+    ],
+    testimonial: {
+        quote: "Finally, our brand looks as advanced as our technology.",
+        author: "David Chen",
+        role: "CEO, NS4"
+    }
+  },
+  {
+    id: 'madina-shaik',
+    href: '/work/madina-shaik',
+    title: 'Madina Shaik',
+    category: 'Personal Brand // Leadership',
+    role: ['Personal Branding', 'Social Strategy', 'Digital Presence'],
+    summary: 'Elevating Thought Leadership in the Digital Space.',
+    headline: 'A Digital Home for Visionary Leadership',
+    tags: ['Personal Brand', 'Coaching', 'Impact'],
+
+    clientOverview: {
+        about: 'A renowned leadership coach and speaker empowering executives.',
+        industry: 'Professional Services',
+        companySize: 'Individual Brand',
+        headquarters: 'Global / Remote'
+    },
+
+    challenge: {
+        description: 'Standing out as a thought leader in a saturated market requires authenticity.',
+        constraints: ['Need for high personal connection', 'Content-heavy requirements'],
+        prevState: 'Fragmented social presence with no central hub.'
+    },
+
+    goals: [
+        'Consolidate content into a central thought leadership hub',
+        'Increase speaking engagement bookings',
+        'Build a owned audience email list'
+    ],
+
+    strategy: [
+        { title: 'Editorial Aesthetics', description: 'Treating the website like a high-end magazine.' },
+        { title: 'Content-First Architecture', description: 'Prioritizing articles and videos in the UX.' }
+    ],
+
+    executionPhases: [
+        { phase: '01', title: 'Brand Storytelling', description: 'Refining the personal narrative.' },
+        { phase: '02', title: 'Site Design', description: 'Creating the editorial web experience.' },
+        { phase: '03', title: 'Growth Engine', description: 'Setting up the newsletter and social funnels.' }
+    ],
+
+    results: [
+        { label: 'Follower Growth', value: '150', suffix: '%', description: 'Cross-platform' },
+        { label: 'Engagement', value: '12', suffix: '%', description: 'Average rate' },
+        { label: 'Bookings', value: '5', suffix: 'x', description: 'Speaking inquiries' }
+    ],
+    techStack: ['Next.js', 'Tailwind', 'ConvertKit', 'Vercel'],
+    heroImage: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1600&q=80',
+    galleryImages: [
+        'https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&q=80',
+        'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80'
+    ],
+    color: '#5210F8',
+    year: '2025',
+    nextProject: 'sustainable-plastic',
+    relatedServices: ['social-content-engines', 'branding-systems'],
+
+     keyTakeaways: [
+        'Personal brands must feel personal, yet professional.',
+        'Content discoverability is the main diverse of engagement.'
+    ],
+    testimonial: {
+        quote: "This website truly reflects who I am and the impact I want to make.",
+        author: "Madina Shaik",
+        role: "Founder"
+    }
+  },
+  {
+    id: 'sustainable-plastic',
+    href: '/work/sustainable-plastic',
+    title: 'Sustainable Plastic',
+    category: 'Eco // Manufacturing',
+    role: ['Brand Narrative', 'Eco-Packaging Design', 'Web Experience'],
+    summary: 'Redefining Sustainability in Material Science.',
+    headline: 'Making the Circular Economy Visually Compelling',
+    tags: ['Sustainability', 'Manufacturing', 'B2B'],
+
+    clientOverview: {
+        about: 'A pioneer in biodegradable plastic alternatives for industrial use.',
+        industry: 'Manufacturing',
+        companySize: 'Mid-Market',
+        headquarters: 'Seattle, WA'
+    },
+
+    challenge: {
+        description: 'Proving that their material was truly circular and eco-friendly without greenwashing.',
+        constraints: ['Skeptical market', 'Complex scientific data'],
+        prevState: 'Dry, technical datasheets that failed to inspire.'
+    },
+
+    goals: [
+        'Visualize the full lifecycle of the material',
+        'Secure pilots with major retail partners',
+        'Educate the market on true sustainability'
+    ],
+
+    strategy: [
+        { title: 'Radical Transparency', description: 'Visualizing every step of the supply chain.' },
+        { title: 'Data Storytelling', description: 'Turning metrics into compelling narratives.' }
+    ],
+
+    executionPhases: [
+        { phase: '01', title: 'Data Visualization', description: 'Mapping the material lifecycle.' },
+        { phase: '02', title: 'Brand Identity', description: 'Creating a clean, eco-modern aesthetic.' },
+        { phase: '03', title: 'Digital Experience', description: 'Building the interactive education hub.' }
+    ],
+
+    results: [
+        { label: 'Partnerships', value: '12', suffix: '+', description: 'Major retail pilots' },
+        { label: 'Trust', value: '94', suffix: '%', description: 'Consumer confidence' },
+        { label: 'Traffic', value: '40', suffix: 'k', description: 'Monthly organic visitors' }
+    ],
+    techStack: ['Next.js', 'D3.js', 'GreenSock', 'Shopify'],
+    heroImage: 'https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=1600&q=80',
+    galleryImages: [
+        'https://images.unsplash.com/photo-1605600659908-0ef719419d41?w=800&q=80',
+        'https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=800&q=80'
+    ],
+    color: '#00FF94',
+    year: '2024',
+    nextProject: 'compqsoft',
+    relatedServices: ['branding-systems', 'event-expo-branding'],
+
+     keyTakeaways: [
+        'Transparency is the new green.',
+        'Data can be beautiful and emotional.'
+    ],
+    testimonial: {
+        quote: "We finally have a way to explain our technology that gets people excited.",
+        author: "Green Tech CEO",
+        role: "CEO"
+    }
   }
 ];

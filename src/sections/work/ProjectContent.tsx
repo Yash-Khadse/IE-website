@@ -56,7 +56,7 @@ const SplitSection = ({ title, content, type }: { title: string, content: string
                 <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-widest mb-8 border
                     ${isChallenge ? 'bg-red-500/10 text-red-500 border-red-500/20' : 'bg-[#00FF94]/10 text-[#00FF94] border-[#00FF94]/20'}`}>
                     <span className={`w-1.5 h-1.5 rounded-full ${isChallenge ? 'bg-red-500' : 'bg-[#00FF94]'} animate-pulse`} />
-                    {isChallenge ? 'System_Friction' : 'Protocol_Deployed'}
+                    {isChallenge ? 'Market_Friction' : 'Strategy_Deployed'}
                 </div>
                 
                 <h3 className={`text-4xl md:text-5xl font-black tracking-tight leading-[0.9] mb-6 
@@ -72,7 +72,7 @@ const SplitSection = ({ title, content, type }: { title: string, content: string
             
             {/* Bottom Tech Decoration */}
             <div className="mt-12 pt-6 border-t border-current opacity-20 flex justify-between items-end font-mono text-[10px]">
-                <span>{isChallenge ? 'ERR_CODE: 409_CONFLICT' : 'STATUS: 200_OK'}</span>
+                <span>{isChallenge ? 'STATUS: CHALLENGE_IDENTIFIED' : 'STATUS: SOLUTION_ACTIVE'}</span>
                 {isChallenge ? <Layers size={16} /> : <CheckCircle2 size={16} />}
             </div>
         </motion.div>
@@ -80,7 +80,10 @@ const SplitSection = ({ title, content, type }: { title: string, content: string
 };
 
 export default function ProjectContent({ project }: { project: ProjectData }) {
-  const { challenge, solution, results, techStack, galleryImages } = project;
+  const { challenge, results, techStack, galleryImages, strategy } = project;
+
+  const challengeText = challenge.description;
+  const solutionText = strategy.map(s => s.description).join(" ");
 
   return (
     <section className="bg-background py-24 md:py-32 px-6 overflow-hidden relative">
@@ -95,19 +98,19 @@ export default function ProjectContent({ project }: { project: ProjectData }) {
             
             {/* 1. ANIMATED CHALLENGE / SOLUTION */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 mb-40 items-stretch">
-                <SplitSection title="THE BOTTLENECK" content={challenge} type="challenge" />
-                <SplitSection title="THE ORCHESTRATION" content={solution} type="solution" />
+                <SplitSection title="THE BOTTLENECK" content={challengeText} type="challenge" />
+                <SplitSection title="THE ORCHESTRATION" content={solutionText} type="solution" />
             </div>
 
             {/* 2. QUANTIFIED RESULTS */}
             <div className="mb-40">
                 <div className="flex items-center justify-between mb-16">
                     <h2 className="text-3xl md:text-4xl font-black text-[#072C55] dark:text-white tracking-tight">
-                        SYSTEM OUTPUT
+                        MARKET IMPACT
                     </h2>
                     <div className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full border border-[#072C55]/10 dark:border-white/10 bg-[#F8F9FA] dark:bg-white/5">
                         <span className="w-2 h-2 bg-[#00FF94] rounded-full animate-pulse" />
-                        <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#072C55]/60 dark:text-white/60">Live Metrics</span>
+                        <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#072C55]/60 dark:text-white/60">Performance Data</span>
                     </div>
                 </div>
 
@@ -127,7 +130,7 @@ export default function ProjectContent({ project }: { project: ProjectData }) {
                             
                             <div className="mb-8">
                                 <span className="font-mono text-[10px] uppercase font-bold text-[#072C55]/40 dark:text-white/40 tracking-[0.2em] mb-2 block">
-                                    KPI_0{i+1}
+                                    METRIC_0{i+1}
                                 </span>
                                 <div className="text-6xl md:text-7xl lg:text-8xl font-black text-[#072C55] dark:text-white tracking-tighter leading-none group-hover:scale-105 transition-transform duration-500 origin-left">
                                     <MetricCounter value={result.value} suffix={result.suffix} />

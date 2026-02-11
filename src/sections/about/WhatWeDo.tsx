@@ -51,7 +51,7 @@ export default function WhatWeDo() {
   ];
 
   return (
-    <section className="py-24 bg-[#F8F9FA] relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-[#F8F9FA] relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         
         {/* Header */}
@@ -75,6 +75,7 @@ export default function WhatWeDo() {
                     <div 
                         key={index}
                         onMouseEnter={() => setActiveService(index)}
+                        onClick={() => setActiveService(index)}
                         className={`group relative p-6 md:p-8 rounded-[2rem] transition-all duration-300 cursor-pointer border ${activeService === index ? 'bg-white border-[#072C55]/5 shadow-xl' : 'bg-transparent border-transparent hover:bg-white/50'}`}
                     >
                         <div className="flex items-start justify-between mb-4">
@@ -135,7 +136,7 @@ export default function WhatWeDo() {
                                     <div className="w-3 h-3 rounded-full bg-white/20" />
                                 </div>
                                 <div className="font-mono text-xs text-white/50 uppercase tracking-widest">
-                                    System View v2.0
+                                    Growth View v2.0
                                 </div>
                             </div>
 

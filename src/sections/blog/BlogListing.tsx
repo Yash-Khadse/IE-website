@@ -27,19 +27,18 @@ export default function BlogListing() {
                         <span className="font-mono text-xs font-bold text-[#00FF94] uppercase tracking-[0.2em]">Live Archive</span>
                    </div>
                    <h2 className="text-4xl md:text-5xl font-black tracking-tight text-foreground leading-[0.9]">
-                       TRANSMISSIONS
+                       PERSPECTIVES
                    </h2>
                </div>
                
                <div className="flex items-center gap-6 text-xs text-muted-foreground/60 font-mono tracking-widest uppercase">
                    <div className="flex flex-col items-end">
-                        <span>Total_Files</span>
+                         <span>Total_Posts</span>
                         <span className="text-foreground font-bold text-lg">{BLOGS.length.toString().padStart(2, '0')}</span>
                    </div>
                    <div className="w-[1px] h-8 bg-current opacity-20" />
                    <div className="flex flex-col items-end">
-                        <span>Encryption</span>
-                        <span className="text-foreground font-bold text-lg">AES-256</span>
+                         <span>Global_Access // OPEN</span>
                    </div>
                </div>
             </motion.div>
@@ -56,7 +55,7 @@ export default function BlogListing() {
                 <div className="flex justify-center mt-20 relative">
                     <div className="absolute top-1/2 left-0 w-full h-[1px] bg-border -z-10" />
                     <button className="px-8 py-3 rounded-full border border-border bg-background text-foreground font-mono uppercase tracking-widest text-xs hover:bg-foreground hover:text-background hover:scale-105 transition-all duration-300 shadow-xl">
-                        Load_Next_Batch
+                        Load_More_Insights
                     </button>
                 </div>
             )}

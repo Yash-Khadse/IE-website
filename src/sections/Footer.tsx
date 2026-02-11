@@ -38,19 +38,19 @@ const Footer = () => {
                           className="h-10 w-auto object-contain" 
                        />
                        <span className="px-3 py-1 rounded bg-secondary border border-border text-[10px] font-mono text-muted-foreground tracking-widest">
-                           SYSTEM_VER_3.0
+                           GROWTH_VER_3.0
                        </span>
                     </div>
 
                     <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight tracking-tight mb-6">
-                        WHERE LOGIC BECOMES <br/>
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-foreground to-primary">ORCHESTRATED_DOMINANCE</span>
+                        WHERE STRATEGY BECOMES <br/>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-foreground to-primary">MARKET_DOMINANCE</span>
                     </h2>
 
                     <div className="flex gap-4">
-                        <StatusBadge icon={ShieldCheck} label="SECURE" color="text-green-400" />
-                        <StatusBadge icon={Cpu} label="OPTIMIZED" color="text-blue-400" />
-                        <StatusBadge icon={Terminal} label="LOGGED" color="text-yellow-400" />
+                        <StatusBadge icon={ShieldCheck} label="PROVEN" color="text-green-400" />
+                        <StatusBadge icon={Cpu} label="SCALABLE" color="text-blue-400" />
+                        <StatusBadge icon={Terminal} label="TRACKED" color="text-yellow-400" />
                     </div>
                 </motion.div>
             </div>
@@ -58,12 +58,12 @@ const Footer = () => {
             {/* Right: Quick Links Grid */}
              <div className="grid grid-cols-2 md:grid-cols-3 gap-12 lg:gap-20 w-full lg:w-auto">
                  <FooterColumn 
-                    title="SYSTEM"
+                    title="AGENCY"
                     links={[
-                        { label: 'Core Services', href: '/services' },
-                        { label: 'Protocols', href: '/services#process' },
-                        { label: 'Deployments', href: '/work' },
-                        { label: 'Mission Brief', href: '/about' },
+                        { label: 'Core Strategies', href: '/services' },
+                        { label: 'Process', href: '/services#process' },
+                        { label: 'Case Studies', href: '/work' },
+                        { label: 'Our Mission', href: '/about' },
                     ]}
                  />
                  <FooterColumn 
@@ -77,7 +77,7 @@ const Footer = () => {
                  <FooterColumn 
                     title="CONNECT"
                     links={[
-                        { label: 'Contact Uplink', href: '/contact' },
+                        { label: 'Contact Us', href: '/contact' },
                         { label: 'LinkedIn', href: '#' },
                         { label: 'Twitter / X', href: '#' },
                         { label: 'GitHub', href: '#' },
@@ -91,14 +91,14 @@ const Footer = () => {
             
             <div className="flex items-center gap-2">
                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                 <span>ALL SYSTEMS OPERATIONAL</span>
+                 <span>ALL CAMPAIGNS ACTIVE</span>
             </div>
 
             <p>© 2025 INVISIEDGE MARKETING. ALL RIGHTS RESERVED.</p>
 
             <div className="flex items-center gap-4">
-                 <span>LATENCY: 14ms</span>
-                 <span>REGION: US-EAST-1</span>
+                 <span>RESPONSE: RAPID</span>
+                 <span>REACH: GLOBAL</span>
             </div>
 
         </div>

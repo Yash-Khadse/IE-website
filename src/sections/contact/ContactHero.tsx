@@ -126,7 +126,7 @@ export default function ContactHero() {
                 <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
                     <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#5210F8]/20 bg-[#5210F8]/10 backdrop-blur-md text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#C47DFD] shadow-[0_0_20px_rgba(82,16,248,0.3)]">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#5210F8] animate-pulse shadow-[0_0_10px_#5210F8]" />
-                        Secure Channel Active
+                        Growth Partners
                     </span>
                 </div>
             </div>
@@ -135,27 +135,27 @@ export default function ContactHero() {
             <h1 className="flex flex-col items-center text-center font-black tracking-tighter leading-[0.85] select-none text-white mix-blend-screen">
                 <span className="text-[12vw] md:text-[8vw] opacity-20 blur-[1px] animate-in fade-in zoom-in duration-1000 delay-100" 
                       style={{ WebkitTextStroke: '1px rgba(255, 255, 255, 0.2)', color: 'transparent' }}>
-                    GLOBAL
+                    STRATEGIC
                 </span>
                 <span className="text-[15vw] md:text-[10vw] bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 drop-shadow-2xl">
-                    UPLINK
+                    PARTNERSHIP
                 </span>
             </h1>
 
             {/* Subtext */}
             <div className="mt-8 md:mt-12 max-w-2xl text-center px-4 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
                 <p className="text-base md:text-xl text-white/70 font-light leading-relaxed">
-                    Establish a <span className="text-white font-medium border-b border-[#5210F8]">direct encrypted line</span> with our engineering division. 
-                    Your transformation protocol begins here.
+                    Start a <span className="text-white font-medium border-b border-[#5210F8]">transformative dialogue</span> with our strategy team. 
+                    Your brand's evolution begins here.
                 </p>
             </div>
             
             {/* Stats Strip */}
             <div className="mt-12 md:mt-16 flex flex-wrap justify-center gap-8 md:gap-16 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-700">
                 {[
-                    { icon: Globe, label: 'Global Reach', val: '24/7 Active' },
-                    { icon: Shield, label: 'Encryption', val: 'AES-256' },
-                    { icon: Radio, label: 'Latency', val: '< 50ms' }
+                    { icon: Globe, label: 'Global Reach', val: 'Market Leaders' },
+                    { icon: Shield, label: 'Brand Safety', val: 'Verified' },
+                    { icon: Radio, label: 'Response', val: '< 24 Hours' }
                 ].map((item, i) => (
                     <div key={i} className="flex items-center gap-3 group cursor-default pointer-events-auto">
                         <div className="p-2 rounded-full bg-white/5 border border-white/10 text-[#C47DFD] group-hover:bg-[#5210F8] group-hover:text-white transition-colors duration-300">
@@ -172,7 +172,7 @@ export default function ContactHero() {
 
         {/* LAYER 2: FOREGROUND ELEMENT (Scroll) */}
         <div ref={fgRef} className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-none opacity-50">
-             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/50">Initialize</span>
+             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/50">Scroll</span>
              <div className="w-[1px] h-12 bg-gradient-to-b from-[#5210F8] to-transparent" />
              <ArrowDown className="w-4 h-4 text-[#5210F8] animate-bounce" />
         </div>

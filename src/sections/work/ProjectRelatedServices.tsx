@@ -26,7 +26,7 @@ export default function ProjectRelatedServices({ serviceIds }: { serviceIds: str
         >
             <div className="w-2 h-2 rounded-full bg-[#5210F8] animate-pulse" />
             <h3 className="font-mono text-xs font-bold text-[#072C55]/60 dark:text-white/60 uppercase tracking-[0.2em]">
-                System_Modules // Utilized
+                Growth_Strategies // Utilized
             </h3>
         </motion.div>
 
@@ -62,7 +62,7 @@ export default function ProjectRelatedServices({ serviceIds }: { serviceIds: str
 
                                 <div className="flex items-center justify-between pt-6 border-t border-[#072C55]/5 dark:border-white/5">
                                     <span className="font-mono text-[10px] font-bold text-[#072C55]/30 dark:text-white/30 uppercase tracking-widest group-hover:text-[#072C55]/60 transition-colors">
-                                        Deploy
+                                        View_Strategy
                                     </span>
                                     <ArrowRight size={14} className="text-[#072C55]/40 dark:text-white/40 -rotate-45 group-hover:rotate-0 group-hover:text-[#5210F8] transition-all duration-300" />
                                 </div>

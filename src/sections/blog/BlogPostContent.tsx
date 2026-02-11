@@ -17,9 +17,9 @@ export default function BlogPostContent({ post }: { post: any }) {
                 
                 {/* TOC */}
                 <div>
-                   <h4 className="text-xs font-mono font-bold text-muted-foreground uppercase tracking-widest mb-6">Manifest_Index</h4>
+                   <h4 className="text-xs font-mono font-bold text-muted-foreground uppercase tracking-widest mb-6">Insight_Index</h4>
                    <nav className="space-y-4 border-l border-border pl-4">
-                       <a href="#intro" className="block text-sm font-medium text-foreground hover:text-primary transition-colors">01. Initialization</a>
+                       <a href="#intro" className="block text-sm font-medium text-foreground hover:text-primary transition-colors">01. Introduction</a>
                        <a href="#architecture" className="block text-sm font-medium text-muted-foreground hover:text-primary transition-colors">02. Architecture</a>
                        <a href="#metrics" className="block text-sm font-medium text-muted-foreground hover:text-primary transition-colors">03. Performance Metrics</a>
                        <a href="#conclusion" className="block text-sm font-medium text-muted-foreground hover:text-primary transition-colors">04. Conclusion</a>
@@ -28,7 +28,7 @@ export default function BlogPostContent({ post }: { post: any }) {
                 
                 {/* Reading Progress */}
                 <div>
-                    <h4 className="text-xs font-mono font-bold text-muted-foreground uppercase tracking-widest mb-4">Scan_Progress</h4>
+                    <h4 className="text-xs font-mono font-bold text-muted-foreground uppercase tracking-widest mb-4">Reading_Progress</h4>
                     <div className="w-full h-1 bg-secondary rounded-full overflow-hidden">
                         <div className="h-full w-1/3 bg-primary" />
                     </div>
@@ -37,7 +37,7 @@ export default function BlogPostContent({ post }: { post: any }) {
 
                 {/* Related Tags */}
                 <div>
-                    <h4 className="text-xs font-mono font-bold text-muted-foreground uppercase tracking-widest mb-4">Metadata_Tags</h4>
+                    <h4 className="text-xs font-mono font-bold text-muted-foreground uppercase tracking-widest mb-4">Topic_Tags</h4>
                     <div className="flex flex-wrap gap-2">
                         {post.tags.map((tag: string, i: number) => (
                             <span key={i} className="px-2 py-1 bg-secondary text-xs rounded text-muted-foreground hover:text-foreground cursor-pointer transition-colors">
@@ -57,7 +57,7 @@ export default function BlogPostContent({ post }: { post: any }) {
                {post.excerpt}
             </p>
 
-            <h2 id="intro">Initialization Protocol</h2>
+            <h2 id="intro">Introduction</h2>
             <p>
                 In the modern digital landscape, <strong>latency is the silent killer</strong> of conversion. When we approached the architecture for high-frequency trading platforms, traditional REST methodologies were immediately discarded. The overhead of TCP handshakes for every transaction was simply unacceptable.
             </p>
@@ -100,7 +100,7 @@ export default function BlogPostContent({ post }: { post: any }) {
                 <li><strong>CPU Load:</strong> Stabilized at 60% under peak load</li>
             </ul>
 
-            <h2 id="conclusion">System Conclusion</h2>
+            <h2 id="conclusion">Conclusion</h2>
             <p>
                 While complexity increased initially, the long-term stability and responsiveness of the platform justified the architectural shift. For any application demanding real-time interactivity, WebSockets remain the gold standard.
             </p>

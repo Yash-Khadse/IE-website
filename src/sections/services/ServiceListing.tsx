@@ -1,29 +1,29 @@
 "use client";
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { 
   ArrowRight, Target, Layout, Search, BarChart3, Database, Workflow, Cpu, ShieldCheck, Zap, Globe,
-  Layers, Terminal, Activity, Monitor, Server
+  Layers, Terminal, Activity, Monitor, Server, Command, Code2, Sparkles, SlidersHorizontal
 } from 'lucide-react';
 import { SERVICES } from '@/lib/services';
 
 // Icon Map
 const ICON_MAP: Record<string, any> = {
-  Target, Layout, Search, BarChart3, Database, Workflow, ShieldCheck, Globe, Zap, Cpu, Terminal, Activity, Layers, Monitor, Server
+  Target, Layout, Search, BarChart3, Database, Workflow, ShieldCheck, Globe, Zap, Cpu, Terminal, Activity, Layers, Monitor, Server, Command, Code2
 };
 
 const CATEGORIES = [
-  { id: 'all', label: 'System_All' },
-  { id: 'strategy', label: 'Strategy_Layer' },
-  { id: 'growth', label: 'Growth_Engine' },
-  { id: 'infrastructure', label: 'Infra_Core' }
+  { id: 'all', label: 'ALL_SYSTEMS' },
+  { id: 'strategy', label: 'STRATEGY_CORE' },
+  { id: 'growth', label: 'GROWTH_ENGINE' },
+  { id: 'infrastructure', label: 'INFRASTRUCTURE' }
 ];
 
 const getServiceCategory = (id: string) => {
-  if (['strategic-architecture', 'brand-protection', 'global-expansion'].includes(id)) return 'strategy';
-  if (['performance-creative', 'search-intelligence', 'conversion-optimization'].includes(id)) return 'growth';
+  if (['branding-systems', 'event-expo-branding', 'gtm-sales-enablement', 'brand-strategy', 'creative-direction'].includes(id)) return 'strategy';
+  if (['seo-digital-visibility', 'social-content-engines', 'ai-video-production', 'paid-media', 'content-marketing'].includes(id)) return 'growth';
   return 'infrastructure';
 };
 
@@ -31,9 +31,21 @@ export default function ServiceListing() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   
   const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+
+  // Mouse Chasing Effect for subtle parallax
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({ 
+        x: (e.clientX / window.innerWidth) * 20 - 10, 
+        y: (e.clientY / window.innerHeight) * 20 - 10 
+      });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   const filteredServices = SERVICES.filter(s => {
     const matchesCategory = activeCategory === 'all' || getServiceCategory(s.id) === activeCategory;
@@ -43,78 +55,103 @@ export default function ServiceListing() {
   });
 
   return (
-    <section ref={containerRef} className="py-24 md:py-32 bg-[#F8F9FA] relative overflow-hidden min-h-screen">
-      
-      {/* Background Tech Grid */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#072C55_1px,transparent_1px),linear-gradient(to_bottom,#072C55_1px,transparent_1px)] bg-[size:40px_40px]" />
-          <motion.div 
-            animate={{ top: ['0%', '100%'], opacity: [0, 1, 0] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-            className="absolute left-0 w-full h-[1px] bg-[#5210F8]"
-          />
+    <section ref={containerRef} className="py-24 md:py-32 bg-white relative overflow-hidden min-h-screen">
+       
+      {/* --- LAYER 0: FLUID BACKGROUND --- */}
+      <div className="absolute inset-0 pointer-events-none opacity-40 overflow-hidden">
+           {/* Animated Gradient Globs */}
+           <motion.div 
+             animate={{ 
+                x: [0, 100, 0], 
+                y: [0, -50, 0],
+                rotate: [0, 45, 0]
+             }}
+             transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+             className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] bg-gradient-to-br from-purple-100 to-blue-50 rounded-full blur-[100px]" 
+           />
+           <motion.div 
+             animate={{ 
+                x: [0, -100, 0], 
+                y: [0, 50, 0],
+                scale: [1, 1.2, 1]
+             }}
+             transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+             className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-gradient-to-tr from-yellow-50 to-pink-50 rounded-full blur-[80px]" 
+           />
+      </div>
+
+      {/* --- LAYER 1: TECHNICAL GRID --- */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.3]">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f080_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f080_1px,transparent_1px)] bg-[size:40px_40px]" />
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         
-        {/* Section Header */}
-        <div className="mb-16 md:mb-24 text-center max-w-3xl mx-auto">
+        {/* --- HEADER SECTION --- */}
+        <div className="flex flex-col items-center mb-20 md:mb-28 text-center relative">
+            
+            {/* Status Pill */}
             <motion.div
                initial={{ opacity: 0, y: 10 }}
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
-               transition={{ duration: 0.6 }}
-               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#072C55]/10 mb-6 shadow-sm group hover:border-[#5210F8]/20 transition-colors cursor-default"
+               className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white border border-slate-200 shadow-[0_2px_10px_rgba(0,0,0,0.04)] mb-8"
             >
-                <div className="w-2 h-2 rounded-full bg-[#00FF94] animate-pulse" />
-                <span className="text-[#072C55] text-xs font-mono font-bold uppercase tracking-widest group-hover:text-[#5210F8] transition-colors">
-                    System_Matrix_v5.0 // {filteredServices.length}_Modules_Active
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-fooror-purple opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-fooror-purple"></span>
+                </span>
+                <span className="text-slate-500 text-[10px] font-mono font-bold uppercase tracking-[0.2em]">
+                    System_Grid // Active
                 </span>
             </motion.div>
             
-            <motion.h2 
+            {/* Main Title */}
+            <h2 className="text-5xl md:text-8xl font-black text-slate-900 tracking-tighter leading-[0.85] mb-8 relative z-10 mix-blend-darken">
+              SYSTEM <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-fooror-navy via-fooror-purple to-fooror-navy bg-[length:200%_auto] animate-shine">
+                CAPABILITIES
+              </span>
+            </h2>
+
+            {/* Subtitle */}
+            <p className="max-w-2xl text-slate-500 text-lg font-medium leading-relaxed mb-12">
+                Deployable modules for orchestration, automation, and intelligent growth. Select a protocol to initialize.
+            </p>
+
+            {/* Controls Toolbar */}
+            <motion.div 
+               className="w-full max-w-4xl bg-white/60 backdrop-blur-xl border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.04)] rounded-2xl p-2 flex flex-col md:flex-row gap-2 relative z-20 transition-shadow hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)]"
                initial={{ opacity: 0, y: 20 }}
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
-               transition={{ duration: 0.6, delay: 0.1 }}
-               className="text-4xl md:text-6xl font-black text-[#072C55] tracking-tight leading-[0.9] mb-8"
+               transition={{ delay: 0.2 }}
             >
-              DEPLOYABLE <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5210F8] to-[#00FF94]">GROWTH PROTOCOLS</span>
-            </motion.h2>
-
-            {/* Controls Container */}
-            <motion.div 
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="flex flex-col md:flex-row items-center justify-center gap-6"
-            >
-                {/* Search Bar */}
-                <div className="relative group w-full md:w-auto">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <Search size={14} className="text-[#072C55]/40 group-focus-within:text-[#5210F8] transition-colors" />
-                    </div>
+                {/* Search */}
+                <div className="relative flex-1 group">
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4 group-focus-within:text-fooror-purple transition-colors" />
                     <input 
                         type="text" 
-                        placeholder="Search Protocols..." 
+                        placeholder="Search system modules..." 
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full md:w-64 pl-10 pr-4 py-3 rounded-full bg-white border border-[#072C55]/10 text-sm font-mono text-[#072C55] placeholder:text-[#072C55]/30 focus:outline-none focus:border-[#5210F8] focus:ring-1 focus:ring-[#5210F8] transition-all shadow-sm"
+                        className="w-full h-12 md:h-14 pl-12 pr-4 bg-transparent rounded-xl text-slate-700 font-medium placeholder:text-slate-400 outline-none focus:bg-white/50 transition-all font-mono text-sm"
                     />
                 </div>
 
-                {/* Filter Tabs */}
-                <div className="flex flex-wrap justify-center gap-2">
+                {/* Divider (Mobile hidden) */}
+                <div className="hidden md:block w-[1px] bg-slate-200 my-2" />
+
+                {/* Categories */}
+                <div className="flex overflow-x-auto no-scrollbar gap-1 p-1">
                     {CATEGORIES.map((cat) => (
                         <button
                             key={cat.id}
                             onClick={() => setActiveCategory(cat.id)}
-                            className={`px-4 py-3 rounded-full font-mono text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all duration-300 border ${
+                            className={`whitespace-nowrap px-5 py-2.5 rounded-xl text-[10px] font-bold uppercase tracking-wider font-mono transition-all duration-300 border ${
                                 activeCategory === cat.id 
-                                ? 'bg-[#072C55] text-white border-[#072C55] shadow-lg transform scale-105' 
-                                : 'bg-white text-[#072C55]/60 border-[#072C55]/10 hover:border-[#5210F8] hover:text-[#5210F8]'
+                                ? 'bg-slate-900 text-white border-slate-900 shadow-md' 
+                                : 'bg-transparent text-slate-500 border-transparent hover:bg-slate-100'
                             }`}
                         >
                             {cat.label}
@@ -124,112 +161,115 @@ export default function ServiceListing() {
             </motion.div>
         </div>
 
-        {/* Services Grid */}
+        {/* --- GRID LAYOUT --- */}
         <motion.div 
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 min-h-[500px]"
-          onMouseLeave={() => setHoveredCard(null)}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
         >
           <AnimatePresence mode="popLayout">
             {filteredServices.map((service, index) => {
               const Icon = ICON_MAP[service.iconName] || Target;
-              const isBlurred = hoveredCard !== null && hoveredCard !== service.id;
+              const category = getServiceCategory(service.id);
               
               return (
               <motion.div 
                 layout
                 key={service.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: isBlurred ? 0.4 : 1, scale: 1, filter: isBlurred ? "blur(2px)" : "blur(0px)" }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
-                className="group relative h-full"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="group relative h-full perspective-1000"
                 onMouseEnter={() => setHoveredCard(service.id)}
+                onMouseLeave={() => setHoveredCard(null)}
               >
-                <Link href={service.href} className="block h-full">
-                  <div className="h-full bg-white border border-[#072C55]/10 rounded-[2rem] p-8 md:p-10 transition-all duration-500 hover:shadow-[0_20px_60px_-15px_rgba(82,16,248,0.15)] hover:border-[#5210F8]/30 hover:-translate-y-2 relative overflow-hidden flex flex-col justify-between z-10">
+                <Link href={service.href} className="block h-full cursor-pointer">
+                  <div className="h-full bg-white border border-slate-200 rounded-[20px] p-8 relative overflow-hidden transition-all duration-500 group-hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] group-hover:-translate-y-2 group-hover:border-transparent">
                     
-                    {/* Hover Gradient Overlay */}
-                    <div className={`absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500 bg-gradient-to-br ${service.gradient}`} />
-                    
-                    <div>
-                      {/* Header: Icon & ID */}
-                      <div className="flex justify-between items-start mb-8 md:mb-10">
-                          <div className="w-14 h-14 rounded-2xl bg-[#F8F9FA] border border-[#072C55]/5 flex items-center justify-center group-hover:bg-white group-hover:scale-110 transition-all duration-500 shadow-sm relative z-10">
-                              <Icon size={28} className="text-[#072C55] group-hover:text-[#5210F8] transition-colors duration-300" />
-                          </div>
-                          <div className="flex flex-col items-end">
-                              <div className="font-mono text-[9px] font-black text-[#072C55]/20 uppercase tracking-widest group-hover:text-[#5210F8] transition-colors">
-                                  ID_0{index + 1}
-                              </div>
-                              <div className="h-1 w-8 bg-[#072C55]/5 mt-1 rounded-full group-hover:bg-[#00FF94] group-hover:w-12 transition-all duration-500" />
-                          </div>
-                      </div>
+                    {/* Active Border Gradient (The 'Foil' Effect) */}
+                    <div className="absolute inset-0 rounded-[20px] p-[2px] bg-gradient-to-br from-transparent via-transparent to-transparent group-hover:from-fooror-purple group-hover:via-fooror-yellow group-hover:to-fooror-navy opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+                    <div className="absolute inset-[1px] bg-white rounded-[19px] -z-10" />
 
-                      <h3 className="text-2xl font-black text-[#072C55] mb-2 tracking-tight leading-none group-hover:text-[#5210F8] transition-colors duration-300 relative z-10">
-                        {service.title}
-                      </h3>
-                      
-                      {/* Tagline Badge */}
-                      <div className="mb-4 inline-block">
-                          <span className={`text-[10px] font-bold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r ${service.gradient} opacity-80`}>
-                             // {service.tagline}
-                          </span>
-                      </div>
+                     {/* Subtle Background Tint on Hover */}
+                    <div className={`absolute inset-0 opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500 bg-gradient-to-br ${service.gradient}`} />
 
-                      <p className="text-[#072C55]/50 font-medium leading-relaxed relative z-10 mb-8 text-sm md:text-base line-clamp-3">
-                        {service.description}
-                      </p>
-                    </div>
-                    
-                    {/* Data Point Pill */}
-                    {service.metrics && service.metrics[0] && (
-                        <div className="mb-6 w-fit px-3 py-1.5 bg-[#F8F9FA] rounded-lg border border-[#072C55]/5 flex items-center gap-2 group-hover:bg-[#fff] group-hover:border-[#5210F8]/20 transition-colors">
-                            <Activity size={12} className="text-[#00FF94]" />
-                            <span className="text-[10px] font-mono font-bold text-[#072C55] uppercase tracking-wider">
-                                {service.metrics[0].label.replace('_', ' ')}: <span className="text-[#5210F8]">{service.metrics[0].value}</span>
-                            </span>
+                    {/* Top Row: Tag & Icon */}
+                    <div className="flex justify-between items-start mb-8">
+                        {/* Category Tag */}
+                        <div className="px-2.5 py-1 rounded-md bg-slate-50 border border-slate-100 text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 group-hover:bg-slate-900 group-hover:text-white transition-colors duration-300">
+                            {category}
                         </div>
-                    )}
-
-                    {/* Action Footer */}
-                    <div className="flex items-center justify-between border-t border-[#072C55]/5 pt-6 mt-auto relative z-10 group/btn">
-                        <span className="font-mono text-[10px] font-black text-[#072C55]/30 uppercase tracking-[0.2em] group-hover:text-[#072C55]/60 transition-colors">
-                          INIT_PROTOCOL
-                        </span>
-                        <div className="w-10 h-10 rounded-full bg-[#F8F9FA] flex items-center justify-center group-hover:bg-[#072C55] transition-all duration-300">
-                            <ArrowRight size={16} className="text-[#072C55] group-hover:text-white transition-colors duration-300 group-hover:-rotate-45" />
+                        
+                        {/* Icon Box */}
+                        <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-slate-700 group-hover:scale-110 group-hover:bg-fooror-purple group-hover:text-white transition-all duration-300 shadow-sm">
+                            <Icon size={22} strokeWidth={1.5} />
                         </div>
                     </div>
 
+                    {/* Content Body */}
+                    <div className="mb-8">
+                        <div className="flex items-baseline gap-2 mb-3">
+                            <span className="text-[10px] font-mono text-slate-300 font-bold">0{index+1}</span>
+                            <div className="h-[1px] flex-1 bg-slate-100" />
+                        </div>
+                        
+                        <h3 className="text-2xl font-bold text-slate-900 mb-3 tracking-tight group-hover:text-fooror-purple transition-colors">
+                            {service.title}
+                        </h3>
+                        <p className="text-slate-500 text-sm leading-relaxed line-clamp-3">
+                            {service.description}
+                        </p>
+                    </div>
+
+                    {/* Footer / Action */}
+                    <div className="mt-auto pt-6 border-t border-slate-100 flex items-center justify-between group-hover:border-slate-200/50">
+                         {/* Metrics snippet */}
+                         {service.metrics && service.metrics[0] ? (
+                             <div className="flex flex-col">
+                                 <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Impact</span>
+                                 <span className="text-sm font-bold text-slate-900 font-mono">
+                                     {service.metrics[0].value} <span className="text-[10px] font-normal text-slate-400">/ {service.metrics[0].label}</span>
+                                 </span>
+                             </div>
+                         ) : <div/>}
+
+                         {/* Arrow Button */}
+                         <div className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center group-hover:bg-slate-900 group-hover:border-slate-900 transition-all duration-300">
+                             <ArrowRight size={14} className="text-slate-400 group-hover:text-white group-hover:-rotate-45 transition-all duration-300" />
+                         </div>
+                    </div>
+                    
                   </div>
                 </Link>
               </motion.div>
             )})}
           </AnimatePresence>
         </motion.div>
-        
-        {/* No Results State */}
-        {filteredServices.length === 0 && (
-            <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="text-center py-20"
-            >
-                <div className="inline-flex justify-center items-center w-16 h-16 rounded-full bg-[#F8F9FA] mb-6">
-                    <Search className="text-[#072C55]/20" size={24} />
-                </div>
-                <h3 className="text-xl font-bold text-[#072C55] mb-2">System Protocol Not Found</h3>
-                <p className="text-[#072C55]/50">Adjust your search parameters or query the full matrix.</p>
-                <button 
-                    onClick={() => { setSearchQuery(''); setActiveCategory('all'); }}
-                    className="mt-6 text-[#5210F8] font-bold text-sm uppercase tracking-widest hover:underline"
-                >
-                    Reset Filters
-                </button>
-            </motion.div>
-        )}
 
+        {/* --- EMPTY STATE --- */}
+        <AnimatePresence>
+            {filteredServices.length === 0 && (
+                <motion.div 
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    className="flex flex-col items-center justify-center py-32 text-center"
+                >
+                    <div className="w-24 h-24 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center mb-6 animate-pulse">
+                        <SlidersHorizontal className="text-slate-300" size={32} />
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">No Protocols Matching</h3>
+                    <p className="text-slate-500 max-w-sm mb-8">We couldn't locate any modules matching your current parameters.</p>
+                    <button 
+                        onClick={() => { setSearchQuery(''); setActiveCategory('all'); }}
+                        className="px-6 py-2.5 bg-slate-900 text-white rounded-lg font-mono text-xs font-bold uppercase tracking-widest hover:bg-fooror-purple transition-colors shadow-lg shadow-slate-200"
+                    >
+                        Reset Filters
+                    </button>
+                </motion.div>
+            )}
+        </AnimatePresence>
+        
       </div>
     </section>
   );

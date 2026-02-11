@@ -6,28 +6,28 @@ import { Plus, Minus, Hash, Code2, Terminal } from 'lucide-react';
 const faqs = [
   {
     id: '01',
-    question: 'SYSTEM_DEPLOYMENT_TIMELINE',
-    answer: "Standard deployment cycles range from 4-8 weeks. This involves the initial logic audit, architecture blueprinting, and full-stack orchestration. We operate in rapid-response sprints to ensure your system topology is live and secure without disrupting existing operations.",
+    question: 'GROWTH_STRATEGY_TIMELINE',
+    answer: "Standard campaign cycles range from 4-8 weeks. This involves the initial market audit, strategy blueprinting, and full-funnel activation. We operate in rapid-response sprints to ensure your growth engines are live and converting without disrupting existing operations.",
   },
   {
     id: '02',
-    question: 'MULTI_BRAND_SYNCHRONIZATION',
-    answer: "Our systems are designed for high-concurrency multi-brand management. We implement a unified 'Command Center' logic that allows you to orchestrate naming conventions, asset distribution, and data pipelines across your entire brand portfolio from a single node.",
+    question: 'MULTI_CHANNEL_ALIGNMENT',
+    answer: "Our strategies are designed for high-impact multi-channel management. We implement a unified 'Growth Center' approach that allows you to orchestrate messaging, content distribution, and data pipelines across your entire brand portfolio from a single source.",
   },
   {
     id: '03',
-    question: 'AUTONOMOUS_INTEGRATION_STACK',
-    answer: "The architecture is API-first and infrastructure-agnostic. We establish seamless handshakes with your existing CRM, analytics clusters, and payment protocols. Our logic layer acts as the 'Intellectual Glue', ensuring data flows bidirectionally and autonomously.",
+    question: 'INTEGRATED_MARKETING_STACK',
+    answer: "The strategy is platform-agnostic. We establish seamless integration with your existing CRM, analytics tools, and marketing platforms. Our strategic layer acts as the 'Growth Glue', ensuring data flows bidirectionally and actionable insights are generated.",
   },
   {
     id: '04',
-    question: 'SCALABILITY_BOUNDARIES',
-    answer: "There are no hard limits. Whether you are scaling from 1 to 10 brands or synchronizing complex enterprise assets, our 'Neural Logic' pathways are built to expand dynamically. We utilize self-healing code and modular infrastructure to ensure zero-friction growth.",
+    question: 'SCALABILITY_POTENTIAL',
+    answer: "There are no hard limits. Whether you are scaling from 1 to 10 markets or synchronizing complex global campaigns, our 'Growth Pathways' are built to expand dynamically. We utilize adaptive strategies and modular frameworks to ensure zero-friction growth.",
   },
   {
     id: '05',
-    question: 'INVESTMENT_PROTOCOLS',
-    answer: "Engagement is calibrated to your system complexity and growth velocity. We recommend a 'Logic Diagnostic' session to generate a precise architecture roadmap. Our focus is on building recurring value through robust infrastructure, not just line-item deliverables.",
+    question: 'INVESTMENT_FRAMEWORKS',
+    answer: "Engagement is calibrated to your market goals and growth velocity. We recommend a 'Growth Audit' session to generate a precise strategic roadmap. Our focus is on building recurring revenue through robust campaigns, not just one-off deliverables.",
   },
 ];
 
@@ -53,14 +53,14 @@ const FAQSection = () => {
                  <div className="mb-10">
                     <div className="flex items-center gap-2 text-primary font-mono text-xs tracking-widest mb-4">
                         <Terminal size={14} />
-                        <span>KNOWLEDGE_BASE</span>
+                        <span>INSIGHT_BASE</span>
                     </div>
                     <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-[0.95] tracking-tight mb-6">
-                        SYSTEM
-                        <span className="block text-muted-foreground/50">DOCUMENTATION</span>
+                        GROWTH
+                        <span className="block text-muted-foreground/50">RESOURCES</span>
                     </h2>
                     <p className="text-muted-foreground text-lg leading-relaxed">
-                        Answers to common protocols regarding our engagement model, technical stack, and deployment velocity.
+                        Answers to common questions regarding our engagement model, strategic approach, and campaign velocity.
                     </p>
                  </div>
 
@@ -68,7 +68,7 @@ const FAQSection = () => {
                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                      
                      <div className="relative z-10">
-                        <p className="font-mono text-xs text-primary mb-4">// DIRECT_UPLINK</p>
+                        <p className="font-mono text-xs text-primary mb-4">// DIRECT_INQUIRY</p>
                         <div className="flex items-center gap-4 mb-6">
                             <div className="w-12 h-12 rounded-lg bg-secondary/50 border border-border flex items-center justify-center">
                                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
@@ -79,7 +79,7 @@ const FAQSection = () => {
                             </div>
                         </div>
                         <button className="w-full py-3 bg-secondary/30 hover:bg-secondary/50 border border-border hover:border-primary/50 text-foreground rounded-lg transition-all duration-300 font-mono text-sm uppercase tracking-wider flex items-center justify-center gap-2 group/btn">
-                           <span>Open_Channel</span>
+                           <span>Start_Conversation</span>
                            <span className="group-hover/btn:translate-x-1 transition-transform">-&gt;</span>
                         </button>
                      </div>
@@ -146,10 +146,10 @@ const FAQItem = ({ faq, isOpen, onClick }: { faq: any, isOpen: boolean, onClick:
                                         </p>
                                         <div className="mt-4 flex items-center gap-2">
                                             <span className="px-2 py-0.5 rounded bg-secondary border border-border text-[10px] font-mono text-muted-foreground/70">
-                                                read_only
+                                                verified
                                             </span>
                                             <span className="px-2 py-0.5 rounded bg-secondary border border-border text-[10px] font-mono text-muted-foreground/70">
-                                                utf-8
+                                                global
                                             </span>
                                         </div>
                                     </div>

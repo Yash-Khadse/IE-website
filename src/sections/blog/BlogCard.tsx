@@ -56,7 +56,7 @@ export default function BlogCard({ blog, index }: { blog: BlogPost; index: numbe
                         </span>
                      </div>
                      <div className="absolute bottom-4 left-4 z-10 flex items-center gap-3 text-white/80 text-[10px] font-mono font-bold uppercase tracking-widest">
-                         <span className="bg-black/30 backdrop-blur-md border border-white/10 px-2 py-1 rounded">LOG_ID: {blog.id.toString().padStart(3, '0')}</span>
+                         <span className="bg-black/30 backdrop-blur-md border border-white/10 px-2 py-1 rounded">POST_ID: {blog.id.toString().padStart(3, '0')}</span>
                          <span className="bg-black/30 backdrop-blur-md border border-white/10 px-2 py-1 rounded">{blog.date}</span>
                      </div>
                 </div>

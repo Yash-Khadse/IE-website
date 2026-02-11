@@ -28,11 +28,15 @@ const FeaturedProjects = () => {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   // Use data from PROJECTS but map for grid layout
-  const gridProjects = PROJECTS.map((p, i) => ({
-      ...p,
-      gridClass: i % 3 === 0 ? 'md:col-span-2' : 'md:col-span-1', // Example logic
-      imageClass: i % 3 === 0 ? 'h-full min-h-[300px] md:min-h-0' : 'aspect-[3/4]',
-  }));
+  const gridProjects = PROJECTS.map((p, i) => {
+      // Logic for 2-1, 1-2, 2-1 pattern
+      const isLarge = i % 4 === 0 || i % 4 === 3;
+      return {
+        ...p,
+        gridClass: isLarge ? 'md:col-span-2' : 'md:col-span-1',
+        imageClass: isLarge ? 'h-full min-h-[300px] md:min-h-0' : 'aspect-[3/4]',
+      };
+  });
 
   return (
     <section
@@ -56,22 +60,22 @@ const FeaturedProjects = () => {
             <div className="absolute -left-[5px] top-0 w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_rgba(196,125,253,0.8)] animate-ping" />
             
             <div className="flex items-center gap-3 text-primary font-mono text-xs tracking-widest mb-2">
-               <Database size={14} /> DEPLOYED_SYSTEMS // V.5.0
+               <Database size={14} /> SELECTED_WORK // V.24.0
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground uppercase tracking-tighter">
-              System <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-foreground">Case Logs</span>
+              Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-foreground">Case Studies</span>
             </h2>
           </div>
 
           <div className="hidden md:flex items-center gap-4 text-xs font-mono mt-6 md:mt-0">
               <div className="flex items-center gap-2 px-4 py-2 bg-secondary/50 border border-border rounded-full text-muted-foreground backdrop-blur-sm">
                   <Terminal size={12} />
-                  <span>FILTER: ALL_SYSTEMS</span>
+                  <span>FILTER: ALL_CAMPAIGNS</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-primary backdrop-blur-sm relative overflow-hidden">
                   <div className="absolute inset-0 bg-primary/10 animate-pulse" />
                   <Activity size={12} className="relative z-10" />
-                  <span className="relative z-10">STATUS: LIVE</span>
+                  <span className="relative z-10">STATUS: ACTIVE</span>
                   <span className="relative z-10 w-1.5 h-1.5 bg-green-400 rounded-full shadow-[0_0_8px_#4ade80]" />
               </div>
           </div>
@@ -200,7 +204,7 @@ const ProjectCard = ({ project, delay, isBlurred, onMouseEnter }: { project: any
                 <div className="bg-background/90 backdrop-blur-md border border-primary/30 p-4 min-w-[140px] shadow-xl rounded-sm">
                    <div className="flex flex-col gap-1">
                       <div className="flex items-center justify-between text-[10px] text-primary font-mono tracking-wider mb-1">
-                          RESULT <Radio size={8} className="animate-pulse text-primary" />
+                          IMPACT <Radio size={8} className="animate-pulse text-primary" />
                       </div>
                       <NumberCounter value={project.results[0].value} suffix={project.results[0].suffix} />
                       <span className="text-[10px] font-medium text-muted-foreground uppercase">{project.results[0].label}</span>

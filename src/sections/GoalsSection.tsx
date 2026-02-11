@@ -11,8 +11,8 @@ const GoalsSection = () => {
       ref={containerRef}
       className="relative w-full py-16 md:py-32 bg-secondary"
     >
-      <div className="w-full max-w-[1280px] mx-auto px-6 lg:px-10">
-        <div className="flex flex-col lg:flex-row items-center lg:items-end justify-between gap-16 lg:gap-0">
+      <div className="w-full max-w-[1280px] mx-auto px-4 md:px-6 lg:px-10">
+        <div className="flex flex-col lg:flex-row items-center lg:items-end justify-between gap-12 lg:gap-0">
           
           {/* Left Content */}
           <motion.div
@@ -30,15 +30,15 @@ const GoalsSection = () => {
               {/* Blurred Background Text */}
               <div className="absolute top-[3.5rem] left-0 w-full select-none pointer-events-none overflow-hidden">
                  <h2 className="text-[3.5rem] md:text-[4.5rem] font-bold text-muted-foreground/20 blur-[2px] leading-[1] tracking-tight whitespace-nowrap">
-                   BUILD A SYSTEM
+                   BUILD A BRAND
                  </h2>
               </div>
 
               {/* Handwritten Overlay */}
               <div className="relative mt-2 ml-2">
                 <h3 className="font-bold italic text-[3.5rem] md:text-[4.5rem] leading-[0.85] text-primary transform -rotate-3">
-                  automate <br />
-                  <span className="ml-8">your brand systems</span>
+                  accelerate <br />
+                  <span className="ml-8">your digital growth</span>
                 </h3>
               </div>
             </div>
@@ -70,7 +70,7 @@ const GoalsSection = () => {
                    colorFace="#072C55" // Navy
                    colorTop="#1E4B85" 
                    colorSide="#041C36"
-                   label="Tactical Logic"
+                   label="Strategic Planning"
                    height="h-48 md:h-64"
                    delay={0.2}
                    isInView={isInView}
@@ -81,7 +81,7 @@ const GoalsSection = () => {
                    colorFace="#5210F8" // Primary
                    colorTop="#7E41F9" 
                    colorSide="#3B0BB3"
-                   label="Protocol Flow"
+                   label="Customer Journey"
                    height="h-64 md:h-80"
                    delay={0.4}
                    isInView={isInView}
@@ -92,7 +92,7 @@ const GoalsSection = () => {
                    colorFace="#C47DFD" // Secondary
                    colorTop="#E0B8FE" 
                    colorSide="#A050E0"
-                   label="System Scaling"
+                   label="Revenue Scaling"
                    height="h-80 md:h-96"
                    delay={0.6}
                    isInView={isInView}

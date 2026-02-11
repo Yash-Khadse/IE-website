@@ -81,7 +81,7 @@ export default function HowWeWork() {
     <section ref={containerRef} className="relative h-[300vh] w-full">
       
       {/* Sticky Container - Pinned to absolute top for max robustness */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col">
+      <div className="sticky top-0 h-[100svh] w-full overflow-hidden flex flex-col">
           
           {/* Dynamic Background Panel */}
           <div className={`absolute inset-0 transition-colors duration-700 ease-in-out ${currentStep.bg}`} />

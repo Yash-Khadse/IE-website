@@ -15,10 +15,10 @@ import {
   Microchip
 } from "lucide-react";
 
-const PROTOCOLS = [
+const PRINCIPLES = [
   {
     id: "v_01",
-    title: "Velocity Protocol",
+    title: "Velocity Principle",
     axiom: "Bias For Action",
     desc: "We prioritize execution velocity over theoretical perfection. Speed is the only moat in an evolving market. We deploy, measure, and pivot while others are still debating the brief.",
     specs: {
@@ -97,16 +97,16 @@ export default function CultureMindset() {
   });
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const sectionIndex = Math.min(Math.floor(latest * PROTOCOLS.length * 1.05), PROTOCOLS.length - 1);
+    const sectionIndex = Math.min(Math.floor(latest * PRINCIPLES.length * 1.05), PRINCIPLES.length - 1);
     setActiveIdx(sectionIndex);
   });
 
-  const current = PROTOCOLS[activeIdx];
+  const current = PRINCIPLES[activeIdx];
 
   return (
     <section ref={containerRef} className="relative h-[350vh] bg-[#F8F9FA]">
       
-      {/* Sticky Orchestration Layer */}
+      {/* Sticky Philosophy Layer */}
       <div className="sticky top-20 md:top-32 h-[calc(100vh-5rem)] md:h-[calc(100vh-8rem)] w-full overflow-hidden flex flex-col lg:flex-row">
         
         {/* Left Half: Protocol Specification Analysis */}
@@ -126,7 +126,7 @@ export default function CultureMindset() {
                     transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                     className="relative z-10 w-full"
                 >
-                    {/* Protocol Header HUD */}
+                    {/* Principle Header HUD */}
                     <div className="mb-8 md:mb-12 flex justify-between items-start">
                         <div>
                             <div className="flex items-center gap-3 mb-4">
@@ -144,7 +144,7 @@ export default function CultureMindset() {
                             </h2>
                         </div>
                         <div className="flex flex-col items-end pt-4">
-                            <span className="font-mono text-[9px] md:text-[10px] font-black text-[#072C55]/30 uppercase tracking-[0.4em] mb-1">Module_Status</span>
+                            <span className="font-mono text-[9px] md:text-[10px] font-black text-[#072C55]/30 uppercase tracking-[0.4em] mb-1">Principle_Status</span>
                             <div className="flex items-center gap-2 px-3 py-1 bg-[#F8F9FA] border border-[#072C55]/10 rounded font-mono text-[9px] md:text-[10px] font-bold text-[#00FF94]">
                                 <Activity size={10} className="animate-pulse" />
                                 ACTIVE
@@ -161,7 +161,7 @@ export default function CultureMindset() {
                              </p>
                         </div>
 
-                        {/* System Performance Specs */}
+                        {/* Performance Specs */}
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-[#072C55]/10">
                             {Object.entries(current.specs).map(([key, val], i) => (
                                 <div key={i}>
@@ -185,7 +185,7 @@ export default function CultureMindset() {
                                 {current.code}
                              </code>
                              <div className="flex justify-between items-center pt-4 md:pt-6 border-t border-white/10">
-                                 <span className="font-mono text-[8px] md:text-[9px] font-black text-white/30 uppercase tracking-[0.3em]">Protocol_ID: {activeIdx + 42}</span>
+                                 <span className="font-mono text-[8px] md:text-[9px] font-black text-white/30 uppercase tracking-[0.3em]">Principle_ID: {activeIdx + 42}</span>
                                  <Workflow size={14} className="text-white/20 group-hover/code:text-[#5210F8] transition-colors" />
                              </div>
                         </div>
@@ -193,9 +193,9 @@ export default function CultureMindset() {
                 </motion.div>
             </AnimatePresence>
 
-            {/* Scroll Progress Indicator (Left Column) */}
+             {/* Scroll Progress Indicator (Left Column) */}
             <div className="absolute top-0 left-0 h-full w-2 flex flex-col pointer-events-none">
-                 {PROTOCOLS.map((_, i) => (
+                 {PRINCIPLES.map((_, i) => (
                     <div 
                         key={i} 
                         className={`flex-1 transition-all duration-700 ${activeIdx === i ? 'bg-[#5210F8]' : 'bg-[#072C55]/5'}`} 
@@ -230,9 +230,9 @@ export default function CultureMindset() {
                     className="absolute inset-12 md:inset-20 rounded-full border border-[#072C55]/10" 
                  />
 
-                 {/* Satellite Nodes (Protocols) */}
-                 {PROTOCOLS.map((p, idx) => {
-                    const angle = (idx / PROTOCOLS.length) * Math.PI * 2;
+                 {/* Satellite Nodes (Principles) */}
+                 {PRINCIPLES.map((p, idx) => {
+                    const angle = (idx / PRINCIPLES.length) * Math.PI * 2;
                     // Responsive orbital radius based on measured window width
                     const radius = windowWidth < 640 ? 110 : windowWidth < 768 ? 140 : 250;
                     const x = Math.cos(angle) * radius;
@@ -274,7 +274,7 @@ export default function CultureMindset() {
                            >
                                 <Cpu size={32} />
                            </motion.div>
-                           <div className="font-mono text-[9px] font-black text-[#072C55] tracking-widest uppercase">CULTURE_OS</div>
+                           <div className="font-mono text-[9px] font-black text-[#072C55] tracking-widest uppercase">CULTURE_CORE</div>
                            <div className="font-mono text-[11px] font-bold text-[#5210F8] animate-pulse uppercase">v{activeIdx + 1}.4.2</div>
                       </div>
                       
@@ -289,7 +289,7 @@ export default function CultureMindset() {
 
             {/* Page Floating Indicators */}
             <div className="absolute bottom-10 right-10 lg:right-24 font-mono text-[10px] font-black text-[#072C55]/20 flex flex-col gap-2 items-end">
-                 <span>SYS_TYPE: PHILOSOPHY_CORE</span>
+                 <span>CORE_TYPE: PHILOSOPHY_CORE</span>
                  <span>COORD_X: 42.08.11N</span>
                  <span>COORD_Y: 19.92.05E</span>
             </div>

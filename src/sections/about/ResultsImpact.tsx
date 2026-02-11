@@ -19,11 +19,11 @@ import {
 export default function ResultsImpact() {
   const containerRef = useRef<HTMLElement>(null);
   const [activeCase, setActiveCase] = useState(0);
-  const [systemTime, setSystemTime] = useState("");
+  const [globalTime, setGlobalTime] = useState("");
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setSystemTime(new Date().toLocaleTimeString('en-GB', { hour12: false }));
+      setGlobalTime(new Date().toLocaleTimeString('en-GB', { hour12: false }));
     }, 1000);
     return () => clearInterval(timer);
   }, []);
@@ -32,7 +32,7 @@ export default function ResultsImpact() {
     { label: "REV_GEN", value: "$250.42M", growth: "+12% MOE", icon: Database },
     { label: "ACQ_LOAD", value: "3,521,089", growth: "+4.1% VEL", icon: Network },
     { label: "ROI_AVG", value: "125.4%", growth: "OPTIMAL", icon: Zap },
-    { label: "SYS_UP", value: "99.99%", growth: "STABLE", icon: Activity },
+    { label: "CAMPAIGN_UP", value: "99.99%", growth: "STABLE", icon: Activity },
   ];
 
   const caseLogs = [
@@ -82,7 +82,7 @@ export default function ResultsImpact() {
       
       {/* Background Micro-Details */}
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none select-none font-mono text-[8vw] font-black leading-none uppercase flex flex-wrap content-center text-[#072C55]">
-        RESULTS_IMPACT_DATA_CORE_PERFORMANCE_METRICS_GROWTH_SYSTEMS_INVISIEDGE_ORCHESTRATOR
+        RESULTS_IMPACT_DATA_CORE_PERFORMANCE_METRICS_GROWTH_STRATEGIES_INVISIEDGE_ORCHESTRATOR
       </div>
       
       {/* Grid Underlay */}
@@ -103,7 +103,7 @@ export default function ResultsImpact() {
                         <span className="relative inline-flex rounded-full h-3 w-3 bg-[#5210F8]"></span>
                      </span>
                      <div className="h-[2px] w-12 bg-[#072C55]/10" />
-                     <span className="font-mono text-xs font-bold text-[#072C55] uppercase tracking-[0.5em]">Live System Output // {systemTime}</span>
+                     <span className="font-mono text-xs font-bold text-[#072C55] uppercase tracking-[0.5em]">Live Campaign Output // {globalTime}</span>
                  </div>
                  <h2 className="text-3xl md:text-8xl lg:text-9xl font-black text-[#072C55] tracking-tighter leading-[0.85]">
                      The Proof <br />
@@ -200,7 +200,7 @@ export default function ResultsImpact() {
                                    <div className="absolute top-0 right-0 p-4 opacity-10">
                                        <ShieldCheck size={120} />
                                    </div>
-                                   <h5 className="font-mono text-[10px] font-black uppercase tracking-[0.3em] mb-4 opacity-40">System_Security</h5>
+                                   <h5 className="font-mono text-[10px] font-black uppercase tracking-[0.3em] mb-4 opacity-40">Data_Security</h5>
                                    <p className="font-bold relative z-10">Verified with server-side SDK payloads. Data integrity score: 99.9%.</p>
                                    <div className="mt-8 flex items-center gap-2 text-[#00FF94] font-mono text-xs font-bold tracking-widest">
                                        <CheckCircle2 size={14} />

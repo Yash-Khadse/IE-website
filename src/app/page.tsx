@@ -14,10 +14,13 @@ import FAQSection from '../sections/FAQSection';
 import AboutSection from '@/sections/AboutSection';
 import FinalCTA from '../sections/FinalCTA';
 
+import { MarqueeSection } from '@/sections/MarqueeSection';
+
 export default function Home() {
   return (
     <>
       <Hero />
+      <MarqueeSection />
       <AboutSection />
       <ServicesSection />
       <IntegrationSection />

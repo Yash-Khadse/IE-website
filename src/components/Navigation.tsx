@@ -37,7 +37,7 @@ const Navigation = () => {
           <div className={`relative flex items-center justify-between rounded-full border transition-all duration-500 px-6 ${
               isScrolled 
               ? 'bg-background/80 backdrop-blur-xl border-border shadow-[0_4px_30px_rgba(0,0,0,0.1)] h-16' 
-              : 'bg-transparent border-transparent h-20'
+              : 'bg-transparent border-transparent h-20 mix-blend-difference text-white'
           }`}>
             
             {/* Logo */}
@@ -61,39 +61,39 @@ const Navigation = () => {
                 <NavigationMenu>
                     <NavigationMenuList>
                         <NavigationMenuItem>
-                            <Link href="/about" legacyBehavior passHref>
-                                <NavigationMenuLink className={`${navigationMenuTriggerStyle()} ${!isScrolled ? 'bg-transparent text-white hover:bg-white/10' : ''}`}>
+                            <NavigationMenuLink asChild>
+                                <Link href="/about" className={`${navigationMenuTriggerStyle()} ${!isScrolled ? 'bg-transparent text-white hover:bg-white/20' : ''}`}>
                                     ABOUT
-                                </NavigationMenuLink>
-                            </Link>
+                                </Link>
+                            </NavigationMenuLink>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
-                            <Link href="/services" legacyBehavior passHref>
-                                <NavigationMenuLink className={`${navigationMenuTriggerStyle()} ${!isScrolled ? 'bg-transparent text-white hover:bg-white/10' : ''}`}>
+                            <NavigationMenuLink asChild>
+                                <Link href="/services" className={`${navigationMenuTriggerStyle()} ${!isScrolled ? 'bg-transparent text-white hover:bg-white/20' : ''}`}>
                                     SERVICES
-                                </NavigationMenuLink>
-                            </Link>
+                                </Link>
+                            </NavigationMenuLink>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
-                             <Link href="/work" legacyBehavior passHref>
-                                <NavigationMenuLink className={`${navigationMenuTriggerStyle()} ${!isScrolled ? 'bg-transparent text-white hover:bg-white/10' : ''}`}>
+                            <NavigationMenuLink asChild>
+                                <Link href="/work" className={`${navigationMenuTriggerStyle()} ${!isScrolled ? 'bg-transparent text-white hover:bg-white/20' : ''}`}>
                                     WORK
-                                </NavigationMenuLink>
-                            </Link>
+                                </Link>
+                            </NavigationMenuLink>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
-                             <Link href="/blog" legacyBehavior passHref>
-                                <NavigationMenuLink className={`${navigationMenuTriggerStyle()} ${!isScrolled ? 'bg-transparent text-white hover:bg-white/10' : ''}`}>
+                            <NavigationMenuLink asChild>
+                                <Link href="/blog" className={`${navigationMenuTriggerStyle()} ${!isScrolled ? 'bg-transparent text-white hover:bg-white/20' : ''}`}>
                                     BLOG
-                                </NavigationMenuLink>
-                            </Link>
+                                </Link>
+                            </NavigationMenuLink>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
-                             <Link href="/case-studies" legacyBehavior passHref>
-                                <NavigationMenuLink className={`${navigationMenuTriggerStyle()} ${!isScrolled ? 'bg-transparent text-white hover:bg-white/10' : ''}`}>
+                            <NavigationMenuLink asChild>
+                                <Link href="/case-studies" className={`${navigationMenuTriggerStyle()} ${!isScrolled ? 'bg-transparent text-white hover:bg-white/20' : ''}`}>
                                     CASES
-                                </NavigationMenuLink>
-                            </Link>
+                                </Link>
+                            </NavigationMenuLink>
                         </NavigationMenuItem>
                     </NavigationMenuList>
                 </NavigationMenu>
@@ -123,10 +123,14 @@ const Navigation = () => {
                     <motion.div
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="hidden md:flex items-center gap-2 px-6 py-2.5 bg-primary text-primary-foreground text-xs font-bold font-mono tracking-wide rounded-full shadow-lg hover:shadow-xl hover:bg-primary/90 transition-all duration-300 cursor-pointer"
+                      className={`hidden md:flex items-center gap-2 px-6 py-2.5 text-xs font-bold font-mono tracking-wide rounded-full shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer ${
+                          isScrolled 
+                          ? 'bg-primary text-primary-foreground hover:bg-primary/90' 
+                          : 'bg-white text-black hover:bg-gray-100'
+                      }`}
                     >
                       <Terminal size={14} />
-                      <span>INITIALIZE_AUDIT</span>
+                      <span>GET PROPOSAL</span>
                     </motion.div>
                 </Link>
 
@@ -176,12 +180,12 @@ const Navigation = () => {
               <div className="flex-1 flex items-center justify-center p-6">
                  <nav className="flex flex-col gap-6 w-full max-w-md">
                     {[
-                        { label: 'MISSION_BRIEF', href: '/about' },
-                        { label: 'SYSTEM_CAPABILITIES', href: '/services' },
-                        { label: 'ACTIVE_DEPLOYMENTS', href: '/work' },
-                        { label: 'SYSTEM_LOGS', href: '/blog' },
-                        { label: 'MISSION_REPORTS', href: '/case-studies' },
-                        { label: 'CONTACT_UPLINK', href: '/contact' }
+                        { label: 'ABOUT US', href: '/about' },
+                        { label: 'SERVICES', href: '/services' },
+                        { label: 'OUR WORK', href: '/work' },
+                        { label: 'INSIGHTS', href: '/blog' },
+                        { label: 'CASE STUDIES', href: '/case-studies' },
+                        { label: 'CONTACT', href: '/contact' }
                     ].map((item, i) => (
                         <Link
                            key={i}
@@ -208,8 +212,8 @@ const Navigation = () => {
               {/* Footer */}
               <div className="p-6 border-t border-border bg-muted/50">
                   <div className="flex justify-between items-center text-[10px] font-mono text-muted-foreground">
-                      <span>SECURE CON. ESTABLISHED</span>
-                      <span>V.3.0.1</span>
+                      <span>INVISIEDGE MARKETING.</span>
+                      <span>EST. 2024</span>
                   </div>
               </div>
 

@@ -60,7 +60,7 @@ const ServicesSection = () => {
              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary border border-border mb-6"
           >
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse"/>
-              <span className="text-primary text-xs font-mono uppercase tracking-widest">System Capabilities</span>
+              <span className="text-primary text-xs font-mono uppercase tracking-widest">Growth Capabilities</span>
           </motion.div>
           
           <motion.h2 
@@ -69,9 +69,9 @@ const ServicesSection = () => {
              transition={{ delay: 0.1 }}
              className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[0.95] tracking-tight"
           >
-            INVISIBLE <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-foreground">SYSTEMS</span>
+            INVISIBLE <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-foreground">STRATEGIES</span>
             <br />
-            SYSTEMIC <span className="italic font-serif text-muted-foreground/50">ORCHESTRATION</span>
+            MARKET <span className="italic font-serif text-muted-foreground/50">DOMINATION</span>
           </motion.h2>
         </div>
 
@@ -92,8 +92,8 @@ const ServicesSection = () => {
                     <ArrowUpRight className="text-muted-foreground group-hover:text-foreground group-hover:rotate-45 transition-all" size={20} />
                 </div>
                 <div>
-                    <h3 className="text-foreground text-lg font-medium mb-1">System Diagnostics</h3>
-                    <p className="text-muted-foreground text-xs leading-relaxed">Deep-dive audits to identify performance bottlenecks.</p>
+                    <h3 className="text-foreground text-lg font-medium mb-1">Digital Audit</h3>
+                    <p className="text-muted-foreground text-xs leading-relaxed">Deep-dive audits to identify growth opportunities.</p>
                 </div>
              </motion.div>
 
@@ -102,7 +102,7 @@ const ServicesSection = () => {
                custom={1} variants={cardVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}
                className="bg-primary/10 border border-primary/20 rounded-3xl p-6 h-[180px] flex flex-col justify-end relative overflow-hidden group hover:bg-primary/20 transition-colors"
              >
-                <div className="absolute top-4 right-4 text-primary text-xs font-mono">SYS_01</div>
+                <div className="absolute top-4 right-4 text-primary text-xs font-mono">GROWTH_01</div>
                 <div className="text-foreground text-2xl font-bold mb-1">
                     4.9<span className="text-primary text-lg">/5</span>
                 </div>
@@ -128,7 +128,7 @@ const ServicesSection = () => {
                    <div className="p-2 bg-secondary rounded-lg border border-border">
                         <Workflow className="text-primary" size={20} />
                    </div>
-                   <h3 className="text-foreground font-medium">Distribution Topology</h3>
+                   <h3 className="text-foreground font-medium">Funnel Architecture</h3>
                 </div>
                 {/* Simulated Nodes */}
                 <div className="flex-1 relative border-l border-border ml-3 pl-6 flex flex-col justify-between py-2">
@@ -171,8 +171,8 @@ const ServicesSection = () => {
                          <Globe size={48} className="text-foreground animate-spin-slow" strokeWidth={1} />
                          <div className="absolute inset-0 rounded-full border border-primary/20 animate-ping-slow" />
                     </div>
-                    <div className="text-foreground font-mono text-xl tracking-widest">BRAND_ORCHESTRATOR</div>
-                    <div className="text-primary text-xs font-mono mt-2">MULTI_BRAND_HUB_V5</div>
+                    <div className="text-foreground font-mono text-xl tracking-widest">GROWTH_ENGINE</div>
+                    <div className="text-primary text-xs font-mono mt-2">MARKETING_HUB_CORE</div>
                 </div>
 
                 {/* Vertical Lines */}
@@ -190,7 +190,7 @@ const ServicesSection = () => {
                custom={5} variants={cardVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}
                className="bg-card/50 backdrop-blur-md border border-border rounded-3xl p-6 min-h-[220px] flex flex-col items-center justify-center relative overflow-hidden group"
              >
-                <div className="absolute top-6 left-6 text-foreground text-sm font-medium z-10">Latency</div>
+                <div className="absolute top-6 left-6 text-foreground text-sm font-medium z-10">Conversion</div>
                 {/* Speedometer */}
                 <div className="relative w-32 h-32 flex items-center justify-center mt-2 group-hover:scale-105 transition-transform duration-500">
                    <svg className="w-full h-full transform -rotate-90">
@@ -211,8 +211,8 @@ const ServicesSection = () => {
                 <div className="p-4 rounded-2xl bg-secondary text-primary mb-3 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                     <Lock size={24} />
                 </div>
-                <div className="text-foreground text-sm font-medium">Brand Safety Protocols</div>
-                <div className="text-muted-foreground text-[10px] mt-1 font-mono">ENCRYPTION: AES-256</div>
+                <div className="text-foreground text-sm font-medium">Brand Consistency</div>
+                <div className="text-muted-foreground text-[10px] mt-1 font-mono">GUIDELINES: ACTIVE</div>
              </motion.div>
           </motion.div>
 
@@ -223,7 +223,7 @@ const ServicesSection = () => {
                custom={7} variants={cardVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}
                className="bg-card/50 backdrop-blur-sm border border-border rounded-3xl p-6 min-h-[240px] flex flex-col relative overflow-hidden"
              >
-                 <h3 className="text-foreground font-medium z-10 mb-4">Cognitive<br/>Conversion</h3>
+                 <h3 className="text-foreground font-medium z-10 mb-4">Intelligent<br/>Conversion</h3>
                  <div className="flex-1 bg-secondary/50 border border-border rounded-xl p-3 relative z-10 backdrop-blur-md">
                     <div className="flex items-center gap-2 mb-2">
                         <Users size={12} className="text-muted-foreground" />
@@ -251,11 +251,11 @@ const ServicesSection = () => {
                     <div className="w-8 h-8 bg-foreground rounded-full flex items-center justify-center text-background mb-2">
                         <Zap size={16} fill="currentColor" />
                     </div>
-                    <div className="font-bold text-foreground">Rapid Deploy</div>
+                    <div className="font-bold text-foreground">Rapid Scale</div>
                 </div>
                 <div className="text-muted-foreground text-xs mt-2 relative z-10 w-full border-t border-border pt-2 flex justify-between">
                     <span>STATUS</span>
-                    <span className="font-bold">READY</span>
+                    <span className="font-bold">LIVE</span>
                 </div>
              </motion.div>
           </motion.div>
