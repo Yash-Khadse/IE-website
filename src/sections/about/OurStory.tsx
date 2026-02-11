@@ -43,13 +43,13 @@ export default function OurStory() {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#5210F8] opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-[#5210F8]"></span>
                 </span>
-                <span className="text-[#5210F8] font-mono text-xs uppercase tracking-[0.2em] font-bold">Origin Story</span>
+                <span className="text-[#5210F8] font-mono text-xs uppercase tracking-[0.2em] font-bold">Growth & Systems Studio</span>
             </div>
 
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[0.95] tracking-tight">
-              Marketing was<br />
+              From Scattered<br />
               <span className="relative inline-block text-[#5210F8]">
-                Broken.
+                To Scaled.
                 <svg className="absolute w-full h-2 md:h-3 -bottom-1 left-0 text-[#C47DFD]" viewBox="0 0 100 10" preserveAspectRatio="none">
                     <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
                 </svg>
@@ -58,41 +58,16 @@ export default function OurStory() {
 
             <div className="space-y-6 text-base md:text-xl text-[#072C55]/70 leading-relaxed font-normal">
               <p>
-                We watched traditional agencies treat growth like a checklist. Posting content without strategy. Burning budgets without analysis. Reporting vanity metrics that <strong className="text-[#072C55]">never touched the bottom line.</strong>
+                Invisi Edge is a growth and systems studio that helps brands move from scattered efforts to structured scale. We work at the intersection of strategy, design, technology, and automation to build foundations that support long-term growth.
               </p>
               
               <p className="border-l-4 border-[#5210F8] pl-6 py-1 italic font-medium text-[#072C55]">
-                "The industry was optimized for billing hours, not generating revenue."
+                "Instead of focusing on one-off deliverables, we design connected systems."
               </p>
  
               <p>
-                InvisiEdge was born from a radical rejection of that model. We replaced account managers with strategists and gut-feelings with data. We built an agency that operates like a growth engine: <span className="bg-[#E0CCFD]/50 px-1 rounded text-[#5210F8] font-bold whitespace-nowrap md:whitespace-normal">precise, iterative, and accountable.</span>
+                Our approach improves efficiency, reduces manual work, and allows brands to grow with clarity and confidence. We don't just execute tasks; we architect the <span className="bg-[#E0CCFD]/50 px-1 rounded text-[#5210F8] font-bold whitespace-nowrap md:whitespace-normal">future of your business.</span>
               </p>
-            </div>
-
-            {/* Light Mode Feature Grid */}
-            <div className="mt-12 grid sm:grid-cols-2 gap-4">
-                {[
-                    { title: "ROI Guaranteed", icon: Target, desc: "Performance-linked models" },
-                    { title: "Data Driven", icon: Fingerprint, desc: "Math over magic" },
-                    { title: "Rapid Scale", icon: Zap, desc: "Sprint-based execution" },
-                    { title: "Transparecy", icon: Activity, desc: "Real-time dashboards" }
-                ].map((item, i) => (
-                    <motion.div 
-                        key={i}
-                        whileHover={{ y: -5, boxShadow: "0 10px 30px -10px rgba(82, 16, 248, 0.15)" }}
-                        className="group flex flex-col p-5 rounded-2xl bg-white border border-[#072C55]/5 shadow-sm hover:border-[#5210F8]/30 transition-all duration-300"
-                    >
-                        <div className="flex items-center justify-between mb-3">
-                            <div className="p-2 rounded-lg bg-[#5210F8]/5 text-[#5210F8] group-hover:bg-[#5210F8] group-hover:text-white transition-colors duration-300">
-                                <item.icon size={20} />
-                            </div>
-                            <ArrowRight className="w-4 h-4 text-[#072C55]/20 group-hover:text-[#5210F8] -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all" />
-                        </div>
-                        <span className="text-[#072C55] font-bold mb-1">{item.title}</span>
-                        <span className="text-xs text-[#072C55]/50">{item.desc}</span>
-                    </motion.div>
-                ))}
             </div>
 
           </motion.div>

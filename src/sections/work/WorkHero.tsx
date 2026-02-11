@@ -137,7 +137,7 @@ export default function WorkHero() {
                 <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
                     <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#5210F8]/20 bg-[#5210F8]/5 backdrop-blur-md text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#5210F8]">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#5210F8] animate-pulse" />
-                        Case_Studies // V.05
+                        Client_Success // V.05
                     </span>
                 </div>
             </div>
@@ -173,7 +173,7 @@ export default function WorkHero() {
 
         {/* LAYER 2: SCROLL INDICATOR */}
         <div ref={fgRef} className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-none opacity-50">
-             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/60">Explore Case Studies</span>
+             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/60">View Client Feedback</span>
              <div className="w-[1px] h-12 bg-gradient-to-b from-[#5210F8] to-transparent" />
              <ArrowDown className="w-4 h-4 text-[#5210F8] animate-bounce" />
         </div>

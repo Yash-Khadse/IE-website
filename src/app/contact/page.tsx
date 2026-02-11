@@ -140,27 +140,12 @@ export default function ContactPage() {
                   </div>
 
                   {/* Status Indicator */}
-                  <div className="mt-8 p-6 bg-gradient-to-r from-[#5210F8]/10 to-transparent border border-[#5210F8]/20 rounded-2xl overflow-hidden relative">
-                      <div className="flex items-center gap-4 relative z-10">
-                          <div className="relative">
-                               <div className="w-3 h-3 bg-[#5210F8] rounded-full" />
-                               <div className="absolute inset-0 w-3 h-3 bg-[#5210F8] rounded-full animate-ping opacity-75" />
-                          </div>
-                          <div>
-                              <div className="text-[10px] font-mono font-bold text-[#5210F8] uppercase tracking-widest mb-1">Agency Status</div>
-                              <div className="text-[#072C55] font-bold text-sm">ACCEPTING NEW PARTNERS</div>
-                          </div>
-                      </div>
-                      <div className="absolute right-0 bottom-0 opacity-[0.05]">
-                          <Shield size={80} className="text-[#5210F8] translate-x-4 translate-y-4" />
-                      </div>
-                  </div>
+                  
 
               </motion.div>
           </div>
       </section>
 
-      <CTASection />
     </main>
   );
 }

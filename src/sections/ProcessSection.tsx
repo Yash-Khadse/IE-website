@@ -97,7 +97,7 @@ const ProcessSection = () => {
           <div>
             <div className="flex items-center gap-3 text-primary font-mono text-xs tracking-widest mb-4">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                GROWTH_STRATEGY // V.3.0
+                OUR_APPROACH
             </div>
             <h2 className="text-[3rem] md:text-[4.5rem] lg:text-[5.5rem] font-bold text-foreground leading-[0.9] tracking-tighter shadow-black drop-shadow-xl">
               GROWTH
@@ -113,13 +113,13 @@ const ProcessSection = () => {
           
           {/* Left Side - Sticky Server Rack Indicator */}
           <div className="hidden lg:flex flex-col w-[360px] h-[calc(100vh-120px)] sticky top-28 bg-card/90 backdrop-blur-xl rounded-2xl border border-border p-8 shadow-2xl z-20">
-             <div className="flex justify-between items-center border-b border-border pb-4 mb-6">
+             {/* <div className="flex justify-between items-center border-b border-border pb-4 mb-6">
                  <span className="text-xs font-mono text-muted-foreground/60">INSIGHT_UNIT_01</span>
                  <div className="flex gap-1">
                      <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                      <span className="w-1.5 h-1.5 rounded-full bg-green-500/30" />
                  </div>
-             </div>
+             </div> */}
              
              <div className="relative flex-1 flex flex-col justify-center py-4 gap-2">
                 {/* Vertical Rail Line */}
@@ -155,7 +155,7 @@ const ProcessSection = () => {
                 ))}
              </div>
 
-             <div className="mt-auto pt-6 border-t border-border">
+             {/* <div className="mt-auto pt-6 border-t border-border">
                  <div className="flex justify-between text-[10px] font-mono text-muted-foreground mb-2">
                     <span>CAMPAIGN LOAD</span>
                     <span>84%</span>
@@ -163,7 +163,7 @@ const ProcessSection = () => {
                  <div className="w-full h-1 bg-secondary rounded-full overflow-hidden">
                      <div className="h-full bg-green-500/50 w-[34%]" />
                  </div>
-             </div>
+             </div> */}
           </div>
 
           {/* Right Side - Step Content */}
@@ -184,7 +184,7 @@ const ProcessSection = () => {
       </div>
 
       {/* Bottom Marquee */}
-      <div className="absolute bottom-0 left-0 w-full h-12 bg-background/80 border-t border-border flex items-center overflow-hidden pointer-events-none z-20 backdrop-blur-sm">
+      {/* <div className="absolute bottom-0 left-0 w-full h-12 bg-background/80 border-t border-border flex items-center overflow-hidden pointer-events-none z-20 backdrop-blur-sm">
          <motion.div 
             className="flex gap-16 whitespace-nowrap text-xs font-mono text-muted-foreground/40"
             animate={{ x: "-20%" }}
@@ -202,7 +202,7 @@ const ProcessSection = () => {
                  </span>
              ))}
          </motion.div>
-      </div>
+      </div> */}
 
     </section>
   );
@@ -246,7 +246,7 @@ const StepContent = ({ step, isActive, onInView, id }: { step: any, isActive: bo
                      {step.description}
                    </p>
 
-                   <div className="mt-12 flex flex-wrap gap-8 border-t border-border pt-8">
+                   {/* <div className="mt-12 flex flex-wrap gap-8 border-t border-border pt-8">
                        <div className="flex flex-col gap-1.5">
                            <span className="text-[10px] uppercase tracking-widest text-muted-foreground/60 font-bold">Target Phase</span>
                            <span className="font-mono text-sm text-foreground/90">Growth_Vector_{step.number}</span>
@@ -257,7 +257,7 @@ const StepContent = ({ step, isActive, onInView, id }: { step: any, isActive: bo
                                 <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" /> Active
                             </span>
                        </div>
-                   </div>
+                   </div> */}
                </motion.div>
           </div>
 

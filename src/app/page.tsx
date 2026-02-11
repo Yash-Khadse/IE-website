@@ -5,7 +5,7 @@ import FeaturedProjects from '../sections/FeaturedProjects';
 import QuoteSection from '../sections/QuoteSection';
 import ServicesSection from '../sections/ServicesSection';
 import IntegrationSection from '../sections/IntegrationSection';
-import TrustSection from '../sections/TrustSection';
+// import TrustSection from '../sections/TrustSection';
 import CTASection from '../sections/CTASection';
 import GoalsSection from '../sections/GoalsSection';
 import ProcessSection from '../sections/ProcessSection';
@@ -26,12 +26,12 @@ export default function Home() {
       <IntegrationSection />
       <QuoteSection />
       <FeaturedProjects />
-      <TrustSection />
-      <CTASection />
+      {/* <TrustSection /> */}
       <ProcessSection />
       <TestimonialsSection />
       <FAQSection />
-      <FinalCTA />
+      <CTASection />
+      {/* <FinalCTA /> */}
     </>
   );
 }

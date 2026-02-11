@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Terminal, Activity, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
-import IELogo from '../assests/IE-logo.png';
+import IELogo from '../assests/IE-logo2.png';
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -88,13 +88,13 @@ const Navigation = () => {
                                 </Link>
                             </NavigationMenuLink>
                         </NavigationMenuItem>
-                        <NavigationMenuItem>
+                        {/* <NavigationMenuItem>
                             <NavigationMenuLink asChild>
                                 <Link href="/case-studies" className={`${navigationMenuTriggerStyle()} ${!isScrolled ? 'bg-transparent text-white hover:bg-white/20' : ''}`}>
                                     CASES
                                 </Link>
                             </NavigationMenuLink>
-                        </NavigationMenuItem>
+                        </NavigationMenuItem> */}
                     </NavigationMenuList>
                 </NavigationMenu>
             </div>
@@ -102,7 +102,7 @@ const Navigation = () => {
             {/* Right Actions */}
             <div className="flex items-center gap-4">
                 {/* Status Indicator */}
-                <div className={`hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full border backdrop-blur-sm transition-colors duration-300 ${
+                {/* <div className={`hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full border backdrop-blur-sm transition-colors duration-300 ${
                     isScrolled ? 'bg-secondary/80 border-border' : 'bg-white/10 border-white/20'
                 }`}>
                     <span className="relative flex h-2 w-2">
@@ -114,7 +114,7 @@ const Navigation = () => {
                     }`}>
                         ONLINE
                     </span>
-                </div>
+                </div> */}
 
                 <Link
                   href="/contact"
@@ -184,7 +184,7 @@ const Navigation = () => {
                         { label: 'SERVICES', href: '/services' },
                         { label: 'OUR WORK', href: '/work' },
                         { label: 'INSIGHTS', href: '/blog' },
-                        { label: 'CASE STUDIES', href: '/case-studies' },
+                        // { label: 'CASE STUDIES', href: '/case-studies' },
                         { label: 'CONTACT', href: '/contact' }
                     ].map((item, i) => (
                         <Link

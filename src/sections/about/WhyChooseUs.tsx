@@ -72,13 +72,13 @@ export default function WhyChooseUs() {
             
             {/* Heading Interface */}
             <div className="mb-24 text-center max-w-4xl mx-auto">
-                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#072C55]/20 bg-[#F8F9FA] mb-8 shadow-sm">
+                 {/* <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#072C55]/20 bg-[#F8F9FA] mb-8 shadow-sm">
                     <span className="w-2 h-2 rounded-full bg-[#5210F8] animate-pulse" />
                     <span className="font-mono text-[11px] font-black text-[#072C55] uppercase tracking-[0.4em]">Growth Benchmark Report // v4.0</span>
-                 </div>
+                 </div> */}
                  <h2 className="text-4xl md:text-8xl font-black text-[#072C55] tracking-tighter leading-[0.85]">
-                    The Growth <br />
-                    <span className="text-[#5210F8]">Operating Framework.</span>
+                    Why <br />
+                    <span className="text-[#5210F8]">Choose Us.</span>
                  </h2>
             </div>
 
@@ -175,7 +175,7 @@ export default function WhyChooseUs() {
             </div>
 
             {/* System Spec Footer */}
-            <div className="mt-24 pt-10 border-t border-[#072C55]/10 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12">
+            {/* <div className="mt-24 pt-10 border-t border-[#072C55]/10 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12">
                 {[
                     { label: "Contract Mode", val: "NO LOCK-IN" },
                     { label: "IP Ownership", val: "100% BRAND" },
@@ -191,7 +191,7 @@ export default function WhyChooseUs() {
                         </span>
                     </div>
                 ))}
-            </div>
+            </div> */}
 
         </div>
     </section>

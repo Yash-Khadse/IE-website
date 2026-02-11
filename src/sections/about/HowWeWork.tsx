@@ -158,7 +158,7 @@ export default function HowWeWork() {
                                {currentStep.desc}
                            </p>
 
-                           <div className={`pt-6 md:pt-8 border-t ${currentStep.border} flex justify-between items-center`}>
+                           {/* <div className={`pt-6 md:pt-8 border-t ${currentStep.border} flex justify-between items-center`}>
                                <div className="flex flex-col">
                                    <span className={`font-mono text-[10px] font-bold uppercase tracking-[0.2em] ${currentStep.text} opacity-30 mb-1`}>Process Status</span>
                                    <span className={`font-mono text-[10px] md:text-xs font-bold uppercase tracking-widest ${currentStep.text} opacity-70`}>Core Operational</span>
@@ -166,7 +166,7 @@ export default function HowWeWork() {
                                <button className={`w-10 h-10 rounded-full border ${currentStep.border} flex items-center justify-center ${currentStep.text} opacity-50 hover:opacity-100 transition-opacity`}>
                                    <ChevronDown size={18} />
                                </button>
-                           </div>
+                           </div> */}
                        </motion.div>
                    </AnimatePresence>
                </div>

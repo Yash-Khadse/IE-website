@@ -60,25 +60,14 @@ const FeaturedProjects = () => {
             <div className="absolute -left-[5px] top-0 w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_rgba(196,125,253,0.8)] animate-ping" />
             
             <div className="flex items-center gap-3 text-primary font-mono text-xs tracking-widest mb-2">
-               <Database size={14} /> SELECTED_WORK // V.24.0
+               <Database size={14} /> SELECTED_WORK 
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground uppercase tracking-tighter">
-              Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-foreground">Case Studies</span>
+              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-foreground">Work</span>
             </h2>
           </div>
 
-          <div className="hidden md:flex items-center gap-4 text-xs font-mono mt-6 md:mt-0">
-              <div className="flex items-center gap-2 px-4 py-2 bg-secondary/50 border border-border rounded-full text-muted-foreground backdrop-blur-sm">
-                  <Terminal size={12} />
-                  <span>FILTER: ALL_CAMPAIGNS</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-primary backdrop-blur-sm relative overflow-hidden">
-                  <div className="absolute inset-0 bg-primary/10 animate-pulse" />
-                  <Activity size={12} className="relative z-10" />
-                  <span className="relative z-10">STATUS: ACTIVE</span>
-                  <span className="relative z-10 w-1.5 h-1.5 bg-green-400 rounded-full shadow-[0_0_8px_#4ade80]" />
-              </div>
-          </div>
+          
         </motion.div>
 
         {/* Grid */}
@@ -121,26 +110,7 @@ const NumberCounter = ({ value, suffix = '' }: { value: string; suffix?: string 
   return <span ref={nodeRef} className="text-2xl font-bold text-foreground leading-none tabular-nums">0</span>;
 };
 
-const DecryptText = ({ text }: { text: string }) => {
-    const [display, setDisplay] = useState(text);
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
 
-    const handleMouseEnter = () => {
-        let iterations = 0;
-        const interval = setInterval(() => {
-            setDisplay(
-                text.split("").map((letter, index) => {
-                    if (index < iterations) return text[index];
-                    return chars[Math.floor(Math.random() * chars.length)];
-                }).join("")
-            );
-            if (iterations >= text.length) clearInterval(interval);
-            iterations += 1 / 3;
-        }, 30);
-    };
-
-    return <span onMouseEnter={handleMouseEnter} className="font-mono">{display}</span>;
-}
 
 
 const ProjectCard = ({ project, delay, isBlurred, onMouseEnter }: { project: any, delay: number, isBlurred: boolean, onMouseEnter: () => void }) => {
@@ -179,7 +149,7 @@ const ProjectCard = ({ project, delay, isBlurred, onMouseEnter }: { project: any
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      className={`group flex flex-col w-full ${project.gridClass} h-full transition-all duration-500 perspective-1000 ${isBlurred ? 'blur-sm opacity-30 grayscale' : 'opacity-100 z-10'}`}
+      className={`group flex flex-col w-full ${project.gridClass} h-full transition-all duration-500 perspective-1000 ${isBlurred ? 'blur-[2px] opacity-100' : 'opacity-100 z-10'}`}
     >
       <Link href={project.href} className="flex-grow w-full h-full block">
           <div className={`relative w-full bg-card/50 border border-border rounded-2xl overflow-hidden shadow-2xl group-hover:border-primary/50 transition-all duration-500 ${project.imageClass} flex-grow transform-gpu`}>
@@ -191,9 +161,9 @@ const ProjectCard = ({ project, delay, isBlurred, onMouseEnter }: { project: any
                 <img
                     src={project.heroImage}
                     alt={project.title}
-                    className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
                 />
-                <div className="absolute inset-0 bg-background/60 group-hover:bg-background/10 transition-colors duration-500 mix-blend-multiply" />
+                <div className="absolute inset-0 bg-background/20 group-hover:bg-background/10 transition-colors duration-500 mix-blend-multiply" />
             </div>
             
             <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10 pointer-events-none" />
@@ -229,7 +199,7 @@ const ProjectCard = ({ project, delay, isBlurred, onMouseEnter }: { project: any
                         <span className="opacity-80">{project.category}</span>
                         <span className="w-1 h-1 bg-muted-foreground/50 rounded-full" />
                         <span className="text-muted-foreground group-hover:text-foreground transition-colors duration-300 hidden md:inline-block">
-                            <DecryptText text={project.summary} />
+                            {project.summary}
                         </span>
                     </div>
                 </div>

@@ -76,7 +76,6 @@ const CTASection = () => {
                             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                             READY_TO_SCALE
                         </div>
-                        <span className="text-muted-foreground font-mono text-xs hidden sm:block">ID: CX-9902</span>
                     </div>
                     <div className="flex gap-1">
                         {[1,2,3].map(i => <div key={i} className="w-1.5 h-1.5 rounded-full bg-muted-foreground/20" />)}

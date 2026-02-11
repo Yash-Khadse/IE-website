@@ -11,6 +11,7 @@ import OurTeam from "@/sections/about/OurTeam";
 
 import SocialProof from "@/sections/about/SocialProof";
 import AboutFinalCTA from "@/sections/about/AboutFinalCTA";
+import CTASection from "@/sections/CTASection";
 
 export default function AboutPage() {
   return (
@@ -18,14 +19,14 @@ export default function AboutPage() {
       <AboutHero />
       <OurStory />
       <MissionVisionValues />
-      <WhatWeDo />
+      {/* <WhatWeDo /> */}
       <HowWeWork />
       <WhyChooseUs />
 
-      <OurTeam />
+      {/* <OurTeam /> */}
 
 
-      <AboutFinalCTA />
+      <CTASection />
     </main>
   );
 }

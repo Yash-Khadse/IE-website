@@ -356,8 +356,7 @@ function ProjectView({ project }: { project: ProjectData }) {
 
             {/* FOOTER NAV & CTA */}
             <ProjectRelatedServices serviceIds={project.relatedServices} />
-            <ProjectNavigation nextProject={nextProject} />
-            <CTASection />
+            
 
         </main>
     )
