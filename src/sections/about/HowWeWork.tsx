@@ -43,7 +43,11 @@ export default function HowWeWork() {
           {/* Dynamic Background Panel */}
           <div className={`absolute inset-0 transition-colors duration-700 ease-in-out ${currentStep.bg}`} />
           
-          {/* Grid Pattern Overlay Removed */}
+          {/* Grid Pattern Overlay */}
+          <div className="absolute inset-x-0 bottom-0 top-1/2 pointer-events-none opacity-[0.03] overflow-hidden">
+                   <div className="absolute inset-0 bg-[#5210F8] [mask-image:linear-gradient(to_top,black,transparent)]" />
+                   <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(#072C55 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+          </div>
 
           {/* Header Offset Wrapper */}
           <div className="relative z-10 flex flex-col md:flex-row h-full max-w-[1400px] mx-auto p-6 md:p-12 items-center justify-center md:justify-between">

@@ -141,25 +141,7 @@ export default function OurStory() {
                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#D6E4FF]/50 to-transparent rounded-tr-[4rem]" />
             </div>
 
-            {/* Floating Review Card */}
-            <motion.div 
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5 }}
-                className="absolute -bottom-10 -left-12 bg-white border border-gray-100 p-6 rounded-2xl shadow-xl z-20 hidden lg:block max-w-[280px]"
-            >
-                <div className="flex items-center gap-1 mb-2">
-                    {[1,2,3,4,5].map(i => <Sparkles key={i} size={12} className="text-[#FBBF24] fill-[#FBBF24]" />)}
-                </div>
-                <p className="text-sm text-[#072C55] font-medium italic mb-3">"{ourStoryContent.testimonial.text}"</p>
-                <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-[#072C55] flex items-center justify-center text-white text-xs font-bold">{ourStoryContent.testimonial.initials}</div>
-                    <div>
-                        <div className="text-xs font-bold text-[#072C55]">{ourStoryContent.testimonial.author}</div>
-                        <div className="text-[10px] text-[#072C55]/50">{ourStoryContent.testimonial.role}</div>
-                    </div>
-                </div>
-            </motion.div>
+            
 
           </motion.div>
         </div>
