@@ -7,23 +7,23 @@ const processSteps = [
   {
     id: 1,
     number: '01',
-    title: 'MARKET AUDIT',
-    badge: 'OPPORTUNITY ANALYSIS',
-    description: 'We initiate a comprehensive analysis of your digital presence. Identifying conversion gaps, market opportunities, and competitive advantages. This audit builds the blueprint for market domination.',
+    title: 'MARKET RESEARCH',
+    badge: 'OPPORTUNITY SCANNER',
+    description: 'We initiate a comprehensive analysis of your digital presence. Identifying conversion gaps, market opportunities, and competitive advantages. This audit builds the blueprint for market leadership.',
     icon: Terminal
   },
   {
     id: 2,
     number: '02',
-    title: 'STRATEGIC ROADMAP',
-    badge: 'CAMPAIGN ARCHITECTURE',
+    title: 'STRATEGIC PLAN',
+    badge: 'CAMPAIGN SETUP',
     description: 'Mapping the growth strategy. We design multichannel funnels, integrated workflows, and brand consistency layers. Every channel is optimized for maximum ROI.',
     icon: Layers
   },
   {
     id: 3,
     number: '03',
-    title: 'GROWTH ACTIVATION',
+    title: 'LAUNCH',
     badge: 'GO-TO-MARKET',
     description: 'Executing the strategy with precision. We launch targeted campaigns using data-backed content. Execution ensures seamless scaling across your entire digital portfolio.',
     icon: Code
@@ -31,8 +31,8 @@ const processSteps = [
   {
     id: 4,
     number: '04',
-    title: 'REVENUE SCALING',
-    badge: 'PERFORMANCE OPTIMIZATION',
+    title: 'SCALING',
+    badge: 'OPTIMIZATION',
     description: 'The campaign enters continuous optimization. We utilize real-time analytics to fine-tune ROI, ensuring your revenue grows predictably with zero friction.',
     icon: Activity
   },
@@ -97,7 +97,7 @@ const ProcessSection = () => {
           <div>
             <div className="flex items-center gap-3 text-primary font-mono text-xs tracking-widest mb-4">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                OUR_APPROACH
+                OUR APPROACH
             </div>
             <h2 className="text-[3rem] md:text-[4.5rem] lg:text-[5.5rem] font-bold text-foreground leading-[0.9] tracking-tighter shadow-black drop-shadow-xl">
               GROWTH
@@ -139,7 +139,7 @@ const ProcessSection = () => {
                            </div>
 
                            <div className="flex flex-col">
-                               <span className="text-[9px] font-mono uppercase tracking-widest text-muted-foreground mb-0.5">Step_{step.number}</span>
+                               <span className="text-[9px] font-mono uppercase tracking-widest text-muted-foreground mb-0.5">Step {step.number}</span>
                                <span className="text-sm font-bold text-foreground leading-tight">{step.badge}</span>
                            </div>
                         </div>
@@ -311,7 +311,7 @@ const SchematicVisual = ({ isActive, stepId }: { isActive: boolean, stepId: numb
                     
                     {/* Terminal Output */}
                     <div className="absolute top-full left-1/2 -translate-x-1/2 w-[120%] mt-8 bg-[#0A0F1C]/90 rounded-lg px-4 py-3 border border-white/10 backdrop-blur font-mono text-[10px] text-green-400 shadow-xl">
-                        &gt; Analyzing Market... <span className="text-white">OK</span><br/>
+                        &gt; Analyzing Market... <span className="text-white">Done</span><br/>
                         &gt; Calculating CPC... <span className="text-yellow-400">$2.40</span><br/>
                         &gt; Brand Health... <span className="animate-pulse">_</span>
                     </div>
@@ -330,7 +330,7 @@ const SchematicVisual = ({ isActive, stepId }: { isActive: boolean, stepId: numb
                                 className="bg-[#0A0F1C] border border-white/10 rounded-xl flex flex-col items-center justify-center gap-2 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-fooror-purple/50 transition-colors"
                              >
                                 <Cpu size={24} className="text-fooror-purple-light" />
-                                <span className="text-[9px] font-mono text-white/30">CHANNEL_0{i}</span>
+                                <span className="text-[9px] font-mono text-white/30">Channel {i}</span>
                              </motion.div>
                          ))}
                      </div>
@@ -357,7 +357,7 @@ const SchematicVisual = ({ isActive, stepId }: { isActive: boolean, stepId: numb
                                     transition={{ delay: 0.5 }}
                                     className="text-white"
                                 >
-                                    &gt; maximizing roas [ai_model]
+                                    &gt; maximizing roas [AI Model]
                                 </motion.p>
                                 <motion.p 
                                     initial={{ opacity: 0, x: -10 }} 

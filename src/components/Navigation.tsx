@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Terminal, Activity, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import IELogo from '../assests/IE-logo2.png';
+import { usePathname } from 'next/navigation';
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -16,6 +17,10 @@ import {
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  // Hide global navigation on project detail pages (Immersive Mode)
+  const isProjectPage = pathname?.startsWith('/work/') && pathname !== '/work';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +29,8 @@ const Navigation = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  if (isProjectPage) return null;
 
   return (
     <>
@@ -46,8 +53,8 @@ const Navigation = () => {
                  <Image 
                     src={IELogo} 
                     alt="InvisiEdge" 
-                    height={40} 
-                    className={`h-8 md:h-10 w-auto bg-transparent object-contain transition-transform duration-300 group-hover:scale-105 ${
+                    height={50} 
+                    className={`h-10 md:h-12 w-auto bg-transparent object-contain transition-transform duration-300 group-hover:scale-105 ${
                         !isScrolled ? 'brightness-0 invert' : ''
                     }`}
                     priority
@@ -130,7 +137,7 @@ const Navigation = () => {
                       }`}
                     >
                       <Terminal size={14} />
-                      <span>GET PROPOSAL</span>
+                      <span>Start a Project</span>
                     </motion.div>
                 </Link>
 
@@ -166,7 +173,7 @@ const Navigation = () => {
               <div className="flex items-center justify-between px-6 py-6 border-b border-border">
                  <div className="flex items-center gap-2 text-muted-foreground text-xs font-mono">
                     <Activity size={14} className="text-primary" />
-                    <span>SYSTEM_NAVIGATION_MODE</span>
+                    <span>Menu</span>
                  </div>
                  <button 
                     onClick={() => setIsMenuOpen(false)}

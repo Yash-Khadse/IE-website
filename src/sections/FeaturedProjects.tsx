@@ -34,7 +34,8 @@ const FeaturedProjects = () => {
       return {
         ...p,
         gridClass: isLarge ? 'md:col-span-2' : 'md:col-span-1',
-        imageClass: isLarge ? 'h-full min-h-[300px] md:min-h-0' : 'aspect-[3/4]',
+        // Mobile: Uniform aspect ratio of 4/5. Desktop: Original chaotic grid logic.
+        imageClass: isLarge ? 'aspect-[4/5] md:aspect-auto md:h-full' : 'aspect-[4/5] md:aspect-[3/4]',
       };
   });
 
@@ -60,7 +61,7 @@ const FeaturedProjects = () => {
             <div className="absolute -left-[5px] top-0 w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_rgba(196,125,253,0.8)] animate-ping" />
             
             <div className="flex items-center gap-3 text-primary font-mono text-xs tracking-widest mb-2">
-               <Database size={14} /> SELECTED_WORK 
+               <Database size={14} /> Selected Work 
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground uppercase tracking-tighter">
               Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-foreground">Work</span>
@@ -170,11 +171,11 @@ const ProjectCard = ({ project, delay, isBlurred, onMouseEnter }: { project: any
 
             {/* Stats HUD (Top Left) */}
             {project.results && project.results[0] && (
-              <div className="absolute top-6 left-6 z-20" style={{ transform: "translateZ(30px)" }}>
-                <div className="bg-background/90 backdrop-blur-md border border-primary/30 p-4 min-w-[140px] shadow-xl rounded-sm">
+              <div className="absolute top-4 left-4 md:top-6 md:left-6 z-20" style={{ transform: "translateZ(30px)" }}>
+                <div className="bg-background/90 backdrop-blur-md border border-primary/30 p-3 md:p-4 min-w-[120px] md:min-w-[140px] shadow-xl rounded-sm">
                    <div className="flex flex-col gap-1">
                       <div className="flex items-center justify-between text-[10px] text-primary font-mono tracking-wider mb-1">
-                          IMPACT <Radio size={8} className="animate-pulse text-primary" />
+                          Impact <Radio size={8} className="animate-pulse text-primary" />
                       </div>
                       <NumberCounter value={project.results[0].value} suffix={project.results[0].suffix} />
                       <span className="text-[10px] font-medium text-muted-foreground uppercase">{project.results[0].label}</span>
@@ -192,19 +193,19 @@ const ProjectCard = ({ project, delay, isBlurred, onMouseEnter }: { project: any
             )}
 
             {/* Bottom Info Bar */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background via-background/80 to-transparent p-6 pt-12 flex items-end justify-between translate-y-2 group-hover:translate-y-0 transition-transform duration-300" style={{ transform: "translateZ(20px)" }}>
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background via-background/80 to-transparent p-4 md:p-6 pt-12 flex items-end justify-between translate-y-2 group-hover:translate-y-0 transition-transform duration-300" style={{ transform: "translateZ(20px)" }}>
                 <div>
-                    <h3 className="text-xl md:text-2xl font-bold text-foreground tracking-tight mb-1 group-hover:text-primary transition-colors">{project.title}</h3>
+                    <h3 className="text-lg md:text-2xl font-bold text-foreground tracking-tight mb-1 group-hover:text-primary transition-colors">{project.title}</h3>
                     <div className="flex items-center gap-2 text-xs md:text-sm font-mono text-primary">
                         <span className="opacity-80">{project.category}</span>
                         <span className="w-1 h-1 bg-muted-foreground/50 rounded-full" />
-                        <span className="text-muted-foreground group-hover:text-foreground transition-colors duration-300 hidden md:inline-block">
+                        <span className="text-muted-foreground group-hover:text-foreground transition-colors duration-300 hidden sm:inline-block">
                             {project.summary}
                         </span>
                     </div>
                 </div>
-                <div className="p-3 bg-secondary/10 border border-border rounded-full group-hover:bg-primary group-hover:border-primary transition-colors duration-300">
-                    <ArrowUpRight className="text-foreground w-5 h-5 group-hover:rotate-45 group-hover:text-primary-foreground transition-all duration-300" />
+                <div className="p-2 md:p-3 bg-secondary/10 border border-border rounded-full group-hover:bg-primary group-hover:border-primary transition-colors duration-300">
+                    <ArrowUpRight className="text-foreground w-4 h-4 md:w-5 md:h-5 group-hover:rotate-45 group-hover:text-primary-foreground transition-all duration-300" />
                 </div>
             </div>
           </div>

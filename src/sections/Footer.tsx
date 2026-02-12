@@ -38,13 +38,13 @@ const Footer = () => {
                           className="h-10 w-auto object-contain" 
                        />
                        <span className="px-3 py-1 rounded bg-secondary border border-border text-[10px] font-mono text-muted-foreground tracking-widest">
-                           GROWTH_VER_3.0
+                           Version 3.0
                        </span>
                     </div>
 
                     <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight tracking-tight mb-6">
                         WHERE STRATEGY BECOMES <br/>
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-foreground to-primary">MARKET_DOMINANCE</span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-foreground to-primary">MARKET LEADERSHIP</span>
                     </h2>
 
                     <div className="flex gap-4">
@@ -91,7 +91,7 @@ const Footer = () => {
             
             <div className="flex items-center gap-2">
                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                 <span>ALL CAMPAIGNS ACTIVE</span>
+                 <span>All Systems Active</span>
             </div>
 
             <p>© 2025 INVISIEDGE MARKETING. ALL RIGHTS RESERVED.</p>

@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useInView, useScroll, useTransform, useSpring, Variants } from 'framer-motion';
 import { Globe, Lock, Smartphone, MousePointer, ArrowUpRight, CheckCircle2, MessageSquare, Users, BarChart3, Workflow, Zap } from 'lucide-react';
 
@@ -14,12 +14,24 @@ const ServicesSection = () => {
   // Smooth out the scroll physics
   const smoothProgress = useSpring(scrollYProgress, { mass: 0.5, stiffness: 100, damping: 20 });
 
-  const y1 = useTransform(smoothProgress, [0, 1], [0, -150]);
-  const y2 = useTransform(smoothProgress, [0, 1], [0, 150]);
+  // Responsive check for parallax
+  const [isMobile, setIsMobile] = useState(true);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const y1Base = useTransform(smoothProgress, [0, 1], [0, -150]);
+  const y2Base = useTransform(smoothProgress, [0, 1], [0, 150]);
+
+  const y1 = isMobile ? 0 : y1Base;
+  const y2 = isMobile ? 0 : y2Base;
   
   // Improvised Sticky Motion with 3D Physics:
-  // 1. Y: Translates down ~1200px to land higher above the center of the Integration section's diagram.
-  const y3 = useTransform(smoothProgress, [0, 1], [0, 1200]);
+  // 1. Y: Translates down ~950px to land higher above the center of the Integration section's diagram.
+  const y3 = useTransform(smoothProgress, [0, 1], [0, 950]);
   const scale = useTransform(smoothProgress, [0, 0.8], [1, 0.5]); // Scale down to become the 'node'
   const rotate = useTransform(smoothProgress, [0, 0.5, 1], [0, -5, 0]);
   const rotateX = useTransform(smoothProgress, [0, 0.5, 1], [0, 15, 0]);
@@ -71,14 +83,33 @@ const ServicesSection = () => {
           >
             INVISIBLE <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-foreground">STRATEGIES</span>
             <br />
-            MARKET <span className="italic font-serif text-muted-foreground/50">DOMINATION</span>
+            MARKET <span className="italic font-serif text-muted-foreground/50">LEADERSHIP</span>
           </motion.h2>
         </div>
 
         {/* 5-Column Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_1fr_1.2fr_1fr_1fr] gap-4 md:gap-6 min-h-[600px] items-start perspective-1000">
+        {/* 5-Column Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_1fr_1.2fr_1fr_1fr] gap-6 items-start perspective-1000">
           
-          {/* Column 1 */}
+          {/* Column 3 (Center - Growth Engine) - Mobile: Appear first or second */}
+          <motion.div 
+            className="lg:hidden col-span-1 md:col-span-2 w-full mb-8"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+          >
+             <div className="w-full bg-background/50 backdrop-blur-sm rounded-[2rem] border border-primary/30 p-8 flex flex-col items-center justify-center relative overflow-hidden shadow-2xl shadow-primary/10">
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent animate-pulse" />
+                <div className="relative z-10 text-center">
+                    <div className="mx-auto w-20 h-20 mb-4 rounded-full border border-primary/50 bg-primary/10 flex items-center justify-center relative">
+                         <Globe size={40} className="text-foreground animate-spin-slow" strokeWidth={1} />
+                         <div className="absolute inset-0 rounded-full border border-primary/20 animate-ping-slow" />
+                    </div>
+                    <div className="text-foreground font-mono text-lg tracking-widest">GROWTH ENGINE</div>
+                    <div className="text-primary text-xs font-mono mt-2">MARKETING HUB</div>
+                </div>
+             </div>
+          </motion.div>
           <motion.div style={{ y: y1 }} className="flex flex-col gap-4 col-span-1">
              {/* Strategic Audit */}
              <motion.div 
@@ -102,7 +133,7 @@ const ServicesSection = () => {
                custom={1} variants={cardVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}
                className="bg-primary/10 border border-primary/20 rounded-3xl p-6 h-[180px] flex flex-col justify-end relative overflow-hidden group hover:bg-primary/20 transition-colors"
              >
-                <div className="absolute top-4 right-4 text-primary text-xs font-mono">GROWTH_01</div>
+                <div className="absolute top-4 right-4 text-primary text-xs font-mono">STEP 01</div>
                 <div className="text-foreground text-2xl font-bold mb-1">
                     4.9<span className="text-primary text-lg">/5</span>
                 </div>
@@ -171,8 +202,8 @@ const ServicesSection = () => {
                          <Globe size={48} className="text-foreground animate-spin-slow" strokeWidth={1} />
                          <div className="absolute inset-0 rounded-full border border-primary/20 animate-ping-slow" />
                     </div>
-                    <div className="text-foreground font-mono text-xl tracking-widest">GROWTH_ENGINE</div>
-                    <div className="text-primary text-xs font-mono mt-2">MARKETING_HUB_CORE</div>
+                    <div className="text-foreground font-mono text-xl tracking-widest">GROWTH ENGINE</div>
+                    <div className="text-primary text-xs font-mono mt-2">MARKETING HUB</div>
                 </div>
 
                 {/* Vertical Lines */}
@@ -212,7 +243,7 @@ const ServicesSection = () => {
                     <Lock size={24} />
                 </div>
                 <div className="text-foreground text-sm font-medium">Brand Consistency</div>
-                <div className="text-muted-foreground text-[10px] mt-1 font-mono">GUIDELINES: ACTIVE</div>
+                <div className="text-muted-foreground text-[10px] mt-1 font-mono">Guidelines: Active</div>
              </motion.div>
           </motion.div>
 
@@ -223,7 +254,7 @@ const ServicesSection = () => {
                custom={7} variants={cardVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}
                className="bg-card/50 backdrop-blur-sm border border-border rounded-3xl p-6 min-h-[240px] flex flex-col relative overflow-hidden"
              >
-                 <h3 className="text-foreground font-medium z-10 mb-4">Intelligent<br/>Conversion</h3>
+                 <h3 className="text-foreground font-medium z-10 mb-4">Intelligent<span className="lg:hidden"> </span><br className="hidden lg:block"/>Conversion</h3>
                  <div className="flex-1 bg-secondary/50 border border-border rounded-xl p-3 relative z-10 backdrop-blur-md">
                     <div className="flex items-center gap-2 mb-2">
                         <Users size={12} className="text-muted-foreground" />
@@ -245,7 +276,7 @@ const ServicesSection = () => {
              {/* Scalable */}
              <motion.div 
                custom={8} variants={cardVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}
-               className="bg-card rounded-3xl p-6 h-full flex flex-col justify-between items-start relative overflow-hidden border border-border"
+               className="bg-card rounded-3xl p-6 h-full min-h-[180px] flex flex-col justify-between items-start relative overflow-hidden border border-border"
              >
                 <div className="relative z-10 w-full">
                     <div className="w-8 h-8 bg-foreground rounded-full flex items-center justify-center text-background mb-2">
@@ -254,8 +285,8 @@ const ServicesSection = () => {
                     <div className="font-bold text-foreground">Rapid Scale</div>
                 </div>
                 <div className="text-muted-foreground text-xs mt-2 relative z-10 w-full border-t border-border pt-2 flex justify-between">
-                    <span>STATUS</span>
-                    <span className="font-bold">LIVE</span>
+                    <span>Status</span>
+                    <span className="font-bold">Live</span>
                 </div>
              </motion.div>
           </motion.div>

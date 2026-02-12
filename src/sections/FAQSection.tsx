@@ -3,31 +3,43 @@ import { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, Hash, Code2, Terminal } from 'lucide-react';
 
-const faqs = [
+interface FAQItemData {
+  id: string;
+  question: string;
+  answer: string;
+  tags: string[];
+}
+
+const faqs: FAQItemData[] = [
   {
     id: '01',
-    question: 'GROWTH_STRATEGY_TIMELINE',
-    answer: "Standard campaign cycles range from 4-8 weeks. This involves the initial market audit, strategy blueprinting, and full-funnel activation. We operate in rapid-response sprints to ensure your growth engines are live and converting without disrupting existing operations.",
+    question: 'How long does it take to see results?',
+    answer: "We typically work in 4-8 week cycles. We start by auditing your current setup, creating a strategy, and then launching campaigns. We work quickly to get things running without disrupting your day-to-day operations.",
+    tags: ['TIMELINE', 'PROCESS']
   },
   {
     id: '02',
-    question: 'MULTI_CHANNEL_ALIGNMENT',
-    answer: "Our strategies are designed for high-impact multi-channel management. We implement a unified 'Growth Center' approach that allows you to orchestrate messaging, content distribution, and data pipelines across your entire brand portfolio from a single source.",
+    question: 'Do you manage marketing across multiple channels?',
+    answer: "Yes, we handle everything from a central hub. We make sure your message, content, and data are consistent across all your channels, to ensure a unified brand presence.",
+    tags: ['MANAGEMENT', 'CHANNELS']
   },
   {
     id: '03',
-    question: 'INTEGRATED_MARKETING_STACK',
-    answer: "The strategy is platform-agnostic. We establish seamless integration with your existing CRM, analytics tools, and marketing platforms. Our strategic layer acts as the 'Growth Glue', ensuring data flows bidirectionally and actionable insights are generated.",
+    question: 'How does this fit with our existing tools?',
+    answer: "We work with whatever tools you already use. We integrate smoothly with your CRM, analytics, and other platforms to ensure all your data is connected and useful.",
+    tags: ['INTEGRATION', 'TOOLS']
   },
   {
     id: '04',
-    question: 'SCALABILITY_POTENTIAL',
-    answer: "There are no hard limits. Whether you are scaling from 1 to 10 markets or synchronizing complex global campaigns, our 'Growth Pathways' are built to expand dynamically. We utilize adaptive strategies and modular frameworks to ensure zero-friction growth.",
+    question: 'Can you handle our growth as we scale?',
+    answer: "We are built to grow with you. Whether you're expanding to new markets or running global campaigns, our strategies adapt to your needs so scaling up is smooth and easy.",
+    tags: ['SCALABILITY', 'GROWTH']
   },
   {
     id: '05',
-    question: 'INVESTMENT_FRAMEWORKS',
-    answer: "Engagement is calibrated to your market goals and growth velocity. We recommend a 'Growth Audit' session to generate a precise strategic roadmap. Our focus is on building recurring revenue through robust campaigns, not just one-off deliverables.",
+    question: 'How do you structure the engagement?',
+    answer: "We tailor our work to your goals. We start with an audit to create a clear roadmap for you. Our goal is to help you build long-term revenue, rather than just delivering one-off projects.",
+    tags: ['STRATEGY', 'REVENUE']
   },
 ];
 
@@ -53,33 +65,33 @@ const FAQSection = () => {
                  <div className="mb-10">
                     <div className="flex items-center gap-2 text-primary font-mono text-xs tracking-widest mb-4">
                         <Terminal size={14} />
-                        <span>INSIGHT_BASE</span>
+                        <span>FAQ</span>
                     </div>
                     <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-[0.95] tracking-tight mb-6">
-                        GROWTH
-                        <span className="block text-muted-foreground/50">RESOURCES</span>
+                        FREQUENTLY ASKED
+                        <span className="block text-muted-foreground/50">QUESTIONS</span>
                     </h2>
                     <p className="text-muted-foreground text-lg leading-relaxed">
-                        Answers to common questions regarding our engagement model, strategic approach, and campaign velocity.
+                        Here are answers to some common questions about how we work, our strategy, and what you can expect from us.
                     </p>
                  </div>
 
-                 <div className="p-6 rounded-2xl bg-card border border-border relative overflow-hidden group">
+                 <div className="hidden lg:block p-6 rounded-2xl bg-card border border-border relative overflow-hidden group">
                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                      
                      <div className="relative z-10">
-                        <p className="font-mono text-xs text-primary mb-4">// DIRECT_INQUIRY</p>
+                        <p className="font-mono text-xs text-primary mb-4">Questions?</p>
                         <div className="flex items-center gap-4 mb-6">
                             <div className="w-12 h-12 rounded-lg bg-secondary/50 border border-border flex items-center justify-center">
                                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                             </div>
                             <div>
-                                <h4 className="text-foreground font-bold">Need specific data?</h4>
-                                <p className="text-muted-foreground text-sm">Initiate a direct query.</p>
+                                <h4 className="text-foreground font-bold">Need more details?</h4>
+                                <p className="text-muted-foreground text-sm">Reach out to our team directly.</p>
                             </div>
                         </div>
                         <button className="w-full py-3 bg-secondary/30 hover:bg-secondary/50 border border-border hover:border-primary/50 text-foreground rounded-lg transition-all duration-300 font-mono text-sm uppercase tracking-wider flex items-center justify-center gap-2 group/btn">
-                           <span>Start_Conversation</span>
+                           <span>Contact Us</span>
                            <span className="group-hover/btn:translate-x-1 transition-transform">-&gt;</span>
                         </button>
                      </div>
@@ -99,6 +111,28 @@ const FAQSection = () => {
                  />
                ))}
             </div>
+            
+            {/* Mobile Contact Box (Below Accordion) */}
+            <div className="lg:hidden mt-12 p-6 rounded-2xl bg-card border border-border relative overflow-hidden group">
+                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                     
+                     <div className="relative z-10">
+                        <p className="font-mono text-xs text-primary mb-4">Questions?</p>
+                        <div className="flex items-center gap-4 mb-6">
+                            <div className="w-12 h-12 rounded-lg bg-secondary/50 border border-border flex items-center justify-center">
+                                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                            </div>
+                            <div>
+                                <h4 className="text-foreground font-bold">Need more details?</h4>
+                                <p className="text-muted-foreground text-sm">Reach out to our team directly.</p>
+                            </div>
+                        </div>
+                        <button className="w-full py-3 bg-secondary/30 hover:bg-secondary/50 border border-border hover:border-primary/50 text-foreground rounded-lg transition-all duration-300 font-mono text-sm uppercase tracking-wider flex items-center justify-center gap-2 group/btn">
+                           <span>Contact Us</span>
+                           <span className="group-hover/btn:translate-x-1 transition-transform">-&gt;</span>
+                        </button>
+                     </div>
+            </div>
           </div>
 
         </div>
@@ -107,7 +141,7 @@ const FAQSection = () => {
   );
 };
 
-const FAQItem = ({ faq, isOpen, onClick }: { faq: any, isOpen: boolean, onClick: () => void }) => {
+const FAQItem = ({ faq, isOpen, onClick }: { faq: FAQItemData, isOpen: boolean, onClick: () => void }) => {
     return (
         <motion.div 
            className="border-b border-border group cursor-pointer"
@@ -122,7 +156,7 @@ const FAQItem = ({ faq, isOpen, onClick }: { faq: any, isOpen: boolean, onClick:
 
                 <div className="flex-1">
                     <div className="flex items-center justify-between gap-4">
-                        <h3 className={`text-lg md:text-xl font-bold font-mono tracking-tight transition-colors duration-300 ${isOpen ? 'text-foreground' : 'text-muted-foreground group-hover:text-foreground'}`}>
+                        <h3 className={`text-lg md:text-xl font-bold tracking-tight transition-colors duration-300 ${isOpen ? 'text-foreground' : 'text-muted-foreground group-hover:text-foreground'}`}>
                             {isOpen && <span className="text-primary mr-2">&gt;</span>}
                             {faq.question}
                         </h3>
@@ -145,12 +179,11 @@ const FAQItem = ({ faq, isOpen, onClick }: { faq: any, isOpen: boolean, onClick:
                                             {faq.answer}
                                         </p>
                                         <div className="mt-4 flex items-center gap-2">
-                                            <span className="px-2 py-0.5 rounded bg-secondary border border-border text-[10px] font-mono text-muted-foreground/70">
-                                                verified
-                                            </span>
-                                            <span className="px-2 py-0.5 rounded bg-secondary border border-border text-[10px] font-mono text-muted-foreground/70">
-                                                global
-                                            </span>
+                                            {faq.tags.map((tag, i) => (
+                                                <span key={i} className="px-2 py-0.5 rounded bg-secondary border border-border text-[10px] font-mono text-muted-foreground/70">
+                                                    {tag}
+                                                </span>
+                                            ))}
                                         </div>
                                     </div>
                                 </div>

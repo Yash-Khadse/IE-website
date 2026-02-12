@@ -95,7 +95,7 @@ export default function ContactHero() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full h-[90vh] md:h-[100vh] bg-[#020617] overflow-hidden border-b border-white/5">
+    <section ref={containerRef} className="relative w-full min-h-[100dvh] bg-[#020617] overflow-hidden border-b border-white/5 flex flex-col items-center justify-center">
         
         {/* LAYER 0: THREE.JS BACKGROUND (The Network) */}
         <div className="absolute inset-0 z-0 pointer-events-none opacity-80">
@@ -133,11 +133,11 @@ export default function ContactHero() {
 
             {/* Main Title - Stacked */}
             <h1 className="flex flex-col items-center text-center font-black tracking-tighter leading-[0.85] select-none text-white mix-blend-screen">
-                <span className="text-[12vw] md:text-[8vw] opacity-20 blur-[1px] animate-in fade-in zoom-in duration-1000 delay-100" 
+                <span className="text-[10vw] md:text-[8vw] opacity-20 blur-[1px] animate-in fade-in zoom-in duration-1000 delay-100" 
                       style={{ WebkitTextStroke: '1px rgba(255, 255, 255, 0.2)', color: 'transparent' }}>
                     STRATEGIC
                 </span>
-                <span className="text-[15vw] md:text-[10vw] bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 drop-shadow-2xl">
+                <span className="text-[13vw] md:text-[10vw] bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 drop-shadow-2xl">
                     PARTNERSHIP
                 </span>
             </h1>
@@ -151,7 +151,7 @@ export default function ContactHero() {
             </div>
             
             {/* Stats Strip */}
-            <div className="mt-12 md:mt-16 flex flex-wrap justify-center gap-8 md:gap-16 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-700">
+            <div className="mt-12 md:mt-16 flex flex-wrap justify-center gap-6 md:gap-16 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-700">
                 {[
                     { icon: Globe, label: 'Global Reach', val: 'Market Leaders' },
                     { icon: Shield, label: 'Brand Safety', val: 'Verified' },

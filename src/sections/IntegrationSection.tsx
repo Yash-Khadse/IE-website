@@ -15,7 +15,7 @@ const IntegrationCard = ({ icon: Icon, label, top, left, delay, isInView, classN
     style={{ top, left, ...style }}
     className={`z-10 ${className || 'absolute -translate-x-1/2 -translate-y-1/2'}`} 
   >
-    <div className="bg-card/80 backdrop-blur-md border border-border rounded-[1.2rem] p-4 shadow-xl w-[140px] h-[140px] flex flex-col items-center justify-center gap-3 group hover:border-primary/50 hover:shadow-[0_0_30px_rgba(82,16,248,0.2)] transition-all duration-300">
+    <div className="bg-card/80 backdrop-blur-md border border-border rounded-[1.2rem] p-3 md:p-4 shadow-xl w-full max-w-[140px] md:w-[140px] h-[120px] md:h-[140px] flex flex-col items-center justify-center gap-2 md:gap-3 group hover:border-primary/50 hover:shadow-[0_0_30px_rgba(82,16,248,0.2)] transition-all duration-300">
         <div className="p-3 rounded-full bg-secondary group-hover:bg-primary transition-colors duration-300">
             <Icon className="w-6 h-6 text-foreground group-hover:text-primary-foreground" strokeWidth={1.5} />
         </div>
@@ -61,7 +61,7 @@ const IntegrationSection = () => {
                 <span>UNIFIED_GROWTH</span>
              </div>
           </div>
-          <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold text-foreground leading-none tracking-tighter">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-foreground leading-none tracking-tighter px-4">
             Everything we build connects. 
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-foreground">Nothing works in isolation.</span>
@@ -88,8 +88,8 @@ const IntegrationSection = () => {
                 />
             </div>
             
-            {/* Central Core Node */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border border-primary/50 bg-background/80 backdrop-blur-md flex items-center justify-center shadow-[0_0_50px_rgba(82,16,248,0.4)] z-20">
+            {/* Central Core Node (Desktop) */}
+            <div className="hidden md:flex absolute top-[35%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border border-primary/50 bg-background/80 backdrop-blur-md items-center justify-center shadow-[0_0_50px_rgba(82,16,248,0.4)] z-20">
                 <div className="w-20 h-20 bg-primary rounded-full animate-pulse-slow flex items-center justify-center">
                     <Database className="text-primary-foreground animate-spin-slow" size={32} />
                 </div>
@@ -98,21 +98,30 @@ const IntegrationSection = () => {
             {/* --- CARDS LAYER (Desktop) --- */}
             <div className="hidden md:block">
                 {/* Left Cards */}
-                <IntegrationCard icon={Network} label="Websites & Infrastructure" top="10%" left="20%" delay={0.2} isInView={isInView} />
-                <IntegrationCard icon={Megaphone} label="Branding & Identity" top="30%" left="5%" delay={0.4} isInView={isInView} />
-                <IntegrationCard icon={Users} label="Social Media Engines" top="55%" left="20%" delay={0.6} isInView={isInView} />
+                <IntegrationCard icon={Network} label="Websites & Infrastructure" top="-5%" left="15%" delay={0.2} isInView={isInView} />
+                <IntegrationCard icon={Megaphone} label="Branding & Identity" top="15%" left="0%" delay={0.4} isInView={isInView} />
+                <IntegrationCard icon={Users} label="Social Media Engines" top="40%" left="15%" delay={0.6} isInView={isInView} />
 
                 {/* Right Cards */}
-                <IntegrationCard icon={Database} label="CRM" top="10%" left="80%" delay={0.3} isInView={isInView} />
-                <IntegrationCard icon={Bot} label="Automation" top="30%" left="95%" delay={0.5} isInView={isInView} />
-                <IntegrationCard icon={Ticket} label="Performance Marketing" top="55%" left="80%" delay={0.7} isInView={isInView} />
+                <IntegrationCard icon={Database} label="CRM" top="-5%" left="75%" delay={0.3} isInView={isInView} />
+                <IntegrationCard icon={Bot} label="Automation" top="15%" left="90%" delay={0.5} isInView={isInView} />
+                <IntegrationCard icon={Ticket} label="Performance Marketing" top="40%" left="75%" delay={0.7} isInView={isInView} />
             </div>
 
             {/* --- CARDS LAYER (Mobile) --- */}
-            <div className="md:hidden grid grid-cols-2 gap-4 pt-20 relative z-30">
+            <div className="md:hidden grid grid-cols-2 gap-3 sm:gap-4 pt-12 -mt-20 relative z-30 px-2 sm:px-4 pb-12 w-full">
+                {/* Mobile Core Node */}
+                <div className="col-span-2 flex justify-center py-6">
+                    <div className="w-24 h-24 rounded-full border border-primary/50 bg-background/80 backdrop-blur-md flex items-center justify-center shadow-[0_0_30px_rgba(82,16,248,0.4)]">
+                        <div className="w-16 h-16 bg-primary rounded-full animate-pulse-slow flex items-center justify-center">
+                            <Database className="text-primary-foreground animate-spin-slow" size={24} />
+                        </div>
+                    </div>
+                </div>
+
                 <IntegrationCard className="relative translate-x-0 translate-y-0 w-full" style={{}} icon={Network} label="Websites" delay={0.1} isInView={isInView} />
                 <IntegrationCard className="relative translate-x-0 translate-y-0 w-full" style={{}} icon={Megaphone} label="Branding" delay={0.2} isInView={isInView} />
-                
+
                 <IntegrationCard className="relative translate-x-0 translate-y-0 w-full" style={{}} icon={Users} label="Social Media" delay={0.3} isInView={isInView} />
                 <IntegrationCard className="relative translate-x-0 translate-y-0 w-full" style={{}} icon={Database} label="CRM" delay={0.4} isInView={isInView} />
                 

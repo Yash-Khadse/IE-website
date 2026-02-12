@@ -1,12 +1,12 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Share2, Printer, Bookmark } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Share2, Printer } from 'lucide-react';
 import Link from 'next/link';
 
 export default function BlogPostHeader({ post }: { post: any }) {
   return (
-    <section className="relative w-full h-[60vh] md:h-[70vh] flex items-end overflow-hidden pb-12">
+    <section className="relative w-full min-h-[100dvh] flex items-end overflow-hidden pb-12 md:pb-24">
       
       {/* Background Image with Gradient Fade */}
       <div className="absolute inset-0 z-0">
@@ -30,9 +30,9 @@ export default function BlogPostHeader({ post }: { post: any }) {
              transition={{ duration: 0.6 }}
              className="mb-8"
           >
-              <Link href="/blog" className="inline-flex items-center gap-2 text-white/50 hover:text-[#00FF94] transition-colors font-mono text-xs uppercase tracking-widest group">
+              <Link href="/blog" className="inline-flex items-center gap-2 text-white/50 hover:text-[#5210F8] transition-colors font-mono text-xs uppercase tracking-widest group">
                    <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> 
-                   Return_To_Insights
+                   Back to Blog
               </Link>
           </motion.div>
 
@@ -43,12 +43,12 @@ export default function BlogPostHeader({ post }: { post: any }) {
              transition={{ duration: 0.6, delay: 0.2 }}
              className="flex flex-wrap items-center gap-4 mb-6"
           >
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#00FF94]/20 bg-[#00FF94]/10 text-[#00FF94] text-[10px] font-mono font-bold uppercase tracking-wider backdrop-blur-md">
-                 <span className="w-1.5 h-1.5 rounded-full bg-[#00FF94] animate-pulse" />
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#5210F8]/30 bg-[#5210F8]/10 text-[#C47DFD] text-[10px] font-mono font-bold uppercase tracking-wider backdrop-blur-md">
+                 <span className="w-1.5 h-1.5 rounded-full bg-[#5210F8] animate-pulse" />
                  {post.category}
               </span>
               <span className="text-xs font-mono text-white/40 uppercase tracking-widest">
-                  POST_ID: {post.id.toString().padStart(3, '0')}
+                  ID: {post.id.toString().padStart(3, '0')}
               </span>
               <div className="w-1 h-1 bg-white/20 rounded-full" />
               <span className="text-xs font-mono text-white/40 uppercase tracking-widest">
@@ -84,13 +84,25 @@ export default function BlogPostHeader({ post }: { post: any }) {
               </div>
 
               <div className="flex items-center gap-4">
-                   <button className="p-3 rounded-full border border-white/10 bg-white/5 text-white/60 hover:text-white hover:border-white/30 transition-all" aria-label="Share">
+                   <button 
+                       onClick={() => {
+                           if (typeof navigator !== 'undefined' && navigator.share) {
+                               navigator.share({ title: post.title, url: window.location.href }).catch(() => {});
+                           } else {
+                               // Fallback
+                               navigator.clipboard.writeText(window.location.href);
+                           }
+                       }}
+                       className="p-3 rounded-full border border-white/10 bg-white/5 text-white/60 hover:text-white hover:border-white/30 transition-all" 
+                       aria-label="Share"
+                   >
                        <Share2 size={18} />
                    </button>
-                   <button className="p-3 rounded-full border border-white/10 bg-white/5 text-white/60 hover:text-white hover:border-white/30 transition-all" aria-label="Bookmark">
-                       <Bookmark size={18} />
-                   </button>
-                   <button className="p-3 rounded-full border border-white/10 bg-white/5 text-white/60 hover:text-white hover:border-white/30 transition-all" aria-label="Print">
+                   <button 
+                       onClick={() => typeof window !== 'undefined' && window.print()}
+                       className="p-3 rounded-full border border-white/10 bg-white/5 text-white/60 hover:text-white hover:border-white/30 transition-all" 
+                       aria-label="Print"
+                   >
                        <Printer size={18} />
                    </button>
               </div>

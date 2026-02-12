@@ -151,7 +151,7 @@ export default function ServicesHero() {
                 <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
                     <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#5210F8]/20 bg-[#5210F8]/5 backdrop-blur-md text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#C47DFD]">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#5210F8] animate-pulse" />
-                        Our_Strategies // Index
+                        Our Strategies
                     </span>
                 </div>
             </div>
@@ -160,10 +160,10 @@ export default function ServicesHero() {
             <h1 className="flex flex-col items-center text-center font-black tracking-tighter leading-[0.85] select-none text-white mix-blend-screen">
                 <span className="text-[14vw] md:text-[8vw] opacity-20 blur-[1px] animate-in fade-in zoom-in duration-1000 delay-100" 
                       style={{ WebkitTextStroke: '1px rgba(82, 16, 248, 0.3)', color: 'transparent' }}>
-                    GROWTH
+                    Grow
                 </span>
                 <span className="text-[18vw] md:text-[11vw] bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50 drop-shadow-2xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-                    ENGINE
+                    Engine
                 </span>
             </h1>
 

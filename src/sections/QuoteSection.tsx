@@ -79,7 +79,7 @@ const QuoteSection = () => {
             initial={{ y: 50, opacity: 0 }}
             animate={isInView ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="w-full bg-card/50 backdrop-blur-xl border border-border rounded-[2rem] md:rounded-[2.5rem] p-8 md:p-16 relative overflow-hidden group"
+            className="w-full bg-card/50 backdrop-blur-xl border border-border rounded-[2rem] md:rounded-[2.5rem] p-6 sm:p-8 md:p-16 relative overflow-hidden group"
           >
             {/* Animated Scanline Overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.02] to-transparent bg-[length:100%_4px] animate-scanline pointer-events-none" />
@@ -102,7 +102,7 @@ const QuoteSection = () => {
                 </div>
 
                 <div className="max-w-4xl mx-auto">
-                    <h3 className="text-2xl md:text-4xl lg:text-[2.75rem] font-medium text-foreground leading-[1.25] mb-12 tracking-tight">
+                    <h3 className="text-xl sm:text-2xl md:text-4xl lg:text-[2.75rem] font-medium text-foreground leading-[1.3] md:leading-[1.25] mb-8 md:mb-12 tracking-tight">
                     "Scale is not a destination; it's a <span className="relative inline-block text-primary font-semibold">
                         <span className="relative z-10">strategic process</span>
                         <motion.span 
@@ -116,9 +116,9 @@ const QuoteSection = () => {
                 </div>
 
                 {/* Author Profile */}
-                <div className="flex flex-col md:flex-row items-center gap-6 border-t border-white/5 pt-10 w-full md:w-auto px-10">
+                <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 border-t border-white/5 pt-8 md:pt-10 w-full md:w-auto px-4 md:px-10">
                   <div className="relative">
-                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border border-primary/50 p-1 relative z-10 bg-background">
+                      <div className="w-14 h-14 md:w-20 md:h-20 rounded-full border border-primary/50 p-1 relative z-10 bg-background">
                           <img
                             src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80"
                             alt="Dima Diuh"
@@ -131,9 +131,9 @@ const QuoteSection = () => {
                   </div>
                   
                   <div className="flex flex-col text-center md:text-left gap-1">
-                    <span className="font-bold text-foreground text-xl tracking-wide">Dima Diuh</span>
-                    <div className="flex items-center gap-2 text-sm font-mono text-primary uppercase tracking-wider">
-                        <BarChart3 size={14} />
+                    <span className="font-bold text-foreground text-lg md:text-xl tracking-wide">Dima Diuh</span>
+                    <div className="flex items-center gap-2 text-xs md:text-sm font-mono text-primary uppercase tracking-wider">
+                        <BarChart3 size={12} className="md:w-3.5 md:h-3.5" />
                         <span>Growth Director // Strategist</span>
                     </div>
                   </div>

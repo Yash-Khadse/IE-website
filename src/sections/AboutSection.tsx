@@ -4,50 +4,82 @@ import { ArrowRight, Box, Code, Cpu, Layers } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 export default function AboutSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
+  const mobileTextRef = useRef<HTMLParagraphElement>(null);
 
   // Initialize GSAP Animations
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
+    let titleSplit: SplitType;
+    let textSplit: SplitType;
+
     const context = gsap.context(() => {
       // 1. Text Splitting
-      const titleSplit = new SplitType(titleRef.current!, { types: 'chars,words' });
-      const textSplit = new SplitType(textRef.current!, { types: 'lines' });
+      // We check if refs exist before splitting to avoid errors
+      if (titleRef.current) {
+         titleSplit = new SplitType(titleRef.current, { types: 'chars,words' });
+         
+         // 2. Animate Title Chars (Staggered Reveal)
+         if (titleSplit.chars) {
+             gsap.from(titleSplit.chars, {
+                scrollTrigger: {
+                  trigger: titleRef.current,
+                  start: "top 80%",
+                  end: "bottom 60%",
+                  scrub: false,
+                },
+                y: 100,
+                opacity: 0,
+                rotateX: -90,
+                stagger: 0.02,
+                duration: 1,
+                ease: "power4.out"
+             });
+         }
+      }
 
-      // 2. Animate Title Chars (Staggered Reveal)
-      gsap.from(titleSplit.chars, {
-        scrollTrigger: {
-          trigger: titleRef.current,
-          start: "top 80%",
-          end: "bottom 60%",
-          scrub: false,
-        },
-        y: 100,
-        opacity: 0,
-        rotateX: -90,
-        stagger: 0.02,
-        duration: 1,
-        ease: "power4.out"
-      });
+      if (textRef.current) {
+          // split-type requires the element to be visible to calculate lines correctly.
+          // Since textRef is hidden on mobile, line splitting might be unreliable or unnecessary there.
+          // However, to avoid 'removeChild' errors, we must manage the instance if we create it.
+          textSplit = new SplitType(textRef.current, { types: 'lines' });
+          
+          // 3. Animate Body Text Lines (Fade Up)
+          if (textSplit.lines) {
+              gsap.from(textSplit.lines, {
+                scrollTrigger: {
+                  trigger: textRef.current,
+                  start: "top 85%",
+                },
+                y: 40,
+                opacity: 0,
+                filter: "blur(10px)",
+                stagger: 0.1,
+                duration: 1,
+                ease: "power2.out"
+              });
+          }
+      }
 
-      // 3. Animate Body Text Lines (Fade Up)
-      gsap.from(textSplit.lines, {
-        scrollTrigger: {
-          trigger: textRef.current,
-          start: "top 85%",
-        },
-        y: 40,
-        opacity: 0,
-        filter: "blur(10px)",
-        stagger: 0.1,
-        duration: 1,
-        ease: "power2.out"
-      });
+      // 3b. Animate Mobile Body Text (Simple Fade)
+      if (mobileTextRef.current) {
+        gsap.from(mobileTextRef.current, {
+          scrollTrigger: {
+            trigger: mobileTextRef.current,
+            start: "top 90%",
+          },
+          y: 30,
+          opacity: 0,
+          duration: 1,
+          ease: "power2.out"
+        });
+      }
 
       // 4. Animate System Cards (Staggered Slide In)
       gsap.utils.toArray<HTMLElement>('.sys-card').forEach((card, i) => {
@@ -68,9 +100,9 @@ export default function AboutSection() {
 
     return () => {
       context.revert();
-      // Clean up split types to prevent duplications on strict mode
-      // SplitType doesn't have a clean revert, but context.revert handles GSAP. 
-      // DOM cleanup is manual if needed, but usually fine in React unless remounting heavily.
+      // Crucial: Revert SplitType changes to the DOM so React can safely manage the nodes again.
+      if (titleSplit) titleSplit.revert();
+      if (textSplit) textSplit.revert();
     };
   }, []);
 
@@ -86,14 +118,14 @@ export default function AboutSection() {
 
       {/* Decorative HUD Elements (GSAP Animated opacity) */}
       <div className="absolute top-10 left-10 text-muted-foreground font-mono text-xs tracking-widest hidden md:block animate-pulse">
-         // AGENCY_STATUS: ACTIVE
+         // Status: Active
       </div>
       <div className="absolute bottom-10 right-10 text-muted-foreground font-mono text-xs tracking-widest hidden md:block">
          MARKET: GLOBAL
       </div>
 
       <div className="max-w-[1500px] mx-auto w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-24 items-center">
           
           {/* Left Column: The Manifesto */}
           <div className="lg:col-span-7 relative">
@@ -112,22 +144,31 @@ export default function AboutSection() {
               We don’t build websites. We build <br className="hidden lg:block"/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary/70 via-foreground to-primary/70 animate-gradient-x bg-[length:200%_auto]">
                 growth engines
-              </span>.
+              </span>
             </h2>
             
-            {/* GSAP Target: Body Text */}
-            <p ref={textRef} className="mt-8 text-lg md:text-xl text-muted-foreground leading-relaxed font-light max-w-2xl border-l-2 border-primary/50 pl-6">
+            {/* GSAP Target: Body Text (Desktop Only) */}
+            <p ref={textRef} className="hidden lg:block mt-8 text-lg md:text-xl text-muted-foreground leading-relaxed font-light max-w-2xl border-l-2 border-primary/50 pl-6">
               The digital landscape is fragmented. <span className="text-foreground font-medium">InvisiEdge</span> architects the digital strategy and multi-channel campaigns that transform disparate assets into a revenue-generating ecosystem.
             </p>
+
+            {/* Decorative Lottie Arrow - Pointing Left (Reversed) */}
+            <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-48 h-48 hidden lg:block pointer-events-none opacity-80 mix-blend-screen" style={{ transform: 'scaleX(-1)' }}>
+                <DotLottieReact
+                    src="https://lottie.host/74947dba-0c8d-44b6-b088-e0bf96251dd8/gxNaRo3hVW.lottie"
+                    loop
+                    autoplay
+                />
+            </div>
           </div>
 
           {/* Right Column: System Modules */}
           <div className="lg:col-span-5 flex flex-col gap-6">
             <div className="flex flex-col gap-4">
                   {[
-                    { icon: Layers, label: "Scalable Infrastructure", desc: "Foundation for scaling multiple brands.", code: "STRAT.01" },
-                    { icon: Cpu, label: "Smart Automation", desc: "Automating customer journeys.", code: "AUTO.02" },
-                    { icon: Code, label: "Strategic Planning", desc: "Data-backed strategies for scalable growth.", code: "DATA.03" },
+                    { icon: Layers, label: "Scalable Infrastructure", desc: "Foundation for scaling multiple brands.", code: "01" },
+                    { icon: Cpu, label: "Smart Automation", desc: "Automating customer journeys.", code: "02" },
+                    { icon: Code, label: "Strategic Planning", desc: "Data-backed strategies for scalable growth.", code: "03" },
                   ].map((item, idx) => (
                     <div
                         key={idx}
@@ -151,6 +192,11 @@ export default function AboutSection() {
                     </div>
                  ))}
             </div>
+
+            {/* Mobile Description (Visible only on mobile) */}
+            <p ref={mobileTextRef} className="lg:hidden mt-2 mb-2 text-lg text-muted-foreground leading-relaxed font-light border-l-2 border-primary/50 pl-6">
+              The digital landscape is fragmented. <span className="text-foreground font-medium">InvisiEdge</span> architects the digital strategy and multi-channel campaigns that transform disparate assets into a revenue-generating ecosystem.
+            </p>
 
             <div className="pt-6 flex justify-end">
                 <button className="sys-card group relative px-8 py-3 bg-foreground text-background font-bold tracking-wide rounded overflow-hidden">

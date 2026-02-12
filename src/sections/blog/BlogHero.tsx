@@ -115,7 +115,7 @@ export default function BlogHero() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full h-[90vh] bg-[#020617] overflow-hidden">
+    <section ref={containerRef} className="relative w-full min-h-[100dvh] bg-[#020617] overflow-hidden flex flex-col items-center justify-center">
         
         {/* LAYER 0: THREE.JS BACKGROUND */}
         <div className="absolute inset-0 z-0 pointer-events-none opacity-80">
@@ -144,7 +144,7 @@ export default function BlogHero() {
                 <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
                     <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#5210F8]/30 bg-[#5210F8]/10 backdrop-blur-md text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#C47DFD]">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#5210F8] animate-pulse" />
-                        InvisiEdge // Insights
+                        InvisiEdge Insights
                     </span>
                 </div>
             </div>
@@ -167,7 +167,7 @@ export default function BlogHero() {
             <div className="mt-8 md:mt-12 max-w-2xl text-center px-4 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
                 <p className="text-base md:text-xl text-white/70 font-light leading-relaxed">
                     Unlocking the <span className="text-[#C47DFD] font-medium">potential of your brand</span>. 
-                    Strategies for the next era of digital dominance.
+                    Strategies for the next era of <span className="text-[#C47DFD] font-medium">digital leadership</span>.
                 </p>
             </div>
 

@@ -16,46 +16,46 @@ import {
 export default function WhyChooseUs() {
   const comparisons = [
     {
-      label: "VELOCITY_FRAMEWORK",
+      label: "SPEED",
       traditional: {
-          title: "Monthly Thinking",
-          desc: "Slow cycles and static checklists. Learnings are trapped in 30-day reporting gaps.",
+          title: "Monthly Reports",
+          desc: "Waiting 30 days to see if campaigns worked. Slow and reactive to market changes.",
           icon: History,
-          val: "1.0x"
+          val: "SLOW"
       },
       invisi: {
-          title: "Weekly Sprints",
-          desc: "High-intensity 7-day performance cycles. 4x more experiments per month means faster success.",
+          title: "Weekly Updates",
+          desc: "We review and improve campaigns every 7 days to get you faster results.",
           icon: Zap,
-          val: "4.0x"
+          val: "FAST"
       }
     },
     {
-      label: "DATA_TRANSPARENCY",
+      label: "TRANSPARENCY",
       traditional: {
-          title: "Opaque Reporting",
-          desc: "Curated PDF reports sent once a month. You see what they want you to see.",
+          title: "Standard Reports",
+          desc: "Generic PDF reports sent once a month. Often missing key details.",
           icon: EyeOff,
-          val: "HIDDEN"
+          val: "OPAQUE"
       },
       invisi: {
-          title: "Live Command Center",
-          desc: "Direct, real-time access to our raw advertising data. 100% honesty, 24/7.",
+          title: "Live Dashboard",
+          desc: "See your actual ad performance in real-time. 100% honest and transparent.",
           icon: Eye,
           val: "OPEN"
       }
     },
     {
-      label: "CORE_TALENT",
+      label: "EXPERTISE",
       traditional: {
-          title: "Junior Management",
-          desc: "Sales by directors, execution by interns. Your brand is a training ground for juniors.",
+          title: "Junior Teams",
+          desc: "Accounts sold by seniors but managed by juniors who are learning on the job.",
           icon: Users,
           val: "JUNIOR"
       },
       invisi: {
-          title: "Engineer Led",
-          desc: "Your strategy is executed by senior growth engineers and data scientists. No fluff.",
+          title: "Senior Experts",
+          desc: "Your account is managed directly by experienced strategists. No middlemen.",
           icon: Cpu,
           val: "EXPERT"
       }
@@ -63,7 +63,7 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-16 md:py-32 bg-white relative overflow-hidden">
+    <section className="py-12 md:py-32 bg-white relative overflow-hidden">
         {/* Technical Grid Pattern */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
              style={{ backgroundImage: 'linear-gradient(#072C55 1px, transparent 1px), linear-gradient(90deg, #072C55 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
@@ -71,7 +71,7 @@ export default function WhyChooseUs() {
         <div className="max-w-[1200px] mx-auto px-6 relative z-10">
             
             {/* Heading Interface */}
-            <div className="mb-24 text-center max-w-4xl mx-auto">
+            <div className="mb-12 md:mb-24 text-center max-w-4xl mx-auto">
                  {/* <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#072C55]/20 bg-[#F8F9FA] mb-8 shadow-sm">
                     <span className="w-2 h-2 rounded-full bg-[#5210F8] animate-pulse" />
                     <span className="font-mono text-[11px] font-black text-[#072C55] uppercase tracking-[0.4em]">Growth Benchmark Report // v4.0</span>
@@ -105,13 +105,13 @@ export default function WhyChooseUs() {
                         className="grid grid-cols-1 md:grid-cols-[1.2fr_2fr_2fr] gap-4 md:gap-8 items-stretch"
                     >
                         {/* Meta Label */}
-                        <div className="flex flex-col justify-center py-4 pr-12">
-                            <span className="font-mono text-[12px] font-black text-[#072C55] tracking-widest uppercase mb-2">/ {row.label}</span>
+                        <div className="flex flex-col justify-center py-2 md:py-4 md:pr-12">
+                            <span className="font-mono text-[10px] md:text-[12px] font-black text-[#072C55] tracking-widest uppercase mb-2">/ {row.label}</span>
                             <div className="h-[2px] w-full bg-gradient-to-r from-[#5210F8]/20 to-transparent" />
                         </div>
 
                         {/* Traditional Card (Legacy State) */}
-                        <div className="bg-[#F8F9FA] border border-[#072C55]/15 rounded-3xl p-10 opacity-70 hover:opacity-100 transition-all duration-700 flex flex-col justify-between hover:border-[#072C55]/30">
+                        <div className="bg-[#F8F9FA] border border-[#072C55]/15 rounded-3xl p-6 md:p-10 opacity-70 hover:opacity-100 transition-all duration-700 flex flex-col justify-between hover:border-[#072C55]/30">
                             <div>
                                 <div className="flex items-start justify-between mb-8">
                                     <div className="p-4 bg-white rounded-2xl border border-[#072C55]/20 flex items-center justify-center shadow-inner">
@@ -130,7 +130,7 @@ export default function WhyChooseUs() {
                         </div>
 
                         {/* InvisiEdge Card (Active State) */}
-                        <div className="bg-white border-2 border-[#5210F8]/10 rounded-[2.5rem] p-10 shadow-[0_40px_80px_-20px_rgba(82,16,248,0.12)] relative overflow-hidden group hover:border-[#5210F8]/40 transition-all duration-700 flex flex-col justify-between hover:-translate-y-2">
+                        <div className="bg-white border-2 border-[#5210F8]/10 rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-10 shadow-[0_40px_80px_-20px_rgba(82,16,248,0.12)] relative overflow-hidden group hover:border-[#5210F8]/40 transition-all duration-700 flex flex-col justify-between hover:-translate-y-2">
                             {/* System Glow */}
                             <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-[#5210F8]/15 to-transparent rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
                             
@@ -154,7 +154,7 @@ export default function WhyChooseUs() {
                                     </div>
                                 </div>
                                 
-                                <h4 className="font-black text-[#072C55] mb-3 text-2xl group-hover:text-[#5210F8] transition-colors leading-tight">
+                                <h4 className="font-black text-[#072C55] mb-3 text-xl md:text-2xl group-hover:text-[#5210F8] transition-colors leading-tight">
                                     {row.invisi.title}
                                 </h4>
                                 <p className="text-sm md:text-md text-[#072C55]/80 leading-relaxed font-medium">

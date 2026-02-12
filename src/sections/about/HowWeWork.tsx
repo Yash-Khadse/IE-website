@@ -19,47 +19,47 @@ export default function HowWeWork() {
   const steps = [
     {
       id: "01",
-      phase: "DISCOVERY",
-      title: "Deep Recon.",
-      desc: "We autopsy your current setup. No assumptions. Only data. We build a 90-day roadmap based on mathematical truth.",
+      phase: "STEP 1",
+      title: "Discovery.",
+      desc: "We analyze your current setup and data to create a clear, actionable roadmap.",
       icon: Search,
-      bg: "bg-[#072C55]",
+      bg: "bg-[#0a0a0a]",
       text: "text-white",
       accent: "text-[#5210F8]",
       border: "border-white/10"
     },
     {
       id: "02",
-      phase: "BUILD",
-      title: "Architecture.",
-      desc: "Constructing the growth engine. Pixel-perfect tracking, high-velocity landing pages, and performance creative assets.",
+      phase: "STEP 2",
+      title: "Build.",
+      desc: "We build the foundation with precision tracking, high-converting pages, and performance creative.",
       icon: Layers,
       bg: "bg-[#F8F9FA]",
-      text: "text-[#072C55]",
-      accent: "text-[#C47DFD]",
-      border: "border-[#072C55]/10"
+      text: "text-[#0a0a0a]",
+      accent: "text-[#5210F8]",
+      border: "border-[#5210F8]/10"
     },
     {
       id: "03",
-      phase: "OPTIMIZE",
-      title: "Calibration.",
-      desc: "Scientific iteration. We launch campaigns and iterate weekly. We kill losers ruthlessly and scale winners aggressively.",
+      phase: "STEP 3",
+      title: "Optimize.",
+      desc: "We launch campaigns and iterate weekly to identify exactly what drives results.",
       icon: Zap,
-      bg: "bg-[#072C55]",
+      bg: "bg-[#0a0a0a]",
       text: "text-white",
-      accent: "text-[#00FF94]",
+      accent: "text-[#5210F8]",
       border: "border-white/10"
     },
     {
       id: "04",
-      phase: "SCALE",
-      title: "Velocity.",
-      desc: "Pouring fuel on the fire. Once unit economics are proven, we execute aggressive budget scaling across multiple channels.",
+      phase: "STEP 4",
+      title: "Scale.",
+      desc: "Once performance is proven, we increase budgets on winning channels to maximize growth.",
       icon: BarChart3,
       bg: "bg-[#F8F9FA]",
-      text: "text-[#072C55]",
-      accent: "text-[#FBBF24]",
-      border: "border-[#072C55]/10"
+      text: "text-[#0a0a0a]",
+      accent: "text-[#5210F8]",
+      border: "border-[#5210F8]/10"
     }
   ];
 
@@ -89,15 +89,15 @@ export default function HowWeWork() {
           {/* Grid Pattern Overlay */}
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
                style={{ 
-                 backgroundImage: `linear-gradient(${currentStep.text === 'text-white' ? '#ffffff' : '#072C55'} 1px, transparent 1px), linear-gradient(90deg, ${currentStep.text === 'text-white' ? '#ffffff' : '#072C55'} 1px, transparent 1px)`, 
+                 backgroundImage: `linear-gradient(${currentStep.text === 'text-white' ? '#ffffff' : '#0a0a0a'} 1px, transparent 1px), linear-gradient(90deg, ${currentStep.text === 'text-white' ? '#ffffff' : '#0a0a0a'} 1px, transparent 1px)`, 
                  backgroundSize: '40px 40px' 
                }} />
 
           {/* Header Offset Wrapper */}
-          <div className="relative z-10 flex flex-col md:flex-row h-full max-w-[1400px] mx-auto p-6 md:p-12 md:pt-32 items-center">
+          <div className="relative z-10 flex flex-col md:flex-row h-full max-w-[1400px] mx-auto p-6 md:p-12 items-center justify-center md:justify-between">
                
                {/* Left: Headline & Phase Indicator */}
-               <div className="w-full md:w-1/2 flex flex-col justify-center h-full relative mb-8 md:mb-0">
+               <div className="w-full md:w-1/2 flex flex-col justify-end md:justify-center items-center md:items-start text-center md:text-left h-auto md:h-full relative mb-6 md:mb-0 pb-4 md:pb-0">
                    <div className="mb-6 md:mb-10">
                        <AnimatePresence mode="wait">
                            <motion.div
@@ -107,8 +107,8 @@ export default function HowWeWork() {
                                exit={{ opacity: 0, x: 20 }}
                                transition={{ duration: 0.4 }}
                            >
-                               <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border ${currentStep.border} ${currentStep.text === 'text-white' ? 'bg-white/5' : 'bg-[#072C55]/5'}`}>
-                                   <span className={`w-2 h-2 rounded-full animate-pulse ${currentStep.text === 'text-white' ? 'bg-white' : 'bg-[#072C55]'}`} />
+                                <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border ${currentStep.border} ${currentStep.text === 'text-white' ? 'bg-white/5' : 'bg-[#5210F8]/5'}`}>
+                                   <span className={`w-2 h-2 rounded-full animate-pulse ${currentStep.text === 'text-white' ? 'bg-white' : 'bg-[#5210F8]'}`} />
                                    <span className={`font-mono text-[10px] md:text-sm font-bold uppercase tracking-widest ${currentStep.text}`}>
                                        Phase {currentStep.id} // {currentStep.phase}
                                    </span>
@@ -140,7 +140,7 @@ export default function HowWeWork() {
                </div>
 
                {/* Right: Description Card */}
-               <div className="w-full md:w-1/2 flex flex-col justify-center md:pl-20 relative">
+               <div className="w-full md:w-1/2 flex flex-col justify-start md:justify-center items-center md:items-stretch md:pl-20 relative pt-2 md:pt-0">
                    <AnimatePresence mode="wait">
                        <motion.div
                            key={activeStep}
@@ -148,13 +148,13 @@ export default function HowWeWork() {
                            animate={{ opacity: 1, scale: 1, y: 0 }}
                            exit={{ opacity: 0, scale: 1.05, y: -30 }}
                            transition={{ duration: 0.5, ease: "easeOut" }}
-                           className={`p-8 md:p-14 rounded-[2rem] md:rounded-[3rem] ${currentStep.text === 'text-white' ? 'bg-white/10 backdrop-blur-xl border border-white/20' : 'bg-white border border-[#072C55]/10 shadow-2xl'}`}
-                       >
-                           <div className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center mb-8 ${currentStep.text === 'text-white' ? 'bg-white text-[#072C55]' : 'bg-[#072C55] text-white'} shadow-lg hover:rotate-3 transition-transform cursor-default`}>
+                             className={`w-full max-w-lg md:max-w-none p-6 md:p-14 rounded-[2rem] md:rounded-[3rem] ${currentStep.text === 'text-white' ? 'bg-white/10 backdrop-blur-xl border border-white/20' : 'bg-white border border-[#5210F8]/10 shadow-2xl'}`}
+                        >
+                             <div className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center mb-6 md:mb-8 mx-auto md:mx-0 ${currentStep.text === 'text-white' ? 'bg-white text-[#5210F8]' : 'bg-[#5210F8] text-white'} shadow-lg hover:rotate-3 transition-transform cursor-default`}>
                                <currentStep.icon size={32} />
                            </div>
                            
-                           <p className={`text-xl md:text-3xl lg:text-4xl font-medium leading-tight md:leading-[1.15] ${currentStep.text} opacity-90 mb-8 md:mb-12`}>
+                           <p className={`text-xl md:text-3xl lg:text-4xl font-medium leading-tight md:leading-[1.15] ${currentStep.text} opacity-90 mb-4 md:mb-12 text-center md:text-left`}>
                                {currentStep.desc}
                            </p>
 
@@ -176,7 +176,7 @@ export default function HowWeWork() {
           <div className="absolute bottom-0 left-0 w-full h-1 md:h-2 bg-current opacity-[0.05]" />
           <motion.div 
                style={{ scaleX: scrollYProgress, transformOrigin: "0%" }} 
-               className={`absolute bottom-0 left-0 w-full h-1 md:h-2 z-50 ${currentStep.id === '03' ? 'bg-[#00FF94]' : currentStep.accent.replace('text-', 'bg-')} transition-colors duration-500 shadow-[0_0_20px_rgba(82,16,248,0.3)]`} 
+               className={`absolute bottom-0 left-0 w-full h-1 md:h-2 z-50 ${currentStep.id === '03' ? 'bg-[#5210F8]' : currentStep.accent.replace('text-', 'bg-')} transition-colors duration-500 shadow-[0_0_20px_rgba(82,16,248,0.3)]`} 
           />
 
       </div>
@@ -188,7 +188,7 @@ export default function HowWeWork() {
                   key={i} 
                   animate={{ 
                     height: activeStep === i ? 40 : 8,
-                    backgroundColor: activeStep === i ? (currentStep.text === 'text-white' ? '#fff' : '#072C55') : (currentStep.text === 'text-white' ? 'rgba(255,255,255,0.2)' : 'rgba(7,44,85,0.1)')
+                    backgroundColor: activeStep === i ? (currentStep.text === 'text-white' ? '#fff' : '#5210F8') : (currentStep.text === 'text-white' ? 'rgba(255,255,255,0.2)' : 'rgba(82,16,248,0.1)')
                   }}
                   className="w-1 rounded-full transition-colors duration-500" 
               />

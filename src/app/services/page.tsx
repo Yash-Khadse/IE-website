@@ -1,4 +1,5 @@
 import ServiceListing from '@/sections/services/ServiceListing';
+
 import ServicesHero from '@/sections/services/ServicesHero';
 import ServicesSection from '@/sections/ServicesSection';
 import ProcessSection from '@/sections/ProcessSection';
@@ -15,6 +16,7 @@ export default function ServicesPage() {
     <main>
       <ServicesHero />
       <ServiceListing />
+
       <ServicesSection />
       <IntegrationSection />
       <ProcessSection />

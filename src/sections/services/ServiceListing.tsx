@@ -15,10 +15,10 @@ const ICON_MAP: Record<string, any> = {
 };
 
 const CATEGORIES = [
-  { id: 'all', label: 'ALL_SYSTEMS' },
-  { id: 'strategy', label: 'STRATEGY_CORE' },
-  { id: 'growth', label: 'GROWTH_ENGINE' },
-  { id: 'infrastructure', label: 'INFRASTRUCTURE' }
+  { id: 'all', label: 'All Services' },
+  { id: 'strategy', label: 'Strategy' },
+  { id: 'growth', label: 'Growth' },
+  { id: 'infrastructure', label: 'Infrastructure' }
 ];
 
 const getServiceCategory = (id: string) => {
@@ -55,7 +55,7 @@ export default function ServiceListing() {
   });
 
   return (
-    <section ref={containerRef} className="py-24 md:py-32 bg-white relative overflow-hidden min-h-screen">
+    <section ref={containerRef} className="py-16 md:py-32 bg-white relative overflow-hidden min-h-screen">
        
       {/* --- LAYER 0: FLUID BACKGROUND --- */}
       <div className="absolute inset-0 pointer-events-none opacity-40 overflow-hidden">
@@ -88,7 +88,7 @@ export default function ServiceListing() {
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         
         {/* --- HEADER SECTION --- */}
-        <div className="flex flex-col items-center mb-20 md:mb-28 text-center relative">
+        <div className="flex flex-col items-center mb-12 md:mb-28 text-center relative">
             
             {/* Status Pill */}
             <motion.div
@@ -102,26 +102,26 @@ export default function ServiceListing() {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-fooror-purple"></span>
                 </span>
                 <span className="text-slate-500 text-[10px] font-mono font-bold uppercase tracking-[0.2em]">
-                    System_Grid // Active
+                    Active
                 </span>
             </motion.div>
             
             {/* Main Title */}
-            <h2 className="text-5xl md:text-8xl font-black text-slate-900 tracking-tighter leading-[0.85] mb-8 relative z-10 mix-blend-darken">
-              SYSTEM <br/>
+            <h2 className="text-4xl md:text-8xl font-black text-slate-900 tracking-tighter leading-[0.9] md:leading-[0.85] mb-6 md:mb-8 relative z-10 mix-blend-darken">
+              System <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-fooror-navy via-fooror-purple to-fooror-navy bg-[length:200%_auto] animate-shine">
-                CAPABILITIES
+                Capabilities
               </span>
             </h2>
 
             {/* Subtitle */}
-            <p className="max-w-2xl text-slate-500 text-lg font-medium leading-relaxed mb-12">
+            <p className="max-w-2xl text-slate-500 text-base md:text-lg font-medium leading-relaxed mb-8 md:mb-12 px-4 md:px-0">
                 Deployable modules for orchestration, automation, and intelligent growth. Select a protocol to initialize.
             </p>
 
             {/* Controls Toolbar */}
             <motion.div 
-               className="w-full max-w-4xl bg-white/60 backdrop-blur-xl border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.04)] rounded-2xl p-2 flex flex-col md:flex-row gap-2 relative z-20 transition-shadow hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)]"
+               className="w-full max-w-4xl bg-white/60 backdrop-blur-xl border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.04)] rounded-2xl p-2 md:p-2 flex flex-col md:flex-row gap-4 md:gap-2 relative z-20 transition-shadow hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)]"
                initial={{ opacity: 0, y: 20 }}
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
@@ -132,7 +132,7 @@ export default function ServiceListing() {
                     <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4 group-focus-within:text-fooror-purple transition-colors" />
                     <input 
                         type="text" 
-                        placeholder="Search system modules..." 
+                        placeholder="Search services..." 
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         className="w-full h-12 md:h-14 pl-12 pr-4 bg-transparent rounded-xl text-slate-700 font-medium placeholder:text-slate-400 outline-none focus:bg-white/50 transition-all font-mono text-sm"
@@ -143,7 +143,7 @@ export default function ServiceListing() {
                 <div className="hidden md:block w-[1px] bg-slate-200 my-2" />
 
                 {/* Categories */}
-                <div className="flex overflow-x-auto no-scrollbar gap-1 p-1">
+                <div className="flex overflow-x-auto no-scrollbar gap-2 p-1 w-full md:w-auto pb-2 md:pb-1">
                     {CATEGORIES.map((cat) => (
                         <button
                             key={cat.id}
@@ -184,7 +184,7 @@ export default function ServiceListing() {
                 onMouseLeave={() => setHoveredCard(null)}
               >
                 <Link href={service.href} className="block h-full cursor-pointer">
-                  <div className="h-full bg-white border border-slate-200 rounded-[20px] p-8 relative overflow-hidden transition-all duration-500 group-hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] group-hover:-translate-y-2 group-hover:border-transparent">
+                  <div className="h-full bg-white border border-slate-200 rounded-[20px] p-6 md:p-8 relative overflow-hidden transition-all duration-500 group-hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] group-hover:-translate-y-2 group-hover:border-transparent">
                     
                     {/* Active Border Gradient (The 'Foil' Effect) */}
                     <div className="absolute inset-0 rounded-[20px] p-[2px] bg-gradient-to-br from-transparent via-transparent to-transparent group-hover:from-fooror-purple group-hover:via-fooror-yellow group-hover:to-fooror-navy opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
@@ -253,13 +253,13 @@ export default function ServiceListing() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
-                    className="flex flex-col items-center justify-center py-32 text-center"
+                    className="flex flex-col items-center justify-center py-20 md:py-32 text-center"
                 >
                     <div className="w-24 h-24 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center mb-6 animate-pulse">
                         <SlidersHorizontal className="text-slate-300" size={32} />
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-2">No Protocols Matching</h3>
-                    <p className="text-slate-500 max-w-sm mb-8">We couldn't locate any modules matching your current parameters.</p>
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">No Service Found</h3>
+                    <p className="text-slate-500 max-w-sm mb-8">We couldn't locate any services matching your search.</p>
                     <button 
                         onClick={() => { setSearchQuery(''); setActiveCategory('all'); }}
                         className="px-6 py-2.5 bg-slate-900 text-white rounded-lg font-mono text-xs font-bold uppercase tracking-widest hover:bg-fooror-purple transition-colors shadow-lg shadow-slate-200"

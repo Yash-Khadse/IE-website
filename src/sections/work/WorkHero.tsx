@@ -137,7 +137,7 @@ export default function WorkHero() {
                 <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
                     <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#5210F8]/20 bg-[#5210F8]/5 backdrop-blur-md text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#5210F8]">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#5210F8] animate-pulse" />
-                        Client_Success // V.05
+                        Client Success
                     </span>
                 </div>
             </div>
@@ -156,7 +156,7 @@ export default function WorkHero() {
             {/* Subtext */}
             <div className="mt-8 md:mt-12 max-w-2xl text-center px-4 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
                 <p className="text-base md:text-xl text-white/70 font-light leading-relaxed">
-                    A showcase of our <span className="text-white font-medium">strategic dominance</span>. 
+                    A showcase of our <span className="text-white font-medium">strategic leadership</span>. 
                     Real-world campaigns that drive measurable impact.
                 </p>
             </div>

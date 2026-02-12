@@ -1,363 +1,344 @@
 "use client";
 
-import { use, useRef } from 'react';
+import { use, useRef, useState, useEffect } from 'react';
 import { PROJECTS, ProjectData } from '@/lib/projects';
-import ProjectRelatedServices from '@/sections/work/ProjectRelatedServices';
-import ProjectNavigation from '@/sections/work/ProjectNavigation';
-import CTASection from '@/sections/CTASection';
 import Image from 'next/image';
 import Link from 'next/link';
 import { 
-  ArrowLeft, Binary, CheckCircle2, ShieldCheck, Target, Zap
+  ArrowRight, Check, X, TrendingUp, BarChart3, 
+  Layers, Zap, Target, ArrowUpRight, Smartphone,
+  Monitor, Layout, PieChart, Users, Globe, ChevronRight,
+  Star, Trophy, Rocket, ArrowLeft, MousePointer2,
+  Cpu, Binary, Scan, Activity, Workflow, Lightbulb,
+  CheckCircle2, Box, Command, Share2, Menu, X as CloseIcon,
+  Maximize2, Terminal, Code, Database, ChevronDown
 } from 'lucide-react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, useInView, Variants, AnimatePresence } from 'framer-motion';
+import ProjectRelatedServices from '@/sections/work/ProjectRelatedServices';
+
+// ----------------------------------------------------------------------------
+// ANIMATION VARIANTS
+// ----------------------------------------------------------------------------
+
+const fadeInUp: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+        opacity: 1, 
+        y: 0, 
+        transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } 
+    }
+};
+
+const staggerContainer: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.2
+        }
+    }
+};
+
+// ----------------------------------------------------------------------------
+// PAGE COMPONENT
+// ----------------------------------------------------------------------------
 
 export default function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
-  // Use React.use() to unwrap the params promise in Client Component (Next.js 15 compatible pattern)
-  // or simply rely on the fact that we can't await in the render body.
-  // HOWEVER, for maximum compatibility and robustness in this "use client" file:
-  // We will pass the promise to a child that unwraps it, or use the `use` hook contentiously.
-  // Actually, standard practice for Client Components in Next 15 receiving params is:
-  // they receive the promise.
-  
   const { slug } = use(params);
-  
-  // Safe data fetching
   const project = PROJECTS.find(p => p.id === slug) || PROJECTS[0]!;
 
   return <ProjectView project={project} />;
 }
 
-// ----------------------------------------------------------------------------
-// MAIN INTERACTIVE VIEW (Client Side)
-// ----------------------------------------------------------------------------
 function ProjectView({ project }: { project: ProjectData }) {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({ container: containerRef });
-    const springScroll = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
-
-    if (!project) return (
-        <div className="flex items-center justify-center min-h-screen text-white bg-black">
-            Project Matrix Not Found
-        </div>
-    );
-
+    const { scrollYProgress } = useScroll();
+    const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
     const navIndex = PROJECTS.findIndex(p => p.id === project.id);
     const nextProject = PROJECTS[(navIndex + 1) % PROJECTS.length];
 
     return (
-        <main ref={containerRef} className="bg-[#F8F9FA] relative selection:bg-[#5210F8] selection:text-white overflow-hidden min-h-screen">
+        <main className="bg-white min-h-screen text-[#072C55] font-sans selection:bg-[#5210F8] selection:text-white antialiased">
             
-            {/* PROGRESS BAR */}
-            <motion.div 
-                style={{ scaleX: springScroll }} 
-                className="fixed top-0 left-0 right-0 h-1 bg-[#5210F8] z-[100] origin-left"
-            />
-
-            {/* 🟢 HERO SECTION: IMMERSIVE VISUAL */}
-            <section className="relative h-[95vh] flex items-end pb-20 px-6 md:px-12 overflow-hidden bg-[#072C55]">
-                {/* Parallax Background */}
-                <div className="absolute inset-0 z-0">
-                    <Image 
-                        src={project.heroImage} 
-                        alt={project.title} 
-                        fill
-                        className="object-cover opacity-30 mix-blend-overlay"
-                        priority
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#072C55] via-[#072C55]/60 to-transparent" />
-                    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
-                </div>
-
-                <div className="absolute top-24 md:top-32 left-6 md:left-12 right-6 md:right-12 z-20 flex justify-between items-start pointer-events-none">
-                     <Link href="/work" className="pointer-events-auto flex items-center gap-2 text-white/60 hover:text-white transition-colors group">
-                        <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-[#072C55] transition-all">
-                            <ArrowLeft size={16} />
-                        </div>
-                        <span className="font-mono text-xs font-bold uppercase tracking-widest hidden md:block">Back to Matrix</span>
-                     </Link>
-
-                     <div className="flex flex-col items-end text-right">
-                         <div className="font-mono text-[#5210F8] text-xs font-bold uppercase tracking-widest mb-1">
-                             System_ID
-                         </div>
-                         <div className="text-white font-mono text-lg">{project.id.toUpperCase()}</div>
-                     </div>
-                </div>
-
-                <div className="max-w-[1600px] w-full mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-                    <div className="lg:col-span-8">
-                        <div className="flex flex-wrap gap-3 mb-8">
-                            {project.tags.map(tag => (
-                                <span key={tag} className="px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/10 rounded-full text-xs font-mono text-[#00FF94] uppercase tracking-wider">
-                                    {tag}
-                                </span>
-                            ))}
-                        </div>
-                        <motion.h1 
-                            initial={{ opacity: 0, y: 50 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, ease: "circOut" }}
-                            className="text-5xl md:text-7xl xl:text-9xl font-black text-white tracking-tighter leading-[0.85] mb-8"
-                        >
-                            {project.headline}
-                        </motion.h1>
-                    </div>
-
-                    <div className="lg:col-span-4 lg:mb-4">
-                        <div className="p-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl">
-                             <div className="grid grid-cols-2 gap-8">
-                                 <div>
-                                     <div className="text-xs font-mono text-white/40 uppercase tracking-widest mb-1">Client</div>
-                                     <div className="text-white font-bold">{project.title}</div>
-                                 </div>
-                                 <div>
-                                     <div className="text-xs font-mono text-white/40 uppercase tracking-widest mb-1">Industry</div>
-                                     <div className="text-white font-bold">{project.clientOverview.industry}</div>
-                                 </div>
-                                 <div>
-                                     <div className="text-xs font-mono text-white/40 uppercase tracking-widest mb-1">Year</div>
-                                     <div className="text-white font-bold">{project.year}</div>
-                                 </div>
-                                 <div>
-                                     <div className="text-xs font-mono text-white/40 uppercase tracking-widest mb-1">Service</div>
-                                     <div className="text-white font-bold truncate">{project.role[0]}</div>
-                                 </div>
-                             </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* 🔴 OVERVIEW & CHALLENGE (Dark/Light Split) */}
-            <section className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
-                {/* Left: Context (Sticky) */}
-                <div className="bg-white p-12 lg:p-24 flex flex-col justify-center relative border-r border-[#072C55]/5">
-                    <div className="max-w-xl">
-                        <span className="font-mono text-[#5210F8] text-xs font-bold uppercase tracking-widest mb-6 block">
-                            01 // Diagnostic Report
-                        </span>
-                        <h2 className="text-4xl md:text-6xl font-black text-[#072C55] tracking-tight leading-none mb-12">
-                            The <br/> Challenge
-                        </h2>
+            {/* 🟢 NAVIGATION */}
+            <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-[#072C55]/5 shadow-sm transition-all duration-300">
+                <div className="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
+                    <div className="flex items-center gap-6">
+                        {/* Home / Brand */}
+                        <Link href="/" className="group flex items-center gap-2 pr-6 border-r border-[#072C55]/10">
+                            <div className="w-8 h-8 rounded bg-[#072C55] flex items-center justify-center text-white font-bold text-xs tracking-tighter hover:bg-[#5210F8] transition-colors">
+                                IE
+                            </div>
+                        </Link>
                         
-                        <div className="prose prose-lg text-[#072C55]/70 mb-12">
-                            <p>{project.challenge.description}</p>
-                        </div>
+                        {/* Back to Work */}
+                        <Link href="/work" className="group flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#072C55]/50 hover:text-[#072C55] transition-colors">
+                            <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
+                            All Projects
+                        </Link>
+                    </div>
 
-                        <div className="space-y-6">
-                            <div className="flex items-start gap-4">
-                                <div className="p-3 bg-red-500/10 rounded-lg text-red-500 mt-1">
-                                    <ShieldCheck size={20} />
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-[#072C55] mb-1">Legacy Constraints</h4>
-                                    <div className="flex flex-wrap gap-2">
-                                        {project.challenge.constraints.map((c, i) => (
-                                            <span key={i} className="px-3 py-1 bg-[#F8F9FA] border border-[#072C55]/10 rounded text-xs font-medium text-[#072C55]/60">
-                                                {c}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div className="flex items-center gap-6">
+
+                        <Link href="/contact" className="px-6 py-2.5 bg-[#072C55] text-white text-[10px] font-bold uppercase tracking-widest rounded hover:bg-[#5210F8] transition-colors shadow-lg shadow-[#5210F8]/20 hover:scale-105 active:scale-95 transform">
+                            Start a Project
+                        </Link>
                     </div>
                 </div>
+                {/* Progress Bar */}
+                <motion.div style={{ scaleX }} className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#5210F8] origin-left" />
+            </header>
 
-                {/* Right: Goals (Dark Mode) */}
-                <div className="bg-[#072C55] p-12 lg:p-24 flex flex-col justify-center text-white relative overflow-hidden">
-                     {/* Pattern */}
-                     <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
-
-                     <div className="max-w-xl relative z-10">
-                        <span className="font-mono text-[#00FF94] text-xs font-bold uppercase tracking-widest mb-6 block">
-                            02 // System Objectives
-                        </span>
-
-                        <ul className="space-y-8">
-                            {project.goals.map((goal, i) => (
-                                <motion.li 
-                                    key={i}
-                                    initial={{ opacity: 0, x: 20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: i * 0.1 }}
-                                    className="flex items-start gap-6 group"
-                                >
-                                    <div className="font-mono text-[#00FF94]/40 text-sm pt-1">0{i+1}</div>
-                                    <div className="text-2xl md:text-3xl font-bold leading-tight group-hover:text-[#00FF94] transition-colors cursor-default">
-                                        {goal}
-                                    </div>
-                                </motion.li>
-                            ))}
-                        </ul>
-
-                        <div className="mt-16 pt-16 border-t border-white/10">
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-full border border-dashed border-white/30 flex items-center justify-center animate-[spin_10s_linear_infinite]">
-                                    <Target size={20} className="text-[#00FF94]" />
-                                </div>
-                                <div>
-                                    <div className="text-white font-bold">Primary KPI</div>
-                                    <div className="text-white/60 text-sm">Optimization Verified</div>
-                                </div>
-                            </div>
-                        </div>
-                     </div>
+            {/* 🟢 1. IDENTITY (HERO) */}
+            <section className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-[1400px] mx-auto min-h-[80vh] md:min-h-[90vh] flex flex-col justify-center">
+                <HeroContent project={project} />
+                
+                {/* Scroll Hint */}
+                <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-[#072C55]/30">
+                    <ChevronDown className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
             </section>
 
-            {/* 🔵 STRATEGY  */}
-            <section className="py-32 px-6 bg-[#F8F9FA]">
-                <div className="max-w-[1400px] mx-auto">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-24">
-                        <div>
-                            <span className="font-mono text-[#5210F8] text-xs font-bold uppercase tracking-widest mb-4 block">
-                                03 // Strategic Architecture
-                            </span>
-                            <h2 className="text-5xl md:text-7xl font-black text-[#072C55] tracking-tighter">
-                                The Solution
-                            </h2>
-                        </div>
-                        <p className="max-w-md text-[#072C55]/60 text-lg md:text-right mt-8 md:mt-0">
-                            We engineered a bespoke solution to bridge the gap between legacy constraints and future-state objectives.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {project.strategy.map((strat, i) => (
-                            <div key={i} className="group bg-white p-10 rounded-3xl border border-[#072C55]/5 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500">
-                                <div className="w-16 h-16 bg-[#F8F9FA] rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#5210F8] transition-colors">
-                                    <Binary size={24} className="text-[#072C55] group-hover:text-white transition-colors" />
-                                </div>
-                                <h3 className="text-2xl font-bold text-[#072C55] mb-4">{strat.title}</h3>
-                                <p className="text-[#072C55]/60 leading-relaxed">{strat.description}</p>
-                            </div>
-                        ))}
-                    </div>
+            {/* 🟢 2. DIAGNOSTICS (CHALLENGE) - Dark Navy Brand Mode */}
+            <section className="bg-[#072C55] text-white py-16 md:py-32 border-t border-white/10 relative overflow-hidden">
+                <div className="absolute inset-0 opacity-10 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat" />
+                <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+                    <ChallengeContent project={project} />
                 </div>
             </section>
 
-            {/* ⚙️ EXECUTION TIMELINE */}
-            <section className="py-32 px-6 bg-white border-y border-[#072C55]/5">
-                <div className="max-w-[1000px] mx-auto">
-                    <div className="text-center mb-24">
-                        <span className="font-mono text-[#5210F8] text-xs font-bold uppercase tracking-widest mb-4 block">
-                            04 // Execution Protocol
-                        </span>
-                        <h2 className="text-4xl md:text-6xl font-black text-[#072C55] tracking-tight">Deploying the System</h2>
-                    </div>
-                    
-                    <div className="relative">
-                        {/* Connecting Line */}
-                        <div className="absolute left-[27px] md:left-1/2 top-0 bottom-0 w-px bg-[#072C55]/10 -translate-x-1/2" />
-                        
-                        {project.executionPhases.map((phase, i) => (
-                            <div key={i} className={`flex flex-col md:flex-row items-center gap-12 md:gap-24 mb-24 last:mb-0 relative ${i % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
-                                
-                                {/* Center Node */}
-                                <div className="absolute left-[27px] md:left-1/2 top-0 w-14 h-14 bg-white border border-[#072C55]/10 rounded-full flex items-center justify-center z-10 -translate-x-1/2 shadow-sm font-mono font-bold text-[#072C55]">
-                                    {i+1}
-                                </div>
-
-                                <div className={`w-full md:w-1/2 pl-20 md:pl-0 ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                                    <h3 className="text-3xl font-bold text-[#072C55] mb-4">{phase.title}</h3>
-                                    <p className="text-[#072C55]/60 text-lg leading-relaxed">{phase.description}</p>
-                                    <div className="mt-4 inline-block px-3 py-1 bg-[#F8F9FA] rounded text-xs font-mono text-[#072C55]/40 uppercase">
-                                        Phase {phase.phase}
-                                    </div>
-                                </div>
-
-                                <div className="hidden md:block w-1/2" />
-                            </div>
-                        ))}
-                    </div>
-                </div>
+            {/* 🟢 3. ARCHITECTURE (STRATEGY & VISUALS) */}
+            <section className="py-16 md:py-32 px-6 max-w-[1400px] mx-auto bg-white">
+                <ArchitectureContent project={project} />
             </section>
 
-            {/* 🚀 RESULTS (Bento Grid Style) */}
-            <section className="bg-[#072C55] text-white py-32 px-6 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay" />
+            {/* 🟢 4. OUTCOMES (RESULTS) - Brand Dark Navy */}
+            <section className="bg-[#072C55] text-white py-16 md:py-32 px-6 relative overflow-hidden">
+                {/* Decor */}
+                <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#5210F8] rounded-full blur-[100px] opacity-20" />
+                <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[#C47DFD] rounded-full blur-[100px] opacity-20" />
                 
                 <div className="max-w-[1400px] mx-auto relative z-10">
-                    <div className="mb-20">
-                         <span className="font-mono text-[#00FF94] text-xs font-bold uppercase tracking-widest mb-4 block">
-                            05 // Impact Analysis
-                        </span>
-                        <h2 className="text-5xl md:text-8xl font-black tracking-tighter">
-                            System <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5210F8] to-[#C47DFD]">Performance</span>
-                        </h2>
-                    </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                        {/* Metric Cards */}
-                        {project.results.map((res, i) => (
-                            <motion.div 
-                                key={i}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: i * 0.1 }}
-                                className="bg-white/5 border border-white/10 p-10 rounded-3xl hover:bg-white/10 transition-colors group"
-                            >
-                                <div className="flex items-end gap-1 mb-4">
-                                    <span className="text-6xl md:text-8xl font-black leading-none tracking-tighter text-white group-hover:text-[#00FF94] transition-colors">{res.value}</span>
-                                    <span className="text-2xl font-bold text-[#5210F8] mb-2">{res.suffix}</span>
-                                </div>
-                                <div className="h-px w-full bg-white/10 my-6" />
-                                <div className="text-xl font-bold mb-2">{res.label}</div>
-                                <p className="text-white/60">{res.description}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-
-                    {/* Key Takeaways */}
-                    <div className="mt-24 grid grid-cols-1 md:grid-cols-2 gap-12 bg-white/5 rounded-3xl p-12 border border-white/10">
-                        <div>
-                            <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                                <Zap className="text-[#FACC15]" />
-                                Critical Insights
-                            </h3>
-                            <p className="text-white/60 text-lg">
-                                Key learnings derived from the execution of the {project.title} protocol.
-                            </p>
-                        </div>
-                        <div className="space-y-4">
-                            {project.keyTakeaways.map((point, i) => (
-                                <div key={i} className="flex items-start gap-4">
-                                     <CheckCircle2 className="text-[#00FF94] mt-1 shrink-0" size={20} />
-                                     <p className="text-lg leading-relaxed">{point}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+                    <OutcomesContent project={project} />
                 </div>
             </section>
 
-             {/* CLIENT TESTIMONIAL */}
-            {project.testimonial && (
-                <section className="py-40 px-6 bg-white text-center">
-                    <div className="max-w-5xl mx-auto">
-                        <div className="mb-12">
-                            {/* Quote Icon */}
-                            <div className="w-16 h-16 mx-auto rounded-full bg-[#5210F8] flex items-center justify-center text-white mb-8">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z" /></svg>
-                            </div>
-                            <h3 className="text-3xl md:text-6xl font-medium text-[#072C55] leading-tight tracking-tight">
-                                "{project.testimonial.quote}"
-                            </h3>
+
+
+            {/* 🟢 6. NEXT LOOP (FOOTER) */}
+            {/* FooterContent removed as per request */}
+        </main>
+    )
+}
+
+// ----------------------------------------------------------------------------
+// SUB-COMPONENTS (CONTENT BLOCKS)
+// ----------------------------------------------------------------------------
+
+function HeroContent({ project }: { project: ProjectData }) {
+    return (
+        <div className="w-full h-full flex flex-col justify-between">
+            <motion.div 
+                initial="hidden" 
+                animate="visible" 
+                variants={staggerContainer}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16"
+            >
+                <div className="lg:col-span-7">
+                    <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-8">
+                        <span className="px-3 py-1 rounded bg-[#F8F9FA] text-[#072C55]/70 text-[10px] font-bold uppercase tracking-widest border border-[#072C55]/10">
+                            {project.clientOverview.industry}
+                        </span>
+                        <div className="h-px w-8 bg-[#072C55]/20" />
+                        <span className="text-[#072C55]/40 text-[10px] font-bold uppercase tracking-widest">
+                            {project.year}
+                        </span>
+                    </motion.div>
+                    <motion.h1 variants={fadeInUp} className="text-4xl md:text-[5.5rem] font-bold tracking-tight text-[#072C55] mb-6 md:mb-8 leading-[0.95]">
+                        {project.title.toUpperCase()}
+                    </motion.h1>
+                    <motion.p variants={fadeInUp} className="text-lg md:text-2xl text-[#072C55]/60 font-medium leading-relaxed max-w-xl border-l-4 border-[#5210F8] pl-6">
+                        {project.headline}
+                    </motion.p>
+                </div>
+                
+                <div className="lg:col-span-5 flex flex-col items-start lg:items-end justify-center gap-6">
+                     <motion.div variants={fadeInUp} className="bg-[#F8F9FA] border border-[#072C55]/5 p-6 rounded-2xl max-w-sm w-full">
+                         <span className="text-xs font-bold text-[#072C55]/40 uppercase tracking-widest block mb-4">Tech Stack</span>
+                         <div className="flex flex-wrap gap-2">
+                            {project.techStack?.slice(0, 6).map((tech, i) => (
+                                <span key={i} className="px-3 py-1.5 bg-white border border-[#072C55]/10 rounded text-[11px] font-bold uppercase tracking-wide text-[#072C55]/80">
+                                    {tech}
+                                </span>
+                            ))}
+                         </div>
+                     </motion.div>
+                     
+                     <motion.div variants={fadeInUp} className="bg-[#5210F8]/5 border border-[#5210F8]/10 p-6 rounded-2xl max-w-sm w-full">
+                         <div className="flex items-center gap-3 mb-2">
+                             <TrendingUp size={16} className="text-[#5210F8]" />
+                             <span className="text-xs font-bold text-[#5210F8] uppercase tracking-widest">Key Result</span>
+                         </div>
+                         <div className="text-4xl font-bold text-[#072C55]">{project.results[0].value}<span className="text-xl ml-1 text-[#072C55]/40">{project.results[0].suffix}</span></div>
+                         <div className="text-xs font-bold text-[#072C55]/60 mt-1 uppercase tracking-wide">{project.results[0].label}</div>
+                     </motion.div>
+                </div>
+            </motion.div>
+
+            <motion.div 
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.2 }}
+                className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl border border-[#072C55]/10 bg-[#F8F9FA] group"
+            >
+                <Image
+                    src={project.heroImage}
+                    alt="Hero Visual"
+                    fill
+                    className="object-cover transition-transform duration-[2s] group-hover:scale-105"
+                    priority
+                />
+                
+                {/* Interface Badge */}
+                <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur px-4 py-2 rounded-lg border border-white/50 shadow-sm flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-[#5210F8] animate-pulse" />
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#072C55]">
+                        Live Preview
+                    </span>
+                </div>
+            </motion.div>
+        </div>
+    )
+}
+
+function ChallengeContent({ project }: { project: ProjectData }) {
+    return (
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-32">
+            <div className="lg:w-1/3">
+                <span className="text-white/60 font-bold text-xs uppercase tracking-widest mb-6 block border-b border-white/20 pb-2 w-fit">01 // The Challenge</span>
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-8 text-white">
+                    The Problem
+                </h2>
+                <p className="text-white/60 text-lg leading-relaxed mb-8 font-medium">
+                    {project.challenge.description}
+                </p>
+                
+                <div className="inline-flex items-center gap-3 px-4 py-3 bg-[#C47DFD]/10 border border-[#C47DFD]/30 rounded-lg text-[#C47DFD] text-xs font-bold">
+                    <Activity size={16} />
+                    <span>KEY ISSUE IDENTIFIED</span>
+                </div>
+            </div>
+
+            <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                {project.challenge.constraints.map((item, i) => (
+                    <div key={i} className="p-6 md:p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-[#5210F8]/50 transition-colors flex flex-col justify-between h-full group">
+                        <div className="flex justify-between items-start mb-4 md:mb-6">
+                             <Cpu size={24} className="text-white/40 group-hover:text-[#5210F8] transition-colors" />
+                             <span className="font-bold text-xl text-white/60 group-hover:text-white transition-colors">0{i+1}</span>
                         </div>
                         <div>
-                            <div className="font-bold text-xl text-[#072C55]">{project.testimonial.author}</div>
-                            <div className="text-[#5210F8] font-mono text-sm uppercase tracking-widest mt-2">{project.testimonial.role}</div>
+                            <h3 className="text-lg font-bold text-white mb-2">{item}</h3>
+                            <p className="text-white/50 text-sm">Challenge identified during audit phase.</p>
                         </div>
                     </div>
-                </section>
-            )}
+                ))}
+            </div>
+        </div>
+    )
+}
 
-            {/* FOOTER NAV & CTA */}
-            <ProjectRelatedServices serviceIds={project.relatedServices} />
+function ArchitectureContent({ project }: { project: ProjectData }) {
+    return (
+        <div>
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-20 pb-8 border-b border-[#072C55]/5">
+                <div className="max-w-2xl">
+                    <span className="text-[#5210F8] font-bold text-xs uppercase tracking-widest mb-4 block">02 // The Solution</span>
+                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#072C55]">
+                        Our Strategy
+                    </h2>
+                </div>
+            </div>
             
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
+                {project.strategy.map((item, i) => (
+                    <div key={i} className="relative pl-8 border-l-2 border-[#072C55]/10 hover:border-[#5210F8] transition-colors py-2 group">
+                        <div className="text-4xl font-bold text-[#072C55]/5 absolute -top-4 left-6 group-hover:text-[#5210F8]/10 transition-colors -z-10">0{i+1}</div>
+                        <h3 className="text-xl font-bold text-[#072C55] mb-3 group-hover:text-[#5210F8] transition-colors">{item.title}</h3>
+                        <p className="text-[#072C55]/60 leading-relaxed text-sm font-medium">{item.description}</p>
+                    </div>
+                ))}
+            </div>
 
-        </main>
+            <div className="grid grid-cols-12 gap-4 md:gap-8">
+                {project.galleryImages[0] && (
+                    <div className="col-span-12 lg:col-span-8 relative aspect-[4/3] md:aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl group">
+                        <Image 
+                            src={project.galleryImages[0]} 
+                            alt="Interface" 
+                            fill 
+                            className="object-cover transition-transform duration-[1.5s] group-hover:scale-105" 
+                        />
+                        <div className="absolute top-6 left-6 px-3 py-1 bg-[#072C55]/90 text-white text-[10px] font-bold uppercase tracking-widest rounded backdrop-blur border border-white/10">
+                            Fig. 1.0 — Interface
+                        </div>
+                    </div>
+                )}
+                {project.galleryImages[1] && (
+                    <div className="col-span-12 lg:col-span-4 relative aspect-[4/3] lg:aspect-auto rounded-2xl overflow-hidden shadow-2xl group">
+                         <div className="absolute inset-0 bg-[#072C55]" />
+                        <Image 
+                            src={project.galleryImages[1] || project.heroImage} 
+                            alt="Mobile" 
+                            fill 
+                            className="object-cover opacity-80 group-hover:opacity-100 transition-opacity" 
+                        />
+                         <div className="absolute bottom-6 left-6 px-3 py-1 bg-white/20 text-white text-[10px] font-bold uppercase tracking-widest rounded backdrop-blur">
+                            Fig. 1.1 — Mobile
+                        </div>
+                    </div>
+                )}
+            </div>
+        </div>
+    )
+}
+
+function OutcomesContent({ project }: { project: ProjectData }) {
+    return (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+             <div>
+                 <span className="text-white/60 font-bold text-xs uppercase tracking-widest mb-4 md:mb-6 block border-b border-white/20 pb-2 w-fit">03 // The Results</span>
+                 <h2 className="text-4xl md:text-7xl font-bold tracking-tighter mb-8 md:mb-12">
+                     REAL<br/>IMPACT.
+                 </h2>
+                 {project.testimonial && (
+                     <div className="relative pl-8 border-l-4 border-[#C47DFD]">
+                         <p className="text-xl md:text-2xl font-light italic leading-relaxed mb-6 text-white/90">
+                             "{project.testimonial.quote}"
+                         </p>
+                         <div>
+                             <div className="font-bold text-white text-lg">{project.testimonial.author}</div>
+                             <div className="text-xs font-bold opacity-60 uppercase">{project.testimonial.role}</div>
+                         </div>
+                     </div>
+                 )}
+             </div>
+
+             <div className="grid gap-4 md:gap-6">
+                 {project.results.map((res, i) => (
+                     <div key={i} className="flex items-center justify-between p-6 md:p-8 bg-white/10 backdrop-blur border border-white/10 rounded-2xl hover:bg-white/20 transition-colors">
+                         <div className="flex items-center gap-4">
+                             <div className="w-10 h-10 rounded bg-white text-[#5210F8] flex items-center justify-center shadow-lg">
+                                 <BarChart3 size={20} />
+                             </div>
+                             <span className="font-bold text-lg">{res.label}</span>
+                         </div>
+                         <div className="text-right">
+                             <div className="text-3xl font-black tracking-tight">{res.value}</div>
+                             <div className="text-xs font-bold text-[#C47DFD] uppercase tracking-wide">{res.suffix}</div>
+                         </div>
+                     </div>
+                 ))}
+             </div>
+         </div>
     )
 }
