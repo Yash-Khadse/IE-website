@@ -5,6 +5,8 @@ import { Terminal, ShieldCheck, Cpu, Power } from 'lucide-react';
 import Image from 'next/image';
 import IELogo from '../assests/IE-logo.png';
 
+import { footerContent } from '@/data/common/footer';
+
 const Footer = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: '-10%' });
@@ -37,51 +39,32 @@ const Footer = () => {
                           className="h-10 w-auto object-contain" 
                        />
                        <span className="px-3 py-1 rounded bg-secondary border border-border text-[10px] font-mono text-muted-foreground tracking-widest">
-                           Version 3.0
+                           {footerContent.header.version}
                        </span>
                     </div>
 
                     <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight tracking-tight mb-6">
-                        WHERE STRATEGY BECOMES <br/>
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-foreground to-primary">MARKET LEADERSHIP</span>
+                        {footerContent.header.line1} <br/>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-foreground to-primary">{footerContent.header.highlight}</span>
                     </h2>
 
                     <div className="flex gap-4">
-                        <StatusBadge icon={ShieldCheck} label="PROVEN" color="text-green-400" />
-                        <StatusBadge icon={Cpu} label="SCALABLE" color="text-blue-400" />
-                        <StatusBadge icon={Terminal} label="TRACKED" color="text-yellow-400" />
+                        {footerContent.statusBadges.map((badge, idx) => (
+                            <StatusBadge key={idx} icon={badge.icon} label={badge.label} color={badge.color} />
+                        ))}
                     </div>
                 </motion.div>
             </div>
 
             {/* Right: Quick Links Grid */}
              <div className="grid grid-cols-2 md:grid-cols-3 gap-12 lg:gap-20 w-full lg:w-auto">
-                 <FooterColumn 
-                    title="AGENCY"
-                    links={[
-                        { label: 'Core Strategies', href: '/services' },
-                        { label: 'Process', href: '/services#process' },
-                        // { label: 'Case Studies', href: '/work' },
-                        { label: 'Our Mission', href: '/about' },
-                    ]}
-                 />
-                 <FooterColumn 
-                    title="LEGAL"
-                    links={[
-                        { label: 'Privacy Policy', href: '#' },
-                        { label: 'Terms of Service', href: '#' },
-                        { label: 'Data Processing', href: '#' },
-                    ]}
-                 />
-                 <FooterColumn 
-                    title="CONNECT"
-                    links={[
-                        { label: 'Contact Us', href: '/contact' },
-                        { label: 'LinkedIn', href: '#' },
-                        { label: 'Twitter / X', href: '#' },
-                        { label: 'GitHub', href: '#' },
-                    ]}
-                 />
+                 {footerContent.columns.map((column, idx) => (
+                    <FooterColumn 
+                        key={idx}
+                        title={column.title}
+                        links={column.links}
+                    />
+                 ))}
             </div>
         </div>
 
@@ -90,14 +73,14 @@ const Footer = () => {
             
             <div className="flex items-center gap-2">
                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                 <span>All Systems Active</span>
+                 <span>{footerContent.bottomBar.status}</span>
             </div>
 
-            <p>© 2025 INVISIEDGE MARKETING. ALL RIGHTS RESERVED.</p>
+            <p>{footerContent.bottomBar.copyright}</p>
 
             <div className="flex items-center gap-4">
-                 <span>RESPONSE: RAPID</span>
-                 <span>REACH: GLOBAL</span>
+                 <span>RESPONSE: {footerContent.bottomBar.response}</span>
+                 <span>REACH: {footerContent.bottomBar.reach}</span>
             </div>
 
         </div>
@@ -141,5 +124,6 @@ const FooterColumn = ({ title, links }: { title: string, links: { label: string,
         </div>
     </div>
 );
+
 
 export default Footer;

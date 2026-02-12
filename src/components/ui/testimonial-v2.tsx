@@ -2,6 +2,8 @@
 import React from 'react';
 import { motion } from "framer-motion";
 
+import { testimonialsContent } from "@/data/common/testimonials";
+
 // --- Types ---
 interface Testimonial {
   text: string;
@@ -11,44 +13,7 @@ interface Testimonial {
 }
 
 // --- Data ---
-const testimonials: Testimonial[] = [
-  {
-    text: "Automating lead acquisition across IT infrastructure services. Deployed a unified data pipeline that scales with technical complexity and high-intent market demands.",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "IT Infrastructure",
-    role: "Operational Proof // V1.2",
-  },
-  {
-    text: "Orchestrating GovTech distribution channels. Ensuring absolute security and regulatory compliance while maintaining high-speed communication and brand authority.",
-    image: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "GovTech Systems",
-    role: "Operational Proof // V3.1",
-  },
-  {
-    text: "Strategic brand scaling for Real Estate conglomerates. Coordination of multiple regional sub-brands under a single, robust marketing architecture.",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Real Estate Portfolio",
-    role: "Operational Proof // V2.0",
-  },
-  {
-    text: "Personal Branding systems for global executives. Building authority through automated insight distribution and precise digital positioning.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Personal Branding",
-    role: "Operational Proof // V4.5",
-  },
-  {
-    text: "Deploying high-frequency content engines for technical consulting. Reducing time-to-market for complex services through automated narrative scaling.",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Consulting Clusters",
-    role: "Operational Proof // V1.0",
-  },
-  {
-    text: "Multi-brand synchronization for distributed service networks. Zero-friction coordination across diverse industry vertical identities.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Service Ecosystems",
-    role: "Operational Proof // V2.8",
-  },
-];
+const testimonials = testimonialsContent.testimonials;
 
 const firstColumn = testimonials.slice(0, 2);
 const secondColumn = testimonials.slice(2, 4);
@@ -140,15 +105,22 @@ export default function TestimonialV2() {
         <div className="flex flex-col items-center justify-center max-w-4xl mx-auto mb-16">
           <div className="flex justify-center">
             <div className="border border-primary/20 py-1 px-4 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase text-primary bg-primary/10 transition-colors">
-              Operational Proof
+              {testimonialsContent.header.badge}
             </div>
           </div>
 
           <h2 id="testimonials-heading" className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter mt-8 text-center text-foreground leading-[1.1]">
-            MULTI-BRAND EXECUTION ACROSS <span className="text-primary">IT</span>, <span className="text-primary">GOVTECH</span>, <span className="text-primary">REAL ESTATE</span>, AND <span className="text-primary">PERSONAL BRANDING</span> ECOSYSTEMS.
+            {testimonialsContent.header.title.static}
+            {testimonialsContent.header.title.highlights.map((h, i) => (
+              <React.Fragment key={i}>
+                <span className="text-primary">{h}</span>
+                {i < testimonialsContent.header.title.highlights.length - 1 ? ", " : i === testimonialsContent.header.title.highlights.length - 1 ? " AND " : ""}
+              </React.Fragment>
+            ))}
+            {testimonialsContent.header.title.appendix}
           </h2>
           <p className="text-center mt-6 text-muted-foreground text-sm font-mono uppercase tracking-[0.1em] max-w-2xl">
-            Internal Validation: Proof of performance in diverse high-stakes environments.
+            {testimonialsContent.header.description}
           </p>
         </div>
 

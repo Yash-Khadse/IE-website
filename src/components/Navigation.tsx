@@ -14,6 +14,8 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 
+import { navigationContent } from '@/data/common/navigation';
+
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,11 +50,11 @@ const Navigation = () => {
           }`}>
             
             {/* Logo */}
-            <Link href="/" className="relative z-50 flex items-center gap-2 group">
+            <Link href={navigationContent.logo.href} className="relative z-50 flex items-center gap-2 group">
               <div className="relative">
                  <Image 
                     src={IELogo} 
-                    alt="InvisiEdge" 
+                    alt={navigationContent.logo.alt} 
                     height={50} 
                     className={`h-10 md:h-12 w-auto bg-transparent object-contain transition-transform duration-300 group-hover:scale-105 ${
                         !isScrolled ? 'brightness-0 invert' : ''
@@ -67,64 +69,23 @@ const Navigation = () => {
             <div className="hidden lg:block absolute left-1/2 -translate-x-1/2">
                 <NavigationMenu>
                     <NavigationMenuList>
-                        <NavigationMenuItem>
-                            <NavigationMenuLink asChild>
-                                <Link href="/about" className={`${navigationMenuTriggerStyle()} ${!isScrolled ? 'bg-transparent text-white hover:bg-white/20' : ''}`}>
-                                    ABOUT
-                                </Link>
-                            </NavigationMenuLink>
-                        </NavigationMenuItem>
-                        <NavigationMenuItem>
-                            <NavigationMenuLink asChild>
-                                <Link href="/services" className={`${navigationMenuTriggerStyle()} ${!isScrolled ? 'bg-transparent text-white hover:bg-white/20' : ''}`}>
-                                    SERVICES
-                                </Link>
-                            </NavigationMenuLink>
-                        </NavigationMenuItem>
-                        <NavigationMenuItem>
-                            <NavigationMenuLink asChild>
-                                <Link href="/work" className={`${navigationMenuTriggerStyle()} ${!isScrolled ? 'bg-transparent text-white hover:bg-white/20' : ''}`}>
-                                    WORK
-                                </Link>
-                            </NavigationMenuLink>
-                        </NavigationMenuItem>
-                        <NavigationMenuItem>
-                            <NavigationMenuLink asChild>
-                                <Link href="/blog" className={`${navigationMenuTriggerStyle()} ${!isScrolled ? 'bg-transparent text-white hover:bg-white/20' : ''}`}>
-                                    BLOG
-                                </Link>
-                            </NavigationMenuLink>
-                        </NavigationMenuItem>
-                        {/* <NavigationMenuItem>
-                            <NavigationMenuLink asChild>
-                                <Link href="/case-studies" className={`${navigationMenuTriggerStyle()} ${!isScrolled ? 'bg-transparent text-white hover:bg-white/20' : ''}`}>
-                                    CASES
-                                </Link>
-                            </NavigationMenuLink>
-                        </NavigationMenuItem> */}
+                        {navigationContent.mainNav.map((item, idx) => (
+                            <NavigationMenuItem key={idx}>
+                                <NavigationMenuLink asChild>
+                                    <Link href={item.href} className={`${navigationMenuTriggerStyle()} ${!isScrolled ? 'bg-transparent text-white hover:bg-white/20' : ''}`}>
+                                        {item.label}
+                                    </Link>
+                                </NavigationMenuLink>
+                            </NavigationMenuItem>
+                        ))}
                     </NavigationMenuList>
                 </NavigationMenu>
             </div>
 
             {/* Right Actions */}
             <div className="flex items-center gap-4">
-                {/* Status Indicator */}
-                {/* <div className={`hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full border backdrop-blur-sm transition-colors duration-300 ${
-                    isScrolled ? 'bg-secondary/80 border-border' : 'bg-white/10 border-white/20'
-                }`}>
-                    <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                    </span>
-                    <span className={`text-[10px] font-mono font-bold tracking-widest uppercase ${
-                        isScrolled ? 'text-foreground/80' : 'text-white/80'
-                    }`}>
-                        ONLINE
-                    </span>
-                </div> */}
-
                 <Link
-                  href="/contact"
+                  href={navigationContent.contactButton.href}
                   passHref
                 >
                     <motion.div
@@ -137,12 +98,12 @@ const Navigation = () => {
                     >
                       {/* Default Text */}
                       <span className="relative z-10 transition-all duration-500 group-hover:translate-x-12 group-hover:opacity-0 flex items-center gap-2">
-                        START A PROJECT
+                        {navigationContent.contactButton.idleText}
                       </span>
 
                       {/* Hover Content */}
                       <div className="absolute inset-0 z-20 flex items-center justify-center gap-2 text-white translate-x-[-100%] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 font-bold">
-                        <span>LET'S TALK</span>
+                        <span>{navigationContent.contactButton.hoverText}</span>
                         <ArrowRight size={14} className="animate-pulse" />
                       </div>
 
@@ -184,7 +145,7 @@ const Navigation = () => {
               <div className="flex items-center justify-between px-6 py-6 border-b border-border">
                  <div className="flex items-center gap-2 text-muted-foreground text-xs font-mono">
                     <Activity size={14} className="text-primary" />
-                    <span>Menu</span>
+                    <span>{navigationContent.mobileMenu.title}</span>
                  </div>
                  <button 
                     onClick={() => setIsMenuOpen(false)}
@@ -197,14 +158,7 @@ const Navigation = () => {
               {/* Links */}
               <div className="flex-1 flex items-center justify-center p-6">
                  <nav className="flex flex-col gap-6 w-full max-w-md">
-                    {[
-                        { label: 'ABOUT US', href: '/about' },
-                        { label: 'SERVICES', href: '/services' },
-                        { label: 'OUR WORK', href: '/work' },
-                        { label: 'INSIGHTS', href: '/blog' },
-                        // { label: 'CASE STUDIES', href: '/case-studies' },
-                        { label: 'CONTACT', href: '/contact' }
-                    ].map((item, i) => (
+                    {navigationContent.mobileMenu.links.map((item, i) => (
                         <Link
                            key={i}
                            href={item.href}
@@ -230,8 +184,8 @@ const Navigation = () => {
               {/* Footer */}
               <div className="p-6 border-t border-border bg-muted/50">
                   <div className="flex justify-between items-center text-[10px] font-mono text-muted-foreground">
-                      <span>INVISIEDGE MARKETING.</span>
-                      <span>EST. 2024</span>
+                      <span>{navigationContent.mobileMenu.footer.company}</span>
+                      <span>{navigationContent.mobileMenu.footer.est}</span>
                   </div>
               </div>
 

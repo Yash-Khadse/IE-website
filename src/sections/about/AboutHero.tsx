@@ -7,6 +7,7 @@ import * as THREE from 'three';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowDown } from 'lucide-react';
+import { aboutHeroContent } from '@/data/about/hero';
 
 // --- VISUAL ASSETS ---
 // A connecting network representing the "Team + Data" synergy
@@ -62,6 +63,7 @@ function ConstellationNetwork(props: any) {
     </group>
   );
 }
+
 
 // --- MAIN COMPONENT ---
 export default function AboutHero() {
@@ -127,7 +129,7 @@ export default function AboutHero() {
                 <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
                     <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#C47DFD]">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#5210F8] animate-pulse" />
-                        Growth Team
+                        {aboutHeroContent.badge}
                     </span>
                 </div>
             </div>
@@ -136,27 +138,26 @@ export default function AboutHero() {
             <h1 className="flex flex-col items-center text-center font-black tracking-tighter leading-[0.85] select-none text-white mix-blend-screen">
                 <span className="text-[14vw] md:text-[8vw] opacity-30 blur-[1px] animate-in fade-in zoom-in duration-1000 delay-100" 
                       style={{ WebkitTextStroke: '1px rgba(255,255,255,0.2)', color: 'transparent' }}>
-                    HUMAN
+                    {aboutHeroContent.titleRow1}
                 </span>
                 <span className="text-[18vw] md:text-[11vw] bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50 drop-shadow-2xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-                    CONNECTION
+                    {aboutHeroContent.titleRow2}
                 </span>
             </h1>
 
             {/* Subtext */}
             <div className="mt-8 md:mt-12 max-w-2xl text-center px-4 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
                 <p className="text-base md:text-xl text-white/70 font-light leading-relaxed">
-                    We are your <span className="text-white font-medium">brand's engine</span>. 
-                    Merging elite creative talent with performance marketing to scale effectively.
+                    {aboutHeroContent.description}
                 </p>
             </div>
             
             {/* Control Panel / Stats Strip */}
             <div className="mt-12 md:mt-16 grid grid-cols-2 md:flex md:flex-wrap justify-center gap-6 md:gap-12 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-700">
-                {['500+ Campaigns', '3.2x ROAS', '$250M+ Revenue'].map((item, i) => (
-                    <div key={i} className={`flex flex-col items-center group cursor-default pointer-events-auto ${i === 2 ? 'col-span-2' : ''}`}>
-                        <span className="text-xl md:text-3xl font-bold text-white group-hover:text-[#C47DFD] transition-colors">{item.split(' ')[0]}</span>
-                        <span className="text-[8px] md:text-[10px] uppercase tracking-widest text-white/30 group-hover:text-white/60 transition-colors">{item.split(' ').slice(1).join(' ')}</span>
+                {aboutHeroContent.metrics.map((item, i) => (
+                    <div key={i} className={`flex flex-col items-center group cursor-default pointer-events-auto ${i === 2 && i % 2 === 0 ? 'col-span-2' : ''}`}>
+                        <span className="text-xl md:text-3xl font-bold text-white group-hover:text-[#C47DFD] transition-colors">{item.value}</span>
+                        <span className="text-[8px] md:text-[10px] uppercase tracking-widest text-white/30 group-hover:text-white/60 transition-colors">{item.label}</span>
                     </div>
                 ))}
             </div>
@@ -164,7 +165,7 @@ export default function AboutHero() {
 
         {/* LAYER 2: FOREGROUND ELEMENT (Scroll Indicator) */}
         <div ref={fgRef} className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-none opacity-50">
-             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/60">Explore</span>
+             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/60">{aboutHeroContent.scrollLabel}</span>
              <div className="w-[1px] h-12 bg-gradient-to-b from-[#5210F8] to-transparent" />
              <ArrowDown className="w-4 h-4 text-[#5210F8] animate-bounce" />
         </div>

@@ -78,6 +78,8 @@ function ProjectConstellation(props: any) {
   );
 }
 
+import { workHeroContent } from "@/data/work/hero";
+
 // --- MAIN COMPONENT ---
 export default function WorkHero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -137,7 +139,7 @@ export default function WorkHero() {
                 <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
                     <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#5210F8]/20 bg-[#5210F8]/5 backdrop-blur-md text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#5210F8]">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#5210F8] animate-pulse" />
-                        Client Success
+                        {workHeroContent.badge}
                     </span>
                 </div>
             </div>
@@ -146,24 +148,25 @@ export default function WorkHero() {
             <h1 className="flex flex-col items-center text-center font-black tracking-tighter leading-[0.85] select-none text-white mix-blend-screen">
                 <span className="text-[14vw] md:text-[8vw] opacity-20 blur-[1px] animate-in fade-in zoom-in duration-1000 delay-100" 
                       style={{ WebkitTextStroke: '1px rgba(82, 16, 248, 0.4)', color: 'transparent' }}>
-                    ACTIVE
+                    {workHeroContent.title.static}
                 </span>
                 <span className="text-[16vw] md:text-[10vw] bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50 drop-shadow-2xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-                    RESULTS
+                    {workHeroContent.title.highlight}
                 </span>
             </h1>
 
             {/* Subtext */}
             <div className="mt-8 md:mt-12 max-w-2xl text-center px-4 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
                 <p className="text-base md:text-xl text-white/70 font-light leading-relaxed">
-                    A showcase of our <span className="text-white font-medium">strategic leadership</span>. 
-                    Real-world campaigns that drive measurable impact.
+                    {workHeroContent.description.split(workHeroContent.highlight)[0]}
+                    <span className="text-white font-medium">{workHeroContent.highlight}</span>
+                    {workHeroContent.description.split(workHeroContent.highlight)[1]}
                 </p>
             </div>
 
             {/* Stats */}
             <div className="mt-12 md:mt-16 grid grid-cols-2 md:flex justify-center gap-6 md:gap-12 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-700 w-full max-w-3xl">
-                {['Industry Agnostic', 'Global Reach', 'High Impact'].map((item, i) => (
+                {workHeroContent.stats.map((item, i) => (
                     <div key={i} className="flex flex-col items-center cursor-default pointer-events-auto px-4 border-l border-white/10 first:border-0">
                         <span className="text-lg md:text-xl font-bold text-white uppercase tracking-wider">{item}</span>
                     </div>
@@ -173,7 +176,7 @@ export default function WorkHero() {
 
         {/* LAYER 2: SCROLL INDICATOR */}
         <div ref={fgRef} className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-none opacity-50">
-             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/60">View Client Feedback</span>
+             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/60">{workHeroContent.scrollLabel}</span>
              <div className="w-[1px] h-12 bg-gradient-to-b from-[#5210F8] to-transparent" />
              <ArrowDown className="w-4 h-4 text-[#5210F8] animate-bounce" />
         </div>

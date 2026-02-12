@@ -18,92 +18,13 @@ import {
   Fingerprint
 } from "lucide-react";
 
-const TEAM_UNITS = [
-  {
-    id: "UNIT_01",
-    role: "Growth Architects",
-    concept: "Strategic Intelligence",
-    desc: "Ex-founders who treat growth as a technical problem. They don't guess; they architect systems that force scaling through unit-economic transparency and market arbitrage.",
-    icon: Brain,
-    color: "#5210F8",
-    accent: "text-[#5210F8]",
-    bg: "bg-[#5210F8]/5",
-    skills: [
-      { name: "Unit Econ Analysis", level: 98 },
-      { name: "GTM Orchestration", level: 95 },
-      { name: "Retention Logic", level: 92 }
-    ],
-    metadata: {
-      deployment: "48H_READY",
-      clearance: "LEVEL_10",
-      rank: "PRINCIPAL"
-    }
-  },
-  {
-    id: "UNIT_02",
-    role: "Creative Commandos",
-    concept: "Psychological Ops",
-    desc: "Engineering desire at the intersection of psychology and aesthetics. Our visionaries build movements, not just campaigns, using high-velocity performance creative protocols.",
-    icon: Paintbrush,
-    color: "#C47DFD",
-    accent: "text-[#C47DFD]",
-    bg: "bg-[#C47DFD]/5",
-    skills: [
-      { name: "Aesthetic Synthesis", level: 96 },
-      { name: "Conversion Design", level: 94 },
-      { name: "Visual Hooking", level: 98 }
-    ],
-    metadata: {
-      deployment: "IMMEDIATE",
-      clearance: "LEVEL_09",
-      rank: "ELITE"
-    }
-  },
-  {
-    id: "UNIT_03",
-    role: "Core Builders",
-    concept: "Infrastructure Mastery",
-    desc: "Ensuring zero-latency and infinite scale. Our full-stack engineers build custom middleware and API bridges that turn your tech stack into a performance-enhancing weapon.",
-    icon: Code2,
-    color: "#00FF94",
-    accent: "text-[#00FF94]",
-    bg: "bg-[#00FF94]/5",
-    skills: [
-      { name: "Next.js Protocols", level: 99 },
-      { name: "API Orchestration", level: 95 },
-      { name: "Cloud Scaling", level: 97 }
-    ],
-    metadata: {
-      deployment: "SCHEDULED",
-      clearance: "LEVEL_10",
-      rank: "LEAD_ARCH"
-    }
-  },
-  {
-    id: "UNIT_04",
-    role: "Data Alchemists",
-    concept: "Algorithmic Precision",
-    desc: "Extracting truth from advertising chaos. Our data scientists deploy custom ML models and server-side tracking to ensure every dollar spent is backed by high-confidence execution signals.",
-    icon: BarChart3,
-    color: "#072C55",
-    accent: "text-[#072C55]",
-    bg: "bg-[#072C55]/5",
-    skills: [
-      { name: "Attribution Modeling", level: 94 },
-      { name: "Predictive Analytics", level: 96 },
-      { name: "SQL Orchestration", level: 98 }
-    ],
-    metadata: {
-      deployment: "ACTIVE",
-      clearance: "LEVEL_10",
-      rank: "SCIENTIST"
-    }
-  }
-];
+import { ourTeamContent } from "@/data/about/team";
 
 export default function OurTeam() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeUnit, setActiveUnit] = useState(0);
+
+  const teamUnits = ourTeamContent.teamUnits;
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -111,11 +32,11 @@ export default function OurTeam() {
   });
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const sectionIndex = Math.min(Math.floor(latest * TEAM_UNITS.length * 1.05), TEAM_UNITS.length - 1);
+    const sectionIndex = Math.min(Math.floor(latest * teamUnits.length * 1.05), teamUnits.length - 1);
     setActiveUnit(sectionIndex);
   });
 
-  const currentUnit = TEAM_UNITS[activeUnit];
+  const currentUnit = teamUnits[activeUnit];
 
   return (
     <section ref={containerRef} className="relative h-[300vh] bg-[#F8F9FA]">
@@ -125,8 +46,29 @@ export default function OurTeam() {
         
         {/* Left Column: Collective HUD */}
         <div className="w-full lg:w-1/2 p-6 md:p-10 lg:p-20 flex flex-col justify-center relative border-r border-[#072C55]/5 border-b lg:border-b-0 h-[45vh] lg:h-full">
-            {/* Background Kinetic Viz */}
-            <div className="absolute inset-0 z-0 opacity-5 pointer-events-none flex items-center justify-center">
+            {/* Background Image Layer */}
+            <div className="absolute inset-0 z-0 overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeUnit}
+                  initial={{ opacity: 0, scale: 1.1 }}
+                  animate={{ opacity: 0.15, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="absolute inset-0"
+                >
+                  <img
+                    src={teamUnits[activeUnit].image}
+                    alt={teamUnits[activeUnit].role}
+                    className="w-full h-full object-cover grayscale mix-blend-multiply"
+                  />
+                </motion.div>
+              </AnimatePresence>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#F8F9FA] via-[#F8F9FA]/90 to-[#F8F9FA]/40" />
+            </div>
+
+            {/* Kinetic Viz Overlay (Optional - Keep subtle) */}
+            <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none flex items-center justify-center mix-blend-multiply">
                 <motion.div 
                     animate={{ rotate: 360 }}
                     transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
@@ -145,22 +87,22 @@ export default function OurTeam() {
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#5210F8] opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-3 w-3 bg-[#5210F8]"></span>
                     </div>
-                    <span className="font-mono text-xs font-bold text-[#072C55]/40 uppercase tracking-[0.6em]">Growth Collective // Human Intel</span>
+                    <span className="font-mono text-xs font-bold text-[#072C55]/40 uppercase tracking-[0.6em]">{ourTeamContent.header.badge}</span>
                 </div>
 
                 <div className="mb-8 md:mb-16">
                     <h2 className="text-4xl md:text-8xl lg:text-9xl font-black text-[#072C55] tracking-tighter leading-[0.85] mb-4 md:mb-8">
-                        The <br />
-                        <span className="text-[#5210F8]">Personnel.</span>
+                        {ourTeamContent.header.title.static} <br />
+                        <span className="text-[#5210F8]">{ourTeamContent.header.title.highlight}</span>
                     </h2>
                     <p className="text-base md:text-xl text-[#072C55]/50 font-medium max-w-md leading-relaxed">
-                        We don't maintain a payroll of generalists. We deploy a collective of <strong className="text-[#072C55]">senior specialists</strong> optimized for the mission.
+                        {ourTeamContent.header.description}
                     </p>
                 </div>
 
                 {/* Unit Local Navigation - Compact for Mobile */}
                 <div className="flex lg:flex-col gap-3 md:gap-4 overflow-x-auto pb-4 lg:pb-0 scrollbar-hide">
-                    {TEAM_UNITS.map((unit, i) => (
+                    {teamUnits.map((unit: any, i: number) => (
                         <div 
                             key={i}
                             className={`flex items-center gap-4 md:gap-6 transition-all duration-500 shrink-0 lg:shrink-1 ${activeUnit === i ? 'translate-x-0 lg:translate-x-4 opacity-100' : 'opacity-20 blur-[0.5px]'}`}
@@ -175,7 +117,7 @@ export default function OurTeam() {
 
             {/* Bottom Status Ticker */}
             <div className="absolute bottom-10 left-10 lg:left-20 font-mono text-[9px] font-bold text-[#072C55]/20 uppercase tracking-widest hidden lg:block">
-                GROWTH_ORCH_VERSION_42.0.1 // READY_FOR_SCALE
+                {ourTeamContent.header.ticker}
             </div>
         </div>
 
@@ -215,7 +157,7 @@ export default function OurTeam() {
                     <div className="space-y-4 md:space-y-6 mb-8 md:mb-12">
                         <h4 className="font-mono text-[10px] font-black text-[#072C55]/40 uppercase tracking-[0.3em]">Competency_Spectrum</h4>
                         <div className="grid gap-4">
-                            {currentUnit.skills.map((skill, idx) => (
+                            {currentUnit.skills.map((skill: any, idx: number) => (
                                 <div key={idx} className="space-y-2">
                                     <div className="flex justify-between items-end">
                                         <span className="text-[12px] font-black text-[#072C55] uppercase tracking-wider">{skill.name}</span>

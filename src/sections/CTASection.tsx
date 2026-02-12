@@ -4,6 +4,8 @@ import { motion, useInView } from 'framer-motion';
 import { CardBody, CardContainer, CardItem } from '../components/ui/3d-card';
 import { Terminal, Shield, Cpu, Zap, Activity, Globe, Lock } from 'lucide-react';
 
+import { ctaContent } from '@/data/common/cta';
+
 const TypewriterText = ({ text, delay = 0 }: { text: string, delay?: number }) => {
     const [displayedText, setDisplayedText] = useState('');
     
@@ -71,26 +73,22 @@ const CTASection = () => {
             <div className="flex-1 flex flex-col items-center justify-center text-center relative z-10 py-4">
               <CardItem translateZ="60" className="flex flex-col items-center">
                 <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-black text-foreground leading-[0.85] tracking-tighter mb-6 max-w-4xl uppercase">
-                  READY TO
+                  {ctaContent.header.titleLine1}
                   <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-b from-primary via-primary/80 to-foreground/20">SCALE?</span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-b from-primary via-primary/80 to-foreground/20">{ctaContent.header.highlight}</span>
                 </h2>
               </CardItem>
               
               <CardItem translateZ="40" className="w-full relative mb-8 h-6">
                  <div className="text-base md:text-xl text-muted-foreground font-medium font-mono tracking-tight flex items-center justify-center gap-2">
-                    <span className="text-primary animate-pulse">{isInView && <TypewriterText text="> " delay={0.5} />}</span>
-                    {isInView && <TypewriterText text="Initialize sequence..." delay={0.8} />}
+                    <span className="text-primary animate-pulse">{isInView && <TypewriterText text={ctaContent.typewriter.prefix} delay={0.5} />}</span>
+                    {isInView && <TypewriterText text={ctaContent.typewriter.text} delay={0.8} />}
                  </div>
               </CardItem>
   
               <CardItem translateZ="30" className="w-full max-w-2xl mb-8">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 w-full">
-                  {[
-                    { text: 'Performance Audit', icon: Cpu, id: 'AUDIT_01', color: 'text-blue-400' },
-                    { text: 'Growth Automation', icon: Zap, id: 'AUTO_02', color: 'text-yellow-400' },
-                    { text: 'Brand Systems', icon: Shield, id: 'SYS_03', color: 'text-emerald-400' }
-                  ].map((item, i) => (
+                  {ctaContent.grid.map((item, i) => (
                     <div key={i} className="flex flex-col items-center gap-2 p-4 rounded-xl border border-border bg-secondary/30 hover:bg-secondary/50 hover:border-primary/40 transition-all group/item backdrop-blur-sm cursor-default">
                         <div className={`p-2 rounded-lg bg-background border border-border group-hover/item:border-primary/20 transition-all ${item.color}`}>
                             <item.icon size={20} />
@@ -112,7 +110,7 @@ const CTASection = () => {
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-in-out" />
                     
                     <span className="relative flex items-center gap-3">
-                       <Terminal size={20} /> START_GROWTH_ENGINE
+                       <Terminal size={20} /> {ctaContent.button.text}
                     </span>
                  </button>
               </CardItem>

@@ -1,6 +1,7 @@
 "use client";
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { goalsContent } from '@/data/home/goals';
 
 const GoalsSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -24,21 +25,21 @@ const GoalsSection = () => {
             <div className="relative">
               {/* Main "OUR GOAL" */}
               <h2 className="text-[3rem] md:text-[4rem] font-bold text-foreground leading-[1] mb-2 tracking-tight">
-                OUR GOAL
+                {goalsContent.header.title}
               </h2>
               
               {/* Blurred Background Text */}
               <div className="absolute top-[3.5rem] left-0 w-full select-none pointer-events-none overflow-hidden">
                  <h2 className="text-[3.5rem] md:text-[4.5rem] font-bold text-muted-foreground/20 blur-[2px] leading-[1] tracking-tight whitespace-nowrap">
-                   BUILD A BRAND
+                   {goalsContent.header.blurredBackground}
                  </h2>
               </div>
 
               {/* Handwritten Overlay */}
               <div className="relative mt-2 ml-2">
                 <h3 className="font-bold italic text-[3.5rem] md:text-[4.5rem] leading-[0.85] text-primary transform -rotate-3">
-                  accelerate <br />
-                  <span className="ml-8">your digital growth</span>
+                  {goalsContent.header.highlight.line1} <br />
+                  <span className="ml-8">{goalsContent.header.highlight.line2}</span>
                 </h3>
               </div>
             </div>
@@ -48,57 +49,29 @@ const GoalsSection = () => {
               whileTap={{ scale: 0.95 }}
               className="mt-12 bg-primary text-primary-foreground px-8 py-4 rounded-full font-bold text-lg tracking-wide hover:shadow-xl transition-all shadow-md"
             >
-              DISCUSS THE PROJECT
+              {goalsContent.header.buttonText}
             </motion.button>
           </motion.div>
 
           {/* Right Side - Isometric Pillars */}
           <div className="lg:w-6/12 flex items-end justify-center lg:justify-end h-[400px] md:h-[500px] pb-10 perspective-[1000px]">
-             {/* 3D Scene Container */}
-             <div className="relative transform-style-3d rotate-x-[60deg] rotate-z-[45deg] flex gap-10"> {/* Logic: Custom CSS transforms for isometric view */}
-                
-                {/* We need a robust custom CSS construction for these pillars. 
-                    Standard CSS 3D transforms are best. 
-                    Let's use a simpler approach that mimics the visual perfectly without complex 3d scene logic if possible, 
-                    OR build a dedicated 3D structure. The visual is ISOMETRIC.
-                */}
-             </div>
              
              {/* Implementing Isometric Pillars via strict CSS construction */}
              <div className="flex items-end gap-2 lg:mr-10 relative">
-                <IsometricPillar 
-                   colorFace="#072C55" // Navy
-                   colorTop="#1E4B85" 
-                   colorSide="#041C36"
-                   label="Strategic Planning"
-                   height="h-48 md:h-64"
-                   delay={0.2}
-                   isInView={isInView}
-                   zIndex={30}
-                   style={{ transform: 'translate3d(0px, 4.6116em, 0px)' }}
-                />
-                <IsometricPillar 
-                   colorFace="#5210F8" // Primary
-                   colorTop="#7E41F9" 
-                   colorSide="#3B0BB3"
-                   label="Customer Journey"
-                   height="h-64 md:h-80"
-                   delay={0.4}
-                   isInView={isInView}
-                   zIndex={20}
-                   style={{ transform: 'translate3d(0px, -8.3595em, 0px)' }}
-                />
-                <IsometricPillar 
-                   colorFace="#C47DFD" // Secondary
-                   colorTop="#E0B8FE" 
-                   colorSide="#A050E0"
-                   label="Revenue Scaling"
-                   height="h-80 md:h-96"
-                   delay={0.6}
-                   isInView={isInView}
-                   zIndex={10}
-                   style={{ transform: 'translate3d(0px, -16.5306em, 0px)' }}
-                />
+                {goalsContent.pillars.map((pillar, idx) => (
+                    <IsometricPillar 
+                        key={idx}
+                        colorFace={pillar.colors.face}
+                        colorTop={pillar.colors.top}
+                        colorSide={pillar.colors.side}
+                        label={pillar.label}
+                        height={pillar.height}
+                        delay={pillar.delay}
+                        isInView={isInView}
+                        zIndex={pillar.zIndex}
+                        style={{ transform: pillar.translateY }}
+                    />
+                ))}
              </div>
           </div>
         </div>

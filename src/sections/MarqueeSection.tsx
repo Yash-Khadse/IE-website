@@ -1,27 +1,7 @@
 import { Marquee } from "@/components/ui/marquee"
+import { marqueeContent } from "@/data/home/marquee"
 
-const logos = [
-  {
-    src: "https://res.cloudinary.com/dr32w1unf/image/upload/v1770905856/Group_71-1_1_xu2goa.png",
-    alt: "CompQsoft",
-  },
-  {
-    src: "https://res.cloudinary.com/dr32w1unf/image/upload/e_make_transparent:20/v1770733187/Vector_x9lrdr.png",
-    alt: "Vector Logo",
-  },
-  {
-    src: "https://res.cloudinary.com/dr32w1unf/image/upload/e_make_transparent:20/v1770733186/Group_100_frqulk.png",
-    alt: "Group 100",
-  },
-  {
-    src: "https://res.cloudinary.com/dr32w1unf/image/upload/e_make_transparent:20/v1770733186/Union_myzbuf.png",
-    alt: "Union",
-  },
-  {
-    src: "https://res.cloudinary.com/dr32w1unf/image/upload/e_make_transparent:20/v1770733187/Group_79_qwuibg.png", 
-    alt: "Group 79",
-  }
-]
+const logos = marqueeContent;
 
 export function MarqueeSection() {
   return (

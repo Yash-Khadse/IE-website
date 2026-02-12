@@ -19,11 +19,12 @@ export default function AboutPage() {
       <AboutHero />
       <OurStory />
       <MissionVisionValues />
-      {/* <WhatWeDo /> */}
+      <WhatWeDo />
       <HowWeWork />
       <WhyChooseUs />
-      {/* <OurTeam /> */}
-      <CTASection />
+      <OurTeam />
+      <SocialProof />
+      <AboutFinalCTA />
     </main>
   );
 }

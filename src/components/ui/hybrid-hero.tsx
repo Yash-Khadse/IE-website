@@ -6,6 +6,9 @@ import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Link from 'next/link';
+import { ArrowRight, Play } from 'lucide-react';
+import { heroContent } from '@/data/home/hero';
 
 // --- VISUAL ASSETS ---
 // --- VISUAL ASSETS ---
@@ -143,7 +146,7 @@ export function HybridHero() {
             <div data-layer="sky" className="absolute inset-0 w-full h-[120vh] -top-[10%] z-0">
                  {/* Image Texture: Dark Geometric Grid */}
                  <img 
-                    src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=2560&auto=format&fit=crop" 
+                    src={heroContent.visuals.skyImage} 
                     className="w-full h-full object-cover opacity-10 mix-blend-overlay"
                     alt="Dark Grid"
                 />
@@ -160,17 +163,40 @@ export function HybridHero() {
                 {/* "GROWTH" - Background Text - Fixed Contrast */}
                 <h1 className="text-[16vw] leading-[0.8] font-black tracking-tighter text-white/10 text-center select-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 blur-[1px]"
                     style={{ WebkitTextStroke: '1px rgba(255,255,255,0.15)' }}>
-                    ELEVATE
+                    {heroContent.backgroundTitle}
                 </h1>
                 
                 {/* "REVENUE" - Foreground Text - High Visibility */}
                 <h1 className="text-[13vw] leading-[0.8] font-black tracking-tighter text-white text-center drop-shadow-2xl relative z-10 transform -translate-y-4">
-                    REVENUE
+                    {heroContent.mainTitle}
                 </h1>
                 
                 <p className="mt-8 md:mt-12 text-base md:text-xl text-white font-semibold max-w-xs md:max-w-xl text-center leading-relaxed drop-shadow-lg bg-fooror-navy/20 backdrop-blur-sm rounded-lg py-2 px-4 border border-white/5 relative z-20">
-                    Data-driven marketing strategies for the digital age.
+                    {heroContent.description}
                 </p>
+
+                {/* CALL TO ACTION */}
+                <div className="mt-12 flex flex-col sm:flex-row items-center gap-6 pointer-events-auto z-30">
+                    <Link
+                        href={heroContent.cta.primary.href}
+                        className="group relative h-12 px-8 flex items-center gap-3 bg-white text-[#072C55] rounded-full font-bold tracking-wider uppercase text-xs shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_35px_rgba(255,255,255,0.5)] hover:scale-105 transition-all duration-300"
+                    >
+                        <span>{heroContent.cta.primary.label}</span>
+                        <div className="w-6 h-6 bg-[#072C55] rounded-full flex items-center justify-center text-white group-hover:rotate-[-45deg] transition-transform duration-300">
+                             <ArrowRight size={12} />
+                        </div>
+                    </Link>
+
+                    <Link
+                        href={heroContent.cta.secondary.href}
+                        className="group flex items-center gap-3 px-6 py-3 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-white/50 transition-all duration-300"
+                    >
+                        <span className="text-xs font-bold text-white tracking-wider uppercase group-hover:tracking-widest transition-all duration-300">
+                            {heroContent.cta.secondary.label}
+                        </span>
+                        <ArrowRight size={14} className="text-white opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                    </Link>
+                </div>
             </div>
 
             {/* LAYER 3: FOREGROUND TERRAIN (Analytics Dashboard) */}
@@ -181,7 +207,7 @@ export function HybridHero() {
                     
                     {/* Analytics Graph Image masked as terrain */}
                     <img 
-                        src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop"
+                        src={heroContent.visuals.terrainImage}
                         className="w-full h-full object-cover object-center opacity-70 mix-blend-normal mask-image-hill"
                         style={{ maskImage: 'linear-gradient(to top, black 60%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to top, black 60%, transparent 100%)' }}
                         alt="Analytics Dashboard"
@@ -191,7 +217,7 @@ export function HybridHero() {
                  {/* Scroll Indicator anchored to terrain */}
                  <div className="absolute bottom-[25%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
                      <div className="w-[2px] h-16 bg-gradient-to-b from-fooror-purple-light to-transparent" />
-                     <span className="text-white text-[10px] font-bold font-mono tracking-[0.3em] uppercase drop-shadow-md">Scroll</span>
+                     <span className="text-white text-[10px] font-bold font-mono tracking-[0.3em] uppercase drop-shadow-md">{heroContent.scrollLabel}</span>
                  </div>
             </div>
 

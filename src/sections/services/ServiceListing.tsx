@@ -8,18 +8,14 @@ import {
   Layers, Terminal, Activity, Monitor, Server, Command, Code2, Sparkles, SlidersHorizontal
 } from 'lucide-react';
 import { SERVICES } from '@/lib/services';
+import { servicesListingContent } from '@/data/services/listing';
 
 // Icon Map
 const ICON_MAP: Record<string, any> = {
   Target, Layout, Search, BarChart3, Database, Workflow, ShieldCheck, Globe, Zap, Cpu, Terminal, Activity, Layers, Monitor, Server, Command, Code2
 };
 
-const CATEGORIES = [
-  { id: 'all', label: 'All Services' },
-  { id: 'strategy', label: 'Strategy' },
-  { id: 'growth', label: 'Growth' },
-  { id: 'infrastructure', label: 'Infrastructure' }
-];
+const CATEGORIES = servicesListingContent.categories;
 
 const getServiceCategory = (id: string) => {
   if (['branding-systems', 'event-expo-branding', 'gtm-sales-enablement', 'brand-strategy', 'creative-direction'].includes(id)) return 'strategy';
@@ -99,21 +95,21 @@ export default function ServiceListing() {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-fooror-purple"></span>
                 </span>
                 <span className="text-slate-500 text-[10px] font-mono font-bold uppercase tracking-[0.2em]">
-                    Active
+                    {servicesListingContent.header.badge}
                 </span>
             </motion.div>
             
             {/* Main Title */}
             <h2 className="text-4xl md:text-8xl font-black text-slate-900 tracking-tighter leading-[0.9] md:leading-[0.85] mb-6 md:mb-8 relative z-10 mix-blend-darken">
-              System <br/>
+              {servicesListingContent.header.title.static} <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-fooror-navy via-fooror-purple to-fooror-navy bg-[length:200%_auto] animate-shine">
-                Capabilities
+                {servicesListingContent.header.title.highlight}
               </span>
             </h2>
 
             {/* Subtitle */}
             <p className="max-w-2xl text-slate-500 text-base md:text-lg font-medium leading-relaxed mb-8 md:mb-12 px-4 md:px-0">
-                Deployable modules for orchestration, automation, and intelligent growth. Select a protocol to initialize.
+                {servicesListingContent.header.description}
             </p>
 
             {/* Controls Toolbar */}
@@ -129,7 +125,7 @@ export default function ServiceListing() {
                     <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4 group-focus-within:text-fooror-purple transition-colors" />
                     <input 
                         type="text" 
-                        placeholder="Search services..." 
+                        placeholder={servicesListingContent.searchPlaceholder} 
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         className="w-full h-12 md:h-14 pl-12 pr-4 bg-transparent rounded-xl text-slate-700 font-medium placeholder:text-slate-400 outline-none focus:bg-white/50 transition-all font-mono text-sm"
@@ -141,7 +137,7 @@ export default function ServiceListing() {
 
                 {/* Categories */}
                 <div className="flex overflow-x-auto no-scrollbar gap-2 p-1 w-full md:w-auto pb-2 md:pb-1">
-                    {CATEGORIES.map((cat) => (
+                    {CATEGORIES.map((cat: any) => (
                         <button
                             key={cat.id}
                             onClick={() => setActiveCategory(cat.id)}
@@ -255,13 +251,13 @@ export default function ServiceListing() {
                     <div className="w-24 h-24 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center mb-6 animate-pulse">
                         <SlidersHorizontal className="text-slate-300" size={32} />
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-2">No Service Found</h3>
-                    <p className="text-slate-500 max-w-sm mb-8">We couldn't locate any services matching your search.</p>
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">{servicesListingContent.emptyState.title}</h3>
+                    <p className="text-slate-500 max-w-sm mb-8">{servicesListingContent.emptyState.description}</p>
                     <button 
                         onClick={() => { setSearchQuery(''); setActiveCategory('all'); }}
                         className="px-6 py-2.5 bg-slate-900 text-white rounded-lg font-mono text-xs font-bold uppercase tracking-widest hover:bg-fooror-purple transition-colors shadow-lg shadow-slate-200"
                     >
-                        Reset Filters
+                        {servicesListingContent.emptyState.buttonLabel}
                     </button>
                 </motion.div>
             )}

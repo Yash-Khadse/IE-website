@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { motion, useScroll, useTransform, useSpring, useInView, Variants, AnimatePresence } from 'framer-motion';
 import ProjectRelatedServices from '@/sections/work/ProjectRelatedServices';
+import { projectDetailsContent } from '@/data/work/details';
 
 // ----------------------------------------------------------------------------
 // ANIMATION VARIANTS
@@ -56,6 +57,7 @@ function ProjectView({ project }: { project: ProjectData }) {
     const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
     const navIndex = PROJECTS.findIndex(p => p.id === project.id);
     const nextProject = PROJECTS[(navIndex + 1) % PROJECTS.length];
+    const { nav } = projectDetailsContent;
 
     return (
         <main className="bg-white min-h-screen text-[#072C55] font-sans selection:bg-[#5210F8] selection:text-white antialiased">
@@ -67,21 +69,21 @@ function ProjectView({ project }: { project: ProjectData }) {
                         {/* Home / Brand */}
                         <Link href="/" className="group flex items-center gap-2 pr-6 border-r border-[#072C55]/10">
                             <div className="w-8 h-8 rounded bg-[#072C55] flex items-center justify-center text-white font-bold text-xs tracking-tighter hover:bg-[#5210F8] transition-colors">
-                                IE
+                                {nav.home}
                             </div>
                         </Link>
                         
                         {/* Back to Work */}
                         <Link href="/work" className="group flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#072C55]/50 hover:text-[#072C55] transition-colors">
                             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-                            All Projects
+                            {nav.backLink}
                         </Link>
                     </div>
 
                     <div className="flex items-center gap-6">
 
                         <Link href="/contact" className="px-6 py-2.5 bg-[#072C55] text-white text-[10px] font-bold uppercase tracking-widest rounded hover:bg-[#5210F8] transition-colors shadow-lg shadow-[#5210F8]/20 hover:scale-105 active:scale-95 transform">
-                            Start a Project
+                            {nav.cta}
                         </Link>
                     </div>
                 </div>
@@ -136,6 +138,7 @@ function ProjectView({ project }: { project: ProjectData }) {
 // ----------------------------------------------------------------------------
 
 function HeroContent({ project }: { project: ProjectData }) {
+    const { hero } = projectDetailsContent;
     return (
         <div className="w-full h-full flex flex-col justify-between">
             <motion.div 
@@ -163,21 +166,10 @@ function HeroContent({ project }: { project: ProjectData }) {
                 </div>
                 
                 <div className="lg:col-span-5 flex flex-col items-start lg:items-end justify-center gap-6">
-                     <motion.div variants={fadeInUp} className="bg-[#F8F9FA] border border-[#072C55]/5 p-6 rounded-2xl max-w-sm w-full">
-                         <span className="text-xs font-bold text-[#072C55]/40 uppercase tracking-widest block mb-4">Tech Stack</span>
-                         <div className="flex flex-wrap gap-2">
-                            {project.techStack?.slice(0, 6).map((tech, i) => (
-                                <span key={i} className="px-3 py-1.5 bg-white border border-[#072C55]/10 rounded text-[11px] font-bold uppercase tracking-wide text-[#072C55]/80">
-                                    {tech}
-                                </span>
-                            ))}
-                         </div>
-                     </motion.div>
-                     
                      <motion.div variants={fadeInUp} className="bg-[#5210F8]/5 border border-[#5210F8]/10 p-6 rounded-2xl max-w-sm w-full">
                          <div className="flex items-center gap-3 mb-2">
                              <TrendingUp size={16} className="text-[#5210F8]" />
-                             <span className="text-xs font-bold text-[#5210F8] uppercase tracking-widest">Key Result</span>
+                             <span className="text-xs font-bold text-[#5210F8] uppercase tracking-widest">{hero.keyResult}</span>
                          </div>
                          <div className="text-4xl font-bold text-[#072C55]">{project.results[0].value}<span className="text-xl ml-1 text-[#072C55]/40">{project.results[0].suffix}</span></div>
                          <div className="text-xs font-bold text-[#072C55]/60 mt-1 uppercase tracking-wide">{project.results[0].label}</div>
@@ -195,29 +187,24 @@ function HeroContent({ project }: { project: ProjectData }) {
                     src={project.heroImage}
                     alt="Hero Visual"
                     fill
-                    className="object-cover transition-transform duration-[2s] group-hover:scale-105"
+                    className="object-contain transition-transform duration-[2s] group-hover:scale-105"
                     priority
                 />
                 
-                {/* Interface Badge */}
-                <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur px-4 py-2 rounded-lg border border-white/50 shadow-sm flex items-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[#5210F8] animate-pulse" />
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#072C55]">
-                        Live Preview
-                    </span>
-                </div>
+
             </motion.div>
         </div>
     )
 }
 
 function ChallengeContent({ project }: { project: ProjectData }) {
+    const { challenge } = projectDetailsContent;
     return (
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-32">
             <div className="lg:w-1/3">
-                <span className="text-white/60 font-bold text-xs uppercase tracking-widest mb-6 block border-b border-white/20 pb-2 w-fit">01 // The Challenge</span>
+                <span className="text-white/60 font-bold text-xs uppercase tracking-widest mb-6 block border-b border-white/20 pb-2 w-fit">{challenge.number}</span>
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-8 text-white">
-                    The Problem
+                    {challenge.title}
                 </h2>
                 <p className="text-white/60 text-lg leading-relaxed mb-8 font-medium">
                     {project.challenge.description}
@@ -225,7 +212,7 @@ function ChallengeContent({ project }: { project: ProjectData }) {
                 
                 <div className="inline-flex items-center gap-3 px-4 py-3 bg-[#C47DFD]/10 border border-[#C47DFD]/30 rounded-lg text-[#C47DFD] text-xs font-bold">
                     <Activity size={16} />
-                    <span>KEY ISSUE IDENTIFIED</span>
+                    <span>{challenge.tag}</span>
                 </div>
             </div>
 
@@ -238,7 +225,7 @@ function ChallengeContent({ project }: { project: ProjectData }) {
                         </div>
                         <div>
                             <h3 className="text-lg font-bold text-white mb-2">{item}</h3>
-                            <p className="text-white/50 text-sm">Challenge identified during audit phase.</p>
+                            <p className="text-white/50 text-sm">{challenge.note}</p>
                         </div>
                     </div>
                 ))}
@@ -248,13 +235,14 @@ function ChallengeContent({ project }: { project: ProjectData }) {
 }
 
 function ArchitectureContent({ project }: { project: ProjectData }) {
+    const { strategy, gallery } = projectDetailsContent;
     return (
         <div>
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-20 pb-8 border-b border-[#072C55]/5">
                 <div className="max-w-2xl">
-                    <span className="text-[#5210F8] font-bold text-xs uppercase tracking-widest mb-4 block">02 // The Solution</span>
+                    <span className="text-[#5210F8] font-bold text-xs uppercase tracking-widest mb-4 block">{strategy.number}</span>
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#072C55]">
-                        Our Strategy
+                        {strategy.title}
                     </h2>
                 </div>
             </div>
@@ -276,11 +264,8 @@ function ArchitectureContent({ project }: { project: ProjectData }) {
                             src={project.galleryImages[0]} 
                             alt="Interface" 
                             fill 
-                            className="object-cover transition-transform duration-[1.5s] group-hover:scale-105" 
+                            className="object-contain transition-transform duration-[1.5s] group-hover:scale-105" 
                         />
-                        <div className="absolute top-6 left-6 px-3 py-1 bg-[#072C55]/90 text-white text-[10px] font-bold uppercase tracking-widest rounded backdrop-blur border border-white/10">
-                            Fig. 1.0 — Interface
-                        </div>
                     </div>
                 )}
                 {project.galleryImages[1] && (
@@ -290,11 +275,8 @@ function ArchitectureContent({ project }: { project: ProjectData }) {
                             src={project.galleryImages[1] || project.heroImage} 
                             alt="Mobile" 
                             fill 
-                            className="object-cover opacity-80 group-hover:opacity-100 transition-opacity" 
+                            className="object-contain opacity-80 group-hover:opacity-100 transition-opacity" 
                         />
-                         <div className="absolute bottom-6 left-6 px-3 py-1 bg-white/20 text-white text-[10px] font-bold uppercase tracking-widest rounded backdrop-blur">
-                            Fig. 1.1 — Mobile
-                        </div>
                     </div>
                 )}
             </div>
@@ -303,12 +285,13 @@ function ArchitectureContent({ project }: { project: ProjectData }) {
 }
 
 function OutcomesContent({ project }: { project: ProjectData }) {
+    const { results } = projectDetailsContent;
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
              <div>
-                 <span className="text-white/60 font-bold text-xs uppercase tracking-widest mb-4 md:mb-6 block border-b border-white/20 pb-2 w-fit">03 // The Results</span>
-                 <h2 className="text-4xl md:text-7xl font-bold tracking-tighter mb-8 md:mb-12">
-                     REAL<br/>IMPACT.
+                 <span className="text-white/60 font-bold text-xs uppercase tracking-widest mb-4 md:mb-6 block border-b border-white/20 pb-2 w-fit">{results.number}</span>
+                 <h2 className="text-4xl md:text-7xl font-bold tracking-tighter mb-8 md:mb-12 whitespace-pre-line">
+                     {results.title}
                  </h2>
                  {project.testimonial && (
                      <div className="relative pl-8 border-l-4 border-[#C47DFD]">

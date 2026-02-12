@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Share2, Printer } from 'lucide-react';
 import Link from 'next/link';
+import { blogPostContent } from '@/data/blog/post';
 
 export default function BlogPostHeader({ post }: { post: any }) {
+  const { header } = blogPostContent;
   return (
     <section className="relative w-full min-h-[100dvh] flex items-end overflow-hidden pb-12 md:pb-24">
       
@@ -32,7 +34,7 @@ export default function BlogPostHeader({ post }: { post: any }) {
           >
               <Link href="/blog" className="inline-flex items-center gap-2 text-white/50 hover:text-[#5210F8] transition-colors font-mono text-xs uppercase tracking-widest group">
                    <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> 
-                   Back to Blog
+                   {header.backLink}
               </Link>
           </motion.div>
 
@@ -48,7 +50,7 @@ export default function BlogPostHeader({ post }: { post: any }) {
                  {post.category}
               </span>
               <span className="text-xs font-mono text-white/40 uppercase tracking-widest">
-                  ID: {post.id.toString().padStart(3, '0')}
+                  {header.idPrefix} {post.id.toString().padStart(3, '0')}
               </span>
               <div className="w-1 h-1 bg-white/20 rounded-full" />
               <span className="text-xs font-mono text-white/40 uppercase tracking-widest">
@@ -79,7 +81,7 @@ export default function BlogPostHeader({ post }: { post: any }) {
                   </div>
                   <div>
                       <div className="text-sm font-bold text-white uppercase tracking-wide">{post.author}</div>
-                      <div className="text-xs font-mono text-white/40">Growth Strategist</div>
+                      <div className="text-xs font-mono text-white/40">{header.authorRole}</div>
                   </div>
               </div>
 
@@ -94,14 +96,14 @@ export default function BlogPostHeader({ post }: { post: any }) {
                            }
                        }}
                        className="p-3 rounded-full border border-white/10 bg-white/5 text-white/60 hover:text-white hover:border-white/30 transition-all" 
-                       aria-label="Share"
+                       aria-label={header.shareLabel}
                    >
                        <Share2 size={18} />
                    </button>
                    <button 
                        onClick={() => typeof window !== 'undefined' && window.print()}
                        className="p-3 rounded-full border border-white/10 bg-white/5 text-white/60 hover:text-white hover:border-white/30 transition-all" 
-                       aria-label="Print"
+                       aria-label={header.printLabel}
                    >
                        <Printer size={18} />
                    </button>

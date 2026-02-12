@@ -19,23 +19,20 @@ import {
   Fingerprint
 } from "lucide-react";
 
+import { aboutFinalCTAContent } from "@/data/about/cta";
+
 export default function AboutFinalCTA() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeLogic, setActiveLogic] = useState(0);
 
-  const STRATEGY_STREAM = [
-    "CHECK_MARKET_INTEGRITY...",
-    "SYNC_GROWTH_NODES...",
-    "DECRYPT_MARKET_ALPHA...",
-    "READY_FOR_CAMPAIGN_INIT"
-  ];
+  const strategyStream = aboutFinalCTAContent.strategyStream;
 
   useEffect(() => {
     const interval = setInterval(() => {
-        setActiveLogic(prev => (prev + 1) % STRATEGY_STREAM.length);
+        setActiveLogic(prev => (prev + 1) % strategyStream.length);
     }, 2000);
     return () => clearInterval(interval);
-  }, []);
+  }, [strategyStream.length]);
 
   return (
     <section ref={containerRef} className="relative py-16 md:py-32 bg-[#F8F9FA] overflow-hidden flex items-center justify-center min-h-[50vh] md:min-h-[70vh]">
@@ -80,7 +77,7 @@ export default function AboutFinalCTA() {
                          </span>
                          <div className="h-4 w-[1px] bg-[#072C55]/10" />
                          <span className="font-mono text-[10px] font-black text-[#072C55] uppercase tracking-[0.6em]">
-                             Growth_Node_Stable // v4.2.0
+                             {aboutFinalCTAContent.header.statusBadge}
                          </span>
                      </div>
                      
@@ -92,45 +89,41 @@ export default function AboutFinalCTA() {
                             exit={{ y: -20, opacity: 0 }}
                             className="font-mono text-[11px] font-black text-[#5210F8] uppercase tracking-widest bg-[#5210F8]/5 px-4 py-1 rounded-lg border border-[#5210F8]/10"
                           >
-                             {STRATEGY_STREAM[activeLogic]}
+                             {strategyStream[activeLogic]}
                           </motion.span>
                      </div>
                 </div>
 
                 <h2 className="text-5xl md:text-8xl lg:text-[8rem] font-black text-[#072C55] tracking-tighter mb-6 md:mb-8 leading-[0.8] md:leading-[0.8]">
-                    INITIALIZE <br />
+                    {aboutFinalCTAContent.header.title.row1} <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5210F8] via-[#C47DFD] to-[#072C55]">
-                        THE MISSION.
+                        {aboutFinalCTAContent.header.title.highlight}
                     </span>
                 </h2>
 
                 <p className="text-lg md:text-2xl text-[#072C55]/40 font-medium max-w-3xl mx-auto mb-10 md:mb-16 leading-tight px-4">
-                    The growth infrastructure is primed. Secure your position in the <strong className="text-[#072C55]">InvisiEdge high-velocity index</strong> today.
+                    {aboutFinalCTAContent.header.description}
                 </p>
 
                 {/* Tactical Action Grid - Light Contrast */}
                 <div className="flex flex-col lg:flex-row items-center gap-4 md:gap-8 mb-16 w-full justify-center px-6">
                     <button className="h-16 md:h-20 w-full md:w-auto px-8 md:px-12 rounded-2xl md:rounded-[2.5rem] bg-[#072C55] text-white hover:bg-[#5210F8] text-base md:text-lg font-black uppercase tracking-[0.2em] transition-all duration-500 shadow-[0_20px_40px_-10px_rgba(7,44,85,0.3)] hover:shadow-[0_20px_40px_-10px_rgba(82,16,248,0.4)] group flex items-center justify-center md:justify-start gap-4 md:gap-6 overflow-hidden relative">
                          <span className="relative z-10 flex items-center gap-4">
-                             Start Campaign
+                             {aboutFinalCTAContent.actions.primary.label}
                             <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform duration-500" />
                          </span>
                          <div className="absolute top-0 left-0 w-full h-[3px] bg-[#00FF94]/30" />
                     </button>
  
                     <button className="h-16 md:h-20 w-full md:w-auto px-8 md:px-12 rounded-2xl md:rounded-[2.5rem] bg-white border-2 border-[#072C55]/10 text-[#072C55] hover:border-[#5210F8] hover:text-[#5210F8] text-base md:text-lg font-black uppercase tracking-[0.2em] transition-all duration-500 group flex items-center justify-center md:justify-start gap-4 md:gap-6 shadow-sm hover:shadow-xl">
-                         View Strategy Intel
+                         {aboutFinalCTAContent.actions.secondary.label}
                          <Scan className="w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition-transform" />
                     </button>
                 </div>
 
                 {/* Growth Prerequisite Matrix - Light Layout */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 w-full max-w-5xl border-t border-[#072C55]/10 pt-16 px-6">
-                    {[
-                        { icon: ShieldCheck, label: "Compliance_Index", val: "A+ / 100%", detail: "SOC2 SOC3 Compliant Pipeline" },
-                        { icon: Workflow, label: "Execution_Logic", val: "3wk_Sprints", detail: "Rapid Iterative Deployment" },
-                        { icon: Lock, label: "Data_Privacy", val: "Zero_Leak", detail: "Proprietary Asset Ownership" }
-                    ].map((item, i) => (
+                    {aboutFinalCTAContent.prerequisites.map((item: any, i: number) => (
                         <div key={i} className="flex flex-col items-center md:items-start text-center md:text-left group cursor-default border-b border-[#072C55]/5 md:border-b-0 pb-8 md:pb-0 last:border-b-0">
                              <div className="flex items-center gap-3 mb-4">
                                 <item.icon size={20} className="text-[#5210F8] group-hover:text-[#C47DFD] transition-colors" />
@@ -149,10 +142,10 @@ export default function AboutFinalCTA() {
       {/* Corporate Metadata Overlay */}
       <div className="absolute bottom-10 left-10 flex items-center gap-4 opacity-20">
           <Terminal size={14} className="text-[#072C55]" />
-          <span className="font-mono text-[9px] font-black text-[#072C55] uppercase tracking-[0.5em]">Terminal_State: ACTIVE_READY</span>
+          <span className="font-mono text-[9px] font-black text-[#072C55] uppercase tracking-[0.5em]">{aboutFinalCTAContent.footer.terminal}</span>
       </div>
       <div className="absolute bottom-10 right-10 flex items-center gap-4 opacity-20 text-right">
-          <span className="font-mono text-[9px] font-black text-[#072C55] uppercase tracking-[0.5em]">Coordinate: 34.22.89.01</span>
+          <span className="font-mono text-[9px] font-black text-[#072C55] uppercase tracking-[0.5em]">{aboutFinalCTAContent.footer.coordinate}</span>
           <Activity size={14} className="text-[#072C55]" />
       </div>
 

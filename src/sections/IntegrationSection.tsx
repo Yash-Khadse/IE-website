@@ -1,9 +1,9 @@
-'use client';
-
+"use client";
 import { useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { Mail, Users, Megaphone, Bot, Ticket, Database, MessageSquare, Network } from 'lucide-react';
+import { Network } from 'lucide-react';
 import { GoogleGeminiEffect } from '@/components/ui/google-gemini-effect';
+import { integrationContent } from '@/data/home/integration';
 
 // Dark Mode Card with Neon Glow on Hover
 const IntegrationCard = ({ icon: Icon, label, top, left, delay, isInView, className, style }: any) => (
@@ -58,13 +58,13 @@ const IntegrationSection = () => {
           <div className="flex justify-center mb-4">
              <div className="px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-mono tracking-widest flex items-center gap-2">
                 <Network size={12} />
-                <span>UNIFIED_GROWTH</span>
+                <span>{integrationContent.header.badge}</span>
              </div>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-foreground leading-none tracking-tighter px-4">
-            Everything we build connects. 
+            {integrationContent.header.title} 
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-foreground">Nothing works in isolation.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-foreground">{integrationContent.header.highlight}</span>
           </h2>
         </motion.div>
 
@@ -91,22 +91,24 @@ const IntegrationSection = () => {
             {/* Central Core Node (Desktop) */}
             <div className="hidden md:flex absolute top-[35%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border border-primary/50 bg-background/80 backdrop-blur-md items-center justify-center shadow-[0_0_50px_rgba(82,16,248,0.4)] z-20">
                 <div className="w-20 h-20 bg-primary rounded-full animate-pulse-slow flex items-center justify-center">
-                    <Database className="text-primary-foreground animate-spin-slow" size={32} />
+                    <integrationContent.coreNode.icon className="text-primary-foreground animate-spin-slow" size={32} />
                 </div>
             </div>
 
             {/* --- CARDS LAYER (Desktop) --- */}
             <div className="hidden md:block">
-                {/* Left Cards */}
                 <span className="sr-only">Integration Cards</span>
-                <IntegrationCard icon={Network} label="Websites & Infrastructure" top="-5%" left="15%" delay={0.2} isInView={isInView} />
-                <IntegrationCard icon={Megaphone} label="Branding & Identity" top="15%" left="0%" delay={0.4} isInView={isInView} />
-                <IntegrationCard icon={Users} label="Social Media Engines" top="40%" left="15%" delay={0.6} isInView={isInView} />
-
-                {/* Right Cards */}
-                <IntegrationCard icon={Database} label="CRM" top="-5%" left="75%" delay={0.3} isInView={isInView} />
-                <IntegrationCard icon={Bot} label="Automation" top="15%" left="90%" delay={0.5} isInView={isInView} />
-                <IntegrationCard icon={Ticket} label="Performance Marketing" top="40%" left="75%" delay={0.7} isInView={isInView} />
+                {integrationContent.integrations.map((item, i) => (
+                    <IntegrationCard 
+                        key={i}
+                        icon={item.icon} 
+                        label={item.label} 
+                        top={item.top} 
+                        left={item.left} 
+                        delay={item.delay} 
+                        isInView={isInView} 
+                    />
+                ))}
             </div>
 
             {/* --- CARDS LAYER (Mobile) --- */}
@@ -115,19 +117,21 @@ const IntegrationSection = () => {
                 <div className="col-span-2 flex justify-center py-6">
                     <div className="w-24 h-24 rounded-full border border-primary/50 bg-background/80 backdrop-blur-md flex items-center justify-center shadow-[0_0_30px_rgba(82,16,248,0.4)]">
                         <div className="w-16 h-16 bg-primary rounded-full animate-pulse-slow flex items-center justify-center">
-                            <Database className="text-primary-foreground animate-spin-slow" size={24} />
+                            <integrationContent.coreNode.icon className="text-primary-foreground animate-spin-slow" size={24} />
                         </div>
                     </div>
                 </div>
 
-                <IntegrationCard className="relative translate-x-0 translate-y-0 w-full" style={{}} icon={Network} label="Websites" delay={0.1} isInView={isInView} />
-                <IntegrationCard className="relative translate-x-0 translate-y-0 w-full" style={{}} icon={Megaphone} label="Branding" delay={0.2} isInView={isInView} />
-
-                <IntegrationCard className="relative translate-x-0 translate-y-0 w-full" style={{}} icon={Users} label="Social Media" delay={0.3} isInView={isInView} />
-                <IntegrationCard className="relative translate-x-0 translate-y-0 w-full" style={{}} icon={Database} label="CRM" delay={0.4} isInView={isInView} />
-                
-                <IntegrationCard className="relative translate-x-0 translate-y-0 w-full" style={{}} icon={Bot} label="Automation" delay={0.5} isInView={isInView} />
-                <IntegrationCard className="relative translate-x-0 translate-y-0 w-full" style={{}} icon={Ticket} label="Marketing" delay={0.6} isInView={isInView} />
+                {integrationContent.mobileIntegrations.map((item, i) => (
+                    <IntegrationCard 
+                        key={i}
+                        className="relative translate-x-0 translate-y-0 w-full" 
+                        icon={item.icon} 
+                        label={item.label} 
+                        delay={item.delay} 
+                        isInView={isInView} 
+                    />
+                ))}
             </div>
             
            </div>

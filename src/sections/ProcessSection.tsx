@@ -2,46 +2,14 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Terminal, Cpu, Activity, Code, Layers } from 'lucide-react';
-
-const processSteps = [
-  {
-    id: 1,
-    number: '01',
-    title: 'MARKET RESEARCH',
-    badge: 'OPPORTUNITY SCANNER',
-    description: 'We initiate a comprehensive analysis of your digital presence. Identifying conversion gaps, market opportunities, and competitive advantages. This audit builds the blueprint for market leadership.',
-    icon: Terminal
-  },
-  {
-    id: 2,
-    number: '02',
-    title: 'STRATEGIC PLAN',
-    badge: 'CAMPAIGN SETUP',
-    description: 'Mapping the growth strategy. We design multichannel funnels, integrated workflows, and brand consistency layers. Every channel is optimized for maximum ROI.',
-    icon: Layers
-  },
-  {
-    id: 3,
-    number: '03',
-    title: 'LAUNCH',
-    badge: 'GO-TO-MARKET',
-    description: 'Executing the strategy with precision. We launch targeted campaigns using data-backed content. Execution ensures seamless scaling across your entire digital portfolio.',
-    icon: Code
-  },
-  {
-    id: 4,
-    number: '04',
-    title: 'SCALING',
-    badge: 'OPTIMIZATION',
-    description: 'The campaign enters continuous optimization. We utilize real-time analytics to fine-tune ROI, ensuring your revenue grows predictably with zero friction.',
-    icon: Activity
-  },
-];
+import { processContent } from '@/data/home/process';
 
 const ProcessSection = () => {
   const [activeStep, setActiveStep] = useState(1);
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: '-10%' });
+
+  const processSteps = processContent.steps;
 
 
   const scrollToStep = (id: number) => {
@@ -96,11 +64,11 @@ const ProcessSection = () => {
           <div>
             <div className="flex items-center gap-3 text-primary font-mono text-xs tracking-widest mb-4">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                OUR APPROACH
+                {processContent.header.badge}
             </div>
             <h2 className="text-[3rem] md:text-[4.5rem] lg:text-[5.5rem] font-bold text-foreground leading-[0.9] tracking-tighter shadow-black drop-shadow-xl">
-              GROWTH
-              <span className="text-muted-foreground/30 block md:inline md:ml-6">ENGINE</span>
+              {processContent.header.title.line1}
+              <span className="text-muted-foreground/30 block md:inline md:ml-6">{processContent.header.title.highlight}</span>
             </h2>
           </div>
         </motion.div>
@@ -262,7 +230,7 @@ const StepContent = ({ step, isActive, onInView, id }: { step: any, isActive: bo
 
           {/* Visual Component */}
           <div className="xl:w-1/2 w-full order-1 xl:order-2 flex items-center">
-               <SchematicVisual isActive={isActive} stepId={step.id} />
+               <SchematicVisual isActive={isActive} step={step} />
           </div>
 
       </div>
@@ -270,7 +238,9 @@ const StepContent = ({ step, isActive, onInView, id }: { step: any, isActive: bo
   );
 };
 
-const SchematicVisual = ({ isActive, stepId }: { isActive: boolean, stepId: number }) => {
+const SchematicVisual = ({ isActive, step }: { isActive: boolean, step: any }) => {
+  const stepId = step.id;
+  
   return (
     <div className={`w-full aspect-video md:aspect-[4/3] bg-card/50 rounded-3xl border ${isActive ? 'border-primary/40 shadow-[0_0_80px_-30px_rgba(82,16,248,0.5)]' : 'border-border'} overflow-hidden relative transition-all duration-700 group perspective-1000`}>
        
@@ -285,129 +255,142 @@ const SchematicVisual = ({ isActive, stepId }: { isActive: boolean, stepId: numb
        />
 
        {/* Corner Markers */}
-       <div className="absolute top-6 left-6 w-3 h-3 border-t-2 border-l-2 border-fooror-purple/50" />
-       <div className="absolute top-6 right-6 w-3 h-3 border-t-2 border-r-2 border-fooror-purple/50" />
-       <div className="absolute bottom-6 left-6 w-3 h-3 border-b-2 border-l-2 border-fooror-purple/50" />
-       <div className="absolute bottom-6 right-6 w-3 h-3 border-b-2 border-r-2 border-fooror-purple/50" />
+       <div className="absolute top-6 left-6 w-3 h-3 border-t-2 border-l-2 border-fooror-purple/50 z-20" />
+       <div className="absolute top-6 right-6 w-3 h-3 border-t-2 border-r-2 border-fooror-purple/50 z-20" />
+       <div className="absolute bottom-6 left-6 w-3 h-3 border-b-2 border-l-2 border-fooror-purple/50 z-20" />
+       <div className="absolute bottom-6 right-6 w-3 h-3 border-b-2 border-r-2 border-fooror-purple/50 z-20" />
 
-       {/* Central Animated Element */}
+       {/* Central Content: Image or Code Viz */}
        <div className="absolute inset-0 flex items-center justify-center p-6 md:p-12">
-            {stepId === 1 && (
-                <div className="relative w-full max-w-[280px] aspect-square">
-                    {/* Radar Circles */}
-                    <div className="absolute inset-0 border border-white/10 rounded-full" />
-                    <div className="absolute inset-[25%] border border-white/10 rounded-full" />
-                    <div className="absolute inset-[50%] border border-white/10 rounded-full" />
-                    <div className="absolute inset-[85%] bg-white/5 rounded-full blur-xl" />
-                    
-                    {/* Rotating Scanner */}
-                    <motion.div 
-                        className="absolute inset-0 rounded-full border-t border-r border-fooror-purple/60 bg-gradient-to-tr from-transparent via-fooror-purple/10 to-transparent"
-                        animate={isActive ? { rotate: 360 } : { rotate: 0 }}
-                        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            {step.image ? (
+                <div className="relative w-full h-full rounded-xl overflow-hidden">
+                    <img 
+                        src={step.image} 
+                        alt={step.title} 
+                        className="w-full h-full object-cover opacity-80 mix-blend-screen group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0"
                     />
-                    
-                    {/* Terminal Output */}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-[120%] mt-8 bg-[#0A0F1C]/90 rounded-lg px-4 py-3 border border-white/10 backdrop-blur font-mono text-[10px] text-green-400 shadow-xl">
-                        &gt; Analyzing Market... <span className="text-white">Done</span><br/>
-                        &gt; Calculating CPC... <span className="text-yellow-400">$2.40</span><br/>
-                        &gt; Brand Health... <span className="animate-pulse">_</span>
-                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                 </div>
-            )}
-
-            {stepId === 2 && (
-                <div className="relative w-full h-full flex items-center justify-center perspective-[1200px]">
-                     <div className="relative w-64 h-64 grid grid-cols-2 gap-4" style={{ transformStyle: 'preserve-3d', transform: 'rotateX(20deg) rotateY(-10deg)' }}>
-                         {[1,2,3,4].map((i) => (
-                             <motion.div 
-                                key={i}
-                                initial={{ scale: 0, opacity: 0 }}
-                                animate={isActive ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-                                transition={{ delay: i * 0.1, type: "spring", stiffness: 200 }}
-                                className="bg-[#0A0F1C] border border-white/10 rounded-xl flex flex-col items-center justify-center gap-2 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-fooror-purple/50 transition-colors"
-                             >
-                                <Cpu size={24} className="text-fooror-purple-light" />
-                                <span className="text-[9px] font-mono text-white/30">Channel {i}</span>
-                             </motion.div>
-                         ))}
-                     </div>
-                </div>
-            )}
-
-            {stepId === 3 && (
-                <div className="w-full max-w-md bg-[#080C14] rounded-xl border border-white/10 overflow-hidden shadow-2xl font-mono text-xs scale-90 md:scale-100">
-                     <div className="bg-white/5 px-4 py-2.5 border-b border-white/5 flex items-center gap-2">
-                        <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
-                        <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/40" />
-                        <div className="w-2.5 h-2.5 rounded-full bg-green-500/40" />
-                        <span className="ml-auto text-white/20 text-[10px]">launch.sh</span>
-                     </div>
-                     <div className="p-5 space-y-2 text-white/60 h-[220px] relative">
-                         <p className="text-green-400 flex gap-2"><span>$</span> initiate launch_sequence</p>
-                         <p className="text-white/40">... targeting audience [OK]</p>
-                         <p className="text-white/40">... optimizing bids [OK]</p>
-                         {isActive && (
-                            <>
-                                <motion.p 
-                                    initial={{ opacity: 0, x: -10 }} 
-                                    animate={{ opacity: 1, x: 0 }} 
-                                    transition={{ delay: 0.5 }}
-                                    className="text-white"
-                                >
-                                    &gt; maximizing roas [AI Model]
-                                </motion.p>
-                                <motion.p 
-                                    initial={{ opacity: 0, x: -10 }} 
-                                    animate={{ opacity: 1, x: 0 }} 
-                                    transition={{ delay: 1.2 }}
-                                    className="text-fooror-purple-light"
-                                >
-                                    &gt; CAMPAIGN LIVE (0.42s)
-                                </motion.p>
-                                <motion.div 
-                                    className="w-full h-1 bg-white/10 mt-4 rounded overflow-hidden"
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ delay: 0.2 }}
-                                >
-                                    <motion.div 
-                                        className="h-full bg-green-400" 
-                                        initial={{ width: 0 }}
-                                        animate={{ width: "100%" }}
-                                        transition={{ duration: 0.8, delay: 0.2 }}
-                                    />
-                                </motion.div>
-                            </>
-                         )}
-                     </div>
-                </div>
-            )}
-
-            {stepId === 4 && (
-                <div className="w-full h-full flex items-end justify-between gap-2 px-4 md:px-12 pb-10">
-                    {[35, 55, 40, 75, 50, 90, 65, 80, 45, 60].map((h, i) => (
-                        <div key={i} className="relative w-full h-full flex items-end group/bar">
-                             <motion.div 
-                                className="w-full bg-fooror-purple/20 border-t border-fooror-purple hover:bg-fooror-purple/60 transition-colors shadow-[0_0_15px_rgba(82,16,248,0.2)]"
-                                initial={{ height: "5%" }}
-                                animate={isActive ? { height: `${h}%` } : { height: "5%" }}
-                                transition={{ 
-                                    type: "spring", 
-                                    stiffness: 80, 
-                                    damping: 15, 
-                                    delay: i * 0.05,
-                                    repeat: Infinity,
-                                    repeatType: "reverse",
-                                    duration: 2 + Math.random() 
-                                }}
-                            >
-                                {/* Glow Effect */}
-                                <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-fooror-purple/40 to-transparent opacity-0 group-hover/bar:opacity-100 transition-opacity" />
-                            </motion.div>
+            ) : (
+                <>
+                    {stepId === 1 && (
+                        <div className="relative w-full max-w-[280px] aspect-square">
+                            {/* Radar Circles */}
+                            <div className="absolute inset-0 border border-white/10 rounded-full" />
+                            <div className="absolute inset-[25%] border border-white/10 rounded-full" />
+                            <div className="absolute inset-[50%] border border-white/10 rounded-full" />
+                            <div className="absolute inset-[85%] bg-white/5 rounded-full blur-xl" />
+                            
+                            {/* Rotating Scanner */}
+                            <motion.div 
+                                className="absolute inset-0 rounded-full border-t border-r border-fooror-purple/60 bg-gradient-to-tr from-transparent via-fooror-purple/10 to-transparent"
+                                animate={isActive ? { rotate: 360 } : { rotate: 0 }}
+                                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                            />
+                            
+                            {/* Terminal Output */}
+                            <div className="absolute top-full left-1/2 -translate-x-1/2 w-[120%] mt-8 bg-[#0A0F1C]/90 rounded-lg px-4 py-3 border border-white/10 backdrop-blur font-mono text-[10px] text-green-400 shadow-xl">
+                                &gt; Analyzing Market... <span className="text-white">Done</span><br/>
+                                &gt; Calculating CPC... <span className="text-yellow-400">$2.40</span><br/>
+                                &gt; Brand Health... <span className="animate-pulse">_</span>
+                            </div>
                         </div>
-                    ))}
-                </div>
+                    )}
+
+                    {stepId === 2 && (
+                        <div className="relative w-full h-full flex items-center justify-center perspective-[1200px]">
+                             <div className="relative w-64 h-64 grid grid-cols-2 gap-4" style={{ transformStyle: 'preserve-3d', transform: 'rotateX(20deg) rotateY(-10deg)' }}>
+                                 {[1,2,3,4].map((i) => (
+                                     <motion.div 
+                                        key={i}
+                                        initial={{ scale: 0, opacity: 0 }}
+                                        animate={isActive ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+                                        transition={{ delay: i * 0.1, type: "spring", stiffness: 200 }}
+                                        className="bg-[#0A0F1C] border border-white/10 rounded-xl flex flex-col items-center justify-center gap-2 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-fooror-purple/50 transition-colors"
+                                     >
+                                        <Cpu size={24} className="text-fooror-purple-light" />
+                                        <span className="text-[9px] font-mono text-white/30">Channel {i}</span>
+                                     </motion.div>
+                                 ))}
+                             </div>
+                        </div>
+                    )}
+
+                    {stepId === 3 && (
+                        <div className="w-full max-w-md bg-[#080C14] rounded-xl border border-white/10 overflow-hidden shadow-2xl font-mono text-xs scale-90 md:scale-100">
+                             <div className="bg-white/5 px-4 py-2.5 border-b border-white/5 flex items-center gap-2">
+                                <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
+                                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/40" />
+                                <div className="w-2.5 h-2.5 rounded-full bg-green-500/40" />
+                                <span className="ml-auto text-white/20 text-[10px]">launch.sh</span>
+                             </div>
+                             <div className="p-5 space-y-2 text-white/60 h-[220px] relative">
+                                 <p className="text-green-400 flex gap-2"><span>$</span> initiate launch_sequence</p>
+                                 <p className="text-white/40">... targeting audience [OK]</p>
+                                 <p className="text-white/40">... optimizing bids [OK]</p>
+                                 {isActive && (
+                                    <>
+                                        <motion.p 
+                                            initial={{ opacity: 0, x: -10 }} 
+                                            animate={{ opacity: 1, x: 0 }} 
+                                            transition={{ delay: 0.5 }}
+                                            className="text-white"
+                                        >
+                                            &gt; maximizing roas [AI Model]
+                                        </motion.p>
+                                        <motion.p 
+                                            initial={{ opacity: 0, x: -10 }} 
+                                            animate={{ opacity: 1, x: 0 }} 
+                                            transition={{ delay: 1.2 }}
+                                            className="text-fooror-purple-light"
+                                        >
+                                            &gt; CAMPAIGN LIVE (0.42s)
+                                        </motion.p>
+                                        <motion.div 
+                                            className="w-full h-1 bg-white/10 mt-4 rounded overflow-hidden"
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            transition={{ delay: 0.2 }}
+                                        >
+                                            <motion.div 
+                                                className="h-full bg-green-400" 
+                                                initial={{ width: 0 }}
+                                                animate={{ width: "100%" }}
+                                                transition={{ duration: 0.8, delay: 0.2 }}
+                                            />
+                                        </motion.div>
+                                    </>
+                                 )}
+                             </div>
+                        </div>
+                    )}
+
+                    {stepId === 4 && (
+                        <div className="w-full h-full flex items-end justify-between gap-2 px-4 md:px-12 pb-10">
+                            {[35, 55, 40, 75, 50, 90, 65, 80, 45, 60].map((h, i) => (
+                                <div key={i} className="relative w-full h-full flex items-end group/bar">
+                                     <motion.div 
+                                        className="w-full bg-fooror-purple/20 border-t border-fooror-purple hover:bg-fooror-purple/60 transition-colors shadow-[0_0_15px_rgba(82,16,248,0.2)]"
+                                        initial={{ height: "5%" }}
+                                        animate={isActive ? { height: `${h}%` } : { height: "5%" }}
+                                        transition={{ 
+                                            type: "spring", 
+                                            stiffness: 80, 
+                                            damping: 15, 
+                                            delay: i * 0.05,
+                                            repeat: Infinity,
+                                            repeatType: "reverse",
+                                            duration: 2 + Math.random() 
+                                        }}
+                                    >
+                                        {/* Glow Effect */}
+                                        <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-fooror-purple/40 to-transparent opacity-0 group-hover/bar:opacity-100 transition-opacity" />
+                                    </motion.div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </>
             )}
        </div>
 

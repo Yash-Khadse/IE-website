@@ -1,7 +1,8 @@
 "use client";
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ArrowRight, Terminal, Sparkles } from 'lucide-react';
+import { ArrowRight, Terminal } from 'lucide-react';
+import { finalCTAContent } from '@/data/common/final-cta';
 
 const FinalCTA = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -36,16 +37,16 @@ const FinalCTA = () => {
         >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/5 border border-background/10 text-primary font-mono text-xs tracking-widest mb-8">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                BRAND_READY_FOR_SCALE
+                {finalCTAContent.header.badge}
             </div>
 
             <h2 className="text-5xl md:text-7xl lg:text-[7rem] font-bold text-background leading-[0.9] tracking-tighter mb-8">
-              READY TO <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-background via-primary to-background">DOMINATE?</span>
+              {finalCTAContent.header.titleLine1} <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-background via-primary to-background">{finalCTAContent.header.highlight}</span>
             </h2>
 
             <p className="text-background/60 text-lg md:text-xl max-w-2xl mx-auto mb-12">
-               Stop operating in the dark. Launch a proven growth strategy that scales with your ambition.
+               {finalCTAContent.header.description}
             </p>
 
             <div className="flex flex-col md:flex-row items-center justify-center gap-6">
@@ -56,13 +57,13 @@ const FinalCTA = () => {
                 >
                     <span className="relative z-10 flex items-center gap-3">
                        <Terminal size={20} />
-                       START_GROWTH
+                       {finalCTAContent.cta.buttonText}
                     </span>
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-muted to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 ease-in-out" />
                 </motion.button>
                 
                 <span className="text-background/30 text-sm font-mono flex items-center gap-2">
-                    OR <ArrowRight size={14} /> schedule_consultation
+                    {finalCTAContent.cta.secondaryText} <ArrowRight size={14} />
                 </span>
             </div>
         </motion.div>
@@ -72,7 +73,7 @@ const FinalCTA = () => {
       {/* Bottom Code Ticker */}
       <div className="absolute bottom-10 left-0 w-full text-center">
            <p className="font-mono text-[10px] text-background/20 uppercase tracking-[0.2em]">
-                MARKET_LEADERSHIP_ESTABLISHED // STRATEGY_ACTIVE // VERIFIED
+                {finalCTAContent.footer.ticker}
            </p>
       </div>
 

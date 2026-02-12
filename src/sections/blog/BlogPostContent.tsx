@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Share2, Printer, Bookmark } from 'lucide-react';
 import Link from 'next/link';
+import { blogPostContent } from '@/data/blog/post';
 
 export default function BlogPostContent({ post }: { post: any }) {
+  const { sidebar, content } = blogPostContent;
   return (
     <article className="relative bg-background min-h-screen">
       
@@ -17,18 +19,19 @@ export default function BlogPostContent({ post }: { post: any }) {
                 
                 {/* TOC */}
                 <div>
-                   <h4 className="text-xs font-mono font-bold text-muted-foreground uppercase tracking-widest mb-6">Table of Contents</h4>
+                   <h4 className="text-xs font-mono font-bold text-muted-foreground uppercase tracking-widest mb-6">{sidebar.tocTitle}</h4>
                    <nav className="space-y-4 border-l border-border pl-4">
-                       <a href="#intro" className="block text-sm font-medium text-foreground hover:text-primary transition-colors">01. Introduction</a>
-                       <a href="#architecture" className="block text-sm font-medium text-muted-foreground hover:text-primary transition-colors">02. Architecture</a>
-                       <a href="#metrics" className="block text-sm font-medium text-muted-foreground hover:text-primary transition-colors">03. Performance Metrics</a>
-                       <a href="#conclusion" className="block text-sm font-medium text-muted-foreground hover:text-primary transition-colors">04. Conclusion</a>
+                       {sidebar.toc.map((item, i) => (
+                           <a key={i} href={`#${item.id}`} className="block text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                               {item.label}
+                           </a>
+                       ))}
                    </nav>
                 </div>
                 
                 {/* Reading Progress */}
                 <div>
-                    <h4 className="text-xs font-mono font-bold text-muted-foreground uppercase tracking-widest mb-4">Reading Progress</h4>
+                    <h4 className="text-xs font-mono font-bold text-muted-foreground uppercase tracking-widest mb-4">{sidebar.progressTitle}</h4>
                     <div className="w-full h-1 bg-secondary rounded-full overflow-hidden">
                         <div className="h-full w-1/3 bg-primary" />
                     </div>
@@ -37,7 +40,7 @@ export default function BlogPostContent({ post }: { post: any }) {
 
                 {/* Related Tags */}
                 <div>
-                    <h4 className="text-xs font-mono font-bold text-muted-foreground uppercase tracking-widest mb-4">Tags</h4>
+                    <h4 className="text-xs font-mono font-bold text-muted-foreground uppercase tracking-widest mb-4">{sidebar.tagsTitle}</h4>
                     <div className="flex flex-wrap gap-2">
                         {post.tags.map((tag: string, i: number) => (
                             <span key={i} className="px-2 py-1 bg-secondary text-xs rounded text-muted-foreground hover:text-foreground cursor-pointer transition-colors">
@@ -57,7 +60,7 @@ export default function BlogPostContent({ post }: { post: any }) {
                {post.excerpt}
             </p>
 
-            <h2 id="intro">Introduction</h2>
+            <h2 id={content.introId}>{content.introTitle}</h2>
             <p>
                 In the modern digital landscape, <strong>latency is the silent killer</strong> of conversion. When we approached the architecture for high-frequency trading platforms, traditional REST methodologies were immediately discarded. The overhead of TCP handshakes for every transaction was simply unacceptable.
             </p>
@@ -69,10 +72,10 @@ export default function BlogPostContent({ post }: { post: any }) {
                 <div className="bg-secondary/30 border border-border rounded-3xl p-8 aspect-video flex items-center justify-center text-muted-foreground font-mono">
                     [Diagram: socket_vs_rest_latency_comparison.svg]
                 </div>
-                <figcaption className="text-center text-xs font-mono text-muted-foreground mt-4">Fig 1.0 - Latency comparison under load</figcaption>
+                <figcaption className="text-center text-xs font-mono text-muted-foreground mt-4">{content.figPrefix} 1.0 - Latency comparison under load</figcaption>
             </figure>
 
-            <h2 id="architecture">Core Architecture</h2>
+            <h2 id={content.architectureId}>{content.architectureTitle}</h2>
             <p>
                 Utilizing Node.js clustered workers, we achieved horizontal scale across 4 availability zones. The key was a custom load balancer written in Go, which handled connection pooling more efficiently than Nginx in this specific use case.
             </p>
@@ -90,7 +93,7 @@ export default function BlogPostContent({ post }: { post: any }) {
                 </code>
             </div>
 
-            <h2 id="metrics">Performance Metrics</h2>
+            <h2 id={content.metricsId}>{content.metricsTitle}</h2>
             <p>
                 Post-deployment analysis showed a <strong>94% reduction</strong> in Time-to-Byte (TTB) and a concurrent user capacity increase of 400%.
             </p>
@@ -100,7 +103,7 @@ export default function BlogPostContent({ post }: { post: any }) {
                 <li><strong>CPU Load:</strong> Stabilized at 60% under peak load</li>
             </ul>
 
-            <h2 id="conclusion">Conclusion</h2>
+            <h2 id={content.conclusionId}>{content.conclusionTitle}</h2>
             <p>
                 While complexity increased initially, the long-term stability and responsiveness of the platform justified the architectural shift. For any application demanding real-time interactivity, WebSockets remain the gold standard.
             </p>

@@ -1,66 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  History, 
-  Zap, 
-  EyeOff, 
-  Eye,
-  Users,
-  Cpu,
-  Activity,
-  CheckCircle2,
-  AlertCircle
-} from "lucide-react";
+import { Activity, CheckCircle2, AlertCircle } from "lucide-react";
+import { whyChooseUsContent } from "@/data/about/why";
 
 export default function WhyChooseUs() {
-  const comparisons = [
-    {
-      label: "SPEED",
-      traditional: {
-          title: "Monthly Reports",
-          desc: "Waiting 30 days to see if campaigns worked. Slow and reactive to market changes.",
-          icon: History,
-          val: "SLOW"
-      },
-      invisi: {
-          title: "Weekly Updates",
-          desc: "We review and improve campaigns every 7 days to get you faster results.",
-          icon: Zap,
-          val: "FAST"
-      }
-    },
-    {
-      label: "TRANSPARENCY",
-      traditional: {
-          title: "Standard Reports",
-          desc: "Generic PDF reports sent once a month. Often missing key details.",
-          icon: EyeOff,
-          val: "OPAQUE"
-      },
-      invisi: {
-          title: "Live Dashboard",
-          desc: "See your actual ad performance in real-time. 100% honest and transparent.",
-          icon: Eye,
-          val: "OPEN"
-      }
-    },
-    {
-      label: "EXPERTISE",
-      traditional: {
-          title: "Junior Teams",
-          desc: "Accounts sold by seniors but managed by juniors who are learning on the job.",
-          icon: Users,
-          val: "JUNIOR"
-      },
-      invisi: {
-          title: "Senior Experts",
-          desc: "Your account is managed directly by experienced strategists. No middlemen.",
-          icon: Cpu,
-          val: "EXPERT"
-      }
-    }
-  ];
+  const comparisons = whyChooseUsContent.comparisons;
 
   return (
     <section className="py-12 md:py-32 bg-white relative overflow-hidden">
@@ -70,13 +15,9 @@ export default function WhyChooseUs() {
             
             {/* Heading Interface */}
             <div className="mb-12 md:mb-24 text-center max-w-4xl mx-auto">
-                 {/* <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#072C55]/20 bg-[#F8F9FA] mb-8 shadow-sm">
-                    <span className="w-2 h-2 rounded-full bg-[#5210F8] animate-pulse" />
-                    <span className="font-mono text-[11px] font-black text-[#072C55] uppercase tracking-[0.4em]">Growth Benchmark Report // v4.0</span>
-                 </div> */}
                  <h2 className="text-4xl md:text-8xl font-black text-[#072C55] tracking-tighter leading-[0.85]">
-                    Why <br />
-                    <span className="text-[#5210F8]">Choose Us.</span>
+                    {whyChooseUsContent.header.title.static} <br />
+                    <span className="text-[#5210F8]">{whyChooseUsContent.header.title.highlight}</span>
                  </h2>
             </div>
 
@@ -86,10 +27,10 @@ export default function WhyChooseUs() {
                 <div className="hidden md:grid grid-cols-[1.2fr_2fr_2fr] gap-8 px-8 mb-8">
                     <div />
                     <div className="text-center pt-4 border-t-2 border-[#072C55]/5">
-                        <span className="font-mono text-[11px] uppercase font-black text-[#072C55]/20 tracking-[0.5em]">Legacy Agencies</span>
+                        <span className="font-mono text-[11px] uppercase font-black text-[#072C55]/20 tracking-[0.5em]">{whyChooseUsContent.header.col1}</span>
                     </div>
                     <div className="text-center pt-4 border-t-2 border-[#5210F8]/20">
-                        <span className="font-mono text-[11px] uppercase font-black text-[#5210F8] tracking-[0.5em]">The InvisiEdge Way</span>
+                        <span className="font-mono text-[11px] uppercase font-black text-[#5210F8] tracking-[0.5em]">{whyChooseUsContent.header.col2}</span>
                     </div>
                 </div>
 

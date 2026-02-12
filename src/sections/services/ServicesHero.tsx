@@ -86,6 +86,8 @@ function ServiceGrid(props: any) {
   );
 }
 
+import { servicesHeroContent } from "@/data/services/hero";
+
 // --- MAIN COMPONENT ---
 export default function ServicesHero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -151,7 +153,7 @@ export default function ServicesHero() {
                 <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
                     <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#5210F8]/20 bg-[#5210F8]/5 backdrop-blur-md text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#C47DFD]">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#5210F8] animate-pulse" />
-                        Our Strategies
+                        {servicesHeroContent.badge}
                     </span>
                 </div>
             </div>
@@ -160,24 +162,25 @@ export default function ServicesHero() {
             <h1 className="flex flex-col items-center text-center font-black tracking-tighter leading-[0.85] select-none text-white mix-blend-screen">
                 <span className="text-[14vw] md:text-[8vw] opacity-20 blur-[1px] animate-in fade-in zoom-in duration-1000 delay-100" 
                       style={{ WebkitTextStroke: '1px rgba(82, 16, 248, 0.3)', color: 'transparent' }}>
-                    Grow
+                    {servicesHeroContent.title.static}
                 </span>
                 <span className="text-[18vw] md:text-[11vw] bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50 drop-shadow-2xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-                    Engine
+                    {servicesHeroContent.title.highlight}
                 </span>
             </h1>
 
             {/* Subtext Box */}
             <div className="mt-8 md:mt-12 max-w-2xl text-center px-4 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
                 <p className="text-base md:text-xl text-white/70 font-light leading-relaxed">
-                    Strategic marketing for <span className="text-white font-medium">high-growth brands</span>. 
-                    We design the campaigns that power your next revenue cycle.
+                    {servicesHeroContent.description.split(servicesHeroContent.highlight)[0]}
+                    <span className="text-white font-medium">{servicesHeroContent.highlight}</span>
+                    {servicesHeroContent.description.split(servicesHeroContent.highlight)[1]}
                 </p>
             </div>
 
             {/* Control Panel / Stats Strip */}
             <div className="mt-12 md:mt-16 grid grid-cols-3 gap-6 md:gap-12 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-700 divide-x divide-white/10 w-full max-w-3xl">
-                {['Omnichannel', 'Full Funnel', 'Global Reach'].map((item, i) => (
+                {servicesHeroContent.stats.map((item, i) => (
                     <div key={i} className="flex flex-col items-center group cursor-default pointer-events-auto px-4">
                         <span className="text-lg md:text-2xl font-bold text-white group-hover:text-[#5210F8] transition-colors">{item}</span>
                     </div>
@@ -187,7 +190,7 @@ export default function ServicesHero() {
 
         {/* LAYER 2: FOREGROUND ELEMENT (Scroll Indicator) */}
         <div ref={fgRef} className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-none opacity-50">
-             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/60">Get Started</span>
+             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/60">{servicesHeroContent.scrollLabel}</span>
              <div className="w-[1px] h-12 bg-gradient-to-b from-[#5210F8] to-transparent" />
              <ArrowDown className="w-4 h-4 text-[#5210F8] animate-bounce" />
         </div>

@@ -3,31 +3,11 @@
 import { motion } from 'framer-motion';
 import { MapPin, Mail, Phone } from 'lucide-react';
 
-const CONTACT_ITEMS = [
-    { 
-        icon: MapPin, 
-        title: "Headquarters", 
-        value: "1234 Silicon Avenue, Suite 404\nSan Francisco, CA 94107", 
-        color: "text-[#5210F8]", 
-        bg: "bg-[#5210F8]/10" 
-    },
-    { 
-        icon: Mail, 
-        title: "Email Connect", 
-        value: "hello@invisiedge.io\ncareers@invisiedge.io", 
-        color: "text-[#5210F8]", 
-        bg: "bg-[#5210F8]/10" 
-    },
-    { 
-        icon: Phone, 
-        title: "Direct Line", 
-        value: "+1 (555) 123-4567\nMon-Fri, 0900 - 1800 PST", 
-        color: "text-[#C47DFD]", 
-        bg: "bg-[#C47DFD]/10" 
-    }
-];
+import { contactContent } from '@/data/contact/content';
 
 export default function ContactInfo() {
+    const { info } = contactContent;
+    
     return (
         <motion.div 
             initial={{ opacity: 0, x: 30 }}
@@ -38,15 +18,17 @@ export default function ContactInfo() {
         >
             <div>
                 <h2 className="text-2xl md:text-4xl font-black text-[#072C55] tracking-tight mb-4 md:mb-8">
-                    CONNECT WITH US
+                    {info.title}
                 </h2>
                 <p className="text-[#072C55]/60 mb-8 md:mb-12 max-w-md leading-relaxed font-medium text-sm md:text-base">
-                    Our team operates globally. Expect a response within <span className="text-[#5210F8] font-bold">24 hours</span>.
+                    {info.description.split(info.highlight)[0]}
+                    <span className="text-[#5210F8] font-bold">{info.highlight}</span>
+                    {info.description.split(info.highlight)[1]}
                 </p>
             </div>
 
             <div className="space-y-4 md:space-y-8">
-                {CONTACT_ITEMS.map((item, i) => (
+                {info.contactItems.map((item, i) => (
                     <div key={i} className="flex items-start gap-4 md:gap-6 group hover:bg-[#F8F9FA] p-3 md:p-4 rounded-xl transition-colors md:-mx-4">
                         <div className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl ${item.bg} border border-transparent group-hover:border-[#072C55]/5 flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform duration-300`}>
                             <item.icon size={20} className={item.color} />

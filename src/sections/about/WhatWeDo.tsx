@@ -2,53 +2,13 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Target, Zap, BarChart3, Cpu, ArrowRight, CheckCircle2, Layout, MousePointer2, PieChart, GitBranch } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { whatWeDoContent } from "@/data/about/what";
 
 export default function WhatWeDo() {
   const [activeService, setActiveService] = useState(0);
 
-  const services = [
-    {
-      id: "01",
-      title: "Acquisition Engine",
-      description: "We don't just buy ads. We engineer reliable traffic sources using algorithmic targeting and programmatic SEO infrastructure.",
-      icon: Target,
-      color: "bg-[#5210F8]",
-      text: "text-[#5210F8]",
-      features: ["Paid Media (Meta/Google)", "Technical SEO", "Creator Partnerships"],
-      visual_icon: Layout
-    },
-    {
-      id: "02",
-      title: "Conversion Protocol",
-      description: "Traffic is meaningless without action. We deploy rigorous A/B testing and persuasive design to maximize revenue per user.",
-      icon: Zap,
-      color: "bg-[#C47DFD]",
-      text: "text-[#C47DFD]",
-      features: ["CRO Experimentation", "Landing Page Dev", "Direct Response Copy"],
-      visual_icon: MousePointer2
-    },
-    {
-      id: "03",
-      title: "Intelligence & Data",
-      description: "Replace opinion with fact. We build single-source-of-truth dashboards that attribute every dollar to a business outcome.",
-      icon: BarChart3,
-      color: "bg-[#00CC76]",
-      text: "text-[#00CC76]",
-      features: ["Multi-Touch Attribution", "Predictive Modeling", "CRM Architecture"],
-      visual_icon: PieChart
-    },
-    {
-      id: "04",
-      title: "Autonomous Ops",
-      description: "Scale without headcount. We automate manual workflows to nurture leads, sync data, and execute campaigns 24/7.",
-      icon: Cpu,
-      color: "bg-[#00FF94]",
-      text: "text-[#00FF94]",
-      features: ["Workflow Automation", "AI Agents", "Email Ops"],
-      visual_icon: GitBranch
-    }
-  ];
+  const services = whatWeDoContent.services;
 
   return (
     <section className="py-16 md:py-24 bg-[#F8F9FA] relative overflow-hidden">
@@ -59,11 +19,11 @@ export default function WhatWeDo() {
              <div className="flex items-center gap-3 mb-6">
                 <span className="w-2 h-2 rounded-full bg-[#072C55] animate-pulse" />
                 <span className="font-mono text-xs font-bold text-[#072C55] uppercase tracking-widest">
-                    Service Capabilities
+                    {whatWeDoContent.header.badge}
                 </span>
              </div>
              <h2 className="text-3xl md:text-6xl font-black text-[#072C55] tracking-tight leading-[0.9]">
-                 Growth <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5210F8] to-[#C47DFD]">Infrastructure.</span>
+                 {whatWeDoContent.header.title.static} <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5210F8] to-[#C47DFD]">{whatWeDoContent.header.title.highlight}</span>
              </h2>
         </div>
  
@@ -136,7 +96,7 @@ export default function WhatWeDo() {
                                     <div className="w-3 h-3 rounded-full bg-white/20" />
                                 </div>
                                 <div className="font-mono text-xs text-white/50 uppercase tracking-widest">
-                                    Growth View v2.0
+                                    {whatWeDoContent.visual.version}
                                 </div>
                             </div>
 
@@ -162,14 +122,14 @@ export default function WhatWeDo() {
                             <div className="relative z-10 grid grid-cols-2 gap-4">
                                 <div className="bg-white/5 border border-white/10 rounded-2xl p-4 backdrop-blur-md">
                                     <div className="text-white/40 text-xs font-bold uppercase mb-1">Efficiency</div>
-                                    <div className="text-white text-2xl font-mono font-bold">98.4%</div>
+                                    <div className="text-white text-2xl font-mono font-bold">{whatWeDoContent.visual.efficiency}</div>
                                     <div className="w-full bg-white/10 h-1 mt-2 rounded-full overflow-hidden">
                                         <div className="bg-[#00FF94] h-full w-[98%]" />
                                     </div>
                                 </div>
                                 <div className="bg-white/5 border border-white/10 rounded-2xl p-4 backdrop-blur-md">
                                     <div className="text-white/40 text-xs font-bold uppercase mb-1">Scale</div>
-                                    <div className="text-white text-2xl font-mono font-bold">Infinite</div>
+                                    <div className="text-white text-2xl font-mono font-bold">{whatWeDoContent.visual.scale}</div>
                                     <div className="w-full bg-white/10 h-1 mt-2 rounded-full overflow-hidden">
                                         <div className="bg-[#5210F8] h-full w-[100%]" />
                                     </div>

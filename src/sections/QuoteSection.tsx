@@ -1,8 +1,9 @@
 "use client";
 import { useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { Quote, BarChart3, Radio } from 'lucide-react';
+import { Quote, Radio } from 'lucide-react';
 import { CometCard } from "@/components/ui/comet-card";
+import { quoteContent } from '@/data/home/quote';
 
 const VoiceVisualizer = () => (
   <div className="flex items-center gap-0.5 h-4 ml-3 opacity-80">
@@ -38,7 +39,6 @@ const QuoteSection = () => {
 
   const xRight = useTransform(scrollYProgress, [0, 1], ['-20%', '10%']);
   const xLeft = useTransform(scrollYProgress, [0, 1], ['10%', '-20%']);
-  const rotateVar = useTransform(scrollYProgress, [0, 1], [0, 5]);
 
   return (
     <section
@@ -56,7 +56,7 @@ const QuoteSection = () => {
         className="absolute top-[10%] left-[-20%] w-[140%] flex whitespace-nowrap opacity-[0.03] pointer-events-none select-none z-0"
       >
         <span className="text-[12vw] font-black leading-none tracking-tighter text-foreground mr-8 font-outline-2">
-          STRATEGY // GROWTH // PERFORMANCE
+          {quoteContent.background.row1}
         </span>
       </motion.div>
 
@@ -66,7 +66,7 @@ const QuoteSection = () => {
         className="absolute bottom-[10%] left-[-20%] w-[140%] flex whitespace-nowrap opacity-[0.03] pointer-events-none select-none z-0"
       >
          <span className="text-[12vw] font-black leading-none tracking-tighter text-foreground ml-8 font-outline-2">
-          MARKETING // DATA // RESULTS
+          {quoteContent.background.row2}
         </span>
       </motion.div>
 
@@ -94,21 +94,21 @@ const QuoteSection = () => {
                 {/* Badge with Visualizer */}
                 <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-mono tracking-widest mb-10 w-fit mx-auto shadow-[0_0_15px_-3px_rgba(82,16,248,0.3)]">
                     <Radio size={14} className="animate-pulse" />
-                    <span>GROWTH_INSIGHT_01</span>
+                    <span>{quoteContent.card.badge}</span>
                     <VoiceVisualizer />
                 </div>
 
                 <div className="max-w-4xl mx-auto">
                     <h3 className="text-xl sm:text-2xl md:text-4xl lg:text-[2.75rem] font-medium text-foreground leading-[1.3] md:leading-[1.25] mb-8 md:mb-12 tracking-tight">
-                    "Scale is not a destination; it's a <span className="relative inline-block text-primary font-semibold">
-                        <span className="relative z-10">strategic process</span>
+                    "{quoteContent.card.quoteLine1}<span className="relative inline-block text-primary font-semibold">
+                        <span className="relative z-10">{quoteContent.card.highlight}</span>
                         <motion.span 
                             initial={{ width: "0%" }}
                             animate={isInView ? { width: "100%" } : {}}
                             transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
                             className="absolute bottom-1 left-0 h-[0.3em] bg-primary/30 -z-10 -rotate-1 skew-x-12" 
                         />
-                    </span>. We build the marketing engines that allow digital portfolios to scale, adapt, and dominate without <span className="underline decoration-primary decoration-2 underline-offset-8 decoration-wavy">friction</span>."
+                    </span>{quoteContent.card.quoteLine2}<span className="underline decoration-primary decoration-2 underline-offset-8 decoration-wavy">{quoteContent.card.underline}</span>."
                     </h3>
                 </div>
 
@@ -117,8 +117,8 @@ const QuoteSection = () => {
                   <div className="relative">
                       <div className="w-14 h-14 md:w-20 md:h-20 rounded-full border border-primary/50 p-1 relative z-10 bg-background">
                           <img
-                            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80"
-                            alt="Dima Diuh"
+                            src={quoteContent.author.image}
+                            alt={quoteContent.author.name}
                             className="w-full h-full object-cover rounded-full opacity-90 grayscale group-hover:grayscale-0 transition-all duration-700"
                           />
                       </div>
@@ -128,10 +128,10 @@ const QuoteSection = () => {
                   </div>
                   
                   <div className="flex flex-col text-center md:text-left gap-1">
-                    <span className="font-bold text-foreground text-lg md:text-xl tracking-wide">Dima Diuh</span>
+                    <span className="font-bold text-foreground text-lg md:text-xl tracking-wide">{quoteContent.author.name}</span>
                     <div className="flex items-center gap-2 text-xs md:text-sm font-mono text-primary uppercase tracking-wider">
-                        <BarChart3 size={12} className="md:w-3.5 md:h-3.5" />
-                        <span>Growth Director // Strategist</span>
+                        <quoteContent.author.icon size={12} className="md:w-3.5 md:h-3.5" />
+                        <span>{quoteContent.author.role}</span>
                     </div>
                   </div>
                 </div>

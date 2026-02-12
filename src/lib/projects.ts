@@ -115,10 +115,10 @@ export const PROJECTS: ProjectData[] = [
         { label: 'Trust Score', value: '98', suffix: '/100', description: 'Stakeholder confidence' }
     ],
     techStack: ['Next.js', 'AWS GovCloud', 'Tailwind', 'Typescript'],
-    heroImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80',
+    heroImage: 'https://res.cloudinary.com/dr32w1unf/image/upload/v1770920757/Screenshot_2026-02-12_235515_kqi3xt.png',
     galleryImages: [
-        'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
-        'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80'
+        'https://res.cloudinary.com/dr32w1unf/image/upload/v1770923489/Screenshot_2026-02-13_004021_rausyd.png',
+        'https://res.cloudinary.com/dr32w1unf/image/upload/v1770923487/Screenshot_2026-02-13_004059_m6wfqg.png'
     ],
     color: '#072C55',
     year: '2024',
@@ -247,10 +247,10 @@ export const PROJECTS: ProjectData[] = [
         { label: 'Security', value: '100', suffix: '%', description: 'Zero breaches' }
     ],
     techStack: ['Next.js', 'PostgreSQL', 'Stripe API', 'D3.js'],
-    heroImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80',
+    heroImage: 'https://res.cloudinary.com/dr32w1unf/image/upload/v1770922052/Screenshot_2026-02-13_001704_wqs0rq.png',
     galleryImages: [
-        'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80',
-        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80'
+        'https://res.cloudinary.com/dr32w1unf/image/upload/v1770923633/Screenshot_2026-02-13_004317_xuo6ru.png',
+        'https://res.cloudinary.com/dr32w1unf/image/upload/v1770923633/Screenshot_2026-02-13_004329_xugegt.png'
     ],
     color: '#C47DFD',
     year: '2025',
@@ -313,10 +313,10 @@ export const PROJECTS: ProjectData[] = [
         { label: 'Recall', value: '72', suffix: '%', description: 'Brand memorability' }
     ],
     techStack: ['WebGL', 'Three.js', 'React', 'Cloudflare'],
-    heroImage: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1600&q=80',
+    heroImage: 'https://res.cloudinary.com/dr32w1unf/image/upload/v1770923123/Screenshot_2026-02-13_003459_r3ihps.png',
     galleryImages: [
-        'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80',
-        'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80'
+        'https://res.cloudinary.com/dr32w1unf/image/upload/v1770923767/Screenshot_2026-02-13_004532_x5ykvj.png',
+        'https://res.cloudinary.com/dr32w1unf/image/upload/v1770923021/Screenshot_2026-02-13_003317_ldecfq.png'
     ],
     color: '#072C55',
     year: '2023',
@@ -331,72 +331,6 @@ export const PROJECTS: ProjectData[] = [
         quote: "Finally, our brand looks as advanced as our technology.",
         author: "David Chen",
         role: "CEO, NS4"
-    }
-  },
-  {
-    id: 'madina-shaik',
-    href: '/work/madina-shaik',
-    title: 'Madina Shaik',
-    category: 'Personal Brand // Leadership',
-    role: ['Personal Branding', 'Social Strategy', 'Digital Presence'],
-    summary: 'Elevating Thought Leadership in the Digital Space.',
-    headline: 'A Digital Home for Visionary Leadership',
-    tags: ['Personal Brand', 'Coaching', 'Impact'],
-
-    clientOverview: {
-        about: 'A renowned leadership coach and speaker empowering executives.',
-        industry: 'Professional Services',
-        companySize: 'Individual Brand',
-        headquarters: 'Global / Remote'
-    },
-
-    challenge: {
-        description: 'Standing out as a thought leader in a saturated market requires authenticity.',
-        constraints: ['Need for high personal connection', 'Content-heavy requirements'],
-        prevState: 'Fragmented social presence with no central hub.'
-    },
-
-    goals: [
-        'Consolidate content into a central thought leadership hub',
-        'Increase speaking engagement bookings',
-        'Build a owned audience email list'
-    ],
-
-    strategy: [
-        { title: 'Editorial Aesthetics', description: 'Treating the website like a high-end magazine.' },
-        { title: 'Content-First Architecture', description: 'Prioritizing articles and videos in the UX.' }
-    ],
-
-    executionPhases: [
-        { phase: '01', title: 'Brand Storytelling', description: 'Refining the personal narrative.' },
-        { phase: '02', title: 'Site Design', description: 'Creating the editorial web experience.' },
-        { phase: '03', title: 'Growth Engine', description: 'Setting up the newsletter and social funnels.' }
-    ],
-
-    results: [
-        { label: 'Follower Growth', value: '150', suffix: '%', description: 'Cross-platform' },
-        { label: 'Engagement', value: '12', suffix: '%', description: 'Average rate' },
-        { label: 'Bookings', value: '5', suffix: 'x', description: 'Speaking inquiries' }
-    ],
-    techStack: ['Next.js', 'Tailwind', 'ConvertKit', 'Vercel'],
-    heroImage: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1600&q=80',
-    galleryImages: [
-        'https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&q=80',
-        'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80'
-    ],
-    color: '#5210F8',
-    year: '2025',
-    nextProject: 'sustainable-plastic',
-    relatedServices: ['social-content-engines', 'branding-systems'],
-
-     keyTakeaways: [
-        'Personal brands must feel personal, yet professional.',
-        'Content discoverability is the main diverse of engagement.'
-    ],
-    testimonial: {
-        quote: "This website truly reflects who I am and the impact I want to make.",
-        author: "Madina Shaik",
-        role: "Founder"
     }
   },
   {
@@ -445,10 +379,10 @@ export const PROJECTS: ProjectData[] = [
         { label: 'Traffic', value: '40', suffix: 'k', description: 'Monthly organic visitors' }
     ],
     techStack: ['Next.js', 'D3.js', 'GreenSock', 'Shopify'],
-    heroImage: 'https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=1600&q=80',
+    heroImage: 'https://res.cloudinary.com/dr32w1unf/image/upload/v1770922565/Screenshot_2026-02-13_002539_bczfey.png',
     galleryImages: [
-        'https://images.unsplash.com/photo-1605600659908-0ef719419d41?w=800&q=80',
-        'https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=800&q=80'
+        'https://res.cloudinary.com/dr32w1unf/image/upload/v1770923974/Screenshot_2026-02-13_004747_rawkdg.png',
+        'https://res.cloudinary.com/dr32w1unf/image/upload/v1770923917/Screenshot_2026-02-13_004808_eoigms.png'
     ],
     color: '#00FF94',
     year: '2024',
@@ -463,6 +397,72 @@ export const PROJECTS: ProjectData[] = [
         quote: "We finally have a way to explain our technology that gets people excited.",
         author: "Green Tech CEO",
         role: "CEO"
+    }
+  },
+  {
+    id: 'madina-shaik',
+    href: '/work/madina-shaik',
+    title: 'Madina Shaik',
+    category: 'Personal Brand // Leadership',
+    role: ['Personal Branding', 'Social Strategy', 'Digital Presence'],
+    summary: 'Elevating Thought Leadership in the Digital Space.',
+    headline: 'A Digital Home for Visionary Leadership',
+    tags: ['Personal Brand', 'Coaching', 'Impact'],
+
+    clientOverview: {
+        about: 'A renowned leadership coach and speaker empowering executives.',
+        industry: 'Professional Services',
+        companySize: 'Individual Brand',
+        headquarters: 'Global / Remote'
+    },
+
+    challenge: {
+        description: 'Standing out as a thought leader in a saturated market requires authenticity.',
+        constraints: ['Need for high personal connection', 'Content-heavy requirements'],
+        prevState: 'Fragmented social presence with no central hub.'
+    },
+
+    goals: [
+        'Consolidate content into a central thought leadership hub',
+        'Increase speaking engagement bookings',
+        'Build a owned audience email list'
+    ],
+
+    strategy: [
+        { title: 'Editorial Aesthetics', description: 'Treating the website like a high-end magazine.' },
+        { title: 'Content-First Architecture', description: 'Prioritizing articles and videos in the UX.' }
+    ],
+
+    executionPhases: [
+        { phase: '01', title: 'Brand Storytelling', description: 'Refining the personal narrative.' },
+        { phase: '02', title: 'Site Design', description: 'Creating the editorial web experience.' },
+        { phase: '03', title: 'Growth Engine', description: 'Setting up the newsletter and social funnels.' }
+    ],
+
+    results: [
+        { label: 'Follower Growth', value: '150', suffix: '%', description: 'Cross-platform' },
+        { label: 'Engagement', value: '12', suffix: '%', description: 'Average rate' },
+        { label: 'Bookings', value: '5', suffix: 'x', description: 'Speaking inquiries' }
+    ],
+    techStack: ['Next.js', 'Tailwind', 'ConvertKit', 'Vercel'],
+    heroImage: 'https://res.cloudinary.com/dr32w1unf/image/upload/v1770922638/Screenshot_2026-02-13_002650_fn6bqe.png',
+    galleryImages: [
+        'https://res.cloudinary.com/dr32w1unf/image/upload/v1770923980/Screenshot_2026-02-13_004854_jvjzzv.png',
+        'https://res.cloudinary.com/dr32w1unf/image/upload/v1770923979/Screenshot_2026-02-13_004915_b0ojwo.png'
+    ],
+    color: '#5210F8',
+    year: '2025',
+    nextProject: 'sustainable-plastic',
+    relatedServices: ['social-content-engines', 'branding-systems'],
+
+     keyTakeaways: [
+        'Personal brands must feel personal, yet professional.',
+        'Content discoverability is the main diverse of engagement.'
+    ],
+    testimonial: {
+        quote: "This website truly reflects who I am and the impact I want to make.",
+        author: "Madina Shaik",
+        role: "Founder"
     }
   }
 ];

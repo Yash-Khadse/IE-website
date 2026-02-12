@@ -37,51 +37,7 @@ import {
   HardDrive
 } from "lucide-react";
 
-// The "Case Study" Data
-const CASE_STUDIES = [
-  {
-    serial: "0x_PRML_42",
-    client: "TechFlow",
-    focus: "SaaS_Growth_Kernel",
-    impact: "-62%_CAC",
-    logic: "os.execute({ target: 'GROWTH', attribution: 'STRICT' });",
-    context: "Unit-Economic Calibration for Series A scale. We eliminated $600k/yr in wasted attribution noise by deploying custom server-side tracking scripts.",
-    metric_a: "ROI: 12X",
-    metric_b: "LTV: +18%",
-    metric_c: "CHURN: -4%",
-    author: "Alex V.",
-    role: "CEO",
-    hex: "#5210F8"
-  },
-  {
-    serial: "0x_VEL_99",
-    client: "Vertex",
-    focus: "FinTech_Rev_Protocol",
-    impact: "+340%_REV",
-    logic: "core.scale({ mode: 'VELOCITY', cycle: 'COMPRESSED' });",
-    context: "Revenue Velocity Architecture for institutional scaling. Orchestrated a full lead-to-revenue automation layer, cutting sales cycle time by 45 days.",
-    metric_a: "REV: +340%",
-    metric_b: "PACE: 1.5X",
-    metric_c: "SPAN: 45D",
-    author: "Sarah J.",
-    role: "CMO",
-    hex: "#00FF94"
-  },
-  {
-    serial: "0x_CONV_08",
-    client: "Nebula",
-    focus: "Ecom_Infra_Tuning",
-    impact: "4.2X_CONV",
-    logic: "edge.tune({ layer: 'PERSONALIZATION', ttf: '2ms' });",
-    context: "Conversion Infrastructure Deployment at the edge. Leveraged custom Next.js middleware to deliver hyper-personalized session experiences instantly.",
-    metric_a: "CONV: 4.2X",
-    metric_b: "AOV: +22%",
-    metric_c: "ROAS: 12X",
-    author: "David L.",
-    role: "VP Growth",
-    hex: "#C47DFD"
-  }
-];
+import { socialProofContent } from "@/data/about/social";
 
 export default function SocialProof() {
   const [activeFile, setActiveFile] = useState(0);
@@ -92,6 +48,7 @@ export default function SocialProof() {
     setDataReady(true);
   }, []);
 
+  const CASE_STUDIES = socialProofContent.caseStudies;
   const current = CASE_STUDIES[activeFile];
 
   return (
@@ -118,14 +75,14 @@ export default function SocialProof() {
                         <span className="relative inline-flex rounded-full h-3 w-3 bg-[#00FF94]"></span>
                      </span>
                      <div className="h-[2px] w-12 bg-[#072C55]/10" />
-                     <span className="font-mono text-xs font-black text-[#072C55]/30 uppercase tracking-[0.6em]">Market Validation // Performance Ledger</span>
+                     <span className="font-mono text-xs font-black text-[#072C55]/30 uppercase tracking-[0.6em]">{socialProofContent.header.badge}</span>
                  </div>
                  <h2 className="text-4xl md:text-9xl lg:text-[11rem] font-black text-[#072C55] tracking-tighter leading-[0.75] mb-8 md:mb-12">
-                     Verified <br />
-                     <span className="text-[#5210F8]">Authority.</span>
+                     {socialProofContent.header.title.static} <br />
+                     <span className="text-[#5210F8]">{socialProofContent.header.title.highlight}</span>
                  </h2>
                  <p className="text-xl md:text-2xl text-[#072C55]/50 font-medium max-w-2xl leading-[1.1] pr-4 md:pr-12">
-                    Every result is a secure data entry in our global performance archive. We don't deal in promises—we deliver <strong className="text-[#072C55]">engineered growth specifications.</strong>
+                    {socialProofContent.header.description}
                  </p>
             </div>
 
@@ -141,12 +98,12 @@ export default function SocialProof() {
                       </div>
                       <div className="flex items-end justify-between px-2 mb-10">
                            <div>
-                               <span className="text-5xl font-black text-[#072C55] tracking-tight">4.98</span>
-                               <span className="font-mono text-xs text-[#072C55]/30 ml-2 font-bold uppercase">/5.0CSAT</span>
+                               <span className="text-5xl font-black text-[#072C55] tracking-tight">{socialProofContent.systemStats.csat}</span>
+                               <span className="font-mono text-xs text-[#072C55]/30 ml-2 font-bold uppercase">{socialProofContent.systemStats.csatLabel}</span>
                            </div>
                            <div className="text-right">
-                               <span className="text-sm font-black text-[#00FF94] block">99.98%</span>
-                               <span className="font-mono text-[8px] font-black text-[#072C55]/30 uppercase tracking-widest">Campaign_Uptime</span>
+                               <span className="text-sm font-black text-[#00FF94] block">{socialProofContent.systemStats.uptime}</span>
+                               <span className="font-mono text-[8px] font-black text-[#072C55]/30 uppercase tracking-widest">{socialProofContent.systemStats.uptimeLabel}</span>
                            </div>
                       </div>
                       <div className="h-1 w-full bg-[#072C55]/5 rounded-full overflow-hidden">
@@ -169,13 +126,13 @@ export default function SocialProof() {
                       <div className="flex items-center justify-between px-6 py-8 border-b border-[#072C55]/5 mb-8">
                            <div className="flex items-center gap-3">
                                 <Database size={18} className="text-[#5210F8]" />
-                                <span className="font-mono text-[10px] font-black text-[#072C55] uppercase tracking-widest">Case_Archive:03</span>
+                                <span className="font-mono text-[10px] font-black text-[#072C55] uppercase tracking-widest">{socialProofContent.caseArchiveLabel}</span>
                            </div>
                            <Terminal size={14} className="text-[#072C55]/20" />
                       </div>
                       
                        <div className="space-y-4 px-2 flex-1">
-                            {CASE_STUDIES.map((file, i) => (
+                            {CASE_STUDIES.map((file: any, i: number) => (
                                <button
                                    key={i}
                                    onClick={() => setActiveFile(i)}
@@ -215,10 +172,10 @@ export default function SocialProof() {
                            </div>
                            <div className="relative z-10 flex items-center justify-between">
                                 <div>
-                                    <span className="block font-mono text-[10px] font-black text-[#072C55]/30 tracking-widest uppercase mb-1">Data_Integrity</span>
+                                    <span className="block font-mono text-[10px] font-black text-[#072C55]/30 tracking-widest uppercase mb-1">{socialProofContent.integrity.label}</span>
                                     <div className="flex items-center gap-2">
                                          <CheckCircle2 size={18} className="text-[#00FF94]" />
-                                         <span className="text-xl font-black text-[#072C55]">SOC2_AUDITED</span>
+                                         <span className="text-xl font-black text-[#072C55]">{socialProofContent.integrity.status}</span>
                                     </div>
                                 </div>
                                 <div className="p-4 rounded-2xl bg-white border border-[#072C55]/10 shadow-sm text-[#072C55]/50 group-hover:text-[#5210F8] transition-colors">
@@ -251,7 +208,7 @@ export default function SocialProof() {
                             <div className="space-y-8">
                                  <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-[#F8F9FA] border border-[#072C55]/5 shadow-sm">
                                     <Cpu size={16} className="text-[#5210F8]" />
-                                    <span className="font-mono text-[10px] md:text-xs font-black text-[#5210F8] uppercase tracking-widest">Active_Dossier:0x{activeFile + 1}</span>
+                                    <span className="font-mono text-[10px] md:text-xs font-black text-[#5210F8] uppercase tracking-widest">{socialProofContent.dossier.label}:0x{activeFile + 1}</span>
                                 </div>
                                 <h3 className="text-6xl md:text-[11rem] lg:text-[13rem] font-black text-[#072C55] tracking-tighter leading-[0.7]">
                                     {current.impact.split('_')[0]}
@@ -265,14 +222,14 @@ export default function SocialProof() {
                                 </div>
                                 <div className="flex items-center gap-3 mb-6">
                                      <Terminal size={14} className="text-[#072C55]/30" />
-                                     <span className="font-mono text-[10px] font-black text-[#072C55]/30 uppercase tracking-widest">Logic_Protocol</span>
+                                     <span className="font-mono text-[10px] font-black text-[#072C55]/30 uppercase tracking-widest">{socialProofContent.dossier.protocolLabel}</span>
                                 </div>
                                 <code className="font-mono text-sm text-[#5210F8] mb-8 block leading-relaxed bg-[#F8F9FA] border border-[#5210F8]/10 p-4 rounded-xl shadow-sm">
                                     {current.logic}
                                 </code>
                                 <div className="flex items-center gap-2 text-[#00FF94]">
                                      <CheckCircle2 size={16} />
-                                     <span className="font-mono text-[11px] font-black uppercase tracking-widest">INTEGRITY_CHECK_PASS</span>
+                                     <span className="font-mono text-[11px] font-black uppercase tracking-widest">{socialProofContent.dossier.checkPass}</span>
                                 </div>
                             </div>
                         </div>
@@ -307,53 +264,53 @@ export default function SocialProof() {
                                                 <span className="font-mono text-[10px] font-black uppercase tracking-[0.4em]">OUTPUT_METRIC_AGGREGATOR</span>
                                                 <BarChart size={16} />
                                             </div>
-                                            <div className="grid gap-12 px-2">
-                                                 {[current.metric_a, current.metric_b, current.metric_c].map((m, i) => (
-                                                     <div key={i} className="flex flex-col group/stat hover:translate-x-2 transition-transform duration-500">
-                                                          <span className="font-mono text-[9px] font-black text-white/30 uppercase tracking-widest mb-2">GrowthMetric_0{i + 1}</span>
-                                                          <span className="text-5xl font-black text-[#00FF94] tracking-tighter group-hover/stat:text-white transition-colors">{m}</span>
-                                                     </div>
-                                                 ))}
-                                            </div>
-                                       </div>
-                                       {/* Decorative Laser Scan */}
-                                       <motion.div 
-                                          initial={{ top: -100 }}
-                                          animate={{ top: "100%" }}
-                                          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                                          className="absolute left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#00FF94]/40 to-transparent z-20" 
-                                       />
-                                  </div>
-                             </div>
-                        </div>
+                                             <div className="grid gap-12 px-2">
+                                                  {current.metrics.map((m: any, i: number) => (
+                                                      <div key={i} className="flex flex-col group/stat hover:translate-x-2 transition-transform duration-500">
+                                                           <span className="font-mono text-[9px] font-black text-white/30 uppercase tracking-widest mb-2">GrowthMetric_0{i + 1}</span>
+                                                           <span className="text-5xl font-black text-[#00FF94] tracking-tighter group-hover/stat:text-white transition-colors">{m}</span>
+                                                      </div>
+                                                  ))}
+                                             </div>
+                                        </div>
+                                        {/* Decorative Laser Scan */}
+                                        <motion.div 
+                                           initial={{ top: -100 }}
+                                           animate={{ top: "100%" }}
+                                           transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                                           className="absolute left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#00FF94]/40 to-transparent z-20" 
+                                        />
+                                   </div>
+                              </div>
+                         </div>
 
-                        {/* Dossier Functional Footer */}
-                        <div className="mt-24 pt-10 border-t border-[#072C55]/10 flex flex-wrap justify-between items-center gap-12">
-                             <div className="flex items-center gap-12">
-                                  <div className="flex items-center gap-3">
-                                      <Globe2 size={18} className="text-[#072C55]/20" />
-                                      <span className="font-mono text-[10px] font-black text-[#072C55]/40 uppercase tracking-widest">Network: GLOBAL_RELAY_0{activeFile + 1}</span>
-                                  </div>
-                                  <div className="flex items-center gap-3">
-                                      <HardDrive size={18} className="text-[#072C55]/20" />
-                                      <span className="font-mono text-[10px] font-black text-[#072C55]/40 uppercase tracking-widest">Block_Size: 4.2MB</span>
-                                  </div>
-                             </div>
-                             <div className="flex gap-4">
-                                  <button className="p-5 rounded-[2rem] bg-[#F8F9FA] border border-[#072C55]/10 text-[#072C55]/40 hover:text-[#5210F8] hover:border-[#5210F8]/30 transition-all shadow-sm">
-                                      <Share2 size={20} />
-                                  </button>
-                                  <button className="flex items-center gap-4 px-12 py-6 bg-[#072C55] text-white rounded-[2.5rem] font-mono text-xs font-black uppercase tracking-[0.3em] hover:bg-[#5210F8] transition-all group shadow-3xl overflow-hidden relative">
-                                      <span className="relative z-10">Access Case Study</span>
-                                      <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
-                                      <motion.div 
-                                          initial={{ x: "-100%" }}
-                                          whileHover={{ x: "0%" }}
-                                          className="absolute inset-0 bg-[#5210F8] z-0" 
-                                      />
-                                  </button>
-                             </div>
-                        </div>
+                         {/* Dossier Functional Footer */}
+                         <div className="mt-24 pt-10 border-t border-[#072C55]/10 flex flex-wrap justify-between items-center gap-12">
+                              <div className="flex items-center gap-12">
+                                   <div className="flex items-center gap-3">
+                                       <Globe2 size={18} className="text-[#072C55]/20" />
+                                       <span className="font-mono text-[10px] font-black text-[#072C55]/40 uppercase tracking-widest">{socialProofContent.footer.networkLabel}_0{activeFile + 1}</span>
+                                   </div>
+                                   <div className="flex items-center gap-3">
+                                       <HardDrive size={18} className="text-[#072C55]/20" />
+                                       <span className="font-mono text-[10px] font-black text-[#072C55]/40 uppercase tracking-widest">{socialProofContent.footer.blockSize}</span>
+                                   </div>
+                              </div>
+                              <div className="flex gap-4">
+                                   <button className="p-5 rounded-[2rem] bg-[#F8F9FA] border border-[#072C55]/10 text-[#072C55]/40 hover:text-[#5210F8] hover:border-[#5210F8]/30 transition-all shadow-sm">
+                                       <Share2 size={20} />
+                                   </button>
+                                   <button className="flex items-center gap-4 px-12 py-6 bg-[#072C55] text-white rounded-[2.5rem] font-mono text-xs font-black uppercase tracking-[0.3em] hover:bg-[#5210F8] transition-all group shadow-3xl overflow-hidden relative">
+                                       <span className="relative z-10">{socialProofContent.footer.cta}</span>
+                                       <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
+                                       <motion.div 
+                                           initial={{ x: "-100%" }}
+                                           whileHover={{ x: "0%" }}
+                                           className="absolute inset-0 bg-[#5210F8] z-0" 
+                                       />
+                                   </button>
+                              </div>
+                         </div>
                     </motion.div>
                 </AnimatePresence>
             </div>
@@ -371,8 +328,8 @@ export default function SocialProof() {
                     {[...Array(12)].map((_, i) => (
                         <div key={i} className="flex items-center gap-12 group cursor-default opacity-30 hover:opacity-100 transition-opacity">
                              <div className="flex flex-col">
-                                  <span className="font-mono text-[10px] font-black text-[#5210F8] uppercase tracking-widest">Success_Node_0{i + 1}</span>
-                                  <span className="text-4xl font-black text-[#072C55] tracking-tighter">OPERATIONAL_DATA_VERIFIED</span>
+                                  <span className="font-mono text-[10px] font-black text-[#5210F8] uppercase tracking-widest">{socialProofContent.ticker.nodeLabel}_0{i + 1}</span>
+                                  <span className="text-4xl font-black text-[#072C55] tracking-tighter">{socialProofContent.ticker.status}</span>
                              </div>
                              <div className="h-12 w-[1px] bg-[#072C55]/20 group-hover:bg-[#5210F8] transition-colors" />
                              <span className="text-6xl font-black text-[#072C55]/5 group-hover:text-[#5210F8]/20 transition-colors">v{42 + i}.{i}.0</span>
@@ -386,7 +343,7 @@ export default function SocialProof() {
 
       {/* Structural Watermark Detail */}
       <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 font-mono text-[18vw] font-black text-[#072C55]/[0.01] pointer-events-none select-none">
-          SECURE_OUTPUT
+          {socialProofContent.ticker.watermark}
       </div>
     </section>
   );

@@ -4,6 +4,7 @@ import { motion, useInView, useAnimation, animate, useMotionValue, useSpring, us
 import { ArrowUpRight, Database, Terminal, Activity, Radio, Layers, Search, BarChart3, Cpu } from 'lucide-react';
 import Link from 'next/link';
 import { PROJECTS } from '@/lib/projects';
+import { featuredProjectsContent } from '@/data/home/featured-projects';
 
 // Reusable animated background
 const NoiseGridBackground = () => {
@@ -56,10 +57,10 @@ const FeaturedProjects = () => {
             <div className="absolute -left-[5px] top-0 w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_rgba(196,125,253,0.8)] animate-ping" />
             
             <div className="flex items-center gap-3 text-primary font-mono text-xs tracking-widest mb-2">
-               <Database size={14} /> Selected Work 
+               <Database size={14} /> {featuredProjectsContent.header.badge} 
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground uppercase tracking-tighter">
-              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-foreground">Work</span>
+              {featuredProjectsContent.header.title.line1} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-foreground">{featuredProjectsContent.header.title.highlight}</span>
             </h2>
           </div>
 

@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { BLOGS } from '@/lib/blogs';
 import BlogCard from '@/sections/blog/BlogCard';
 
+import { blogListingContent } from '@/data/blog/listing';
+
 export default function BlogListing() {
   return (
     <section className="py-16 md:py-24 px-6 md:px-12 bg-background relative overflow-hidden">
@@ -22,17 +24,19 @@ export default function BlogListing() {
                <div>
                    <div className="flex items-center gap-3 mb-3">
                         <div className="w-2 h-2 rounded-full bg-[#5210F8] animate-pulse" />
-                        <span className="font-mono text-xs font-bold text-[#5210F8] uppercase tracking-[0.2em]">Our Blog</span>
+                        <span className="font-mono text-xs font-bold text-[#5210F8] uppercase tracking-[0.2em]">
+                            {blogListingContent.badge}
+                        </span>
                    </div>
                    <h2 className="text-3xl md:text-5xl font-black tracking-tight text-foreground leading-[0.9]">
-                       LATEST ARTICLES
+                       {blogListingContent.title}
                    </h2>
                </div>
                
                <div className="hidden md:flex items-center gap-6 text-xs text-muted-foreground/60 font-mono tracking-widest uppercase">
                    <div className="flex flex-col items-end">
-                         <span>Total Articles</span>
-                        <span className="text-foreground font-bold text-lg">{BLOGS.length.toString().padStart(2, '0')}</span>
+                          <span>{blogListingContent.stats.label}</span>
+                         <span className="text-foreground font-bold text-lg">{BLOGS.length.toString().padStart(2, '0')}</span>
                    </div>
                </div>
             </motion.div>
@@ -49,7 +53,7 @@ export default function BlogListing() {
                 <div className="flex justify-center mt-12 md:mt-20 relative">
                     <div className="absolute top-1/2 left-0 w-full h-[1px] bg-border -z-10" />
                     <button className="px-8 py-3 rounded-full border border-border bg-background text-foreground font-mono uppercase tracking-widest text-xs hover:bg-foreground hover:text-background hover:scale-105 transition-all duration-300 shadow-xl">
-                        Load More
+                        {blogListingContent.cta.loadMore}
                     </button>
                 </div>
             )}
