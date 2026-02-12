@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Terminal, Activity, ChevronRight } from 'lucide-react';
+import { Menu, X, Terminal, Activity, ChevronRight, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import IELogo from '../assests/IE-logo2.png';
 import { usePathname } from 'next/navigation';
@@ -128,16 +128,28 @@ const Navigation = () => {
                   passHref
                 >
                     <motion.div
-                      whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className={`hidden md:flex items-center gap-2 px-6 py-2.5 text-xs font-bold font-mono tracking-wide rounded-full shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer ${
+                      className={`group relative hidden md:flex items-center justify-center px-6 py-2.5 min-w-[160px] text-xs font-bold font-mono tracking-wide rounded-full shadow-lg cursor-pointer overflow-hidden transition-all duration-300 ${
                           isScrolled 
-                          ? 'bg-primary text-primary-foreground hover:bg-primary/90' 
-                          : 'bg-white text-black hover:bg-gray-100'
+                          ? 'bg-primary text-primary-foreground border border-primary' 
+                          : 'bg-white text-black border border-white'
                       }`}
                     >
-                      <Terminal size={14} />
-                      <span>Start a Project</span>
+                      {/* Default Text */}
+                      <span className="relative z-10 transition-all duration-500 group-hover:translate-x-12 group-hover:opacity-0 flex items-center gap-2">
+                        START A PROJECT
+                      </span>
+
+                      {/* Hover Content */}
+                      <div className="absolute inset-0 z-20 flex items-center justify-center gap-2 text-white translate-x-[-100%] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 font-bold">
+                        <span>LET'S TALK</span>
+                        <ArrowRight size={14} className="animate-pulse" />
+                      </div>
+
+                      {/* Background Blob Effect */}
+                      <div className={`absolute top-[40%] left-[20%] h-2 w-2 rounded-full scale-0 transition-all duration-700 ease-in-out group-hover:top-0 group-hover:left-0 group-hover:h-full group-hover:w-full group-hover:scale-[2.5] group-hover:rounded-none z-0 ${
+                          isScrolled ? 'bg-black/40' : 'bg-primary'
+                      }`} />
                     </motion.div>
                 </Link>
 
@@ -164,8 +176,7 @@ const Navigation = () => {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-[200] bg-background"
           >
-            {/* Grid Background */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+            {/* Grid Background removed */}
 
             <div className="relative z-10 h-full flex flex-col">
               

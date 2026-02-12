@@ -13,64 +13,46 @@ interface Testimonial {
 // --- Data ---
 const testimonials: Testimonial[] = [
   {
-    text: "The strategic audit redefined our entire distribution topology. The brand framework InvisiEdge deployed allows us to coordinate 12 regional identities with zero friction.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Briana Patton",
-    role: "Chief Distribution Officer",
+    text: "Automating lead acquisition across IT infrastructure services. Deployed a unified data pipeline that scales with technical complexity and high-intent market demands.",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "IT Infrastructure",
+    role: "Operational Proof // V1.2",
   },
   {
-    text: "Transitioning to their autonomous revenue engine was the pivot our portfolio needed. We've automated the entire acquisition loop across four separate brands.",
+    text: "Orchestrating GovTech distribution channels. Ensuring absolute security and regulatory compliance while maintaining high-speed communication and brand authority.",
+    image: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "GovTech Systems",
+    role: "Operational Proof // V3.1",
+  },
+  {
+    text: "Strategic brand scaling for Real Estate conglomerates. Coordination of multiple regional sub-brands under a single, robust marketing architecture.",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Real Estate Portfolio",
+    role: "Operational Proof // V2.0",
+  },
+  {
+    text: "Personal Branding systems for global executives. Building authority through automated insight distribution and precise digital positioning.",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Bilal Ahmed",
-    role: "VP of Digital Systems",
+    name: "Personal Branding",
+    role: "Operational Proof // V4.5",
   },
   {
-    text: "The architecture is remarkably robust. We are no longer managing websites; we are orchestrating a unified intelligence network that scales with our ARR targets.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Saman Malik",
-    role: "Infrastructure Lead",
+    text: "Deploying high-frequency content engines for technical consulting. Reducing time-to-market for complex services through automated narrative scaling.",
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Consulting Clusters",
+    role: "Operational Proof // V1.0",
   },
   {
-    text: "Multi-brand management used to be our biggest bottleneck. With the Prism Strategy Core, our time-to-market for new sub-brands has been reduced by 70%.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Omar Raza",
-    role: "Executive Director",
-  },
-  {
-    text: "The systemic approach to brand safety and messaging consistency is unparalleled. The automation logic handles the heavy lifting, letting us focus on high-level strategy.",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Zainab Hussain",
-    role: "Brand Architect",
-  },
-  {
-    text: "Deploying the AetherGrowth logic transformed our conversion funnel into a self-optimizing campaign. The ROI on our infrastructure spend is now quantifiable and recurring.",
-    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Aliza Khan",
-    role: "Growth Systems Analyst",
-  },
-  {
-    text: "Finally, an agency that treats marketing as an engineering challenge. Their 'distribution topology' approach is light years ahead of traditional agency models.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Farhan Siddiqui",
-    role: "Director of Digital Strategy",
-  },
-  {
-    text: "The visibility we now have into our cross-channel performance is absolute. The unified data ecosystem simplifies complex decision-making across our entire board.",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Sana Sheikh",
-    role: "Strategic Ops Manager",
-  },
-  {
-    text: "What sets InvisiEdge apart is their focus on infrastructure over aesthetics. They built a machine that happens to look beautiful, not just a pretty facade.",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Hassan Ali",
-    role: "Portfolio Manager",
+    text: "Multi-brand synchronization for distributed service networks. Zero-friction coordination across diverse industry vertical identities.",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Service Ecosystems",
+    role: "Operational Proof // V2.8",
   },
 ];
 
-const firstColumn = testimonials.slice(0, 3);
-const secondColumn = testimonials.slice(3, 6);
-const thirdColumn = testimonials.slice(6, 9);
+const firstColumn = testimonials.slice(0, 2);
+const secondColumn = testimonials.slice(2, 4);
+const thirdColumn = testimonials.slice(4, 6);
 
 // --- Sub-Components ---
 const TestimonialsColumn = (props: {
@@ -122,7 +104,7 @@ const TestimonialsColumn = (props: {
                         <cite className="font-bold not-italic tracking-tight text-foreground">
                           {name}
                         </cite>
-                        <span className="text-xs font-medium tracking-tight text-muted-foreground/80 mt-0.5">
+                        <span className="text-[10px] font-mono font-bold tracking-tight text-primary/60 mt-0.5">
                           {role}
                         </span>
                       </div>
@@ -155,28 +137,28 @@ export default function TestimonialV2() {
         }}
         className="container px-4 z-10 mx-auto"
       >
-        <div className="flex flex-col items-center justify-center max-w-[540px] mx-auto mb-16">
+        <div className="flex flex-col items-center justify-center max-w-4xl mx-auto mb-16">
           <div className="flex justify-center">
-            <div className="border border-primary/20 py-1 px-4 rounded-full text-xs font-semibold tracking-wide uppercase text-primary bg-primary/10 transition-colors">
-              Testimonials
+            <div className="border border-primary/20 py-1 px-4 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase text-primary bg-primary/10 transition-colors">
+              Operational Proof
             </div>
           </div>
 
-          <h2 id="testimonials-heading" className="text-4xl md:text-5xl font-extrabold tracking-tight mt-6 text-center text-foreground">
-            WHAT OUR <span className="text-primary italic">CLIENTS</span> SAY
+          <h2 id="testimonials-heading" className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter mt-8 text-center text-foreground leading-[1.1]">
+            MULTI-BRAND EXECUTION ACROSS <span className="text-primary">IT</span>, <span className="text-primary">GOVTECH</span>, <span className="text-primary">REAL ESTATE</span>, AND <span className="text-primary">PERSONAL BRANDING</span> ECOSYSTEMS.
           </h2>
-          <p className="text-center mt-5 text-muted-foreground text-lg leading-relaxed max-w-sm">
-            Discover how thousands of teams streamline their operations with our platform.
+          <p className="text-center mt-6 text-muted-foreground text-sm font-mono uppercase tracking-[0.1em] max-w-2xl">
+            Internal Validation: Proof of performance in diverse high-stakes environments.
           </p>
         </div>
 
-        <div 
+        {/* <div 
           className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] max-h-[740px] overflow-hidden"
         >
           <TestimonialsColumn testimonials={firstColumn} duration={15} />
           <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
           <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />
-        </div>
+        </div> */}
       </motion.div>
     </section>
   );

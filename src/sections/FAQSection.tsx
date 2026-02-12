@@ -47,7 +47,7 @@ const FAQSection = () => {
   const [openId, setOpenId] = useState<string | null>('01');
 
   return (
-    <section id="faq" className="relative w-full py-16 md:py-32 bg-background overflow-hidden border-t border-border">
+    <section id="faq" className="relative w-full py-12 md:py-20 bg-background overflow-hidden border-t border-border">
       
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">

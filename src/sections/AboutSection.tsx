@@ -107,22 +107,13 @@ export default function AboutSection() {
   }, []);
 
   return (
-        <section ref={containerRef} className="py-16 md:py-32 px-4 md:px-6 bg-background min-h-[80svh] md:min-h-screen relative overflow-hidden flex items-center border-t border-border" id="about">
-      {/* Background: Geometric Tech Grid */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.04]">
-          <div className="absolute w-full h-full bg-[linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)] bg-[size:40px_40px] text-foreground" />
-      </div>
+        <section ref={containerRef} className="py-12 md:py-20 px-4 md:px-6 bg-background min-h-[80svh] md:min-h-screen relative overflow-hidden flex items-center border-t border-border" id="about">
+      {/* Geometric Tech Grid removed */}
 
       {/* Background: Ambient Glow Orb */}
       <div className="absolute -left-[20%] top-[20%] w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
 
-      {/* Decorative HUD Elements (GSAP Animated opacity) */}
-      <div className="absolute top-10 left-10 text-muted-foreground font-mono text-xs tracking-widest hidden md:block animate-pulse">
-         // Status: Active
-      </div>
-      <div className="absolute bottom-10 right-10 text-muted-foreground font-mono text-xs tracking-widest hidden md:block">
-         MARKET: GLOBAL
-      </div>
+      {/* Decorative HUD Elements removed */}
 
       <div className="max-w-[1500px] mx-auto w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-24 items-center">
@@ -133,7 +124,7 @@ export default function AboutSection() {
             <div className="absolute -left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/50 to-transparent hidden xl:block" />
 
             <div className="mb-8 flex items-center gap-4">
-                <div className="px-3 py-1 border border-primary/30 bg-primary/10 rounded text-primary font-mono text-xs uppercase tracking-widest">
+                <div className="px-4 py-1.5 border border-primary/40 bg-primary/10 rounded text-primary font-mono text-sm font-bold uppercase tracking-[0.2em]">
                     Our Mission
                 </div>
                 <div className="h-px w-24 bg-border" />
@@ -153,7 +144,7 @@ export default function AboutSection() {
             </p>
 
             {/* Decorative Lottie Arrow - Pointing Left (Reversed) */}
-            <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-48 h-48 hidden lg:block pointer-events-none opacity-80 mix-blend-screen" style={{ transform: 'scaleX(-1)' }}>
+            <div className="absolute -right-20 top-[20%] -translate-y-1/2 w-48 h-48 hidden lg:block pointer-events-none opacity-80 mix-blend-screen" style={{ transform: 'scaleX(-1)' }}>
                 <DotLottieReact
                     src="https://lottie.host/74947dba-0c8d-44b6-b088-e0bf96251dd8/gxNaRo3hVW.lottie"
                     loop

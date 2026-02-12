@@ -10,7 +10,7 @@ export default function CaseStudyPost({ params }: { params: { slug: string } }) 
       
       {/* Hero Header */}
       <div className="w-full bg-secondary border-b border-border py-20 md:py-32 relative overflow-hidden">
-           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] opacity-30 pointer-events-none" />
+           {/* Grid background removed */}
            <div className="max-w-[1200px] mx-auto px-6 relative z-10">
                <div className="mb-6 flex items-center gap-2">
                    <Link href="/case-studies" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1 text-sm font-bold tracking-wide">

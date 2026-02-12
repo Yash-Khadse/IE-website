@@ -207,12 +207,7 @@ export default function CultureMindset() {
         {/* Right Half: The Radial Interface HUD */}
         <div className="w-full lg:w-1/2 h-[45vh] lg:h-full relative flex items-center justify-center p-6 md:p-12 lg:p-24 pt-20 lg:pt-56 border-l border-[#072C55]/5 order-1 lg:order-2">
             
-            {/* Background Grid HUD */}
-            <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-                 <div className="absolute inset-0 bg-[radial-gradient(#072C55_1px,transparent_1px)] bg-[size:32px_32px]" />
-                 <div className="absolute top-1/2 left-0 w-full h-[1px] bg-[#072C55]" />
-                 <div className="absolute top-0 left-1/2 w-[1px] h-full bg-[#072C55]" />
-            </div>
+            {/* Background Grid HUD removed */}
 
             {/* The Central Orbital System */}
             <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[450px] flex items-center justify-center">

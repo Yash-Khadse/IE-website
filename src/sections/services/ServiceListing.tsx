@@ -80,10 +80,7 @@ export default function ServiceListing() {
            />
       </div>
 
-      {/* --- LAYER 1: TECHNICAL GRID --- */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.3]">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f080_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f080_1px,transparent_1px)] bg-[size:40px_40px]" />
-      </div>
+      {/* --- LAYER 1: TECHNICAL GRID REMOVED --- */}
 
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         

@@ -30,8 +30,8 @@ const ServicesSection = () => {
   const y2 = isMobile ? 0 : y2Base;
   
   // Improvised Sticky Motion with 3D Physics:
-  // 1. Y: Translates down ~950px to land higher above the center of the Integration section's diagram.
-  const y3 = useTransform(smoothProgress, [0, 1], [0, 950]);
+  // 1. Y: Translates down ~1010px to land perfectly on the core after being shifted up by 64px.
+  const y3 = useTransform(smoothProgress, [0, 1], [0, 1010]);
   const scale = useTransform(smoothProgress, [0, 0.8], [1, 0.5]); // Scale down to become the 'node'
   const rotate = useTransform(smoothProgress, [0, 0.5, 1], [0, -5, 0]);
   const rotateX = useTransform(smoothProgress, [0, 0.5, 1], [0, 15, 0]);
@@ -56,12 +56,9 @@ const ServicesSection = () => {
     <section
       ref={containerRef}
       id="services"
-      className="relative w-full py-16 md:py-32 bg-background overflow-visible z-30 perspective-1000"
+      className="relative w-full py-12 md:py-20 bg-background overflow-visible z-30 perspective-1000"
     >
-      {/* Background Grids */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.05]">
-          <div className="absolute w-full h-full bg-[linear-gradient(to_right,#000000_1px,transparent_1px),linear-gradient(to_bottom,#000000_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:50px_50px]" />
-      </div>
+      {/* Background Grids removed */}
 
       <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -81,7 +78,7 @@ const ServicesSection = () => {
              transition={{ delay: 0.1 }}
              className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[0.95] tracking-tight"
           >
-            INVISIBLE <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-foreground">STRATEGIES</span>
+            INVINCIBLE <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-foreground">STRATEGIES</span>
             <br />
             MARKET <span className="italic font-serif text-muted-foreground/50">LEADERSHIP</span>
           </motion.h2>
@@ -93,7 +90,7 @@ const ServicesSection = () => {
           
           {/* Column 3 (Center - Growth Engine) - Mobile: Appear first or second */}
           <motion.div 
-            className="lg:hidden col-span-1 md:col-span-2 w-full mb-8"
+            className="lg:hidden col-span-1 md:col-span-2 w-full mb-8 -mt-8"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -191,7 +188,7 @@ const ServicesSection = () => {
           <motion.div 
             style={{ y: y3, scale: scale, rotate: rotate, rotateX: rotateX, boxShadow, zIndex: 100, transformStyle: "preserve-3d" }}
             custom={4} variants={cardVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}
-            className="hidden lg:block col-span-1 h-[440px] relative perspective-1000"
+            className="hidden lg:block col-span-1 h-[440px] relative perspective-1000 -mt-32"
           >
              <div className="w-full h-full bg-background rounded-[2rem] border border-primary/30 p-1 flex items-center justify-center relative overflow-hidden shadow-2xl shadow-primary/20">
                 {/* Glowing Core */}

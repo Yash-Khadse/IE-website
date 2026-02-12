@@ -22,10 +22,7 @@ export default function AboutPage() {
       {/* <WhatWeDo /> */}
       <HowWeWork />
       <WhyChooseUs />
-
       {/* <OurTeam /> */}
-
-
       <CTASection />
     </main>
   );

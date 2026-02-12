@@ -2,7 +2,7 @@ import { Marquee } from "@/components/ui/marquee"
 
 const logos = [
   {
-    src: "https://res.cloudinary.com/dr32w1unf/image/upload/e_make_transparent:20/v1770733187/CompQsoft_1_1_xjjdxm.png",
+    src: "https://res.cloudinary.com/dr32w1unf/image/upload/v1770905856/Group_71-1_1_xu2goa.png",
     alt: "CompQsoft",
   },
   {

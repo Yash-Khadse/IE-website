@@ -42,8 +42,7 @@ export default function AboutFinalCTA() {
       
       {/* Light Mode System Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {/* Subtle Neutral Neural Grid */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#072C55_1px,transparent_1px),linear-gradient(to_bottom,#072C55_1px,transparent_1px)] bg-[size:80px_80px] opacity-[0.03]" />
+          {/* Subtle Neutral Neural Grid removed */}
           
           {/* Geometric Accents */}
           <div className="absolute top-1/2 left-0 w-full h-[1px] bg-[#072C55]/10" />

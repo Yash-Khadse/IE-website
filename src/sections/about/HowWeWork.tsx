@@ -86,12 +86,7 @@ export default function HowWeWork() {
           {/* Dynamic Background Panel */}
           <div className={`absolute inset-0 transition-colors duration-700 ease-in-out ${currentStep.bg}`} />
           
-          {/* Grid Pattern Overlay */}
-          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
-               style={{ 
-                 backgroundImage: `linear-gradient(${currentStep.text === 'text-white' ? '#ffffff' : '#0a0a0a'} 1px, transparent 1px), linear-gradient(90deg, ${currentStep.text === 'text-white' ? '#ffffff' : '#0a0a0a'} 1px, transparent 1px)`, 
-                 backgroundSize: '40px 40px' 
-               }} />
+          {/* Grid Pattern Overlay Removed */}
 
           {/* Header Offset Wrapper */}
           <div className="relative z-10 flex flex-col md:flex-row h-full max-w-[1400px] mx-auto p-6 md:p-12 items-center justify-center md:justify-between">

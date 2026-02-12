@@ -9,10 +9,7 @@ export default function ServiceProcess({ process }: { process: string[] }) {
   return (
     <div className="w-full bg-white border border-[#072C55]/10 rounded-2xl p-6 md:p-10 shadow-sm relative overflow-hidden">
       
-      {/* Background Grid */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#5210F8] rounded-full filter blur-[100px] opacity-10" />
-      </div>
+      {/* Background Grid removed */}
 
       <div className="flex items-center gap-3 mb-10 relative z-10">
           <Terminal className="text-[#5210F8]" size={20} />

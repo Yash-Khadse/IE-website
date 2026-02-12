@@ -42,7 +42,7 @@ const IntegrationSection = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full py-16 md:py-40 bg-background overflow-hidden"
+      className="relative w-full py-12 md:py-20 bg-background overflow-hidden"
     >
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
@@ -98,6 +98,7 @@ const IntegrationSection = () => {
             {/* --- CARDS LAYER (Desktop) --- */}
             <div className="hidden md:block">
                 {/* Left Cards */}
+                <span className="sr-only">Integration Cards</span>
                 <IntegrationCard icon={Network} label="Websites & Infrastructure" top="-5%" left="15%" delay={0.2} isInView={isInView} />
                 <IntegrationCard icon={Megaphone} label="Branding & Identity" top="15%" left="0%" delay={0.4} isInView={isInView} />
                 <IntegrationCard icon={Users} label="Social Media Engines" top="40%" left="15%" delay={0.6} isInView={isInView} />

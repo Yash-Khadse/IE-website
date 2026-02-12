@@ -63,8 +63,7 @@ export default function BlogCard({ blog, index }: { blog: BlogPost; index: numbe
 
                 {/* 2. Content Body */}
                 <div className="p-8 flex-1 flex flex-col gap-4 relative">
-                    {/* Subtle Grid Bg */}
-                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px),linear-gradient(to_bottom,#00000005_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none" />
+                    {/* Subtle Grid Bg removed */}
                     
                     <h3 className="text-xl md:text-2xl font-black text-foreground leading-[1.1] group-hover:text-[#5210F8] transition-colors line-clamp-2 relative z-10">
                         {blog.title}

@@ -8,8 +8,7 @@ export default function BlogListing() {
   return (
     <section className="py-16 md:py-24 px-6 md:px-12 bg-background relative overflow-hidden">
         
-        {/* Background Decorative Overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000003_1px,transparent_1px),linear-gradient(to_bottom,#00000003_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+        {/* Background Decorative Overlay removed */}
         <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-background to-transparent pointer-events-none" />
 
         <div className="max-w-[1400px] mx-auto relative z-10">

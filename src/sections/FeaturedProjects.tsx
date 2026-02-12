@@ -9,12 +9,7 @@ import { PROJECTS } from '@/lib/projects';
 const NoiseGridBackground = () => {
     return (
         <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
-            {/* Moving Grid */}
-            <motion.div 
-                animate={{ y: [0, -40] }}
-                transition={{ repeat: Infinity, duration: 5, ease: "linear" }}
-                className="absolute inset-0 w-full h-[200%] bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" 
-            />
+            {/* Moving Grid removed */}
             {/* Radial Vignette */}
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/80" />
             <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background" />
@@ -43,7 +38,7 @@ const FeaturedProjects = () => {
     <section
       ref={containerRef}
       id="projects"
-      className="relative w-full bg-background pt-16 pb-32 md:pt-40 md:pb-80 px-4 sm:px-6 md:px-8 overflow-hidden z-20"
+      className="relative w-full bg-background pt-12 pb-20 md:pt-20 md:pb-32 px-4 sm:px-6 md:px-8 overflow-hidden z-20"
     >
       <NoiseGridBackground />
 

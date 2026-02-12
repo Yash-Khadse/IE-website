@@ -57,7 +57,7 @@ const ProcessSection = () => {
     <section
       ref={containerRef}
       id="process"
-      className="relative w-full bg-background py-16 md:py-32 font-sans text-foreground border-t border-border"
+      className="relative w-full bg-background py-12 md:py-20 font-sans text-foreground border-t border-border"
     >
       {/* Background Wrapper (Clipped) */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none text-left">
@@ -81,8 +81,7 @@ const ProcessSection = () => {
               </div>
           </div>
           
-          {/* Background Grid */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_90%)]" />
+          {/* Background Grid removed */}
       </div>
 
 
@@ -275,8 +274,7 @@ const SchematicVisual = ({ isActive, stepId }: { isActive: boolean, stepId: numb
   return (
     <div className={`w-full aspect-video md:aspect-[4/3] bg-card/50 rounded-3xl border ${isActive ? 'border-primary/40 shadow-[0_0_80px_-30px_rgba(82,16,248,0.5)]' : 'border-border'} overflow-hidden relative transition-all duration-700 group perspective-1000`}>
        
-       {/* Background Grid */}
-       <div className="absolute inset-0 opacity-20 bg-[linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:30px_30px]" />
+       {/* Background Grid removed */}
        
        {/* Scan Line */}
        <motion.div 

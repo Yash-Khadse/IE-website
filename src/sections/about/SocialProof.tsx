@@ -97,9 +97,8 @@ export default function SocialProof() {
   return (
     <section ref={containerRef} className="relative py-24 md:py-48 bg-[#F8F9FA] overflow-hidden leading-tight font-sans">
       
-      {/* Background Architectural Architecture (The Grid OS) */}
+      {/* Background Architectural Architecture removed */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] select-none">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#072C55_1px,transparent_1px),linear-gradient(to_bottom,#072C55_1px,transparent_1px)] bg-[size:60px_60px]" />
           <div className="absolute top-[15%] left-0 w-full h-[1px] bg-[#072C55]" />
           <div className="absolute top-[85%] left-0 w-full h-[1px] bg-[#072C55]" />
           <div className="absolute top-0 right-10 flex flex-col items-end opacity-20">

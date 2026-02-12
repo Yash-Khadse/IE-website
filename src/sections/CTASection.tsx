@@ -30,7 +30,7 @@ const CTASection = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full py-6 md:py-16 bg-secondary flex items-center justify-center overflow-hidden"
+      className="relative w-full py-4 md:py-8 bg-secondary flex items-center justify-center overflow-hidden"
     >
       {/* Background: Holographic Logic Map */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -45,9 +45,9 @@ const CTASection = () => {
          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] mix-blend-multiply dark:mix-blend-screen animate-pulse-slow" />
       </div>
 
-      <div className="w-full max-w-[1100px] px-2 md:px-6 relative z-10">
+      <div className="w-full max-w-[1000px] px-2 md:px-6 relative z-10">
         <CardContainer className="!py-0 !block perspective-2000" containerClassName="!py-0 !block">
-          <CardBody className="bg-card backdrop-blur-xl border border-primary/20 rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 lg:p-10 relative flex flex-col lg:flex-row gap-6 lg:gap-10 w-full h-auto shadow-2xl group/card overflow-hidden">
+          <CardBody className="bg-card backdrop-blur-xl border border-primary/20 rounded-[1.5rem] md:rounded-[2rem] p-4 md:p-6 lg:p-8 relative flex flex-col items-center gap-4 w-full h-auto shadow-2xl group/card overflow-hidden">
             
             {/* Circuit Board Overlay */}
             <div className="absolute inset-0 pointer-events-none opacity-5">
@@ -67,116 +67,55 @@ const CTASection = () => {
             <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
 
 
-            {/* Left Content: Command Interface */}
-            <div className="flex-1 flex flex-col justify-center relative z-10 pt-2">
-              <CardItem translateZ="40" className="w-full">
-                
-                
-                <h2 className="text-2xl sm:text-[3.5rem] md:text-5xl lg:text-[4rem] font-bold text-foreground leading-[0.95] md:leading-[0.9] tracking-tighter shadow-black drop-shadow-sm mb-4">
+            {/* Main Content: Command Interface */}
+            <div className="flex-1 flex flex-col items-center justify-center text-center relative z-10 py-4">
+              <CardItem translateZ="60" className="flex flex-col items-center">
+                <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-black text-foreground leading-[0.85] tracking-tighter mb-6 max-w-4xl uppercase">
                   READY TO
                   <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-primary to-foreground">SCALE?</span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-b from-primary via-primary/80 to-foreground/20">SCALE?</span>
                 </h2>
               </CardItem>
               
-              <CardItem translateZ="50" className="w-full relative mb-4 md:mb-10 h-6 md:h-8">
-                 <span className="text-lg md:text-2xl text-primary font-medium font-mono tracking-tight">
-                    {isInView && <TypewriterText text="> Start your growth journey..." delay={0.5} />}
-                 </span>
+              <CardItem translateZ="40" className="w-full relative mb-8 h-6">
+                 <div className="text-base md:text-xl text-muted-foreground font-medium font-mono tracking-tight flex items-center justify-center gap-2">
+                    <span className="text-primary animate-pulse">{isInView && <TypewriterText text="> " delay={0.5} />}</span>
+                    {isInView && <TypewriterText text="Initialize sequence..." delay={0.8} />}
+                 </div>
               </CardItem>
   
-              <CardItem translateZ="30" className="w-full mt-2 max-w-lg mb-4 md:mb-10">
-                <div className="flex flex-col w-full gap-3">
+              <CardItem translateZ="30" className="w-full max-w-2xl mb-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 w-full">
                   {[
-                    { text: 'Multi-Channel Performance Audit', icon: Cpu, id: '01' },
-                    { text: 'Growth Automation', icon: Globe, id: '02' },
-                    { text: 'Brand Systems', icon: Lock, id: '03' }
+                    { text: 'Performance Audit', icon: Cpu, id: 'AUDIT_01', color: 'text-blue-400' },
+                    { text: 'Growth Automation', icon: Zap, id: 'AUTO_02', color: 'text-yellow-400' },
+                    { text: 'Brand Systems', icon: Shield, id: 'SYS_03', color: 'text-emerald-400' }
                   ].map((item, i) => (
-                    <div key={i} className="flex items-center justify-between p-2 md:p-4 rounded-lg border border-border bg-secondary/50 hover:bg-secondary hover:border-primary/30 transition-all group/item backdrop-blur-sm cursor-default">
-                      <div className="flex items-center gap-2 md:gap-4">
-                        <div className="p-1.5 md:p-2 rounded bg-background border border-primary/20 text-primary group-hover/item:text-foreground transition-colors">
-                            <item.icon size={16} className="md:w-[18px] md:h-[18px]" />
+                    <div key={i} className="flex flex-col items-center gap-2 p-4 rounded-xl border border-border bg-secondary/30 hover:bg-secondary/50 hover:border-primary/40 transition-all group/item backdrop-blur-sm cursor-default">
+                        <div className={`p-2 rounded-lg bg-background border border-border group-hover/item:border-primary/20 transition-all ${item.color}`}>
+                            <item.icon size={20} />
                         </div>
-                        <span className="text-muted-foreground text-sm md:text-lg font-medium group-hover/item:text-foreground transition-colors">{item.text}</span>
-                      </div>
-                      <span className="text-muted-foreground/30 font-mono text-[10px] md:text-xs opacity-0 group-hover/item:opacity-100 transition-opacity">[{item.id}]</span>
+                        <div className="flex flex-col">
+                            <span className="text-foreground text-[10px] md:text-xs font-bold tracking-tight uppercase">{item.text}</span>
+                            <span className="text-muted-foreground/40 font-mono text-[8px] mt-0.5">[{item.id}]</span>
+                        </div>
                     </div>
                   ))}
                 </div>
               </CardItem>
   
-              <CardItem translateZ="60" className="w-full mt-4 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+              <CardItem translateZ="80" className="w-full flex flex-col items-center gap-4">
                  <button
-                   className="group relative px-6 py-3 md:px-10 md:py-5 bg-fooror-purple/90 text-white rounded-xl font-bold text-sm md:text-lg tracking-widest overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(82,16,248,0.4)] hover:shadow-[0_0_60px_rgba(82,16,248,0.6)] border border-white/10"
+                   className="group relative px-8 py-4 bg-primary text-white rounded-xl font-black text-sm md:text-base tracking-[0.2em] uppercase overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_15px_40px_rgba(82,16,248,0.3)] border border-white/20"
                  >
-                   {/* Light Glint Effect */}
-                   <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-shine" />
-                   
-                   <span className="relative flex items-center gap-2 md:gap-3">
-                       <Terminal size={16} className="md:w-5 md:h-5" /> START GROWTH
-                   </span>
+                    {/* Animated Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-in-out" />
+                    
+                    <span className="relative flex items-center gap-3">
+                       <Terminal size={20} /> START_GROWTH_ENGINE
+                    </span>
                  </button>
-                 
               </CardItem>
-            </div>
-  
-            {/* Right Content: Operator Stack */}
-            <div className="hidden md:flex flex-1 relative min-h-[400px] lg:min-h-auto items-center justify-center lg:justify-end perspective-1000 mt-8 lg:mt-0">
-               <CardItem translateZ="80" rotateX={5} rotateZ={-2} className="relative w-full max-w-[420px] lg:mr-4 flex flex-col items-end group/stack">
-                  
-                  {/* Operator Card 1 (Back) */}
-                  <div className="bg-card/90 border border-border rounded-2xl p-3 md:p-5 w-[90%] flex items-center gap-3 md:gap-5 shadow-xl relative z-10 
-                       translate-y-4 translate-x-4 md:translate-y-24 md:translate-x-8 scale-95 opacity-60
-                       group-hover/stack:translate-y-8 group-hover/stack:translate-x-6 md:group-hover/stack:translate-y-32 md:group-hover/stack:translate-x-12 group-hover/stack:opacity-80 group-hover/stack:rotate-3
-                       transition-all duration-700 ease-out backdrop-blur-md">
-                     <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-muted overflow-hidden border border-border relative shrink-0">
-                         <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop" alt="Operator" className="w-full h-full object-cover grayscale" />
-                     </div>
-                     <div>
-                        <div className="text-primary text-[0.65rem] font-mono tracking-widest uppercase mb-1">Growth Strategist</div>
-                        <h4 className="text-base md:text-lg font-bold text-foreground">Sarah Chen</h4>
-                     </div>
-                  </div>
-
-                  {/* Operator Card 2 (Middle) */}
-                  <div className="bg-card border border-border rounded-2xl p-3 md:p-5 w-[95%] flex items-center gap-3 md:gap-5 shadow-xl relative z-20 
-                       translate-y-2 translate-x-2 md:translate-y-12 md:translate-x-4 scale-95
-                       group-hover/stack:translate-y-4 group-hover/stack:translate-x-4 md:group-hover/stack:translate-y-16 md:group-hover/stack:translate-x-6 group-hover/stack:rotate-1
-                       transition-all duration-700 ease-out backdrop-blur-md hover:border-primary/30">
-                     <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-muted overflow-hidden border border-border relative shrink-0">
-                         <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop" alt="Operator" className="w-full h-full object-cover grayscale mix-blend-luminosity" />
-                     </div>
-                     <div>
-                        <div className="text-primary text-[0.65rem] font-mono tracking-widest uppercase mb-1">Performance Lead</div>
-                        <h4 className="text-base md:text-lg font-bold text-foreground">Andriy Semeshkin</h4>
-                        <div className="text-muted-foreground text-xs leading-snug font-mono mt-1">&gt; Campaign Strategy</div>
-                     </div>
-                  </div>
-
-                  {/* Operator Card 3 (Front - Main) */}
-                  <div className="bg-card border border-primary/40 rounded-2xl p-3 md:p-6 w-full flex items-center gap-3 md:gap-6 shadow-2xl relative z-30 
-                       group-hover/stack:translate-y-0 group-hover/stack:-rotate-1
-                       transition-all duration-700 ease-out backdrop-blur-xl">
-                      
-                      {/* Live Indicator */}
-                      
-
-                      <div className="relative shrink-0">
-                        <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl bg-muted overflow-hidden border border-border relative">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop" alt="Operator" className="w-full h-full object-cover grayscale mix-blend-luminosity group-hover/stack:mix-blend-normal transition-all duration-500" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
-                        </div>
-                     </div>
-                     <div>
-                        <div className="text-primary text-[0.7rem] font-mono tracking-widest uppercase mb-1">Growth Director</div>
-                        <h4 className="text-lg md:text-xl font-bold text-foreground mb-1 md:mb-2">Dima Diuh</h4>
-                        <div className="text-muted-foreground text-xs md:text-sm leading-snug font-mono">
-                            &gt; Brand Strategy<br/>&gt; Automation Flows
-                        </div>
-                     </div>
-                  </div>
-
-               </CardItem>
             </div>
           </CardBody>
         </CardContainer>

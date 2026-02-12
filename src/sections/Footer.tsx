@@ -15,8 +15,7 @@ const Footer = () => {
       id="contact"
       className="relative w-full bg-background overflow-hidden pt-16 md:pt-24 border-t border-border"
     >
-      {/* Background Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] opacity-50 pointer-events-none" />
+      {/* Background Grid removed */}
 
       <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-10 relative z-10">
         

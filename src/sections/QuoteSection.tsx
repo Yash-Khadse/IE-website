@@ -43,12 +43,9 @@ const QuoteSection = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full py-16 md:py-48 bg-background min-h-[60vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden border-t border-border"
+      className="relative w-full py-12 md:py-24 bg-background min-h-[60vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden border-t border-border"
     >
-      {/* Background: Geometric Tech Grid */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
-          <div className="absolute w-full h-full bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:60px_60px]" />
-      </div>
+      {/* Geometric Tech Grid removed */}
 
        {/* Ambient Glow */}
        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-fooror-purple/10 rounded-full blur-[150px] pointer-events-none" />

@@ -64,9 +64,7 @@ export default function WhyChooseUs() {
 
   return (
     <section className="py-12 md:py-32 bg-white relative overflow-hidden">
-        {/* Technical Grid Pattern */}
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
-             style={{ backgroundImage: 'linear-gradient(#072C55 1px, transparent 1px), linear-gradient(90deg, #072C55 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+        {/* Technical Grid Pattern Removed */}
 
         <div className="max-w-[1200px] mx-auto px-6 relative z-10">
             
