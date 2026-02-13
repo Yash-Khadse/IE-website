@@ -31,10 +31,6 @@ const FAQSection = () => {
           <div className="lg:w-1/3">
              <div className="sticky top-32">
                  <div className="mb-10">
-                    <div className="flex items-center gap-2 text-primary font-mono text-xs tracking-widest mb-4">
-                        <Terminal size={14} />
-                        <span>{faqContent.header.badge}</span>
-                    </div>
                     <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-[0.95] tracking-tight mb-6">
                         {faqContent.header.title.line1}
                         <span className="block text-muted-foreground/50">{faqContent.header.title.highlight}</span>
@@ -58,7 +54,7 @@ const FAQSection = () => {
                                 <p className="text-muted-foreground text-sm">{faqContent.contactBox.description}</p>
                             </div>
                         </div>
-                        <button className="w-full py-3 bg-secondary/30 hover:bg-secondary/50 border border-border hover:border-primary/50 text-foreground rounded-lg transition-all duration-300 font-mono text-sm uppercase tracking-wider flex items-center justify-center gap-2 group/btn">
+                        <button className="w-full py-4 bg-primary hover:bg-primary/90 border border-primary text-primary-foreground rounded-xl transition-all duration-300 font-mono text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 group/btn shadow-lg shadow-primary/20">
                            <span>{faqContent.contactBox.buttonText}</span>
                            <span className="group-hover/btn:translate-x-1 transition-transform">-&gt;</span>
                         </button>
@@ -95,7 +91,7 @@ const FAQSection = () => {
                                 <p className="text-muted-foreground text-sm">{faqContent.contactBox.description}</p>
                             </div>
                         </div>
-                        <button className="w-full py-3 bg-secondary/30 hover:bg-secondary/50 border border-border hover:border-primary/50 text-foreground rounded-lg transition-all duration-300 font-mono text-sm uppercase tracking-wider flex items-center justify-center gap-2 group/btn">
+                        <button className="w-full py-4 bg-primary hover:bg-primary/90 border border-primary text-primary-foreground rounded-xl transition-all duration-300 font-mono text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 group/btn shadow-lg shadow-primary/20">
                            <span>{faqContent.contactBox.buttonText}</span>
                            <span className="group-hover/btn:translate-x-1 transition-transform">-&gt;</span>
                         </button>

@@ -181,7 +181,7 @@ export const PROJECTS: ProjectData[] = [
         { label: 'Brand Lift', value: '35', suffix: '%', description: 'Market perception score' }
     ],
     techStack: ['React', 'Framer Motion', 'Sanity CMS', 'Node.js'],
-    heroImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80',
+    heroImage: 'https://res.cloudinary.com/dr32w1unf/image/upload/v1770991227/compqsoftdigital_innovationpartner_itprovider___CompQsoft_Digital_iyyjna.png',
     galleryImages: [
         'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80',
         'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80'
@@ -313,7 +313,7 @@ export const PROJECTS: ProjectData[] = [
         { label: 'Recall', value: '72', suffix: '%', description: 'Brand memorability' }
     ],
     techStack: ['WebGL', 'Three.js', 'React', 'Cloudflare'],
-    heroImage: 'https://res.cloudinary.com/dr32w1unf/image/upload/v1770923123/Screenshot_2026-02-13_003459_r3ihps.png',
+    heroImage: 'https://res.cloudinary.com/dr32w1unf/image/upload/v1770992218/Screenshot_2026-02-13_194607_wdpb2q.png',
     galleryImages: [
         'https://res.cloudinary.com/dr32w1unf/image/upload/v1770923767/Screenshot_2026-02-13_004532_x5ykvj.png',
         'https://res.cloudinary.com/dr32w1unf/image/upload/v1770923021/Screenshot_2026-02-13_003317_ldecfq.png'

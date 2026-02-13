@@ -89,7 +89,7 @@ export default function TestimonialV2() {
   return (
     <section 
       aria-labelledby="testimonials-heading"
-      className="bg-transparent py-24 relative overflow-hidden"
+      className="bg-transparent py-8 relative overflow-hidden"
     >
       <motion.div 
         initial={{ opacity: 0, y: 50, rotate: -2 }}
@@ -102,24 +102,19 @@ export default function TestimonialV2() {
         }}
         className="container px-4 z-10 mx-auto"
       >
-        <div className="flex flex-col items-center justify-center max-w-4xl mx-auto mb-16">
+        <div className="flex flex-col items-center justify-center max-w-4xl mx-auto mb-6">
           <div className="flex justify-center">
             <div className="border border-primary/20 py-1 px-4 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase text-primary bg-primary/10 transition-colors">
               {testimonialsContent.header.badge}
             </div>
           </div>
 
-          <h2 id="testimonials-heading" className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter mt-8 text-center text-foreground leading-[1.1]">
-            {testimonialsContent.header.title.static}
-            {testimonialsContent.header.title.highlights.map((h, i) => (
-              <React.Fragment key={i}>
-                <span className="text-primary">{h}</span>
-                {i < testimonialsContent.header.title.highlights.length - 1 ? ", " : i === testimonialsContent.header.title.highlights.length - 1 ? " AND " : ""}
-              </React.Fragment>
-            ))}
-            {testimonialsContent.header.title.appendix}
+          <h2 id="testimonials-heading" className="text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter mt-8 text-center text-foreground leading-[0.95] flex flex-col items-center">
+            <span className="opacity-40">{testimonialsContent.header.title.line1}</span>
+            <span className="text-primary whitespace-nowrap">{testimonialsContent.header.title.line2}</span>
+            <span className="whitespace-nowrap">{testimonialsContent.header.title.line3}</span>
           </h2>
-          <p className="text-center mt-6 text-muted-foreground text-sm font-mono uppercase tracking-[0.1em] max-w-2xl">
+          <p className="text-center mt-10 text-muted-foreground text-[10px] md:text-xs font-mono uppercase tracking-[0.3em] max-w-4xl lg:whitespace-nowrap opacity-70">
             {testimonialsContent.header.description}
           </p>
         </div>

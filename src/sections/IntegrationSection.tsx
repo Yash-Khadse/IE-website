@@ -42,7 +42,7 @@ const IntegrationSection = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full py-12 md:py-20 bg-background overflow-hidden"
+      className="relative w-full pt-12 md:pt-20 pb-4 md:pb-6 bg-background overflow-hidden"
     >
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
@@ -69,7 +69,7 @@ const IntegrationSection = () => {
         </motion.div>
 
         {/* Diagram Container */}
-        <div className="relative w-full overflow-visible pb-12">
+        <div className="relative w-full overflow-visible pb-4">
            <div className="relative w-full min-h-[500px] md:h-[600px] mx-auto max-w-[1200px]">
              
             {/* --- GOOGLE GEMINI BACKGROUND LAYER (Retained for abstract connectivity) --- */}
@@ -112,7 +112,7 @@ const IntegrationSection = () => {
             </div>
 
             {/* --- CARDS LAYER (Mobile) --- */}
-            <div className="md:hidden grid grid-cols-2 gap-3 sm:gap-4 pt-12 -mt-20 relative z-30 px-2 sm:px-4 pb-12 w-full">
+            <div className="md:hidden grid grid-cols-2 gap-3 sm:gap-4 pt-12 -mt-20 relative z-30 px-2 sm:px-4 pb-8 w-full">
                 {/* Mobile Core Node */}
                 <div className="col-span-2 flex justify-center py-6">
                     <div className="w-24 h-24 rounded-full border border-primary/50 bg-background/80 backdrop-blur-md flex items-center justify-center shadow-[0_0_30px_rgba(82,16,248,0.4)]">

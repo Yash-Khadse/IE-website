@@ -5,7 +5,7 @@ export const ourStoryContent = {
     highlight: "To Scaled."
   },
   paragraphs: [
-    "Invisi Edge is a growth and systems studio that helps brands move from scattered efforts to structured scale. We work at the intersection of strategy, design, technology, and automation to build foundations that support long-term growth.",
+    "InvisiEdge is a growth and systems studio that helps brands move from scattered efforts to structured scale. We work at the intersection of strategy, design, technology, and automation to build foundations that support long-term growth.",
     "Our approach improves efficiency, reduces manual work, and allows brands to grow with clarity and confidence. We don't just execute tasks; we architect the future of your business."
   ],
   quote: "Instead of focusing on one-off deliverables, we design connected systems.",

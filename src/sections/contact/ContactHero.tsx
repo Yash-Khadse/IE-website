@@ -86,9 +86,10 @@ export default function ContactHero() {
             }
         });
 
-        // Parallax Logic
-        if (textRef.current) tl.to(textRef.current, { yPercent: 50, ease: "none", opacity: 0 }, 0);
-        if (fgRef.current) tl.to(fgRef.current, { yPercent: 20, ease: "none" }, 0);
+        // Parallax Logic matching HybridHero
+        tl.to("[data-layer='sky']",  { yPercent: 30, ease: "none" }, 0);
+        tl.to("[data-layer='text']", { yPercent: 15, ease: "none" }, 0);
+        tl.to("[data-layer='hill']", { yPercent: 5, ease: "none" }, 0);
         
     }, containerRef);
 
@@ -109,70 +110,86 @@ export default function ContactHero() {
              </Canvas>
         </div>
 
-        {/* Cinematic Filters (Dark Mode) */}
-        <div className="absolute inset-0 z-1 pointer-events-none">
-            {/* Top Fade */}
-            <div className="absolute top-0 w-full h-[30vh] bg-gradient-to-b from-[#020617] to-transparent opacity-90" />
-            {/* Bottom Fade */}
-            <div className="absolute bottom-0 w-full h-[40vh] bg-gradient-to-t from-[#020617] via-[#020617]/80 to-transparent" />
-            {/* Grain */}
-            <div className="absolute inset-0 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat mix-blend-overlay" />
-        </div>
+        {/* PARALLAX CONTAINER */}
+        <div className="absolute inset-0 z-10 w-full h-full">
 
-        {/* LAYER 1: PARALLAX TYPOGRAPHY */}
-        <div ref={textRef} className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none px-6 mt-[-5vh]">
-            
-            {/* Badge */}
-            <div className="mb-8 overflow-hidden">
-                <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
-                    <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#5210F8]/20 bg-[#5210F8]/10 backdrop-blur-md text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#C47DFD] shadow-[0_0_20px_rgba(82,16,248,0.3)]">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#5210F8] animate-pulse shadow-[0_0_10px_#5210F8]" />
-                        {contactHeroContent.badge}
+            {/* LAYER 1: SKY IMAGE (Global Uplink) */}
+            <div data-layer="sky" className="absolute inset-0 w-full h-[120vh] -top-[10%] z-0 pointer-events-none">
+                 <img 
+                    src={contactHeroContent.visuals.skyImage} 
+                    className="w-full h-full object-cover opacity-10 mix-blend-screen"
+                    alt="Global Network"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-[#020617]/50 to-[#020617]/90" />
+            </div>
+
+            {/* LAYER 2: TYPOGRAPHY */}
+            <div data-layer="text" className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none px-6 pb-20">
+                
+                {/* Badge */}
+                <div className="mb-8 overflow-hidden">
+                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
+                        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#5210F8]/20 bg-[#5210F8]/10 backdrop-blur-md text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#C47DFD] shadow-[0_0_20px_rgba(82,16,248,0.3)]">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#5210F8] animate-pulse shadow-[0_0_10px_#5210F8]" />
+                            {contactHeroContent.badge}
+                        </span>
+                    </div>
+                </div>
+
+                {/* Main Title - Stacked */}
+                <h1 className="flex flex-col items-center text-center font-black tracking-tighter leading-[0.85] select-none text-white mix-blend-screen">
+                    <span className="text-[10vw] md:text-[8vw] opacity-20 blur-[1px] animate-in fade-in zoom-in duration-1000 delay-100" 
+                          style={{ WebkitTextStroke: '1px rgba(255, 255, 255, 0.2)', color: 'transparent' }}>
+                        {contactHeroContent.backgroundTitle}
                     </span>
+                    <span className="text-[13vw] md:text-[10vw] bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 drop-shadow-2xl">
+                        {contactHeroContent.mainTitle}
+                    </span>
+                </h1>
+
+                {/* Subtext */}
+                <div className="mt-8 md:mt-12 max-w-2xl text-center px-4 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500 relative z-20">
+                    <p className="text-base md:text-xl text-white/70 font-light leading-relaxed drop-shadow-lg p-2 rounded-lg bg-[#020617]/40 backdrop-blur-sm border border-white/5">
+                        {contactHeroContent.description.split(contactHeroContent.highlight)[0]}
+                        <span className="text-white font-medium border-b border-[#5210F8]">{contactHeroContent.highlight}</span>
+                        {contactHeroContent.description.split(contactHeroContent.highlight)[1]}
+                    </p>
+                </div>
+                
+                {/* Stats Strip */}
+                <div className="mt-12 md:mt-16 flex flex-wrap justify-center gap-6 md:gap-16 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-700 pointer-events-auto z-30">
+                    {contactHeroContent.stats.map((item, i) => (
+                        <div key={i} className="flex items-center gap-3 group cursor-default">
+                            <div className="p-2 rounded-full bg-white/5 border border-white/10 text-[#C47DFD] group-hover:bg-[#5210F8] group-hover:text-white transition-colors duration-300">
+                                <item.icon size={18} />
+                            </div>
+                            <div className="flex flex-col text-left">
+                                <span className="text-sm font-bold text-white group-hover:text-[#C47DFD] transition-colors">{item.val}</span>
+                                <span className="text-[9px] uppercase tracking-widest text-white/40 group-hover:text-white/70 transition-colors">{item.label}</span>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
 
-            {/* Main Title - Stacked */}
-            <h1 className="flex flex-col items-center text-center font-black tracking-tighter leading-[0.85] select-none text-white mix-blend-screen">
-                <span className="text-[10vw] md:text-[8vw] opacity-20 blur-[1px] animate-in fade-in zoom-in duration-1000 delay-100" 
-                      style={{ WebkitTextStroke: '1px rgba(255, 255, 255, 0.2)', color: 'transparent' }}>
-                    {contactHeroContent.backgroundTitle}
-                </span>
-                <span className="text-[13vw] md:text-[10vw] bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 drop-shadow-2xl">
-                    {contactHeroContent.mainTitle}
-                </span>
-            </h1>
-
-            {/* Subtext */}
-            <div className="mt-8 md:mt-12 max-w-2xl text-center px-4 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
-                <p className="text-base md:text-xl text-white/70 font-light leading-relaxed">
-                    {contactHeroContent.description.split(contactHeroContent.highlight)[0]}
-                    <span className="text-white font-medium border-b border-[#5210F8]">{contactHeroContent.highlight}</span>
-                    {contactHeroContent.description.split(contactHeroContent.highlight)[1]}
-                </p>
+            {/* LAYER 3: TERRAIN (Communications) */}
+            <div data-layer="hill" className="absolute inset-0 z-20 pointer-events-none w-full h-[120vh] top-[5%] flex items-end">
+                 <div className="w-full h-[55%] relative">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617] to-transparent" />
+                    <img 
+                        src={contactHeroContent.visuals.terrainImage}
+                        className="w-full h-full object-cover object-center opacity-60 mix-blend-luminosity"
+                        style={{ maskImage: 'linear-gradient(to top, black 50%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to top, black 50%, transparent 100%)' }}
+                        alt="Secure Checkpoint"
+                    />
+                 </div>
+                 
+                 <div className="absolute bottom-[25%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
+                     <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/50">{contactHeroContent.scrollLabel}</span>
+                     <div className="w-[1px] h-12 bg-gradient-to-b from-[#5210F8] to-transparent" />
+                     <ArrowDown className="w-4 h-4 text-[#5210F8] animate-bounce" />
+                 </div>
             </div>
-            
-            {/* Stats Strip */}
-            <div className="mt-12 md:mt-16 flex flex-wrap justify-center gap-6 md:gap-16 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-700">
-                {contactHeroContent.stats.map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 group cursor-default pointer-events-auto">
-                        <div className="p-2 rounded-full bg-white/5 border border-white/10 text-[#C47DFD] group-hover:bg-[#5210F8] group-hover:text-white transition-colors duration-300">
-                            <item.icon size={18} />
-                        </div>
-                        <div className="flex flex-col text-left">
-                            <span className="text-sm font-bold text-white group-hover:text-[#C47DFD] transition-colors">{item.val}</span>
-                            <span className="text-[9px] uppercase tracking-widest text-white/40 group-hover:text-white/70 transition-colors">{item.label}</span>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-
-        {/* LAYER 2: FOREGROUND ELEMENT (Scroll) */}
-        <div ref={fgRef} className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-none opacity-50">
-             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/50">{contactHeroContent.scrollLabel}</span>
-             <div className="w-[1px] h-12 bg-gradient-to-b from-[#5210F8] to-transparent" />
-             <ArrowDown className="w-4 h-4 text-[#5210F8] animate-bounce" />
         </div>
 
     </section>

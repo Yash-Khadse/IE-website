@@ -2,9 +2,9 @@ export const testimonialsContent = {
   header: {
     badge: "Operational Proof",
     title: {
-      static: "MULTI-BRAND EXECUTION ACROSS ",
-      highlights: ["IT", "GOVTECH", "REAL ESTATE", "PERSONAL BRANDING"],
-      appendix: " ECOSYSTEMS."
+      line1: "MULTI-BRAND EXECUTION ACROSS",
+      line2: "IT, GOVTECH, REAL ESTATE,",
+      line3: "AND PERSONAL BRANDING ECOSYSTEMS."
     },
     description: "Internal Validation: Proof of performance in diverse high-stakes environments."
   },

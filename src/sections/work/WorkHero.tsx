@@ -102,8 +102,10 @@ export default function WorkHero() {
             }
         });
 
-        if (textRef.current) tl.to(textRef.current, { yPercent: 40, ease: "none", opacity: 0 }, 0);
-        if (fgRef.current) tl.to(fgRef.current, { yPercent: 10, ease: "none" }, 0);
+        // Parallax Logic matching HybridHero
+        tl.to("[data-layer='sky']",  { yPercent: 30, ease: "none" }, 0);
+        tl.to("[data-layer='text']", { yPercent: 15, ease: "none" }, 0);
+        tl.to("[data-layer='hill']", { yPercent: 5, ease: "none" }, 0);
         
     }, containerRef);
 
@@ -124,61 +126,79 @@ export default function WorkHero() {
              </Canvas>
         </div>
 
-        {/* Cinematic Filters */}
-        <div className="absolute inset-0 z-1 pointer-events-none">
-            <div className="absolute top-0 w-full h-[30vh] bg-gradient-to-b from-[#020617] to-transparent opacity-90" />
-            <div className="absolute bottom-0 w-full h-[40vh] bg-gradient-to-t from-[#020617] via-[#020617]/80 to-transparent" />
-            <div className="absolute inset-0 opacity-[0.04] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat mix-blend-overlay" />
-        </div>
+        {/* PARALLAX CONTAINER */}
+        <div className="absolute inset-0 z-10 w-full h-full">
 
-        {/* LAYER 1: TYPOGRAPHY */}
-        <div ref={textRef} className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none px-6">
-            
-            {/* Badge */}
-            <div className="mb-8 overflow-hidden">
-                <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
-                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#5210F8]/20 bg-[#5210F8]/5 backdrop-blur-md text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#5210F8]">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#5210F8] animate-pulse" />
-                        {workHeroContent.badge}
+            {/* LAYER 1: SKY IMAGE (Blueprints) */}
+            <div data-layer="sky" className="absolute inset-0 w-full h-[120vh] -top-[10%] z-0 pointer-events-none">
+                 <img 
+                    src={workHeroContent.visuals.skyImage} 
+                    className="w-full h-full object-cover opacity-10 mix-blend-screen"
+                    alt="Blueprints"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-[#020617]/50 to-[#020617]/90" />
+            </div>
+
+            {/* LAYER 2: TYPOGRAPHY */}
+            <div data-layer="text" className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none px-6 pb-20">
+                
+                {/* Badge */}
+                <div className="mb-8 overflow-hidden">
+                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
+                        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#5210F8]/20 bg-[#5210F8]/5 backdrop-blur-md text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-[#5210F8]">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#5210F8] animate-pulse" />
+                            {workHeroContent.badge}
+                        </span>
+                    </div>
+                </div>
+
+                {/* Main Title */}
+                <h1 className="flex flex-col items-center text-center font-black tracking-tighter leading-[0.85] select-none text-white mix-blend-screen relative">
+                    <span className="text-[14vw] md:text-[8vw] opacity-20 blur-[1px] animate-in fade-in zoom-in duration-1000 delay-100" 
+                          style={{ WebkitTextStroke: '1px rgba(82, 16, 248, 0.4)', color: 'transparent' }}>
+                        {workHeroContent.title.static}
                     </span>
+                    <span className="text-[16vw] md:text-[10vw] bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50 drop-shadow-2xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+                        {workHeroContent.title.highlight}
+                    </span>
+                </h1>
+
+                {/* Subtext */}
+                <div className="mt-8 md:mt-12 max-w-2xl text-center px-4 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500 relative z-20">
+                    <p className="text-base md:text-xl text-white/70 font-light leading-relaxed drop-shadow-lg p-2 rounded-lg bg-[#020617]/40 backdrop-blur-sm border border-white/5">
+                        {workHeroContent.description.split(workHeroContent.highlight)[0]}
+                        <span className="text-white font-medium">{workHeroContent.highlight}</span>
+                        {workHeroContent.description.split(workHeroContent.highlight)[1]}
+                    </p>
+                </div>
+
+                {/* Stats */}
+                <div className="mt-12 md:mt-16 grid grid-cols-2 md:flex justify-center gap-6 md:gap-12 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-700 w-full max-w-3xl pointer-events-auto z-30">
+                    {workHeroContent.stats.map((item, i) => (
+                        <div key={i} className="flex flex-col items-center cursor-default px-4 border-l border-white/10 first:border-0 hover:text-[#5210F8] transition-colors">
+                            <span className="text-lg md:text-xl font-bold text-white uppercase tracking-wider">{item}</span>
+                        </div>
+                    ))}
                 </div>
             </div>
 
-            {/* Main Title */}
-            <h1 className="flex flex-col items-center text-center font-black tracking-tighter leading-[0.85] select-none text-white mix-blend-screen">
-                <span className="text-[14vw] md:text-[8vw] opacity-20 blur-[1px] animate-in fade-in zoom-in duration-1000 delay-100" 
-                      style={{ WebkitTextStroke: '1px rgba(82, 16, 248, 0.4)', color: 'transparent' }}>
-                    {workHeroContent.title.static}
-                </span>
-                <span className="text-[16vw] md:text-[10vw] bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50 drop-shadow-2xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-                    {workHeroContent.title.highlight}
-                </span>
-            </h1>
-
-            {/* Subtext */}
-            <div className="mt-8 md:mt-12 max-w-2xl text-center px-4 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
-                <p className="text-base md:text-xl text-white/70 font-light leading-relaxed">
-                    {workHeroContent.description.split(workHeroContent.highlight)[0]}
-                    <span className="text-white font-medium">{workHeroContent.highlight}</span>
-                    {workHeroContent.description.split(workHeroContent.highlight)[1]}
-                </p>
+            {/* LAYER 3: TERRAIN (Structure) */}
+            <div data-layer="hill" className="absolute inset-0 z-20 pointer-events-none w-full h-[120vh] top-[5%] flex items-end">
+                 <div className="w-full h-[55%] relative">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617] to-transparent" />
+                    <img 
+                        src={workHeroContent.visuals.terrainImage}
+                        className="w-full h-full object-cover object-center opacity-60 mix-blend-luminosity"
+                        style={{ maskImage: 'linear-gradient(to top, black 60%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to top, black 60%, transparent 100%)' }}
+                        alt="Built Structure"
+                    />
+                 </div>
+                 
+                 <div className="absolute bottom-[25%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
+                     <div className="w-[1px] h-12 bg-gradient-to-b from-[#5210F8] to-transparent" />
+                     <span className="text-white text-[10px] font-mono tracking-[0.3em] uppercase drop-shadow-md">{workHeroContent.scrollLabel}</span>
+                 </div>
             </div>
-
-            {/* Stats */}
-            <div className="mt-12 md:mt-16 grid grid-cols-2 md:flex justify-center gap-6 md:gap-12 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-700 w-full max-w-3xl">
-                {workHeroContent.stats.map((item, i) => (
-                    <div key={i} className="flex flex-col items-center cursor-default pointer-events-auto px-4 border-l border-white/10 first:border-0">
-                        <span className="text-lg md:text-xl font-bold text-white uppercase tracking-wider">{item}</span>
-                    </div>
-                ))}
-            </div>
-        </div>
-
-        {/* LAYER 2: SCROLL INDICATOR */}
-        <div ref={fgRef} className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-none opacity-50">
-             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/60">{workHeroContent.scrollLabel}</span>
-             <div className="w-[1px] h-12 bg-gradient-to-b from-[#5210F8] to-transparent" />
-             <ArrowDown className="w-4 h-4 text-[#5210F8] animate-bounce" />
         </div>
 
     </section>

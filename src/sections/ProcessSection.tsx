@@ -25,7 +25,7 @@ const ProcessSection = () => {
     <section
       ref={containerRef}
       id="process"
-      className="relative w-full bg-background py-12 md:py-20 font-sans text-foreground border-t border-border"
+      className="relative w-full bg-background pt-12 md:pt-20 pb-4 md:pb-8 font-sans text-foreground border-t border-border"
     >
       {/* Background Wrapper (Clipped) */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none text-left">
@@ -54,7 +54,7 @@ const ProcessSection = () => {
 
 
       {/* Section Title */}
-      <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-10 mb-20 md:mb-32 relative z-10">
+      <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-10 mb-12 md:mb-16 relative z-10">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -79,62 +79,47 @@ const ProcessSection = () => {
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-24 relative">
           
           {/* Left Side - Sticky Server Rack Indicator */}
-          <div className="hidden lg:flex flex-col w-[360px] h-[calc(100vh-120px)] sticky top-28 bg-card/90 backdrop-blur-xl rounded-2xl border border-border p-8 shadow-2xl z-20">
-             {/* <div className="flex justify-between items-center border-b border-border pb-4 mb-6">
-                 <span className="text-xs font-mono text-muted-foreground/60">INSIGHT_UNIT_01</span>
-                 <div className="flex gap-1">
-                     <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                     <span className="w-1.5 h-1.5 rounded-full bg-green-500/30" />
-                 </div>
-             </div> */}
+          <div className="hidden lg:flex flex-col w-[360px] h-[calc(100vh-120px)] sticky top-28 bg-primary/[0.8] backdrop-blur-2xl rounded-3xl border border-white/20 p-8 shadow-[0_20px_80px_rgba(82,16,248,0.2)] z-20 overflow-hidden text-white font-medium">
+             {/* Decorative background element for the panel */}
+             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
              
              <div className="relative flex-1 flex flex-col justify-center py-4 gap-2">
                 {/* Vertical Rail Line */}
-                <div className="absolute left-[23px] top-8 bottom-8 w-[2px] bg-border rounded-full" />
+                <div className="absolute left-[23px] top-8 bottom-8 w-[2px] bg-white/10 rounded-full" />
                 
                 {processSteps.map((step) => (
                     <div 
                         key={step.id} 
                         onClick={() => scrollToStep(step.id)}
-                        className="relative z-10 group cursor-pointer mb-4 last:mb-0"
+                        className="relative z-10 group cursor-pointer mb-2 last:mb-0"
                     >
-                        <div className={`flex items-center gap-5 p-3 rounded-xl transition-all duration-500 border ${activeStep === step.id ? 'bg-secondary border-border shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] scale-105' : 'border-transparent opacity-40 hover:opacity-70 scale-100 hover:bg-secondary/50'}`}>
+                        <div className={`flex items-center gap-5 p-3 rounded-2xl transition-all duration-500 border ${activeStep === step.id ? 'bg-white/20 border-white/30 shadow-2xl scale-105' : 'border-transparent opacity-50 hover:opacity-100 scale-100 hover:bg-white/10'}`}>
                            
                            {/* Step Number Badge */}
-                           <div className={`w-10 h-10 shrink-0 rounded-lg flex items-center justify-center border transition-all duration-500 ${activeStep === step.id ? 'bg-primary border-primary text-primary-foreground shadow-[0_0_15px_rgba(82,16,248,0.5)]' : 'bg-muted border-border text-muted-foreground'}`}>
+                           <div className={`w-10 h-10 shrink-0 rounded-xl flex items-center justify-center border transition-all duration-500 ${activeStep === step.id ? 'bg-white border-white text-primary shadow-[0_0_20px_rgba(255,255,255,0.4)]' : 'bg-white/10 border-white/20 text-white'}`}>
                                <span className="font-mono font-bold text-sm">{step.number}</span>
                            </div>
-
+ 
                            <div className="flex flex-col">
-                               <span className="text-[9px] font-mono uppercase tracking-widest text-muted-foreground mb-0.5">Step {step.number}</span>
-                               <span className="text-sm font-bold text-foreground leading-tight">{step.badge}</span>
+                               <span className={`text-[9px] font-mono uppercase tracking-widest mb-0.5 ${activeStep === step.id ? 'text-white' : 'text-white/60'}`}>Step {step.number}</span>
+                               <span className={`text-sm font-bold leading-tight ${activeStep === step.id ? 'text-white' : 'text-white/80 group-hover:text-white'}`}>{step.badge}</span>
                            </div>
                         </div>
                         
                         {/* Connecting Glow Line (Active only) */}
                         {activeStep === step.id && (
                            <>
-                               <motion.div layoutId="activeGlow" className="absolute -left-[8px] top-1/2 -translate-y-1/2 w-8 h-[2px] bg-gradient-to-r from-primary to-transparent opacity-50" />
-                               <motion.div layoutId="activeDot" className="absolute -left-[14px] top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-primary shadow-[0_0_15px_#5210F8] border-2 border-background" />
+                               <motion.div layoutId="activeGlow" className="absolute -left-[8px] top-1/2 -translate-y-1/2 w-8 h-[2px] bg-gradient-to-r from-white to-transparent opacity-80" />
+                               <motion.div layoutId="activeDot" className="absolute -left-[14px] top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-white shadow-[0_0_15px_#ffffff] border-2 border-primary" />
                            </>
                         )}
                     </div>
                 ))}
              </div>
-
-             {/* <div className="mt-auto pt-6 border-t border-border">
-                 <div className="flex justify-between text-[10px] font-mono text-muted-foreground mb-2">
-                    <span>CAMPAIGN LOAD</span>
-                    <span>84%</span>
-                 </div>
-                 <div className="w-full h-1 bg-secondary rounded-full overflow-hidden">
-                     <div className="h-full bg-green-500/50 w-[34%]" />
-                 </div>
-             </div> */}
           </div>
 
           {/* Right Side - Step Content */}
-          <div className="flex-1 min-w-0 pb-32">
+          <div className="flex-1 min-w-0 pb-12 md:pb-20">
              {processSteps.map((step) => (
                <StepContent 
                  key={step.id} 
