@@ -15,7 +15,7 @@ const IntegrationCard = ({ icon: Icon, label, top, left, delay, isInView, classN
     style={{ top, left, ...style }}
     className={`z-10 ${className || 'absolute -translate-x-1/2 -translate-y-1/2'}`} 
   >
-    <div className="bg-card/80 backdrop-blur-md border border-border rounded-[1.2rem] p-3 md:p-4 shadow-xl w-full max-w-[140px] md:w-[140px] h-[120px] md:h-[140px] flex flex-col items-center justify-center gap-2 md:gap-3 group hover:border-primary/50 hover:shadow-[0_0_30px_rgba(82,16,248,0.2)] transition-all duration-300">
+    <div className="bg-card/80 backdrop-blur-md border border-border rounded-[1.2rem] p-3 md:p-4 shadow-xl w-full md:w-[140px] mx-auto h-[120px] md:h-[140px] flex flex-col items-center justify-center gap-2 md:gap-3 group hover:border-primary/50 hover:shadow-[0_0_30px_rgba(82,16,248,0.2)] transition-all duration-300">
         <div className="p-3 rounded-full bg-secondary group-hover:bg-primary transition-colors duration-300">
             <Icon className="w-6 h-6 text-foreground group-hover:text-primary-foreground" strokeWidth={1.5} />
         </div>

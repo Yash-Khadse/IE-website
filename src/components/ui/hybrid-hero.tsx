@@ -159,10 +159,11 @@ export function HybridHero() {
             </div>
 
             {/* LAYER 2: TYPOGRAPHY (The Subject) */}
-            <div data-layer="text" className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none pb-20">
+            <div data-layer="text" className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none pb-32 md:pb-20">
                 {/* "GROWTH" - Background Text - Fixed Contrast */}
-                <h1 className="text-[16vw] leading-[0.8] font-black tracking-tighter text-white/10 text-center select-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 blur-[1px]"
-                    style={{ WebkitTextStroke: '1px rgba(255,255,255,0.15)' }}>
+                {/* "GROWTH" - Background Text - Fixed Contrast */}
+                <h1 className="text-[25vw] md:text-[16vw] leading-[0.8] font-black tracking-tighter text-white/20 text-center select-none absolute top-[25%] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 blur-[1px]"
+                    style={{ WebkitTextStroke: '1px rgba(255,255,255,0.3)' }}>
                     {heroContent.backgroundTitle}
                 </h1>
                 
@@ -201,7 +202,7 @@ export function HybridHero() {
 
             {/* LAYER 3: FOREGROUND TERRAIN (Analytics Dashboard) */}
             <div data-layer="hill" className="absolute inset-0 z-20 pointer-events-none w-full h-[120vh] top-[5%] flex items-end">
-                 <div className="w-full h-[55%] relative">
+                 <div className="w-full h-[40%] md:h-[55%] relative">
                     {/* The Dark Hill Base */}
                     <div className="absolute inset-0 bg-gradient-to-t from-fooror-navy via-fooror-navy/100 to-transparent" />
                     
@@ -215,7 +216,7 @@ export function HybridHero() {
                  </div>
                  
                  {/* Scroll Indicator anchored to terrain */}
-                 <div className="absolute bottom-[25%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
+                 <div className="absolute bottom-[10%] md:bottom-[25%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
                      <div className="w-[2px] h-16 bg-gradient-to-b from-fooror-purple-light to-transparent" />
                      <span className="text-white text-[10px] font-bold font-mono tracking-[0.3em] uppercase drop-shadow-md">{heroContent.scrollLabel}</span>
                  </div>

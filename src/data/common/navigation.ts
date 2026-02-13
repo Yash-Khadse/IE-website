@@ -26,6 +26,12 @@ export const navigationContent = {
     footer: {
       company: "INVISIEDGE MARKETING.",
       est: "EST. 2024"
-    }
+    },
+    socials: [
+      { label: "IG", href: "https://www.instagram.com/invisiedge/", icon: "Instagram" },
+      { label: "X", href: "https://x.com/InvisiEdge", icon: "Twitter" },
+      { label: "FB", href: "https://www.facebook.com/invisiedge/", icon: "Facebook" },
+      { label: "LI", href: "https://www.linkedin.com/company/invisiedge", icon: "Linkedin" }
+    ]
   }
 };

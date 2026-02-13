@@ -32,9 +32,10 @@ export const footerContent = {
       title: "CONNECT",
       links: [
         { label: 'Contact Us', href: '/contact' },
-        { label: 'LinkedIn', href: '#' },
-        { label: 'Twitter / X', href: '#' },
-        { label: 'GitHub', href: '#' },
+        { label: 'LinkedIn', href: 'https://www.linkedin.com/company/invisiedge' },
+        { label: 'X / Twitter', href: 'https://x.com/InvisiEdge' },
+        { label: 'Facebook', href: 'https://www.facebook.com/invisiedge/' },
+        { label: 'Instagram', href: 'https://www.instagram.com/invisiedge/' },
       ]
     }
   ],

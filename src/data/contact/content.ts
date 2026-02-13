@@ -55,6 +55,12 @@ export const contactContent = {
         color: "text-[#C47DFD]", 
         bg: "bg-[#C47DFD]/10" 
       }
+    ],
+    socials: [
+      { label: "Instagram", url: "https://www.instagram.com/invisiedge/", icon: "Instagram" },
+      { label: "X (Twitter)", url: "https://x.com/InvisiEdge", icon: "Twitter" },
+      { label: "Facebook", url: "https://www.facebook.com/invisiedge/", icon: "Facebook" },
+      { label: "LinkedIn", url: "https://www.linkedin.com/company/invisiedge", icon: "Linkedin" }
     ]
   }
 };

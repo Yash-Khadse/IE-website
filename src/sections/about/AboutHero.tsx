@@ -126,7 +126,7 @@ export default function AboutHero() {
             </div>
 
             {/* LAYER 2: TYPOGRAPHY (The Message) */}
-            <div data-layer="text" className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none px-6 pb-20">
+            <div data-layer="text" className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none px-6 pb-32 md:pb-20">
                 
                 {/* Badge */}
                 <div className="mb-8 overflow-hidden">
@@ -144,7 +144,7 @@ export default function AboutHero() {
                           style={{ WebkitTextStroke: '1px rgba(255,255,255,0.2)', color: 'transparent' }}>
                         {aboutHeroContent.titleRow1}
                     </span>
-                    <span className="text-[18vw] md:text-[11vw] bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50 drop-shadow-2xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+                    <span className="text-[13vw] md:text-[11vw] bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50 drop-shadow-2xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
                         {aboutHeroContent.titleRow2}
                     </span>
                 </h1>
@@ -169,7 +169,7 @@ export default function AboutHero() {
 
             {/* LAYER 3: TERRAIN (Team/People) */}
             <div data-layer="hill" className="absolute inset-0 z-20 pointer-events-none w-full h-[120vh] top-[5%] flex items-end">
-                 <div className="w-full h-[55%] relative">
+                 <div className="w-full h-[40%] md:h-[55%] relative">
                     <div className="absolute inset-0 bg-gradient-to-t from-[#072C55] via-[#072C55] to-transparent" />
                     <img 
                         src={aboutHeroContent.visuals.terrainImage}
@@ -179,7 +179,7 @@ export default function AboutHero() {
                     />
                  </div>
                  
-                 <div className="absolute bottom-[25%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
+                 <div className="absolute bottom-[10%] md:bottom-[25%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
                      <div className="w-[1px] h-12 bg-gradient-to-b from-[#5210F8] to-transparent" />
                      <span className="text-white text-[10px] font-mono tracking-[0.3em] uppercase drop-shadow-md">{aboutHeroContent.scrollLabel}</span>
                      <ArrowDown className="w-4 h-4 text-[#5210F8] animate-bounce" />

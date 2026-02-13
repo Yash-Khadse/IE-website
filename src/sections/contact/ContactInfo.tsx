@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { MapPin, Mail, Phone } from 'lucide-react';
+import { MapPin, Mail, Phone, Instagram, Twitter, Facebook, Linkedin } from 'lucide-react';
 
 import { contactContent } from '@/data/contact/content';
 
@@ -43,6 +43,32 @@ export default function ContactInfo() {
                         </div>
                     </div>
                 ))}
+            </div>
+
+            {/* Social Links */}
+            <div className="pt-8 border-t border-[#072C55]/10">
+                <h4 className="text-[10px] font-mono font-bold text-[#072C55]/40 uppercase tracking-widest mb-6">
+                    Connect With Us
+                </h4>
+                <div className="flex gap-4">
+                    {info.socials?.map((social, i) => {
+                         const Icon = social.icon === 'Instagram' ? Instagram : 
+                                      social.icon === 'Twitter' ? Twitter : 
+                                      social.icon === 'Facebook' ? Facebook : Linkedin;
+                         return (
+                            <a 
+                                key={i} 
+                                href={social.url} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-full bg-[#072C55]/5 hover:bg-[#5210F8] hover:text-white flex items-center justify-center transition-all duration-300 text-[#072C55]"
+                                aria-label={social.label}
+                            >
+                                <Icon size={18} />
+                            </a>
+                         )
+                    })}
+                </div>
             </div>
         </motion.div>
     );

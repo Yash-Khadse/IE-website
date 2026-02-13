@@ -1,7 +1,13 @@
+import type { Metadata } from 'next';
 import CTASection from '@/sections/CTASection';
 import ContactHero from '@/sections/contact/ContactHero';
 import ContactForm from '@/sections/contact/ContactForm';
 import ContactInfo from '@/sections/contact/ContactInfo';
+
+export const metadata: Metadata = {
+  title: 'Contact Us | InvisiEdge',
+  description: 'Get in touch with InvisiEdge for digital marketing inquiries, partnerships, and support.',
+};
 
 export default function ContactPage() {
   return (
@@ -15,9 +21,7 @@ export default function ContactPage() {
               <ContactForm />
               <ContactInfo />
           </div>
-      </section>
-
-      <CTASection />
+      </section>      
     </main>
   );
 }

@@ -128,14 +128,14 @@ export default function MissionVisionValues() {
                              {/* Mobile Header */}
                              <div className="flex items-center justify-between w-full">
                                 <div className="flex items-center gap-5">
-                                     <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-md ${isActive ? 'bg-white/20 text-white' : 'bg-[#072C55]/5 text-[#072C55]'}`}>
+                                     <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-md ${isActive ? 'bg-white text-[#5210F8]' : 'bg-[#072C55]/5 text-[#072C55]'}`}>
                                          <pillar.icon size={24} />
                                      </div>
-                                     <h3 className={`text-2xl font-bold tracking-tight ${isActive ? 'text-white' : 'text-[#072C55]'}`}>
+                                     <h3 className={`text-2xl font-bold tracking-tight ${isActive ? 'text-[#072C55]' : 'text-[#072C55]'}`}>
                                         {pillar.title}
                                      </h3>
                                 </div>
-                                <div className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-500 ${isActive ? 'bg-white text-[#072C55] border-white rotate-45' : 'bg-white border-[#072C55]/10 text-[#072C55]'}`}>
+                                <div className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-500 ${isActive ? 'bg-white text-[#072C55] border-[#072C55]/10 rotate-45' : 'bg-white border-[#072C55]/10 text-[#072C55]'}`}>
                                     <Plus size={20} />
                                 </div>
                              </div>
@@ -151,19 +151,19 @@ export default function MissionVisionValues() {
                                         className="overflow-hidden"
                                     >
                                         <div className="pt-6 space-y-4">
-                                            <h4 className="text-3xl font-bold text-white leading-tight">
+                                            <h4 className="text-3xl font-bold text-[#072C55] leading-tight">
                                                 {pillar.headline}
                                             </h4>
-                                            <p className="text-lg text-white/70 leading-relaxed font-medium">
+                                            <p className="text-lg text-[#072C55]/70 leading-relaxed font-medium">
                                                 {pillar.desc}
                                             </p>
                                             
                                             {/* Mobile Stats */}
-                                            <div className="grid grid-cols-2 gap-4 pt-6 mt-4 border-t border-white/20">
+                                            <div className="grid grid-cols-2 gap-4 pt-6 mt-4 border-t border-[#072C55]/10">
                                                 {pillar.stats.map((stat, s) => (
                                                      <div key={s}>
-                                                         <div className="text-2xl font-black font-mono text-white tracking-tighter">{stat.value}</div>
-                                                         <div className="text-[10px] uppercase tracking-[0.2em] text-white/50 font-bold">{stat.label}</div>
+                                                         <div className={`text-2xl font-black font-mono tracking-tighter ${pillar.accent}`}>{stat.value}</div>
+                                                         <div className="text-[10px] uppercase tracking-[0.2em] text-[#072C55]/50 font-bold">{stat.label}</div>
                                                      </div>
                                                  ))}
                                             </div>

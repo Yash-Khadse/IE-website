@@ -15,14 +15,14 @@ const Footer = () => {
     <footer
       ref={containerRef}
       id="contact"
-      className="relative w-full bg-background overflow-hidden pt-16 md:pt-24 border-t border-border"
+      className="relative w-full bg-background overflow-hidden pt-12 md:pt-24 pb-20 md:pb-0 border-t border-border"
     >
       {/* Background Grid removed */}
 
       <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-10 relative z-10">
         
         {/* Top Section: Main Branding & Actions */}
-        <div className="flex flex-col lg:flex-row items-start justify-between gap-10 lg:gap-16 mb-16 md:mb-24">
+        <div className="flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-16 mb-12 md:mb-24">
             
             {/* Left: Brand Identity */}
             <div className="max-w-xl">
@@ -31,24 +31,24 @@ const Footer = () => {
                    animate={isInView ? { opacity: 1, y: 0 } : {}}
                    transition={{ duration: 0.8 }}
                 >
-                    <div className="flex items-center gap-3 mb-8">
+                    <div className="flex items-center gap-3 mb-6 md:mb-8">
                        <Image 
                           src={IELogo} 
                           alt="InvisiEdge" 
                           height={50} 
-                          className="h-10 w-auto object-contain" 
+                          className="h-8 md:h-10 w-auto object-contain" 
                        />
                        <span className="px-3 py-1 rounded bg-secondary border border-border text-[10px] font-mono text-muted-foreground tracking-widest">
                            {footerContent.header.version}
                        </span>
                     </div>
 
-                    <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight tracking-tight mb-6">
+                    <h2 className="text-3xl md:text-5xl font-bold text-foreground leading-tight tracking-tight mb-6">
                         {footerContent.header.line1} <br/>
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-foreground to-primary">{footerContent.header.highlight}</span>
                     </h2>
 
-                    <div className="flex gap-4">
+                    <div className="flex flex-wrap gap-3 md:gap-4">
                         {footerContent.statusBadges.map((badge, idx) => (
                             <StatusBadge key={idx} icon={badge.icon} label={badge.label} color={badge.color} />
                         ))}
@@ -57,7 +57,7 @@ const Footer = () => {
             </div>
 
             {/* Right: Quick Links Grid */}
-             <div className="grid grid-cols-2 md:grid-cols-3 gap-12 lg:gap-20 w-full lg:w-auto">
+             <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-10 md:gap-12 lg:gap-20 w-full lg:w-auto">
                  {footerContent.columns.map((column, idx) => (
                     <FooterColumn 
                         key={idx}
@@ -69,26 +69,14 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar: System Status */}
-        <div className="border-t border-border py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] md:text-xs font-mono text-muted-foreground uppercase tracking-wider">
-            
-            <div className="flex items-center gap-2">
-                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                 <span>{footerContent.bottomBar.status}</span>
-            </div>
-
+        <div className="border-t border-border py-8 md:py-6 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-4 text-[10px] md:text-xs font-mono text-muted-foreground uppercase tracking-wider">
             <p>{footerContent.bottomBar.copyright}</p>
-
-            <div className="flex items-center gap-4">
-                 <span>RESPONSE: {footerContent.bottomBar.response}</span>
-                 <span>REACH: {footerContent.bottomBar.reach}</span>
-            </div>
-
         </div>
 
       </div>
 
       {/* Shutdown Button Effect (Visual Only) */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 opacity-20 hover:opacity-100 transition-opacity cursor-pointer group" title="System Shutdown">
+      <div className="absolute bottom-6 md:bottom-6 left-1/2 -translate-x-1/2 opacity-20 hover:opacity-100 transition-opacity cursor-pointer group" title="System Shutdown">
           <Power size={24} className="text-red-500" />
       </div>
 
@@ -112,15 +100,28 @@ const FooterColumn = ({ title, links }: { title: string, links: { label: string,
             {title}
         </h4>
         <div className="flex flex-col gap-3">
-            {links.map((link, i) => (
-                <Link
-                    key={i} 
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground hover:translate-x-1 transition-all duration-300 font-light"
-                >
-                    {link.label}
-                </Link>
-            ))}
+            {links.map((link, i) => {
+                const isExternal = link.href.startsWith('http');
+                return isExternal ? (
+                    <a
+                        key={i}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-muted-foreground hover:text-foreground hover:translate-x-1 transition-all duration-300 font-light"
+                    >
+                        {link.label}
+                    </a>
+                ) : (
+                    <Link
+                        key={i} 
+                        href={link.href}
+                        className="text-sm text-muted-foreground hover:text-foreground hover:translate-x-1 transition-all duration-300 font-light"
+                    >
+                        {link.label}
+                    </Link>
+                );
+            })}
         </div>
     </div>
 );

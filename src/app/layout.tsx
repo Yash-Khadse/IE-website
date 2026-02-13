@@ -6,6 +6,7 @@ import Footer from "../sections/Footer";
 import Preloader from "../components/ui/preloader";
 import TanstackProvider from "@/providers/TanstackProvider";
 import ScrollToTop from "@/components/ScrollToTop";
+import JsonLd from "@/components/JsonLd";
 
 const onest = Onest({ 
   subsets: ["latin"], 
@@ -14,8 +15,45 @@ const onest = Onest({
 });
 
 export const metadata: Metadata = {
-  title: "InvisiEdge",
-  description: "Next Generation Marketing",
+  metadataBase: new URL('https://www.invisiedge.com'),
+  title: {
+    default: "InvisiEdge | Next Generation Marketing",
+    template: "%s | InvisiEdge",
+  },
+  description: "InvisiEdge Marketing LLC - Data-driven strategies, automation, and brand systems for the digital age.",
+  keywords: ["Marketing", "Automation", "Branding", "Digital Strategy", "InvisiEdge", "Growth Hacking", "SEO", "Web Development"],
+  authors: [{ name: "InvisiEdge Team", url: "https://www.invisiedge.com" }],
+  creator: "InvisiEdge Marketing LLC",
+  publisher: "InvisiEdge Marketing LLC",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.invisiedge.com",
+    siteName: "InvisiEdge Marketing",
+    title: "InvisiEdge | Next Generation Marketing",
+    description: "Data-driven strategies, automation, and brand systems for the digital age.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "InvisiEdge Marketing",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "InvisiEdge | Next Generation Marketing",
+    description: "Data-driven strategies, automation, and brand systems for the digital age.",
+    images: ["/og-image.png"],
+    creator: "@InvisiEdge",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
@@ -29,6 +67,7 @@ export default function RootLayout({
         <TanstackProvider>
             <ScrollToTop />
             <Preloader />
+            <JsonLd />
             <Navigation />
             <main>{children}</main>
             <Footer />

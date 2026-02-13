@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Terminal, Activity, ChevronRight, ArrowRight } from 'lucide-react';
+import { Menu, X, Terminal, Activity, ChevronRight, ArrowRight, Instagram, Twitter, Facebook, Linkedin } from 'lucide-react';
 import Image from 'next/image';
 import IELogo from '../assests/IE-logo2.png';
 import { usePathname } from 'next/navigation';
@@ -143,10 +143,14 @@ const Navigation = () => {
               
               {/* Header */}
               <div className="flex items-center justify-between px-6 py-6 border-b border-border">
-                 <div className="flex items-center gap-2 text-muted-foreground text-xs font-mono">
-                    <Activity size={14} className="text-primary" />
-                    <span>{navigationContent.mobileMenu.title}</span>
-                 </div>
+                  <div className="flex items-center gap-2">
+                     <Image 
+                        src={IELogo} 
+                        alt={navigationContent.logo.alt} 
+                        height={40} 
+                        className="h-8 w-auto object-contain bg-transparent" 
+                     />
+                  </div>
                  <button 
                     onClick={() => setIsMenuOpen(false)}
                     className="w-10 h-10 flex items-center justify-center rounded-full bg-secondary text-foreground hover:bg-muted"
