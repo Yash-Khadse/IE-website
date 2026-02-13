@@ -165,9 +165,9 @@ const ProjectCard = ({ project, delay, isBlurred, onMouseEnter }: { project: any
             
             <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10 pointer-events-none" />
 
-            {/* Stats HUD (Top Left) */}
+            {/* Stats HUD (Top Right) */}
             {project.results && project.results[0] && (
-              <div className="absolute top-4 left-4 md:top-6 md:left-6 z-20" style={{ transform: "translateZ(30px)" }}>
+              <div className="absolute top-4 right-4 md:top-6 md:right-6 z-20" style={{ transform: "translateZ(30px)" }}>
                 <div className="bg-background/90 backdrop-blur-md border border-primary/30 p-3 md:p-4 min-w-[120px] md:min-w-[140px] shadow-xl rounded-sm">
                    <div className="flex flex-col gap-1">
                       <div className="flex items-center justify-between text-[10px] text-primary font-mono tracking-wider mb-1">

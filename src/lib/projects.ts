@@ -181,7 +181,7 @@ export const PROJECTS: ProjectData[] = [
         { label: 'Brand Lift', value: '35', suffix: '%', description: 'Market perception score' }
     ],
     techStack: ['React', 'Framer Motion', 'Sanity CMS', 'Node.js'],
-    heroImage: 'https://res.cloudinary.com/dr32w1unf/image/upload/v1770991227/compqsoftdigital_innovationpartner_itprovider___CompQsoft_Digital_iyyjna.png',
+    heroImage: 'https://res.cloudinary.com/dr32w1unf/image/upload/v1770998554/Screenshot_2026-02-13_213202_ps92v2.png',
     galleryImages: [
         'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80',
         'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80'
