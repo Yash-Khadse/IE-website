@@ -69,9 +69,9 @@ export default function ServiceDetails({ service }: { service: ServiceData }) {
             <h2 className="text-3xl md:text-7xl font-black text-slate-900 tracking-tighter mb-6 md:mb-8 max-w-4xl">
                 {cta.title}
             </h2>
-            <button className="px-10 py-5 bg-black text-white rounded-full font-mono text-sm font-bold uppercase tracking-widest hover:scale-105 transition-transform shadow-xl hover:bg-fooror-purple">
+            <Link href="/contact" className="px-10 py-5 bg-black text-white rounded-full font-mono text-sm font-bold uppercase tracking-widest hover:scale-105 transition-transform shadow-xl hover:bg-white hover:text-black inline-block">
                 {cta.button}
-            </button>
+            </Link>
       </section>
       
     </main>
@@ -171,7 +171,7 @@ function ArchitectureContent({ service }: { service: ServiceData }) {
     const { architecture } = serviceDetailsContent;
     return (
         <div className="w-full max-w-[1400px] mx-auto h-full flex flex-col justify-center">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-6 md:mb-12 border-b border-slate-200 pb-4 md:pb-8 gap-6">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 md:mb-12 border-b border-slate-200 pb-4 md:pb-8 gap-6">
                 <div>
                      <span className="font-mono text-fooror-purple text-xs font-bold uppercase tracking-widest mb-2 block">{architecture.solutionLabel}</span>
                      <h2 className="text-3xl md:text-6xl font-black tracking-tight text-slate-900">{architecture.title}</h2>

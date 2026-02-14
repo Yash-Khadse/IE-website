@@ -7,6 +7,7 @@ import Preloader from "../components/ui/preloader";
 import TanstackProvider from "@/providers/TanstackProvider";
 import ScrollToTop from "@/components/ScrollToTop";
 import JsonLd from "@/components/JsonLd";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const onest = Onest({ 
   subsets: ["latin"], 
@@ -65,6 +66,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${onest.variable} font-sans antialiased bg-background text-foreground overflow-x-hidden relative min-h-screen`}>
         <TanstackProvider>
+            <SmoothScroll />
             <ScrollToTop />
             <Preloader />
             <JsonLd />
